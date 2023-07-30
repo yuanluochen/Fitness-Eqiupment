@@ -16,6 +16,15 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_enterSystem_clicked()
 {
-    Application* applicationWindow = new Application;
+    qDebug("clicked enterSystem pushButton");
+    //close windows
+    this->close();
+    qDebug("close MainWindow");
+    //cteate new windows
+    Application* applicationWindow = new Application;\
+    // set windows size from current windows
+    applicationWindow->setGeometry(this->geometry());
+    // show windows
     applicationWindow->show();
+    qDebug("create applicationWindows");
 }

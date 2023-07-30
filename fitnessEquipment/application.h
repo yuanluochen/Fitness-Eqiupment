@@ -15,6 +15,9 @@ public:
     explicit Application(QWidget *parent = nullptr);
     ~Application();
 
+private slots:
+    void on_returnBefore_clicked();
+
 private:
     Ui::Application *ui;
 };
