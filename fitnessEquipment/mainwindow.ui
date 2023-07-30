@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1280</width>
+    <height>800</height>
    </rect>
   </property>
   <property name="font">
@@ -22,21 +22,6 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <property name="leftMargin">
-     <number>0</number>
-    </property>
-    <property name="topMargin">
-     <number>11</number>
-    </property>
-    <property name="rightMargin">
-     <number>0</number>
-    </property>
-    <property name="horizontalSpacing">
-     <number>8</number>
-    </property>
-    <property name="verticalSpacing">
-     <number>0</number>
-    </property>
     <item row="0" column="1">
      <spacer name="verticalSpacer_2">
       <property name="orientation">
@@ -45,7 +30,7 @@
       <property name="sizeHint" stdset="0">
        <size>
         <width>20</width>
-        <height>16</height>
+        <height>1</height>
        </size>
       </property>
      </spacer>
@@ -57,7 +42,7 @@
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>63</width>
+        <width>36</width>
         <height>20</height>
        </size>
       </property>
@@ -65,14 +50,20 @@
     </item>
     <item row="1" column="1" rowspan="2" colspan="2">
      <layout class="QVBoxLayout" name="verticalLayout_2">
+      <property name="spacing">
+       <number>14</number>
+      </property>
       <property name="leftMargin">
-       <number>0</number>
+       <number>276</number>
       </property>
       <property name="topMargin">
-       <number>11</number>
+       <number>59</number>
       </property>
       <property name="rightMargin">
-       <number>0</number>
+       <number>240</number>
+      </property>
+      <property name="bottomMargin">
+       <number>52</number>
       </property>
       <item>
        <widget class="QLabel" name="label">
@@ -120,12 +111,33 @@
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
+        <property name="spacing">
+         <number>4</number>
+        </property>
+        <property name="leftMargin">
+         <number>11</number>
+        </property>
+        <property name="topMargin">
+         <number>41</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>15</number>
+        </property>
         <item>
          <widget class="QLabel" name="label_3">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="minimumSize">
            <size>
-            <width>360</width>
-            <height>320</height>
+            <width>400</width>
+            <height>350</height>
            </size>
           </property>
           <property name="maximumSize">
@@ -158,13 +170,13 @@
         <item>
          <layout class="QVBoxLayout" name="verticalLayout">
           <property name="leftMargin">
-           <number>0</number>
+           <number>4</number>
           </property>
           <property name="topMargin">
            <number>181</number>
           </property>
           <property name="rightMargin">
-           <number>0</number>
+           <number>11</number>
           </property>
           <property name="bottomMargin">
            <number>11</number>
@@ -237,7 +249,7 @@
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>63</width>
+        <width>36</width>
         <height>20</height>
        </size>
       </property>
@@ -251,7 +263,7 @@
       <property name="sizeHint" stdset="0">
        <size>
         <width>20</width>
-        <height>17</height>
+        <height>1</height>
        </size>
       </property>
      </spacer>
@@ -263,7 +275,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1280</width>
      <height>25</height>
     </rect>
    </property>

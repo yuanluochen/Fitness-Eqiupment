@@ -6,5 +6,6 @@
         <file>resource/application/manual.png</file>
         <file>resource/application/sport.png</file>
         <file>resource/mainWindow/equipment.png</file>
+        <file>resource/mainWindow/health.jpg</file>
     </qresource>
 </RCC>
