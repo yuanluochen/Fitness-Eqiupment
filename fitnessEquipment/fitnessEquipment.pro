@@ -27,15 +27,18 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    application.cpp
+    sportwindows.cpp \
+    applicationwindows.cpp
 
 HEADERS += \
         mainwindow.h \
-    application.h
+    sportwindows.h \
+    applicationwindows.h
 
 FORMS += \
         mainwindow.ui \
-    application.ui
+    sportwindows.ui \
+    applicationwindows.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

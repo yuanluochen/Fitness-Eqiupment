@@ -1,20 +1,20 @@
-#include "application.h"
+#include "applicationwindows.h"
 #include "ui_application.h"
 #include "mainwindow.h"
 
-Application::Application(QWidget *parent) :
+ApplicationWindows::ApplicationWindows(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Application)
 {
     ui->setupUi(this);
 }
 
-Application::~Application()
+ApplicationWindows::~ApplicationWindows()
 {
     delete ui;
 }
 
-void Application::on_returnBefore_clicked()
+void ApplicationWindows::on_returnBefore_clicked()
 {
     //close this window
     this->close();
