@@ -27,13 +27,11 @@ CONFIG += c++11
 SOURCES += \
         main.cpp \
         mainwindow.cpp \
-    sportwindows.cpp \
-    applicationwindows.cpp
+    sportwindows.cpp
 
 HEADERS += \
         mainwindow.h \
-    sportwindows.h \
-    applicationwindows.h
+    sportwindows.h
 
 FORMS += \
         mainwindow.ui \

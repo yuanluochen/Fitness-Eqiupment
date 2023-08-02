@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "applicationwindows.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -21,10 +20,6 @@ void MainWindow::on_enterSystem_clicked()
     this->close();
     qDebug("close MainWindow");
     //cteate new windows
-    ApplicationWindows* applicationWindow = new ApplicationWindows;\
     // set windows size from current windows
-    applicationWindow->setGeometry(this->geometry());
-    // show windows
-    applicationWindow->show();
     qDebug("create applicationWindows");
 }
