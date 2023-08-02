@@ -5,6 +5,7 @@
 #include "ui/sportwindow.h"
 #include "ui/equipsettingwindow.h"
 #include "ui/manualwindow.h"
+#include "ui/healthmanagerwindow.h"
 
 #include "userLib/userLib_ui.h"
 
@@ -39,4 +40,9 @@ void ApplicationWindow::on_settingPushButton_clicked()
 void ApplicationWindow::on_manualPushbutton_clicked()
 {
     CREATE_NEW_WINDOW(ManualWindow, this);
+}
+
+void ApplicationWindow::on_healthManagerPushButton_clicked()
+{
+    CREATE_NEW_WINDOW(HealthManagerWindow, this);
 }

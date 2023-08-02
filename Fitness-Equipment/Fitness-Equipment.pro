@@ -20,6 +20,7 @@ SOURCES += \
     mainwindow.cpp \
     ui/applicationwindow.cpp \
     ui/equipsettingwindow.cpp \
+    ui/healthmanagerwindow.cpp \
     ui/manualwindow.cpp \
     ui/sportwindow.cpp \
     userLib/userLib_ui.cpp
@@ -28,6 +29,7 @@ HEADERS += \
     mainwindow.h \
     ui/applicationwindow.h \
     ui/equipsettingwindow.h \
+    ui/healthmanagerwindow.h \
     ui/manualwindow.h \
     ui/sportwindow.h \
     userLib/userLib_ui.h
@@ -36,6 +38,7 @@ FORMS += \
     mainwindow.ui \
     ui/applicationwindow.ui \
     ui/equipsettingwindow.ui \
+    ui/healthmanagerwindow.ui \
     ui/manualwindow.ui \
     ui/sportwindow.ui
 

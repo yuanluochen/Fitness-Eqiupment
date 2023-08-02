@@ -61,6 +61,8 @@ public:
     QSpacerItem *horizontalSpacer_5;
     QSpacerItem *verticalSpacer_7;
     QSpacerItem *verticalSpacer_10;
+    QSpacerItem *verticalSpacer_12;
+    QSpacerItem *horizontalSpacer_8;
     QSpacerItem *horizontalSpacer_6;
     QSpacerItem *horizontalSpacer_7;
     QSpacerItem *verticalSpacer_11;
@@ -273,6 +275,14 @@ public:
         verticalSpacer_10 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         gridLayout->addItem(verticalSpacer_10, 6, 4, 1, 1);
+
+        verticalSpacer_12 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer_12, 1, 4, 1, 1);
+
+        horizontalSpacer_8 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_8, 0, 1, 1, 1);
 
 
         gridLayout_2->addLayout(gridLayout, 1, 1, 2, 1);

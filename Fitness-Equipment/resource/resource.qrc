@@ -12,5 +12,6 @@
         <file>icon/SportWindow/return.png</file>
         <file>icon/EquipmentSettingWindow/return.png</file>
         <file>icon/ApplicationWindow/healthManager.png</file>
+        <file>icon/HealthManagerWindow/return.png</file>
     </qresource>
 </RCC>

@@ -24,6 +24,8 @@ private slots:
 
     void on_manualPushbutton_clicked();
 
+    void on_healthManagerPushButton_clicked();
+
 private:
     Ui::ApplicationWindow *ui;
 };
