@@ -4,6 +4,8 @@
 #include "ui/applicationwindow.h"
 
 #include "userLib/userLib_ui.h"
+#include <QtCharts>
+QT_CHARTS_USE_NAMESPACE
 
 HealthManagerWindow::HealthManagerWindow(QWidget *parent) :
     QWidget(parent),

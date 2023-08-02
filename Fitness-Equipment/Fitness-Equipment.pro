@@ -52,3 +52,5 @@ RESOURCES += \
 
 DISTFILES += \
     ../README.md
+QT += \
+     charts\

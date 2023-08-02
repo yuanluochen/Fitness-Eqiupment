@@ -30,7 +30,7 @@ public:
     {
         if (ManualWindow->objectName().isEmpty())
             ManualWindow->setObjectName(QString::fromUtf8("ManualWindow"));
-        ManualWindow->resize(1280, 800);
+        ManualWindow->resize(1600, 900);
         layoutWidget = new QWidget(ManualWindow);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
         layoutWidget->setGeometry(QRect(10, 700, 62, 91));

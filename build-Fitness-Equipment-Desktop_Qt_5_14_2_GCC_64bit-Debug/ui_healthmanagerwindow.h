@@ -30,7 +30,7 @@ public:
     {
         if (HealthManagerWindow->objectName().isEmpty())
             HealthManagerWindow->setObjectName(QString::fromUtf8("HealthManagerWindow"));
-        HealthManagerWindow->resize(1280, 800);
+        HealthManagerWindow->resize(1600, 900);
         layoutWidget = new QWidget(HealthManagerWindow);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
         layoutWidget->setGeometry(QRect(10, 680, 62, 91));

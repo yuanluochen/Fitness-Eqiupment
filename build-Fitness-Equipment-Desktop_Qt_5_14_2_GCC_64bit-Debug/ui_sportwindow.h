@@ -30,7 +30,7 @@ public:
     {
         if (SportWindow->objectName().isEmpty())
             SportWindow->setObjectName(QString::fromUtf8("SportWindow"));
-        SportWindow->resize(1280, 800);
+        SportWindow->resize(1600, 900);
         layoutWidget = new QWidget(SportWindow);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
         layoutWidget->setGeometry(QRect(10, 700, 62, 91));

@@ -26,6 +26,10 @@ class Ui_ApplicationWindow
 public:
     QGridLayout *gridLayout_2;
     QSpacerItem *verticalSpacer_8;
+    QSpacerItem *verticalSpacer;
+    QSpacerItem *verticalSpacer_3;
+    QSpacerItem *horizontalSpacer_7;
+    QSpacerItem *horizontalSpacer_4;
     QGridLayout *gridLayout;
     QHBoxLayout *horizontalLayout;
     QVBoxLayout *verticalLayout_2;
@@ -47,37 +51,47 @@ public:
     QPushButton *manualPushbutton;
     QLabel *label_3;
     QSpacerItem *verticalSpacer_6;
-    QSpacerItem *horizontalSpacer_4;
-    QVBoxLayout *verticalLayout_5;
-    QPushButton *returnBefore;
-    QLabel *label;
+    QLabel *label_7;
+    QSpacerItem *verticalSpacer_7;
     QVBoxLayout *verticalLayout;
     QLabel *label_6;
     QLabel *label_5;
-    QSpacerItem *verticalSpacer;
-    QLabel *label_7;
-    QSpacerItem *verticalSpacer_3;
-    QSpacerItem *verticalSpacer_9;
-    QSpacerItem *horizontalSpacer_5;
-    QSpacerItem *verticalSpacer_7;
-    QSpacerItem *verticalSpacer_10;
-    QSpacerItem *verticalSpacer_12;
-    QSpacerItem *horizontalSpacer_8;
+    QVBoxLayout *verticalLayout_5;
+    QPushButton *returnBefore;
+    QLabel *label;
     QSpacerItem *horizontalSpacer_6;
-    QSpacerItem *horizontalSpacer_7;
+    QSpacerItem *horizontalSpacer_9;
     QSpacerItem *verticalSpacer_11;
+    QSpacerItem *horizontalSpacer_5;
+    QSpacerItem *horizontalSpacer_8;
 
     void setupUi(QWidget *ApplicationWindow)
     {
         if (ApplicationWindow->objectName().isEmpty())
             ApplicationWindow->setObjectName(QString::fromUtf8("ApplicationWindow"));
         ApplicationWindow->setEnabled(true);
-        ApplicationWindow->resize(1280, 800);
+        ApplicationWindow->resize(1600, 900);
         gridLayout_2 = new QGridLayout(ApplicationWindow);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        verticalSpacer_8 = new QSpacerItem(20, 5, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_8 = new QSpacerItem(20, 185, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_2->addItem(verticalSpacer_8, 0, 1, 1, 1);
+        gridLayout_2->addItem(verticalSpacer_8, 0, 3, 1, 1);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer, 4, 0, 1, 1);
+
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer_3, 1, 6, 1, 1);
+
+        horizontalSpacer_7 = new QSpacerItem(62, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer_7, 3, 0, 1, 1);
+
+        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer_4, 0, 4, 1, 1);
 
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
@@ -186,38 +200,21 @@ public:
         horizontalLayout->addLayout(verticalLayout_4);
 
 
-        gridLayout->addLayout(horizontalLayout, 2, 3, 3, 3);
+        gridLayout->addLayout(horizontalLayout, 0, 2, 3, 2);
 
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        label_7 = new QLabel(ApplicationWindow);
+        label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setMinimumSize(QSize(471, 451));
+        label_7->setStyleSheet(QString::fromUtf8("border-image: url(:/picture/ApplicationWindow/health.png);"));
 
-        gridLayout->addItem(horizontalSpacer_4, 6, 1, 1, 1);
+        gridLayout->addWidget(label_7, 0, 0, 3, 2);
 
-        verticalLayout_5 = new QVBoxLayout();
-        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
-        returnBefore = new QPushButton(ApplicationWindow);
-        returnBefore->setObjectName(QString::fromUtf8("returnBefore"));
-        returnBefore->setEnabled(true);
-        returnBefore->setMinimumSize(QSize(60, 60));
-        returnBefore->setMaximumSize(QSize(60, 60));
-        returnBefore->setStyleSheet(QString::fromUtf8("border-image: url(:/icon/ApplicationWindow/return.png);"));
-        returnBefore->setIconSize(QSize(20, 20));
-        returnBefore->setAutoDefault(false);
+        verticalSpacer_7 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        verticalLayout_5->addWidget(returnBefore);
-
-        label = new QLabel(ApplicationWindow);
-        label->setObjectName(QString::fromUtf8("label"));
-        QFont font;
-        font.setPointSize(11);
-        font.setBold(true);
-        font.setWeight(75);
-        label->setFont(font);
-        label->setAlignment(Qt::AlignCenter);
-
-        verticalLayout_5->addWidget(label);
+        gridLayout->addItem(verticalSpacer_7, 1, 4, 1, 1);
 
 
-        gridLayout->addLayout(verticalLayout_5, 6, 0, 1, 1);
+        gridLayout_2->addLayout(gridLayout, 1, 3, 3, 1);
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
@@ -233,71 +230,66 @@ public:
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setMinimumSize(QSize(0, 0));
         label_5->setMaximumSize(QSize(150, 150));
-        QFont font1;
-        font1.setPointSize(15);
-        font1.setBold(true);
-        font1.setWeight(75);
-        label_5->setFont(font1);
+        QFont font;
+        font.setPointSize(15);
+        font.setBold(true);
+        font.setWeight(75);
+        label_5->setFont(font);
         label_5->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(label_5);
 
 
-        gridLayout->addLayout(verticalLayout, 0, 6, 3, 1);
+        gridLayout_2->addLayout(verticalLayout, 0, 6, 1, 1);
 
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalLayout_5 = new QVBoxLayout();
+        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        verticalLayout_5->setContentsMargins(0, 0, 0, -1);
+        returnBefore = new QPushButton(ApplicationWindow);
+        returnBefore->setObjectName(QString::fromUtf8("returnBefore"));
+        returnBefore->setEnabled(true);
+        returnBefore->setMinimumSize(QSize(60, 60));
+        returnBefore->setMaximumSize(QSize(60, 60));
+        returnBefore->setStyleSheet(QString::fromUtf8("border-image: url(:/icon/ApplicationWindow/return.png);"));
+        returnBefore->setIconSize(QSize(20, 20));
+        returnBefore->setAutoDefault(false);
 
-        gridLayout->addItem(verticalSpacer, 5, 0, 1, 1);
+        verticalLayout_5->addWidget(returnBefore);
 
-        label_7 = new QLabel(ApplicationWindow);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setMinimumSize(QSize(471, 451));
-        label_7->setStyleSheet(QString::fromUtf8("border-image: url(:/picture/ApplicationWindow/health.png);"));
+        label = new QLabel(ApplicationWindow);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setMaximumSize(QSize(60, 23));
+        QFont font1;
+        font1.setPointSize(11);
+        font1.setBold(true);
+        font1.setWeight(75);
+        label->setFont(font1);
+        label->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_7, 2, 0, 3, 3);
+        verticalLayout_5->addWidget(label);
 
-        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout->addItem(verticalSpacer_3, 1, 3, 1, 1);
+        gridLayout_2->addLayout(verticalLayout_5, 5, 0, 1, 1);
 
-        verticalSpacer_9 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        horizontalSpacer_6 = new QSpacerItem(149, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(verticalSpacer_9, 6, 3, 1, 1);
+        gridLayout_2->addItem(horizontalSpacer_6, 2, 6, 1, 1);
+
+        horizontalSpacer_9 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer_9, 0, 5, 1, 1);
+
+        verticalSpacer_11 = new QSpacerItem(20, 108, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer_11, 5, 3, 1, 1);
 
         horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer_5, 0, 5, 1, 1);
-
-        verticalSpacer_7 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout->addItem(verticalSpacer_7, 3, 6, 1, 1);
-
-        verticalSpacer_10 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout->addItem(verticalSpacer_10, 6, 4, 1, 1);
-
-        verticalSpacer_12 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout->addItem(verticalSpacer_12, 1, 4, 1, 1);
+        gridLayout_2->addItem(horizontalSpacer_5, 4, 1, 1, 1);
 
         horizontalSpacer_8 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer_8, 0, 1, 1, 1);
-
-
-        gridLayout_2->addLayout(gridLayout, 1, 1, 2, 1);
-
-        horizontalSpacer_6 = new QSpacerItem(27, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_2->addItem(horizontalSpacer_6, 1, 2, 1, 1);
-
-        horizontalSpacer_7 = new QSpacerItem(27, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_2->addItem(horizontalSpacer_7, 2, 0, 1, 1);
-
-        verticalSpacer_11 = new QSpacerItem(20, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_2->addItem(verticalSpacer_11, 3, 1, 1, 1);
+        gridLayout_2->addItem(horizontalSpacer_8, 4, 2, 1, 1);
 
 
         retranslateUi(ApplicationWindow);
@@ -316,11 +308,11 @@ public:
         label_2->setText(QCoreApplication::translate("ApplicationWindow", "\350\256\276\345\244\207\350\256\276\347\275\256", nullptr));
         manualPushbutton->setText(QString());
         label_3->setText(QCoreApplication::translate("ApplicationWindow", "\344\275\277\347\224\250\350\257\264\346\230\216", nullptr));
-        returnBefore->setText(QString());
-        label->setText(QCoreApplication::translate("ApplicationWindow", "\350\277\224\345\233\236", nullptr));
+        label_7->setText(QString());
         label_6->setText(QString());
         label_5->setText(QCoreApplication::translate("ApplicationWindow", "\345\272\224\347\224\250\347\250\213\345\272\217", nullptr));
-        label_7->setText(QString());
+        returnBefore->setText(QString());
+        label->setText(QCoreApplication::translate("ApplicationWindow", "\350\277\224\345\233\236", nullptr));
     } // retranslateUi
 
 };
