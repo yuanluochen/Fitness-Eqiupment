@@ -13,5 +13,9 @@
         <file>icon/EquipmentSettingWindow/return.png</file>
         <file>icon/ApplicationWindow/healthManager.png</file>
         <file>icon/HealthManagerWindow/return.png</file>
+        <file>icon/SportWindow/sport.png</file>
+        <file>icon/ManualWindow/manual.png</file>
+        <file>icon/HealthManagerWindow/healthManager.png</file>
+        <file>icon/EquipmentSettingWindow/setting.png</file>
     </qresource>
 </RCC>

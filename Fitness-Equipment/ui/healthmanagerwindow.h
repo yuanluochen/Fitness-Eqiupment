@@ -3,6 +3,11 @@
 
 #include <QWidget>
 
+// 图表
+#include <QtCharts>
+QT_CHARTS_USE_NAMESPACE
+
+
 namespace Ui {
 class HealthManagerWindow;
 }

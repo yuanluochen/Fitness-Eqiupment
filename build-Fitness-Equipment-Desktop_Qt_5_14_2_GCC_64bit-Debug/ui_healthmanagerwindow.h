@@ -11,8 +11,10 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -21,23 +23,27 @@ QT_BEGIN_NAMESPACE
 class Ui_HealthManagerWindow
 {
 public:
-    QWidget *layoutWidget;
+    QGridLayout *gridLayout;
+    QSpacerItem *verticalSpacer;
     QVBoxLayout *verticalLayout_5;
     QPushButton *returnBefore;
     QLabel *label;
+    QSpacerItem *horizontalSpacer;
 
     void setupUi(QWidget *HealthManagerWindow)
     {
         if (HealthManagerWindow->objectName().isEmpty())
             HealthManagerWindow->setObjectName(QString::fromUtf8("HealthManagerWindow"));
         HealthManagerWindow->resize(1600, 900);
-        layoutWidget = new QWidget(HealthManagerWindow);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(10, 680, 62, 91));
-        verticalLayout_5 = new QVBoxLayout(layoutWidget);
+        gridLayout = new QGridLayout(HealthManagerWindow);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        verticalSpacer = new QSpacerItem(20, 782, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer, 0, 0, 1, 1);
+
+        verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
-        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
-        returnBefore = new QPushButton(layoutWidget);
+        returnBefore = new QPushButton(HealthManagerWindow);
         returnBefore->setObjectName(QString::fromUtf8("returnBefore"));
         returnBefore->setEnabled(true);
         returnBefore->setMinimumSize(QSize(60, 60));
@@ -47,7 +53,7 @@ public:
 
         verticalLayout_5->addWidget(returnBefore);
 
-        label = new QLabel(layoutWidget);
+        label = new QLabel(HealthManagerWindow);
         label->setObjectName(QString::fromUtf8("label"));
         QFont font;
         font.setPointSize(11);
@@ -57,6 +63,13 @@ public:
         label->setAlignment(Qt::AlignCenter);
 
         verticalLayout_5->addWidget(label);
+
+
+        gridLayout->addLayout(verticalLayout_5, 1, 0, 1, 1);
+
+        horizontalSpacer = new QSpacerItem(1511, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer, 1, 1, 1, 1);
 
 
         retranslateUi(HealthManagerWindow);

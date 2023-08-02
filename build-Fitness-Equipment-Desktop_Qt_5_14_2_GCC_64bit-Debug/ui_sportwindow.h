@@ -11,8 +11,10 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -21,23 +23,67 @@ QT_BEGIN_NAMESPACE
 class Ui_SportWindow
 {
 public:
-    QWidget *layoutWidget;
+    QGridLayout *gridLayout;
+    QSpacerItem *verticalSpacer;
+    QSpacerItem *horizontalSpacer_2;
+    QVBoxLayout *verticalLayout;
+    QLabel *label_2;
+    QLabel *label_4;
+    QSpacerItem *verticalSpacer_2;
     QVBoxLayout *verticalLayout_5;
     QPushButton *returnBefore;
     QLabel *label;
+    QSpacerItem *horizontalSpacer;
 
     void setupUi(QWidget *SportWindow)
     {
         if (SportWindow->objectName().isEmpty())
             SportWindow->setObjectName(QString::fromUtf8("SportWindow"));
         SportWindow->resize(1600, 900);
-        layoutWidget = new QWidget(SportWindow);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(10, 700, 62, 91));
-        verticalLayout_5 = new QVBoxLayout(layoutWidget);
+        QFont font;
+        font.setPointSize(14);
+        SportWindow->setFont(font);
+        gridLayout = new QGridLayout(SportWindow);
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        verticalSpacer = new QSpacerItem(20, 782, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer, 0, 0, 2, 1);
+
+        horizontalSpacer_2 = new QSpacerItem(1333, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_2, 0, 1, 1, 1);
+
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        label_2 = new QLabel(SportWindow);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setMinimumSize(QSize(170, 170));
+        label_2->setMaximumSize(QSize(170, 170));
+        label_2->setStyleSheet(QString::fromUtf8("border-image: url(:/icon/SportWindow/sport.png);"));
+
+        verticalLayout->addWidget(label_2);
+
+        label_4 = new QLabel(SportWindow);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        QFont font1;
+        font1.setPointSize(14);
+        font1.setBold(true);
+        font1.setWeight(75);
+        label_4->setFont(font1);
+        label_4->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(label_4);
+
+
+        gridLayout->addLayout(verticalLayout, 0, 2, 1, 1);
+
+        verticalSpacer_2 = new QSpacerItem(20, 569, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer_2, 1, 2, 1, 1);
+
+        verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
-        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
-        returnBefore = new QPushButton(layoutWidget);
+        returnBefore = new QPushButton(SportWindow);
         returnBefore->setObjectName(QString::fromUtf8("returnBefore"));
         returnBefore->setEnabled(true);
         returnBefore->setMinimumSize(QSize(60, 60));
@@ -47,16 +93,23 @@ public:
 
         verticalLayout_5->addWidget(returnBefore);
 
-        label = new QLabel(layoutWidget);
+        label = new QLabel(SportWindow);
         label->setObjectName(QString::fromUtf8("label"));
-        QFont font;
-        font.setPointSize(11);
-        font.setBold(true);
-        font.setWeight(75);
-        label->setFont(font);
+        QFont font2;
+        font2.setPointSize(11);
+        font2.setBold(true);
+        font2.setWeight(75);
+        label->setFont(font2);
         label->setAlignment(Qt::AlignCenter);
 
         verticalLayout_5->addWidget(label);
+
+
+        gridLayout->addLayout(verticalLayout_5, 2, 0, 1, 1);
+
+        horizontalSpacer = new QSpacerItem(1511, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer, 2, 1, 1, 2);
 
 
         retranslateUi(SportWindow);
@@ -67,6 +120,8 @@ public:
     void retranslateUi(QWidget *SportWindow)
     {
         SportWindow->setWindowTitle(QCoreApplication::translate("SportWindow", "Form", nullptr));
+        label_2->setText(QString());
+        label_4->setText(QCoreApplication::translate("SportWindow", "\350\277\220\345\212\250", nullptr));
         returnBefore->setText(QString());
         label->setText(QCoreApplication::translate("SportWindow", "\350\277\224\345\233\236", nullptr));
     } // retranslateUi
