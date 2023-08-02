@@ -1,0 +1,15 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icon/MainWindow/enter.png</file>
+        <file>picture/MainWIndow/equipment.png</file>
+        <file>icon/ApplicationWindow/application.png</file>
+        <file>icon/ApplicationWindow/manual.png</file>
+        <file>icon/ApplicationWindow/return.png</file>
+        <file>icon/ApplicationWindow/setting.png</file>
+        <file>icon/ApplicationWindow/sport.png</file>
+        <file>picture/ApplicationWindow/health.png</file>
+        <file>icon/ManualWindow/return.png</file>
+        <file>icon/SportWindow/return.png</file>
+        <file>icon/EquipmentSettingWindow/return.png</file>
+    </qresource>
+</RCC>

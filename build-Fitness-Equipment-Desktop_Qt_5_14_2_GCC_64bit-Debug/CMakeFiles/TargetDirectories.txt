@@ -1,4 +1,0 @@
-/home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/CMakeFiles/Fitness-Equipment.dir
-/home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/CMakeFiles/edit_cache.dir
-/home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/CMakeFiles/rebuild_cache.dir
-/home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/CMakeFiles/Fitness-Equipment_autogen.dir
