@@ -77,7 +77,8 @@ OBJECTS       = main.o \
 		moc_equipsettingwindow.o \
 		moc_manualwindow.o \
 		moc_sportwindow.o
-DIST          = ../../../../Qt5.14.2/5.14.2/gcc_64/mkspecs/features/spec_pre.prf \
+DIST          = ../README.md \
+		../../../../Qt5.14.2/5.14.2/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt5.14.2/5.14.2/gcc_64/mkspecs/common/unix.conf \
 		../../../../Qt5.14.2/5.14.2/gcc_64/mkspecs/common/linux.conf \
 		../../../../Qt5.14.2/5.14.2/gcc_64/mkspecs/common/sanitize.conf \
@@ -790,6 +791,7 @@ qrc_resource.cpp: ../Fitness-Equipment/resource/resource.qrc \
 		../Fitness-Equipment/resource/icon/SportWindow/return.png \
 		../Fitness-Equipment/resource/icon/MainWindow/enter.png \
 		../Fitness-Equipment/resource/icon/ApplicationWindow/manual.png \
+		../Fitness-Equipment/resource/icon/ApplicationWindow/healthManager.png \
 		../Fitness-Equipment/resource/icon/ApplicationWindow/setting.png \
 		../Fitness-Equipment/resource/icon/ApplicationWindow/application.png \
 		../Fitness-Equipment/resource/icon/ApplicationWindow/return.png \
@@ -1767,11 +1769,12 @@ applicationwindow.o: ../Fitness-Equipment/ui/applicationwindow.cpp ../Fitness-Eq
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qguiapplication.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qinputmethod.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QHBoxLayout \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QGridLayout \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qgridlayout.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayout.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QHBoxLayout \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QLabel \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlabel.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qframe.h \
@@ -1787,7 +1790,8 @@ applicationwindow.o: ../Fitness-Equipment/ui/applicationwindow.cpp ../Fitness-Eq
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtabwidget.h \
 		../Fitness-Equipment/ui/sportwindow.h \
 		../Fitness-Equipment/ui/equipsettingwindow.h \
-		../Fitness-Equipment/ui/manualwindow.h
+		../Fitness-Equipment/ui/manualwindow.h \
+		../Fitness-Equipment/userLib/userLib_ui.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o applicationwindow.o ../Fitness-Equipment/ui/applicationwindow.cpp
 
 equipsettingwindow.o: ../Fitness-Equipment/ui/equipsettingwindow.cpp ../Fitness-Equipment/ui/equipsettingwindow.h \
@@ -1903,7 +1907,21 @@ equipsettingwindow.o: ../Fitness-Equipment/ui/equipsettingwindow.cpp ../Fitness-
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qeventloop.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qguiapplication.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qinputmethod.h
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qinputmethod.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QLabel \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlabel.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qframe.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QPushButton \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qicon.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QVBoxLayout \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayout.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qgridlayout.h \
+		../Fitness-Equipment/ui/applicationwindow.h \
+		../Fitness-Equipment/userLib/userLib_ui.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o equipsettingwindow.o ../Fitness-Equipment/ui/equipsettingwindow.cpp
 
 manualwindow.o: ../Fitness-Equipment/ui/manualwindow.cpp ../Fitness-Equipment/ui/manualwindow.h \
@@ -2019,7 +2037,21 @@ manualwindow.o: ../Fitness-Equipment/ui/manualwindow.cpp ../Fitness-Equipment/ui
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qeventloop.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qguiapplication.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qinputmethod.h
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qinputmethod.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QLabel \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlabel.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qframe.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QPushButton \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qicon.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QVBoxLayout \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayout.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qgridlayout.h \
+		../Fitness-Equipment/ui/applicationwindow.h \
+		../Fitness-Equipment/userLib/userLib_ui.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o manualwindow.o ../Fitness-Equipment/ui/manualwindow.cpp
 
 sportwindow.o: ../Fitness-Equipment/ui/sportwindow.cpp ../Fitness-Equipment/ui/sportwindow.h \
@@ -2135,7 +2167,21 @@ sportwindow.o: ../Fitness-Equipment/ui/sportwindow.cpp ../Fitness-Equipment/ui/s
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qeventloop.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qguiapplication.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qinputmethod.h
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qinputmethod.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QLabel \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlabel.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qframe.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QPushButton \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qicon.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QVBoxLayout \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayout.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qgridlayout.h \
+		../Fitness-Equipment/ui/applicationwindow.h \
+		../Fitness-Equipment/userLib/userLib_ui.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sportwindow.o ../Fitness-Equipment/ui/sportwindow.cpp
 
 userLib_ui.o: ../Fitness-Equipment/userLib/userLib_ui.cpp ../Fitness-Equipment/userLib/userLib_ui.h
