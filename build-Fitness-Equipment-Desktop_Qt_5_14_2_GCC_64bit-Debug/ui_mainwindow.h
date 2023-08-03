@@ -82,6 +82,7 @@ public:
         font1.setFamily(QString::fromUtf8("JetBrains Mono Medium"));
         font1.setPointSize(48);
         label->setFont(font1);
+        label->setStyleSheet(QString::fromUtf8(""));
         label->setScaledContents(false);
         label->setAlignment(Qt::AlignCenter);
         label->setWordWrap(true);
@@ -104,7 +105,7 @@ public:
         sizePolicy.setVerticalStretch(0);
         sizePolicy.setHeightForWidth(label_3->sizePolicy().hasHeightForWidth());
         label_3->setSizePolicy(sizePolicy);
-        label_3->setMinimumSize(QSize(400, 350));
+        label_3->setMinimumSize(QSize(400, 400));
         label_3->setMaximumSize(QSize(16777215, 16777215));
         label_3->setStyleSheet(QString::fromUtf8("border-image: url(:/picture/MainWIndow/equipment.png);"));
 
@@ -139,10 +140,11 @@ public:
         label_2 = new QLabel(centralWidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setMinimumSize(QSize(0, 0));
-        label_2->setMaximumSize(QSize(16777215, 16777215));
+        label_2->setMaximumSize(QSize(100, 40));
         QFont font3;
         font3.setPointSize(14);
         label_2->setFont(font3);
+        label_2->setStyleSheet(QString::fromUtf8("border:2px solid rgb(20,196,188);border-radius:15px;"));
         label_2->setAlignment(Qt::AlignCenter);
 
         verticalLayout->addWidget(label_2);

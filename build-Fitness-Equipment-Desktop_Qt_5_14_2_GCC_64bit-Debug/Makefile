@@ -807,7 +807,10 @@ qrc_resource.cpp: ../Fitness-Equipment/resource/resource.qrc \
 		../Fitness-Equipment/resource/icon/ApplicationWindow/sport.png \
 		../Fitness-Equipment/resource/icon/ManualWindow/manual.png \
 		../Fitness-Equipment/resource/icon/ManualWindow/return.png \
+		../Fitness-Equipment/resource/icon/EquipmentSettingWindow/monitoringEquipment.png \
+		../Fitness-Equipment/resource/icon/EquipmentSettingWindow/search.png \
 		../Fitness-Equipment/resource/icon/EquipmentSettingWindow/setting.png \
+		../Fitness-Equipment/resource/icon/EquipmentSettingWindow/fitnessEquipment.png \
 		../Fitness-Equipment/resource/icon/EquipmentSettingWindow/return.png
 	/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/rcc -name resource ../Fitness-Equipment/resource/resource.qrc -o qrc_resource.cpp
 
@@ -2217,11 +2220,10 @@ mainwindow.o: ../Fitness-Equipment/mainwindow.cpp ../Fitness-Equipment/mainwindo
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QSpacerItem \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QStatusBar \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qstatusbar.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QToolBar \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtoolbar.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QVBoxLayout \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
-		../Fitness-Equipment/ui/applicationwindow.h
+		../Fitness-Equipment/ui/applicationwindow.h \
+		../Fitness-Equipment/userLib/userLib_ui.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../Fitness-Equipment/mainwindow.cpp
 
 applicationwindow.o: ../Fitness-Equipment/ui/applicationwindow.cpp ../Fitness-Equipment/ui/applicationwindow.h \
@@ -2910,14 +2912,35 @@ equipsettingwindow.o: ../Fitness-Equipment/ui/equipsettingwindow.cpp ../Fitness-
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayout.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayoutitem.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QGroupBox \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qgroupbox.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qframe.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QHBoxLayout \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QLabel \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlabel.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qframe.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QListView \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlistview.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qvalidator.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qregularexpression.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qicon.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qslider.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qstyle.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtabwidget.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qrubberband.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QPushButton \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qpushbutton.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractbutton.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qicon.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QSpacerItem \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QTabWidget \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QVBoxLayout \
 		../Fitness-Equipment/ui/applicationwindow.h \
 		../Fitness-Equipment/userLib/userLib_ui.h \
@@ -3601,11 +3624,6 @@ manualwindow.o: ../Fitness-Equipment/ui/manualwindow.cpp ../Fitness-Equipment/ui
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qguiapplication.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qinputmethod.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QGridLayout \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qgridlayout.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayout.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qboxlayout.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QLabel \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlabel.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qframe.h \
@@ -3613,8 +3631,11 @@ manualwindow.o: ../Fitness-Equipment/ui/manualwindow.cpp ../Fitness-Equipment/ui
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qpushbutton.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qicon.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QSpacerItem \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QVBoxLayout \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayout.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qgridlayout.h \
 		../Fitness-Equipment/ui/applicationwindow.h \
 		../Fitness-Equipment/userLib/userLib_ui.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o manualwindow.o ../Fitness-Equipment/ui/manualwindow.cpp

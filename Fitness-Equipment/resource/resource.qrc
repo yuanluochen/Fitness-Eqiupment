@@ -17,5 +17,8 @@
         <file>icon/ManualWindow/manual.png</file>
         <file>icon/HealthManagerWindow/healthManager.png</file>
         <file>icon/EquipmentSettingWindow/setting.png</file>
+        <file>icon/EquipmentSettingWindow/search.png</file>
+        <file>icon/EquipmentSettingWindow/monitoringEquipment.png</file>
+        <file>icon/EquipmentSettingWindow/fitnessEquipment.png</file>
     </qresource>
 </RCC>

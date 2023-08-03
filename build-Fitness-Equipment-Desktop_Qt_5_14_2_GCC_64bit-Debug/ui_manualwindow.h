@@ -11,8 +11,11 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -21,11 +24,15 @@ QT_BEGIN_NAMESPACE
 class Ui_ManualWindow
 {
 public:
-    QWidget *widget;
+    QGridLayout *gridLayout_2;
+    QGridLayout *gridLayout;
+    QTextBrowser *textBrowser;
+    QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
     QLabel *label_2;
     QLabel *label_4;
-    QWidget *widget1;
+    QSpacerItem *verticalSpacer;
+    QVBoxLayout *verticalLayout_3;
     QVBoxLayout *verticalLayout_5;
     QPushButton *returnBefore;
     QLabel *label;
@@ -37,12 +44,20 @@ public:
         ManualWindow->resize(1600, 900);
         ManualWindow->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
 "border:2px solid rgb(20,196,188);border-radius:15px;"));
-        widget = new QWidget(ManualWindow);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        verticalLayout = new QVBoxLayout(widget);
+        gridLayout_2 = new QGridLayout(ManualWindow);
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
+        gridLayout = new QGridLayout();
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        textBrowser = new QTextBrowser(ManualWindow);
+        textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
+
+        gridLayout->addWidget(textBrowser, 0, 1, 1, 1);
+
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        label_2 = new QLabel(widget);
+        label_2 = new QLabel(ManualWindow);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setMinimumSize(QSize(170, 170));
         label_2->setMaximumSize(QSize(170, 170));
@@ -50,7 +65,7 @@ public:
 
         verticalLayout->addWidget(label_2);
 
-        label_4 = new QLabel(widget);
+        label_4 = new QLabel(ManualWindow);
         label_4->setObjectName(QString::fromUtf8("label_4"));
         QFont font;
         font.setPointSize(14);
@@ -61,22 +76,36 @@ public:
 
         verticalLayout->addWidget(label_4);
 
-        widget1 = new QWidget(ManualWindow);
-        widget1->setObjectName(QString::fromUtf8("widget1"));
-        verticalLayout_5 = new QVBoxLayout(widget1);
+
+        verticalLayout_2->addLayout(verticalLayout);
+
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer);
+
+
+        gridLayout->addLayout(verticalLayout_2, 0, 2, 1, 1);
+
+        verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
-        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
-        returnBefore = new QPushButton(widget1);
+        returnBefore = new QPushButton(ManualWindow);
         returnBefore->setObjectName(QString::fromUtf8("returnBefore"));
         returnBefore->setEnabled(true);
         returnBefore->setMinimumSize(QSize(60, 60));
-        returnBefore->setStyleSheet(QString::fromUtf8("border-image: url(:/icon/ManualWindow/return.png);"));
+        returnBefore->setStyleSheet(QString::fromUtf8("\n"
+"\n"
+"QPushButton{border:2px solid rgb(20,196,188);border-radius:15px;border-image: url(:/icon/ManualWindow/return.png);}\n"
+"\n"
+"\n"
+"QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image: url(:/icon/ManualWindow/return.png);}"));
         returnBefore->setIconSize(QSize(20, 20));
         returnBefore->setAutoDefault(false);
 
         verticalLayout_5->addWidget(returnBefore);
 
-        label = new QLabel(widget1);
+        label = new QLabel(ManualWindow);
         label->setObjectName(QString::fromUtf8("label"));
         QFont font1;
         font1.setPointSize(11);
@@ -86,6 +115,15 @@ public:
         label->setAlignment(Qt::AlignCenter);
 
         verticalLayout_5->addWidget(label);
+
+
+        verticalLayout_3->addLayout(verticalLayout_5);
+
+
+        gridLayout->addLayout(verticalLayout_3, 1, 0, 1, 1);
+
+
+        gridLayout_2->addLayout(gridLayout, 0, 0, 1, 1);
 
 
         retranslateUi(ManualWindow);

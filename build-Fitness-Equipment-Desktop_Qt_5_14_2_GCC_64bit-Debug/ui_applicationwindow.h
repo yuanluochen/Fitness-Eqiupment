@@ -35,10 +35,8 @@ public:
     QPushButton *returnBefore;
     QLabel *labelReturn;
     QSpacerItem *verticalSpacer;
-    QSpacerItem *horizontalSpacer_7;
     QSpacerItem *verticalSpacer_8;
     QSpacerItem *horizontalSpacer_5;
-    QSpacerItem *horizontalSpacer_9;
     QSpacerItem *verticalSpacer_3;
     QGridLayout *gridLayout;
     QHBoxLayout *horizontalLayout;
@@ -66,6 +64,8 @@ public:
     QSpacerItem *verticalSpacer_9;
     QSpacerItem *horizontalSpacer_4;
     QSpacerItem *horizontalSpacer_8;
+    QSpacerItem *verticalSpacer_10;
+    QSpacerItem *horizontalSpacer_9;
 
     void setupUi(QWidget *ApplicationWindow)
     {
@@ -150,10 +150,6 @@ public:
 
         gridLayout_2->addItem(verticalSpacer, 5, 0, 1, 1);
 
-        horizontalSpacer_7 = new QSpacerItem(62, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_2->addItem(horizontalSpacer_7, 4, 0, 1, 1);
-
         verticalSpacer_8 = new QSpacerItem(20, 185, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         gridLayout_2->addItem(verticalSpacer_8, 1, 7, 1, 1);
@@ -161,10 +157,6 @@ public:
         horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         gridLayout_2->addItem(horizontalSpacer_5, 6, 4, 1, 1);
-
-        horizontalSpacer_9 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_2->addItem(horizontalSpacer_9, 0, 10, 1, 1);
 
         verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -328,6 +320,14 @@ public:
 
         gridLayout_2->addItem(horizontalSpacer_8, 6, 3, 1, 1);
 
+        verticalSpacer_10 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer_10, 2, 0, 1, 1);
+
+        horizontalSpacer_9 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer_9, 1, 9, 1, 1);
+
 
         retranslateUi(ApplicationWindow);
 
@@ -346,7 +346,7 @@ public:
         healthManagerPushButton->setText(QString());
         labelHealthManager->setText(QCoreApplication::translate("ApplicationWindow", "\345\201\245\345\272\267\347\256\241\347\220\206", nullptr));
         settingPushButton->setText(QString());
-        labelEquipmentSetting->setText(QCoreApplication::translate("ApplicationWindow", "\350\256\276\345\244\207\350\256\276\347\275\256", nullptr));
+        labelEquipmentSetting->setText(QCoreApplication::translate("ApplicationWindow", "\350\256\276\345\244\207\347\256\241\347\220\206", nullptr));
         manualPushbutton->setText(QString());
         labelManual->setText(QCoreApplication::translate("ApplicationWindow", "\344\275\277\347\224\250\350\257\264\346\230\216", nullptr));
         labelPicture2->setText(QString());

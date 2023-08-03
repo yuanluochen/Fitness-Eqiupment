@@ -83,6 +83,9 @@ border-radius:15px;</string>
           <pointsize>48</pointsize>
          </font>
         </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
         <property name="text">
          <string>学生健康管理系统</string>
         </property>
@@ -141,7 +144,7 @@ border-radius:15px;</string>
           <property name="minimumSize">
            <size>
             <width>400</width>
-            <height>350</height>
+            <height>400</height>
            </size>
           </property>
           <property name="maximumSize">
@@ -226,14 +229,17 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image:
             </property>
             <property name="maximumSize">
              <size>
-              <width>16777215</width>
-              <height>16777215</height>
+              <width>100</width>
+              <height>40</height>
              </size>
             </property>
             <property name="font">
              <font>
               <pointsize>14</pointsize>
              </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">border:2px solid rgb(20,196,188);border-radius:15px;</string>
             </property>
             <property name="text">
              <string>进入</string>
