@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_DEPRECATED_WARNINGS -DQT_QML_DEBUG -DQT_CHARTS_LIB -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_SERIALPORT_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I../Fitness-Equipment -I. -I../../../../Qt5.14.2/5.14.2/gcc_64/include -I../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui -I../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I. -I../../../../Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++
+INCPATH       = -I../Fitness-Equipment -I. -I../../../../Qt5.14.2/5.14.2/gcc_64/include -I../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui -I../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort -I../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -isystem /usr/include/libdrm -I. -I../../../../Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++
 QMAKE         = /home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = Fitness-Equipment1.0.0
 DISTDIR = /home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/.tmp/Fitness-Equipment1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-rpath,/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/lib
-LIBS          = $(SUBLIBS) /home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Charts.so /home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Widgets.so /home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Gui.so /home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Core.so -lGL -lpthread   
+LIBS          = $(SUBLIBS) /home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Charts.so /home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Widgets.so /home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Gui.so /home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/lib/libQt5SerialPort.so /home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/lib/libQt5Core.so -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -930,7 +930,7 @@ moc_mainwindow.cpp: ../Fitness-Equipment/mainwindow.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qicon.h \
 		moc_predefs.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/bin/moc
-	/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/moc_predefs.h -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Fitness-Equipment/mainwindow.h -o moc_mainwindow.cpp
+	/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/moc_predefs.h -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Fitness-Equipment/mainwindow.h -o moc_mainwindow.cpp
 
 moc_applicationwindow.cpp: ../Fitness-Equipment/ui/applicationwindow.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
@@ -1039,7 +1039,7 @@ moc_applicationwindow.cpp: ../Fitness-Equipment/ui/applicationwindow.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtouchdevice.h \
 		moc_predefs.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/bin/moc
-	/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/moc_predefs.h -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Fitness-Equipment/ui/applicationwindow.h -o moc_applicationwindow.cpp
+	/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/moc_predefs.h -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Fitness-Equipment/ui/applicationwindow.h -o moc_applicationwindow.cpp
 
 moc_equipsettingwindow.cpp: ../Fitness-Equipment/ui/equipsettingwindow.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
@@ -1148,7 +1148,7 @@ moc_equipsettingwindow.cpp: ../Fitness-Equipment/ui/equipsettingwindow.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtouchdevice.h \
 		moc_predefs.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/bin/moc
-	/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/moc_predefs.h -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Fitness-Equipment/ui/equipsettingwindow.h -o moc_equipsettingwindow.cpp
+	/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/moc_predefs.h -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Fitness-Equipment/ui/equipsettingwindow.h -o moc_equipsettingwindow.cpp
 
 moc_healthmanagerwindow.cpp: ../Fitness-Equipment/ui/healthmanagerwindow.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
@@ -1702,7 +1702,7 @@ moc_healthmanagerwindow.cpp: ../Fitness-Equipment/ui/healthmanagerwindow.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCharts/qtchartsversion.h \
 		moc_predefs.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/bin/moc
-	/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/moc_predefs.h -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Fitness-Equipment/ui/healthmanagerwindow.h -o moc_healthmanagerwindow.cpp
+	/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/moc_predefs.h -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Fitness-Equipment/ui/healthmanagerwindow.h -o moc_healthmanagerwindow.cpp
 
 moc_manualwindow.cpp: ../Fitness-Equipment/ui/manualwindow.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
@@ -1811,7 +1811,7 @@ moc_manualwindow.cpp: ../Fitness-Equipment/ui/manualwindow.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtouchdevice.h \
 		moc_predefs.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/bin/moc
-	/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/moc_predefs.h -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Fitness-Equipment/ui/manualwindow.h -o moc_manualwindow.cpp
+	/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/moc_predefs.h -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Fitness-Equipment/ui/manualwindow.h -o moc_manualwindow.cpp
 
 moc_sportwindow.cpp: ../Fitness-Equipment/ui/sportwindow.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
@@ -1920,7 +1920,7 @@ moc_sportwindow.cpp: ../Fitness-Equipment/ui/sportwindow.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtouchdevice.h \
 		moc_predefs.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/bin/moc
-	/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/moc_predefs.h -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Fitness-Equipment/ui/sportwindow.h -o moc_sportwindow.cpp
+	/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/moc_predefs.h -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Fitness-Equipment/ui/sportwindow.h -o moc_sportwindow.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -2920,7 +2920,10 @@ equipsettingwindow.o: ../Fitness-Equipment/ui/equipsettingwindow.cpp ../Fitness-
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QSpacerItem \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QVBoxLayout \
 		../Fitness-Equipment/ui/applicationwindow.h \
-		../Fitness-Equipment/userLib/userLib_ui.h
+		../Fitness-Equipment/userLib/userLib_ui.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/QSerialPortInfo \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/qserialportinfo.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/qserialportglobal.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o equipsettingwindow.o ../Fitness-Equipment/ui/equipsettingwindow.cpp
 
 healthmanagerwindow.o: ../Fitness-Equipment/ui/healthmanagerwindow.cpp ../Fitness-Equipment/ui/healthmanagerwindow.h \

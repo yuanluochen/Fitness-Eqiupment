@@ -4,9 +4,9 @@
 // 创建新窗口
 #define CREATE_NEW_WINDOW(newType, curPoint)     \
 {                                                \
+    curPoint->close();                           \
     newType *newPoint = new newType;             \
     newPoint->setGeometry(curPoint->geometry()); \
-    curPoint->close();                           \
     newPoint->show();                            \
 }                                                \
 
