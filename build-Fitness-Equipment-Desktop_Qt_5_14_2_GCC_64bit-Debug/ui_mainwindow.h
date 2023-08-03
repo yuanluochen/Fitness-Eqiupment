@@ -19,7 +19,6 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -44,7 +43,6 @@ public:
     QSpacerItem *horizontalSpacer_3;
     QSpacerItem *verticalSpacer_3;
     QMenuBar *menuBar;
-    QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -57,6 +55,8 @@ public:
         font.setBold(true);
         font.setWeight(75);
         MainWindow->setFont(font);
+        MainWindow->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"border-radius:15px;"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         gridLayout = new QGridLayout(centralWidget);
@@ -129,7 +129,10 @@ public:
         font2.setStyleStrategy(QFont::PreferDefault);
         enterSystem->setFont(font2);
         enterSystem->setCursor(QCursor(Qt::ArrowCursor));
-        enterSystem->setStyleSheet(QString::fromUtf8("border-image: url(:/icon/MainWindow/enter.png);"));
+        enterSystem->setStyleSheet(QString::fromUtf8("QPushButton{border:2px solid rgb(20,196,188);border-radius:15px;;border-image: url(:/icon/MainWindow/enter.png);}\n"
+"\n"
+"\n"
+"QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image: url(:/icon/MainWindow/enter.png);}"));
 
         verticalLayout->addWidget(enterSystem);
 
@@ -164,11 +167,8 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 1600, 30));
+        menuBar->setGeometry(QRect(0, 0, 1600, 23));
         MainWindow->setMenuBar(menuBar);
-        mainToolBar = new QToolBar(MainWindow);
-        mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
-        MainWindow->addToolBar(Qt::TopToolBarArea, mainToolBar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName(QString::fromUtf8("statusBar"));
         MainWindow->setStatusBar(statusBar);

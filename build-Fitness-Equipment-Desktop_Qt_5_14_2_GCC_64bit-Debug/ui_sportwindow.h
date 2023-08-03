@@ -43,6 +43,8 @@ public:
         QFont font;
         font.setPointSize(14);
         SportWindow->setFont(font);
+        SportWindow->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"border:2px solid rgb(20,196,188);border-radius:15px;"));
         gridLayout = new QGridLayout(SportWindow);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         verticalSpacer = new QSpacerItem(20, 782, QSizePolicy::Minimum, QSizePolicy::Expanding);

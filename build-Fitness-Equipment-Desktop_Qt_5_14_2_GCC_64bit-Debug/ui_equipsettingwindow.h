@@ -35,6 +35,8 @@ public:
         if (EquipSettingWindow->objectName().isEmpty())
             EquipSettingWindow->setObjectName(QString::fromUtf8("EquipSettingWindow"));
         EquipSettingWindow->resize(1280, 800);
+        EquipSettingWindow->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+"border:2px solid rgb(20,196,188);border-radius:15px;"));
         gridLayout = new QGridLayout(EquipSettingWindow);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         verticalSpacer = new QSpacerItem(20, 682, QSizePolicy::Minimum, QSizePolicy::Expanding);

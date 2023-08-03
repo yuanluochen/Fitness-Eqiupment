@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 #include "ui/applicationwindow.h"
 
+#include "userLib/userLib_ui.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -17,12 +19,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_enterSystem_clicked()
 {
-    // create new window object
-    ApplicationWindow* applicationWindow = new ApplicationWindow;
-    // set geometry
-    applicationWindow->setGeometry(this->geometry());
-    // close main Window
-    this->close();
-    //show application window
-    applicationWindow->show();
+    CREATE_NEW_WINDOW(ApplicationWindow, this);
+
 }
