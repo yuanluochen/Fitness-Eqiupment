@@ -48,6 +48,7 @@ EquipmentItem::EquipmentItem(EquipmentItemCard::equipmentType type, QWidget *par
 
 }
 
+
 EquipmentItem::~EquipmentItem()
 {
     delete ui;
