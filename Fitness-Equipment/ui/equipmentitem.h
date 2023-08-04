@@ -3,27 +3,9 @@
 
 #include <QWidget>
 
-namespace Ui {
-class EquipmentItem;
-}
 
-class EquipmentItem : public QWidget
-{
-    Q_OBJECT
-
-public:
-    explicit EquipmentItem(QWidget *parent = nullptr);
-    ~EquipmentItem();
-
-private slots:
-    void on_pushButton_clicked();
-
-private:
-    Ui::EquipmentItem *ui;
-};
-
+//设备ui卡
 namespace EquipmentItemCard{
-
 
 //健身泵图标
 #define FITNESS_EQUIPMENT_ICON ":/icon/EquipmentItem/fitnessEquipment.png"
@@ -41,8 +23,16 @@ namespace EquipmentItemCard{
 #define BICYCLE_EQUIPMENT_NAME "健康运动单车"
 
 
+//设备类型
+enum equipmentType
+{
+    FITNESS,   //健身设备
+    MONITORING,//监测手环
+    BICYCLE,   //单车
+};
+
 //设备数据结构体
-struct EquipMentItemCardData
+struct equipMentItemCardData
 {
     //设备名称
     QString EquipmentName;
@@ -51,6 +41,30 @@ struct EquipMentItemCardData
 };
 
 };
+
+
+
+namespace Ui {
+class EquipmentItem;
+}
+
+class EquipmentItem : public QWidget
+{
+    Q_OBJECT
+
+public:
+    explicit EquipmentItem(QWidget *parent = nullptr);
+    explicit EquipmentItem(EquipmentItemCard::equipmentType type, QWidget *parent = nullptr);
+    ~EquipmentItem();
+
+private slots:
+    void on_pushButton_clicked();
+
+private:
+    Ui::EquipmentItem *ui;
+};
+
+
 
 
 

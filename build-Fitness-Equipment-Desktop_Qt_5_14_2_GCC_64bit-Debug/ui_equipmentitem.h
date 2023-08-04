@@ -44,9 +44,9 @@ public:
         EquiPmentItemIcon->setAlignment(Qt::AlignCenter);
         pushButton = new QPushButton(widget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(280, 0, 20, 20));
-        pushButton->setMinimumSize(QSize(20, 20));
-        pushButton->setMaximumSize(QSize(20, 20));
+        pushButton->setGeometry(QRect(280, 0, 25, 25));
+        pushButton->setMinimumSize(QSize(25, 25));
+        pushButton->setMaximumSize(QSize(25, 25));
         pushButton->setStyleSheet(QString::fromUtf8("\n"
 "QPushButton{border:2px solid rgb(20,196,188);border-radius:15px;border-image: url(:/icon/EquipmentItem/close_item.png);}\n"
 "\n"
