@@ -21,5 +21,4 @@ MainWindow::~MainWindow()
 void MainWindow::on_enterSystem_clicked()
 {
     CREATE_NEW_WINDOW(ApplicationWindow, this);
-
 }
