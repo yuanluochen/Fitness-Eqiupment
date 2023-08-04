@@ -4,6 +4,9 @@
 
 #include "userLib/userLib_ui.h"
 
+#include "ui/equipmentitem.h"
+class EquipmentItem;
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)

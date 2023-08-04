@@ -21,6 +21,7 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     ui/applicationwindow.cpp \
+    ui/equipmentitem.cpp \
     ui/equipsettingwindow.cpp \
     ui/healthmanagerwindow.cpp \
     ui/manualwindow.cpp \
@@ -30,6 +31,7 @@ SOURCES += \
 HEADERS += \
     mainwindow.h \
     ui/applicationwindow.h \
+    ui/equipmentitem.h \
     ui/equipsettingwindow.h \
     ui/healthmanagerwindow.h \
     ui/manualwindow.h \
@@ -39,6 +41,7 @@ HEADERS += \
 FORMS += \
     mainwindow.ui \
     ui/applicationwindow.ui \
+    ui/equipmentitem.ui \
     ui/equipsettingwindow.ui \
     ui/healthmanagerwindow.ui \
     ui/manualwindow.ui \

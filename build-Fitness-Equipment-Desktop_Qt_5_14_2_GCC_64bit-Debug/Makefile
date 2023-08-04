@@ -55,6 +55,7 @@ OBJECTS_DIR   = ./
 SOURCES       = ../Fitness-Equipment/main.cpp \
 		../Fitness-Equipment/mainwindow.cpp \
 		../Fitness-Equipment/ui/applicationwindow.cpp \
+		../Fitness-Equipment/ui/equipmentitem.cpp \
 		../Fitness-Equipment/ui/equipsettingwindow.cpp \
 		../Fitness-Equipment/ui/healthmanagerwindow.cpp \
 		../Fitness-Equipment/ui/manualwindow.cpp \
@@ -62,6 +63,7 @@ SOURCES       = ../Fitness-Equipment/main.cpp \
 		../Fitness-Equipment/userLib/userLib_ui.cpp qrc_resource.cpp \
 		moc_mainwindow.cpp \
 		moc_applicationwindow.cpp \
+		moc_equipmentitem.cpp \
 		moc_equipsettingwindow.cpp \
 		moc_healthmanagerwindow.cpp \
 		moc_manualwindow.cpp \
@@ -69,6 +71,7 @@ SOURCES       = ../Fitness-Equipment/main.cpp \
 OBJECTS       = main.o \
 		mainwindow.o \
 		applicationwindow.o \
+		equipmentitem.o \
 		equipsettingwindow.o \
 		healthmanagerwindow.o \
 		manualwindow.o \
@@ -77,6 +80,7 @@ OBJECTS       = main.o \
 		qrc_resource.o \
 		moc_mainwindow.o \
 		moc_applicationwindow.o \
+		moc_equipmentitem.o \
 		moc_equipsettingwindow.o \
 		moc_healthmanagerwindow.o \
 		moc_manualwindow.o \
@@ -295,6 +299,7 @@ DIST          = ../README.md \
 		../../../../Qt5.14.2/5.14.2/gcc_64/mkspecs/features/lex.prf \
 		../Fitness-Equipment/Fitness-Equipment.pro ../Fitness-Equipment/mainwindow.h \
 		../Fitness-Equipment/ui/applicationwindow.h \
+		../Fitness-Equipment/ui/equipmentitem.h \
 		../Fitness-Equipment/ui/equipsettingwindow.h \
 		../Fitness-Equipment/ui/healthmanagerwindow.h \
 		../Fitness-Equipment/ui/manualwindow.h \
@@ -302,6 +307,7 @@ DIST          = ../README.md \
 		../Fitness-Equipment/userLib/userLib_ui.h ../Fitness-Equipment/main.cpp \
 		../Fitness-Equipment/mainwindow.cpp \
 		../Fitness-Equipment/ui/applicationwindow.cpp \
+		../Fitness-Equipment/ui/equipmentitem.cpp \
 		../Fitness-Equipment/ui/equipsettingwindow.cpp \
 		../Fitness-Equipment/ui/healthmanagerwindow.cpp \
 		../Fitness-Equipment/ui/manualwindow.cpp \
@@ -315,7 +321,7 @@ TARGET        = Fitness-Equipment
 first: all
 ####### Build rules
 
-Fitness-Equipment: ui_mainwindow.h ui_applicationwindow.h ui_equipsettingwindow.h ui_healthmanagerwindow.h ui_manualwindow.h ui_sportwindow.h $(OBJECTS)  
+Fitness-Equipment: ui_mainwindow.h ui_applicationwindow.h ui_equipmentitem.h ui_equipsettingwindow.h ui_healthmanagerwindow.h ui_manualwindow.h ui_sportwindow.h $(OBJECTS)  
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
 Makefile: ../Fitness-Equipment/Fitness-Equipment.pro ../../../../Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++/qmake.conf ../../../../Qt5.14.2/5.14.2/gcc_64/mkspecs/features/spec_pre.prf \
@@ -761,9 +767,9 @@ distdir: FORCE
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents ../Fitness-Equipment/resource/resource.qrc $(DISTDIR)/
 	$(COPY_FILE) --parents ../../../../Qt5.14.2/5.14.2/gcc_64/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Fitness-Equipment/mainwindow.h ../Fitness-Equipment/ui/applicationwindow.h ../Fitness-Equipment/ui/equipsettingwindow.h ../Fitness-Equipment/ui/healthmanagerwindow.h ../Fitness-Equipment/ui/manualwindow.h ../Fitness-Equipment/ui/sportwindow.h ../Fitness-Equipment/userLib/userLib_ui.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Fitness-Equipment/main.cpp ../Fitness-Equipment/mainwindow.cpp ../Fitness-Equipment/ui/applicationwindow.cpp ../Fitness-Equipment/ui/equipsettingwindow.cpp ../Fitness-Equipment/ui/healthmanagerwindow.cpp ../Fitness-Equipment/ui/manualwindow.cpp ../Fitness-Equipment/ui/sportwindow.cpp ../Fitness-Equipment/userLib/userLib_ui.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../Fitness-Equipment/mainwindow.ui ../Fitness-Equipment/ui/applicationwindow.ui ../Fitness-Equipment/ui/equipsettingwindow.ui ../Fitness-Equipment/ui/healthmanagerwindow.ui ../Fitness-Equipment/ui/manualwindow.ui ../Fitness-Equipment/ui/sportwindow.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../Fitness-Equipment/mainwindow.h ../Fitness-Equipment/ui/applicationwindow.h ../Fitness-Equipment/ui/equipmentitem.h ../Fitness-Equipment/ui/equipsettingwindow.h ../Fitness-Equipment/ui/healthmanagerwindow.h ../Fitness-Equipment/ui/manualwindow.h ../Fitness-Equipment/ui/sportwindow.h ../Fitness-Equipment/userLib/userLib_ui.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Fitness-Equipment/main.cpp ../Fitness-Equipment/mainwindow.cpp ../Fitness-Equipment/ui/applicationwindow.cpp ../Fitness-Equipment/ui/equipmentitem.cpp ../Fitness-Equipment/ui/equipsettingwindow.cpp ../Fitness-Equipment/ui/healthmanagerwindow.cpp ../Fitness-Equipment/ui/manualwindow.cpp ../Fitness-Equipment/ui/sportwindow.cpp ../Fitness-Equipment/userLib/userLib_ui.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Fitness-Equipment/mainwindow.ui ../Fitness-Equipment/ui/applicationwindow.ui ../Fitness-Equipment/ui/equipmentitem.ui ../Fitness-Equipment/ui/equipsettingwindow.ui ../Fitness-Equipment/ui/healthmanagerwindow.ui ../Fitness-Equipment/ui/manualwindow.ui ../Fitness-Equipment/ui/sportwindow.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -799,6 +805,11 @@ qrc_resource.cpp: ../Fitness-Equipment/resource/resource.qrc \
 		../Fitness-Equipment/resource/icon/MainWindow/enter.png \
 		../Fitness-Equipment/resource/icon/HealthManagerWindow/healthManager.png \
 		../Fitness-Equipment/resource/icon/HealthManagerWindow/return.png \
+		../Fitness-Equipment/resource/icon/EquipmentItem/bicycleEquipment.png \
+		../Fitness-Equipment/resource/icon/EquipmentItem/monitoringEquipment.png \
+		../Fitness-Equipment/resource/icon/EquipmentItem/fitnessEquipment.png \
+		../Fitness-Equipment/resource/icon/EquipmentItem/close_item.png \
+		../Fitness-Equipment/resource/icon/EquipmentItem/add_item.png \
 		../Fitness-Equipment/resource/icon/ApplicationWindow/manual.png \
 		../Fitness-Equipment/resource/icon/ApplicationWindow/healthManager.png \
 		../Fitness-Equipment/resource/icon/ApplicationWindow/setting.png \
@@ -820,9 +831,9 @@ compiler_moc_predefs_clean:
 moc_predefs.h: ../../../../Qt5.14.2/5.14.2/gcc_64/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++11 -Wall -Wextra -dM -E -o moc_predefs.h ../../../../Qt5.14.2/5.14.2/gcc_64/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_applicationwindow.cpp moc_equipsettingwindow.cpp moc_healthmanagerwindow.cpp moc_manualwindow.cpp moc_sportwindow.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_applicationwindow.cpp moc_equipmentitem.cpp moc_equipsettingwindow.cpp moc_healthmanagerwindow.cpp moc_manualwindow.cpp moc_sportwindow.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_applicationwindow.cpp moc_equipsettingwindow.cpp moc_healthmanagerwindow.cpp moc_manualwindow.cpp moc_sportwindow.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_applicationwindow.cpp moc_equipmentitem.cpp moc_equipsettingwindow.cpp moc_healthmanagerwindow.cpp moc_manualwindow.cpp moc_sportwindow.cpp
 moc_mainwindow.cpp: ../Fitness-Equipment/mainwindow.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QMainWindow \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qmainwindow.h \
@@ -1043,6 +1054,115 @@ moc_applicationwindow.cpp: ../Fitness-Equipment/ui/applicationwindow.h \
 		moc_predefs.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/bin/moc
 	/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/moc_predefs.h -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Fitness-Equipment/ui/applicationwindow.h -o moc_applicationwindow.cpp
+
+moc_equipmentitem.cpp: ../Fitness-Equipment/ui/equipmentitem.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qwidget.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtguiglobal.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qglobal.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qconfig.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtcore-config.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsysinfo.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlogging.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qflags.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmutex.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qnumeric.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qversiontagging.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtgui-config.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qwindowdefs.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qnamespace.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobject.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstring.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qchar.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbytearray.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qrefcount.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qarraydata.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringliteral.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringview.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringbuilder.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlist.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qalgorithms.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qiterator.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qhashfunctions.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qpair.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvector.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontainertools_impl.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qpoint.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbytearraylist.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringlist.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qregexp.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringmatcher.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcoreevent.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmetatype.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobject_impl.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmargins.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpaintdevice.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qrect.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsize.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpalette.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qcolor.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qrgb.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qrgba64.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qbrush.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qmatrix.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpolygon.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qregion.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qdatastream.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qiodevice.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qline.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtransform.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpainterpath.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qimage.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpixelformat.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpixmap.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qshareddata.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qhash.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfont.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfontmetrics.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfontinfo.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qsizepolicy.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qcursor.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qkeysequence.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qevent.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvariant.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmap.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qdebug.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtextstream.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlocale.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qset.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qurl.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qurlquery.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfile.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfiledevice.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qvector2d.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtouchdevice.h \
+		moc_predefs.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/bin/moc
+	/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/moc_predefs.h -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Fitness-Equipment/ui/equipmentitem.h -o moc_equipmentitem.cpp
 
 moc_equipsettingwindow.cpp: ../Fitness-Equipment/ui/equipsettingwindow.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
@@ -1929,9 +2049,9 @@ compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_applicationwindow.h ui_equipsettingwindow.h ui_healthmanagerwindow.h ui_manualwindow.h ui_sportwindow.h
+compiler_uic_make_all: ui_mainwindow.h ui_applicationwindow.h ui_equipmentitem.h ui_equipsettingwindow.h ui_healthmanagerwindow.h ui_manualwindow.h ui_sportwindow.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_applicationwindow.h ui_equipsettingwindow.h ui_healthmanagerwindow.h ui_manualwindow.h ui_sportwindow.h
+	-$(DEL_FILE) ui_mainwindow.h ui_applicationwindow.h ui_equipmentitem.h ui_equipsettingwindow.h ui_healthmanagerwindow.h ui_manualwindow.h ui_sportwindow.h
 ui_mainwindow.h: ../Fitness-Equipment/mainwindow.ui \
 		../../../../Qt5.14.2/5.14.2/gcc_64/bin/uic
 	/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/uic ../Fitness-Equipment/mainwindow.ui -o ui_mainwindow.h
@@ -1939,6 +2059,10 @@ ui_mainwindow.h: ../Fitness-Equipment/mainwindow.ui \
 ui_applicationwindow.h: ../Fitness-Equipment/ui/applicationwindow.ui \
 		../../../../Qt5.14.2/5.14.2/gcc_64/bin/uic
 	/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/uic ../Fitness-Equipment/ui/applicationwindow.ui -o ui_applicationwindow.h
+
+ui_equipmentitem.h: ../Fitness-Equipment/ui/equipmentitem.ui \
+		../../../../Qt5.14.2/5.14.2/gcc_64/bin/uic
+	/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/uic ../Fitness-Equipment/ui/equipmentitem.ui -o ui_equipmentitem.h
 
 ui_equipsettingwindow.h: ../Fitness-Equipment/ui/equipsettingwindow.ui \
 		../../../../Qt5.14.2/5.14.2/gcc_64/bin/uic
@@ -2793,6 +2917,114 @@ applicationwindow.o: ../Fitness-Equipment/ui/applicationwindow.cpp ../Fitness-Eq
 		../Fitness-Equipment/userLib/userLib_ui.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o applicationwindow.o ../Fitness-Equipment/ui/applicationwindow.cpp
 
+equipmentitem.o: ../Fitness-Equipment/ui/equipmentitem.cpp ../Fitness-Equipment/ui/equipmentitem.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qwidget.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtguiglobal.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qglobal.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qconfig-bootstrapped.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qconfig.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtcore-config.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsystemdetection.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qprocessordetection.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcompilerdetection.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtypeinfo.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsysinfo.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlogging.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qflags.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbasicatomic.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_bootstrap.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qgenericatomic.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_cxx11.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qatomic_msvc.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qglobalstatic.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmutex.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qnumeric.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qversiontagging.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtgui-config.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtwidgets-config.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qwindowdefs.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobjectdefs.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qnamespace.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobjectdefs_impl.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qwindowdefs_win.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobject.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstring.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qchar.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbytearray.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qrefcount.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qarraydata.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringliteral.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringalgorithms.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringview.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringbuilder.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlist.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qalgorithms.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qiterator.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qhashfunctions.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qpair.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvector.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontainertools_impl.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qpoint.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbytearraylist.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringlist.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qregexp.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qstringmatcher.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcoreevent.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qscopedpointer.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmetatype.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvarlengtharray.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontainerfwd.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobject_impl.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmargins.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpaintdevice.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qrect.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsize.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpalette.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qcolor.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qrgb.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qrgba64.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qbrush.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qmatrix.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpolygon.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qregion.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qdatastream.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qiodevice.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qline.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtransform.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpainterpath.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qimage.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpixelformat.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpixmap.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qshareddata.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qhash.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfont.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfontmetrics.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qfontinfo.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qsizepolicy.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qcursor.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qkeysequence.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qevent.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvariant.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmap.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qdebug.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtextstream.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlocale.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qset.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qurl.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qurlquery.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfile.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfiledevice.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qvector2d.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtouchdevice.h \
+		ui_equipmentitem.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o equipmentitem.o ../Fitness-Equipment/ui/equipmentitem.cpp
+
 equipsettingwindow.o: ../Fitness-Equipment/ui/equipsettingwindow.cpp ../Fitness-Equipment/ui/equipsettingwindow.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QWidget \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qwidget.h \
@@ -2936,11 +3168,12 @@ equipsettingwindow.o: ../Fitness-Equipment/ui/equipsettingwindow.cpp ../Fitness-
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtabbar.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qrubberband.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QListWidget \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlistwidget.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QPushButton \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qpushbutton.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QSpacerItem \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QTabWidget \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QVBoxLayout \
 		../Fitness-Equipment/ui/applicationwindow.h \
 		../Fitness-Equipment/userLib/userLib_ui.h \
@@ -3624,6 +3857,11 @@ manualwindow.o: ../Fitness-Equipment/ui/manualwindow.cpp ../Fitness-Equipment/ui
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qdesktopwidget.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qguiapplication.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qinputmethod.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QGridLayout \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qgridlayout.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayout.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayoutitem.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qboxlayout.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QLabel \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlabel.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qframe.h \
@@ -3631,11 +3869,17 @@ manualwindow.o: ../Fitness-Equipment/ui/manualwindow.cpp ../Fitness-Equipment/ui
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qpushbutton.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qicon.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QSpacerItem \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QTextBrowser \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtextbrowser.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtextedit.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtextdocument.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtextoption.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtextcursor.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtextformat.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qpen.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QVBoxLayout \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qboxlayout.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayout.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayoutitem.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qgridlayout.h \
 		../Fitness-Equipment/ui/applicationwindow.h \
 		../Fitness-Equipment/userLib/userLib_ui.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o manualwindow.o ../Fitness-Equipment/ui/manualwindow.cpp
@@ -3783,6 +4027,9 @@ moc_mainwindow.o: moc_mainwindow.cpp
 
 moc_applicationwindow.o: moc_applicationwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_applicationwindow.o moc_applicationwindow.cpp
+
+moc_equipmentitem.o: moc_equipmentitem.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_equipmentitem.o moc_equipmentitem.cpp
 
 moc_equipsettingwindow.o: moc_equipsettingwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_equipsettingwindow.o moc_equipsettingwindow.cpp

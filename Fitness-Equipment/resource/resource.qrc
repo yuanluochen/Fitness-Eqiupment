@@ -20,5 +20,10 @@
         <file>icon/EquipmentSettingWindow/search.png</file>
         <file>icon/EquipmentSettingWindow/monitoringEquipment.png</file>
         <file>icon/EquipmentSettingWindow/fitnessEquipment.png</file>
+        <file>icon/EquipmentItem/monitoringEquipment.png</file>
+        <file>icon/EquipmentItem/fitnessEquipment.png</file>
+        <file>icon/EquipmentItem/close_item.png</file>
+        <file>icon/EquipmentItem/bicycleEquipment.png</file>
+        <file>icon/EquipmentItem/add_item.png</file>
     </qresource>
 </RCC>

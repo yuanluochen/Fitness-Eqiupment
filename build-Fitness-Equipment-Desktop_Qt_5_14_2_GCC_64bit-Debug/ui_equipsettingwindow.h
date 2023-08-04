@@ -16,9 +16,9 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QListView>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
-#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -27,33 +27,34 @@ QT_BEGIN_NAMESPACE
 class Ui_EquipSettingWindow
 {
 public:
-    QGridLayout *gridLayout_5;
-    QSpacerItem *verticalSpacer_4;
+    QGridLayout *gridLayout_2;
+    QVBoxLayout *verticalLayout_3;
+    QHBoxLayout *horizontalLayout;
+    QLabel *label_5;
+    QListView *listView;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *label_6;
+    QListWidget *listWidget;
     QVBoxLayout *verticalLayout_2;
     QVBoxLayout *verticalLayout;
     QLabel *label_2;
     QLabel *label_4;
     QSpacerItem *verticalSpacer_2;
+    QSpacerItem *verticalSpacer_5;
+    QSpacerItem *verticalSpacer_6;
     QGroupBox *groupBox;
     QGridLayout *gridLayout;
+    QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_3;
     QPushButton *pushButton;
-    QSpacerItem *verticalSpacer;
-    QGridLayout *gridLayout_4;
-    QSpacerItem *verticalSpacer_3;
-    QTabWidget *tabWidget;
-    QWidget *tab;
-    QGridLayout *gridLayout_2;
-    QHBoxLayout *horizontalLayout;
-    QListView *fitnessEquipmentList;
-    QWidget *tab_2;
-    QGridLayout *gridLayout_3;
-    QHBoxLayout *horizontalLayout_2;
-    QListView *monitoringEquipmentList;
-    QVBoxLayout *verticalLayout_5;
+    QLabel *equipmentStatus;
+    QSpacerItem *verticalSpacer_7;
+    QSpacerItem *verticalSpacer_4;
+    QVBoxLayout *verticalLayout_4;
     QPushButton *returnBefore;
     QLabel *label;
+    QSpacerItem *verticalSpacer_3;
 
     void setupUi(QWidget *EquipSettingWindow)
     {
@@ -62,11 +63,46 @@ public:
         EquipSettingWindow->resize(1600, 900);
         EquipSettingWindow->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
 "border-radius:15px;"));
-        gridLayout_5 = new QGridLayout(EquipSettingWindow);
-        gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
-        verticalSpacer_4 = new QSpacerItem(20, 435, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        gridLayout_2 = new QGridLayout(EquipSettingWindow);
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
+        verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        label_5 = new QLabel(EquipSettingWindow);
+        label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setAlignment(Qt::AlignCenter);
 
-        gridLayout_5->addItem(verticalSpacer_4, 1, 1, 1, 1);
+        horizontalLayout->addWidget(label_5);
+
+        listView = new QListView(EquipSettingWindow);
+        listView->setObjectName(QString::fromUtf8("listView"));
+        listView->setStyleSheet(QString::fromUtf8("border:2px solid rgb(20,196,188);border-radius:15px;"));
+
+        horizontalLayout->addWidget(listView);
+
+
+        verticalLayout_3->addLayout(horizontalLayout);
+
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        label_6 = new QLabel(EquipSettingWindow);
+        label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_2->addWidget(label_6);
+
+        listWidget = new QListWidget(EquipSettingWindow);
+        listWidget->setObjectName(QString::fromUtf8("listWidget"));
+        listWidget->setStyleSheet(QString::fromUtf8("border:2px solid rgb(20,196,188);border-radius:15px;"));
+
+        horizontalLayout_2->addWidget(listWidget);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_2);
+
+
+        gridLayout_2->addLayout(verticalLayout_3, 0, 1, 2, 1);
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
@@ -99,17 +135,30 @@ public:
 
         verticalLayout_2->addItem(verticalSpacer_2);
 
+        verticalSpacer_5 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer_5);
+
+        verticalSpacer_6 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        verticalLayout_2->addItem(verticalSpacer_6);
+
         groupBox = new QGroupBox(EquipSettingWindow);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
         groupBox->setMinimumSize(QSize(0, 0));
         groupBox->setStyleSheet(QString::fromUtf8(""));
         gridLayout = new QGridLayout(groupBox);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
+        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer, 2, 0, 1, 1);
+
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         label_3 = new QLabel(groupBox);
         label_3->setObjectName(QString::fromUtf8("label_3"));
         label_3->setMinimumSize(QSize(0, 0));
+        label_3->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_3->addWidget(label_3);
 
@@ -131,65 +180,27 @@ public:
 
         gridLayout->addLayout(horizontalLayout_3, 0, 0, 1, 1);
 
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        equipmentStatus = new QLabel(groupBox);
+        equipmentStatus->setObjectName(QString::fromUtf8("equipmentStatus"));
 
-        gridLayout->addItem(verticalSpacer, 1, 0, 1, 1);
+        gridLayout->addWidget(equipmentStatus, 3, 0, 1, 1);
+
+        verticalSpacer_7 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer_7, 1, 0, 1, 1);
 
 
         verticalLayout_2->addWidget(groupBox);
 
 
-        gridLayout_5->addLayout(verticalLayout_2, 0, 1, 1, 1);
+        gridLayout_2->addLayout(verticalLayout_2, 0, 2, 1, 1);
 
-        gridLayout_4 = new QGridLayout();
-        gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
-        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        verticalSpacer_4 = new QSpacerItem(20, 435, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_4->addItem(verticalSpacer_3, 0, 0, 1, 1);
+        gridLayout_2->addItem(verticalSpacer_4, 1, 2, 2, 1);
 
-        tabWidget = new QTabWidget(EquipSettingWindow);
-        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
-        tab = new QWidget();
-        tab->setObjectName(QString::fromUtf8("tab"));
-        gridLayout_2 = new QGridLayout(tab);
-        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        fitnessEquipmentList = new QListView(tab);
-        fitnessEquipmentList->setObjectName(QString::fromUtf8("fitnessEquipmentList"));
-        fitnessEquipmentList->setStyleSheet(QString::fromUtf8("border:2px solid rgb(20,196,188);"));
-
-        horizontalLayout->addWidget(fitnessEquipmentList);
-
-
-        gridLayout_2->addLayout(horizontalLayout, 0, 0, 1, 1);
-
-        QIcon icon;
-        icon.addFile(QString::fromUtf8(":/icon/EquipmentSettingWindow/monitoringEquipment.png"), QSize(), QIcon::Normal, QIcon::Off);
-        tabWidget->addTab(tab, icon, QString());
-        tab_2 = new QWidget();
-        tab_2->setObjectName(QString::fromUtf8("tab_2"));
-        gridLayout_3 = new QGridLayout(tab_2);
-        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        monitoringEquipmentList = new QListView(tab_2);
-        monitoringEquipmentList->setObjectName(QString::fromUtf8("monitoringEquipmentList"));
-        monitoringEquipmentList->setStyleSheet(QString::fromUtf8("border:2px solid rgb(20,196,188);"));
-
-        horizontalLayout_2->addWidget(monitoringEquipmentList);
-
-
-        gridLayout_3->addLayout(horizontalLayout_2, 0, 0, 1, 1);
-
-        QIcon icon1;
-        icon1.addFile(QString::fromUtf8(":/icon/EquipmentSettingWindow/fitnessEquipment.png"), QSize(), QIcon::Normal, QIcon::Off);
-        tabWidget->addTab(tab_2, icon1, QString());
-
-        gridLayout_4->addWidget(tabWidget, 0, 1, 2, 1);
-
-        verticalLayout_5 = new QVBoxLayout();
-        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        verticalLayout_4 = new QVBoxLayout();
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         returnBefore = new QPushButton(EquipSettingWindow);
         returnBefore->setObjectName(QString::fromUtf8("returnBefore"));
         returnBefore->setEnabled(true);
@@ -203,7 +214,7 @@ public:
         returnBefore->setIconSize(QSize(20, 20));
         returnBefore->setAutoDefault(false);
 
-        verticalLayout_5->addWidget(returnBefore);
+        verticalLayout_4->addWidget(returnBefore);
 
         label = new QLabel(EquipSettingWindow);
         label->setObjectName(QString::fromUtf8("label"));
@@ -216,19 +227,17 @@ public:
         label->setStyleSheet(QString::fromUtf8("border:2px solid rgb(20,196,188);border-radius:15px;"));
         label->setAlignment(Qt::AlignCenter);
 
-        verticalLayout_5->addWidget(label);
+        verticalLayout_4->addWidget(label);
 
 
-        gridLayout_4->addLayout(verticalLayout_5, 1, 0, 1, 1);
+        gridLayout_2->addLayout(verticalLayout_4, 2, 0, 1, 1);
 
+        verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_5->addLayout(gridLayout_4, 0, 0, 2, 1);
+        gridLayout_2->addItem(verticalSpacer_3, 1, 0, 1, 1);
 
 
         retranslateUi(EquipSettingWindow);
-
-        tabWidget->setCurrentIndex(1);
-
 
         QMetaObject::connectSlotsByName(EquipSettingWindow);
     } // setupUi
@@ -236,13 +245,14 @@ public:
     void retranslateUi(QWidget *EquipSettingWindow)
     {
         EquipSettingWindow->setWindowTitle(QCoreApplication::translate("EquipSettingWindow", "Form", nullptr));
+        label_5->setText(QCoreApplication::translate("EquipSettingWindow", "<html><head/><body><p><span style=\" font-size:16pt; font-weight:600;\">\350\277\220</span></p><p><span style=\" font-size:16pt; font-weight:600;\">\345\212\250</span></p><p><span style=\" font-size:16pt; font-weight:600;\">\345\201\245</span></p><p><span style=\" font-size:16pt; font-weight:600;\">\350\272\253</span></p><p><span style=\" font-size:16pt; font-weight:600;\">\350\256\276</span></p><p><span style=\" font-size:16pt; font-weight:600;\">\345\244\207</span></p></body></html>", nullptr));
+        label_6->setText(QCoreApplication::translate("EquipSettingWindow", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">\345\201\245</span></p><p><span style=\" font-size:14pt; font-weight:600;\">\345\272\267</span></p><p><span style=\" font-size:14pt; font-weight:600;\">\347\233\221</span></p><p><span style=\" font-size:14pt; font-weight:600;\">\346\265\213</span></p><p><span style=\" font-size:14pt; font-weight:600;\">\350\256\276</span></p><p><span style=\" font-size:14pt; font-weight:600;\">\345\244\207</span></p></body></html>", nullptr));
         label_2->setText(QString());
         label_4->setText(QCoreApplication::translate("EquipSettingWindow", "\350\256\276\345\244\207\347\256\241\347\220\206", nullptr));
         groupBox->setTitle(QString());
         label_3->setText(QCoreApplication::translate("EquipSettingWindow", "\346\220\234\347\264\242\350\256\276\345\244\207", nullptr));
         pushButton->setText(QString());
-        tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("EquipSettingWindow", "\345\201\245\345\272\267\347\233\221\346\265\213\350\256\276\345\244\207", nullptr));
-        tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("EquipSettingWindow", "\350\277\220\345\212\250\345\201\245\350\272\253\350\256\276\345\244\207", nullptr));
+        equipmentStatus->setText(QString());
         returnBefore->setText(QString());
         label->setText(QCoreApplication::translate("EquipSettingWindow", "\350\277\224\345\233\236", nullptr));
     } // retranslateUi

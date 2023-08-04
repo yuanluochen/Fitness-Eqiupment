@@ -22,3 +22,12 @@ void EquipSettingWindow::on_returnBefore_clicked()
 {
     CREATE_NEW_WINDOW(ApplicationWindow, this);
 }
+
+void EquipSettingWindow::on_pushButton_clicked()
+{
+    //search serial port
+    //显示正在搜索
+
+    //存放串口名链表
+
+}
