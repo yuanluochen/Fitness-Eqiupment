@@ -32,12 +32,6 @@ void ApplicationWindow::on_sportPushButton_clicked()
 {
     CREATE_NEW_WINDOW(SportWindow, this);
 }
-
-void ApplicationWindow::on_settingPushButton_clicked()
-{
-    CREATE_NEW_WINDOW(EquipSettingWindow, this);
-}
-
 void ApplicationWindow::on_manualPushbutton_clicked()
 {
     CREATE_NEW_WINDOW(ManualWindow, this);

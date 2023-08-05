@@ -11,7 +11,6 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QGridLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
@@ -21,30 +20,24 @@ QT_BEGIN_NAMESPACE
 class Ui_EquipmentItem
 {
 public:
-    QGridLayout *gridLayout;
     QWidget *widget;
-    QLabel *EquiPmentItemIcon;
     QPushButton *pushButton;
+    QLabel *EquiPmentItemIcon;
     QLabel *EquipmentItemName;
 
     void setupUi(QWidget *EquipmentItem)
     {
         if (EquipmentItem->objectName().isEmpty())
             EquipmentItem->setObjectName(QString::fromUtf8("EquipmentItem"));
-        EquipmentItem->resize(327, 443);
+        EquipmentItem->resize(251, 91);
         EquipmentItem->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
 ""));
-        gridLayout = new QGridLayout(EquipmentItem);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         widget = new QWidget(EquipmentItem);
         widget->setObjectName(QString::fromUtf8("widget"));
-        EquiPmentItemIcon = new QLabel(widget);
-        EquiPmentItemIcon->setObjectName(QString::fromUtf8("EquiPmentItemIcon"));
-        EquiPmentItemIcon->setGeometry(QRect(0, 0, 309, 389));
-        EquiPmentItemIcon->setAlignment(Qt::AlignCenter);
+        widget->setGeometry(QRect(0, 0, 251, 91));
         pushButton = new QPushButton(widget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(280, 0, 25, 25));
+        pushButton->setGeometry(QRect(230, 0, 25, 25));
         pushButton->setMinimumSize(QSize(25, 25));
         pushButton->setMaximumSize(QSize(25, 25));
         pushButton->setStyleSheet(QString::fromUtf8("\n"
@@ -53,12 +46,16 @@ public:
 "\n"
 "QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image: url(:/icon/EquipmentItem/close_item.png);}\n"
 ""));
-
-        gridLayout->addWidget(widget, 0, 0, 1, 1);
-
-        EquipmentItemName = new QLabel(EquipmentItem);
+        EquiPmentItemIcon = new QLabel(widget);
+        EquiPmentItemIcon->setObjectName(QString::fromUtf8("EquiPmentItemIcon"));
+        EquiPmentItemIcon->setGeometry(QRect(1, 1, 89, 89));
+        EquiPmentItemIcon->setMinimumSize(QSize(89, 89));
+        EquiPmentItemIcon->setMaximumSize(QSize(89, 89));
+        EquiPmentItemIcon->setAlignment(Qt::AlignCenter);
+        EquipmentItemName = new QLabel(widget);
         EquipmentItemName->setObjectName(QString::fromUtf8("EquipmentItemName"));
-        EquipmentItemName->setMaximumSize(QSize(16777215, 30));
+        EquipmentItemName->setGeometry(QRect(96, 1, 154, 89));
+        EquipmentItemName->setMaximumSize(QSize(16777215, 16777215));
         QFont font;
         font.setPointSize(14);
         font.setBold(true);
@@ -66,9 +63,6 @@ public:
         EquipmentItemName->setFont(font);
         EquipmentItemName->setStyleSheet(QString::fromUtf8("border-radius:15px;"));
         EquipmentItemName->setAlignment(Qt::AlignCenter);
-
-        gridLayout->addWidget(EquipmentItemName, 1, 0, 1, 1);
-
 
         retranslateUi(EquipmentItem);
 
@@ -78,8 +72,8 @@ public:
     void retranslateUi(QWidget *EquipmentItem)
     {
         EquipmentItem->setWindowTitle(QCoreApplication::translate("EquipmentItem", "Form", nullptr));
-        EquiPmentItemIcon->setText(QString());
         pushButton->setText(QString());
+        EquiPmentItemIcon->setText(QString());
         EquipmentItemName->setText(QString());
     } // retranslateUi
 

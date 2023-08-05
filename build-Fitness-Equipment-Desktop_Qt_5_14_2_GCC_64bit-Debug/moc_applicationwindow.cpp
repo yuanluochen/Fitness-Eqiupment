@@ -87,7 +87,6 @@ void ApplicationWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, in
         switch (_id) {
         case 0: _t->on_returnBefore_clicked(); break;
         case 1: _t->on_sportPushButton_clicked(); break;
-        case 2: _t->on_settingPushButton_clicked(); break;
         case 3: _t->on_manualPushbutton_clicked(); break;
         case 4: _t->on_healthManagerPushButton_clicked(); break;
         default: ;

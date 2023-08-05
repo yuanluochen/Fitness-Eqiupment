@@ -18,7 +18,7 @@ public:
 private slots:
     void on_returnBefore_clicked();
 
-    void on_pushButton_clicked();
+    void on_searchPushButton_clicked();
 
 private:
     Ui::EquipSettingWindow *ui;

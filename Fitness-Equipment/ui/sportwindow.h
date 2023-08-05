@@ -18,6 +18,8 @@ public:
 private slots:
     void on_returnBefore_clicked();
 
+    void on_searchPushButton_clicked();
+
 private:
     Ui::SportWindow *ui;
 };

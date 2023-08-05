@@ -2,6 +2,7 @@
 #include "ui_equipsettingwindow.h"
 
 #include "ui/applicationwindow.h"
+#include "ui/equipmentitem.h"
 
 #include "userLib/userLib_ui.h"
 #include "QSerialPortInfo"
@@ -11,6 +12,16 @@ EquipSettingWindow::EquipSettingWindow(QWidget *parent) :
     ui(new Ui::EquipSettingWindow)
 {
     ui->setupUi(this);
+    //设置列项添加
+//    ui->FitnessEquipmentListWidget->setWrapping(true);
+    ui->FitnessEquipmentListWidget->setFlow(QListView::LeftToRight);
+
+    EquipmentItem *item = new EquipmentItem(EquipmentItemCard::FITNESS);
+    QListWidgetItem *listWidgetItem = new QListWidgetItem;
+    ui->FitnessEquipmentListWidget->addItem(listWidgetItem);
+    ui->FitnessEquipmentListWidget->setItemWidget(listWidgetItem, item);
+
+
 }
 
 EquipSettingWindow::~EquipSettingWindow()
@@ -23,11 +34,7 @@ void EquipSettingWindow::on_returnBefore_clicked()
     CREATE_NEW_WINDOW(ApplicationWindow, this);
 }
 
-void EquipSettingWindow::on_pushButton_clicked()
+void EquipSettingWindow::on_searchPushButton_clicked()
 {
-    //search serial port
-    //显示正在搜索
-
-    //存放串口名链表
 
 }

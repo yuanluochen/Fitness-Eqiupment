@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_EquipSettingWindow_t {
     QByteArrayData data[4];
-    char stringdata0[66];
+    char stringdata0[72];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,11 +35,11 @@ static const qt_meta_stringdata_EquipSettingWindow_t qt_meta_stringdata_EquipSet
 QT_MOC_LITERAL(0, 0, 18), // "EquipSettingWindow"
 QT_MOC_LITERAL(1, 19, 23), // "on_returnBefore_clicked"
 QT_MOC_LITERAL(2, 43, 0), // ""
-QT_MOC_LITERAL(3, 44, 21) // "on_pushButton_clicked"
+QT_MOC_LITERAL(3, 44, 27) // "on_searchPushButton_clicked"
 
     },
     "EquipSettingWindow\0on_returnBefore_clicked\0"
-    "\0on_pushButton_clicked"
+    "\0on_searchPushButton_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -74,7 +74,7 @@ void EquipSettingWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, i
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_returnBefore_clicked(); break;
-        case 1: _t->on_pushButton_clicked(); break;
+        case 1: _t->on_searchPushButton_clicked(); break;
         default: ;
         }
     }

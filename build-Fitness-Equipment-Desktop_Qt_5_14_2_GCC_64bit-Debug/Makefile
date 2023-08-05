@@ -800,6 +800,8 @@ qrc_resource.cpp: ../Fitness-Equipment/resource/resource.qrc \
 		../../../../Qt5.14.2/5.14.2/gcc_64/bin/rcc \
 		../Fitness-Equipment/resource/picture/ApplicationWindow/health.png \
 		../Fitness-Equipment/resource/picture/MainWIndow/equipment.png \
+		../Fitness-Equipment/resource/icon/SportWindow/startSport.png \
+		../Fitness-Equipment/resource/icon/SportWindow/search.png \
 		../Fitness-Equipment/resource/icon/SportWindow/return.png \
 		../Fitness-Equipment/resource/icon/SportWindow/sport.png \
 		../Fitness-Equipment/resource/icon/MainWindow/enter.png \
@@ -819,7 +821,6 @@ qrc_resource.cpp: ../Fitness-Equipment/resource/resource.qrc \
 		../Fitness-Equipment/resource/icon/ManualWindow/manual.png \
 		../Fitness-Equipment/resource/icon/ManualWindow/return.png \
 		../Fitness-Equipment/resource/icon/EquipmentSettingWindow/monitoringEquipment.png \
-		../Fitness-Equipment/resource/icon/EquipmentSettingWindow/search.png \
 		../Fitness-Equipment/resource/icon/EquipmentSettingWindow/setting.png \
 		../Fitness-Equipment/resource/icon/EquipmentSettingWindow/fitnessEquipment.png \
 		../Fitness-Equipment/resource/icon/EquipmentSettingWindow/return.png
@@ -3022,7 +3023,22 @@ equipmentitem.o: ../Fitness-Equipment/ui/equipmentitem.cpp ../Fitness-Equipment/
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfiledevice.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qvector2d.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qtouchdevice.h \
-		ui_equipmentitem.h
+		ui_equipmentitem.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QVariant \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QApplication \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qapplication.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcoreapplication.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qeventloop.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qdesktopwidget.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qguiapplication.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qinputmethod.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QLabel \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlabel.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qframe.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QPushButton \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qpushbutton.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractbutton.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qicon.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o equipmentitem.o ../Fitness-Equipment/ui/equipmentitem.cpp
 
 equipsettingwindow.o: ../Fitness-Equipment/ui/equipsettingwindow.cpp ../Fitness-Equipment/ui/equipsettingwindow.h \
@@ -3150,7 +3166,8 @@ equipsettingwindow.o: ../Fitness-Equipment/ui/equipsettingwindow.cpp ../Fitness-
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QHBoxLayout \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QLabel \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlabel.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QListView \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QListWidget \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlistwidget.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlistview.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractitemview.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractscrollarea.h \
@@ -3168,14 +3185,13 @@ equipsettingwindow.o: ../Fitness-Equipment/ui/equipsettingwindow.cpp ../Fitness-
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtabbar.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtabwidget.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qrubberband.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QListWidget \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlistwidget.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QPushButton \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qpushbutton.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractbutton.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QSpacerItem \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QVBoxLayout \
 		../Fitness-Equipment/ui/applicationwindow.h \
+		../Fitness-Equipment/ui/equipmentitem.h \
 		../Fitness-Equipment/userLib/userLib_ui.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/QSerialPortInfo \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/qserialportinfo.h \
@@ -4003,13 +4019,32 @@ sportwindow.o: ../Fitness-Equipment/ui/sportwindow.cpp ../Fitness-Equipment/ui/s
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayout.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlayoutitem.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qboxlayout.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QHBoxLayout \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QLabel \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlabel.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qframe.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QListWidget \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlistwidget.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qlistview.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractitemview.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qabstractitemmodel.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qitemselectionmodel.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractitemdelegate.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qstyleoption.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractspinbox.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qvalidator.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qregularexpression.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qicon.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qslider.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractslider.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qstyle.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtabbar.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qtabwidget.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qrubberband.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QPushButton \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qpushbutton.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/qabstractbutton.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtGui/qicon.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QSpacerItem \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QVBoxLayout \
 		../Fitness-Equipment/ui/applicationwindow.h \

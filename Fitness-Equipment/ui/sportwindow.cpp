@@ -4,6 +4,7 @@
 #include "ui/applicationwindow.h"
 
 #include "userLib/userLib_ui.h"
+#include "QSerialPortInfo"
 
 SportWindow::SportWindow(QWidget *parent) :
     QWidget(parent),
@@ -20,4 +21,9 @@ SportWindow::~SportWindow()
 void SportWindow::on_returnBefore_clicked()
 {
     CREATE_NEW_WINDOW(ApplicationWindow, this);
+}
+
+void SportWindow::on_searchPushButton_clicked()
+{
+    //按键按下自动搜索串口
 }

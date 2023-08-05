@@ -64,10 +64,4 @@ private:
     Ui::EquipmentItem *ui;
 };
 
-
-
-
-
-
-
 #endif // EQUIPMENTITEM_H
