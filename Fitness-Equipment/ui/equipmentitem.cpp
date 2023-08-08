@@ -1,6 +1,6 @@
 #include "equipmentitem.h"
 #include "ui_equipmentitem.h"
-#include "QDebug"
+#include <QDebug>
 
 EquipmentItem::EquipmentItem(QWidget *parent) :
     QWidget(parent),

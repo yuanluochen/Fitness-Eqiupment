@@ -8,7 +8,7 @@
 #include "ui/healthmanagerwindow.h"
 
 #include "userLib/userLib_ui.h"
-#include "QDebug"
+#include <QDebug>
 
 
 
