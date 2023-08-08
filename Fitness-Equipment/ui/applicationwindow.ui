@@ -514,6 +514,19 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image:
      </property>
     </spacer>
    </item>
+   <item row="2" column="9">
+    <spacer name="verticalSpacer_5">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>40</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
   </layout>
  </widget>
  <resources/>

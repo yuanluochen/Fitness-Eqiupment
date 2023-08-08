@@ -8,6 +8,7 @@
 #include "ui/healthmanagerwindow.h"
 
 #include "userLib/userLib_ui.h"
+#include "QDebug"
 
 
 
@@ -32,6 +33,7 @@ void ApplicationWindow::on_sportPushButton_clicked()
 {
     CREATE_NEW_WINDOW(SportWindow, this);
 }
+
 void ApplicationWindow::on_manualPushbutton_clicked()
 {
     CREATE_NEW_WINDOW(ManualWindow, this);

@@ -6,6 +6,7 @@
 
 #include "userLib/userLib_ui.h"
 #include "QSerialPortInfo"
+#include "QDebug"
 
 EquipSettingWindow::EquipSettingWindow(QWidget *parent) :
     QWidget(parent),

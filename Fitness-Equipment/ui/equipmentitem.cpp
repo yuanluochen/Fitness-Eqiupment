@@ -1,5 +1,6 @@
 #include "equipmentitem.h"
 #include "ui_equipmentitem.h"
+#include "QDebug"
 
 EquipmentItem::EquipmentItem(QWidget *parent) :
     QWidget(parent),
@@ -24,19 +25,19 @@ EquipmentItem::EquipmentItem(EquipmentItemCard::equipmentType type, QWidget *par
     case EquipmentItemCard::FITNESS:
         icon.load(FITNESS_EQUIPMENT_ICON);
         name = FITNESS_EQUIPMENT_NAME;
-        qDebug("set fitness equipment item parameter");
+        qDebug() << "set fitness equipment item parameter";
         break;
     //监测手环
     case EquipmentItemCard::MONITORING:
         icon.load(MONITORING_EQUIPMENT_ICON);
         name = MONITORING_EQUIPMENT_NAME;
-        qDebug("set monitoring equipment item parameter");
+        qDebug() << "set monitoring equipment item parameter";
         break;
     //自行车
     case EquipmentItemCard::BICYCLE:
         icon.load(BICYCLE_EQUIPMENT_ICON);
         name = BICYCLE_EQUIPMENT_NAME;
-        qDebug("set bicycle card item parameter");
+        qDebug() << "set bicycle card item parameter";
         break;
     }
 
@@ -44,7 +45,7 @@ EquipmentItem::EquipmentItem(EquipmentItemCard::equipmentType type, QWidget *par
     ui->EquiPmentItemIcon->setPixmap(QPixmap::fromImage(icon));
     ui->EquipmentItemName->setText(name);
 
-    qDebug("create %s item card", (char*)name.data());
+    qDebug() << "create" << name << "item card";
 
 }
 
@@ -56,7 +57,7 @@ EquipmentItem::~EquipmentItem()
 
 void EquipmentItem::on_pushButton_clicked()
 {
-    qDebug("close %s windows", (char *)ui->EquipmentItemName->text().data());
+    qDebug() << "close" << ui->EquipmentItemName->text() <<  "windows可";
     //关闭窗口
     this->close();
 }

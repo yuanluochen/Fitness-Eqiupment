@@ -26,8 +26,8 @@ class Ui_SportWindow
 {
 public:
     QGridLayout *gridLayout_2;
-    QSpacerItem *verticalSpacer_2;
-    QVBoxLayout *verticalLayout_3;
+    QSpacerItem *horizontalSpacer_4;
+    QVBoxLayout *verticalLayout;
     QWidget *widget_7;
     QLabel *dataTypelabel_5;
     QLabel *setUnitLabel_5;
@@ -49,16 +49,25 @@ public:
     QPushButton *ReducePushButton;
     QPushButton *PromotrPushButton;
     QSpacerItem *verticalSpacer_5;
+    QWidget *widget_4;
+    QLabel *label;
+    QLabel *label_2;
     QPushButton *startSportPushButton;
     QSpacerItem *verticalSpacer_4;
+    QWidget *widget_8;
+    QLabel *label_3;
+    QLabel *label_4;
     QPushButton *stopSportPushButton;
     QSpacerItem *verticalSpacer_3;
+    QSpacerItem *verticalSpacer_8;
+    QSpacerItem *horizontalSpacer_3;
+    QSpacerItem *verticalSpacer_2;
     QWidget *widget_3;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QGridLayout *gridLayout;
     QSpacerItem *verticalSpacer;
     QVBoxLayout *verticalLayout_2;
-    QWidget *widget1;
+    QWidget *widget;
     QLabel *heartRateDataLabel;
     QLabel *DataTypeLabel;
     QLabel *UnitLabel;
@@ -73,14 +82,12 @@ public:
     QPushButton *searchPushButton;
     QPushButton *returnBefore;
     QSpacerItem *horizontalSpacer_2;
-    QSpacerItem *horizontalSpacer_4;
-    QSpacerItem *horizontalSpacer_3;
 
     void setupUi(QWidget *SportWindow)
     {
         if (SportWindow->objectName().isEmpty())
             SportWindow->setObjectName(QString::fromUtf8("SportWindow"));
-        SportWindow->resize(1600, 900);
+        SportWindow->resize(1600, 918);
         SportWindow->setMinimumSize(QSize(0, 0));
         QFont font;
         font.setPointSize(14);
@@ -90,14 +97,16 @@ public:
 "border-radius:15px;"));
         gridLayout_2 = new QGridLayout(SportWindow);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        verticalSpacer_2 = new QSpacerItem(20, 420, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        horizontalSpacer_4 = new QSpacerItem(68, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
 
-        gridLayout_2->addItem(verticalSpacer_2, 0, 2, 1, 1);
+        gridLayout_2->addItem(horizontalSpacer_4, 3, 4, 1, 1);
 
-        verticalLayout_3 = new QVBoxLayout();
-        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         widget_7 = new QWidget(SportWindow);
         widget_7->setObjectName(QString::fromUtf8("widget_7"));
+        widget_7->setMinimumSize(QSize(251, 71));
+        widget_7->setMaximumSize(QSize(251, 71));
         dataTypelabel_5 = new QLabel(widget_7);
         dataTypelabel_5->setObjectName(QString::fromUtf8("dataTypelabel_5"));
         dataTypelabel_5->setGeometry(QRect(0, 0, 251, 21));
@@ -145,14 +154,16 @@ public:
 "border-style: outset;\n"
 ""));
 
-        verticalLayout_3->addWidget(widget_7);
+        verticalLayout->addWidget(widget_7);
 
         verticalSpacer_7 = new QSpacerItem(20, 13, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
-        verticalLayout_3->addItem(verticalSpacer_7);
+        verticalLayout->addItem(verticalSpacer_7);
 
         widget_6 = new QWidget(SportWindow);
         widget_6->setObjectName(QString::fromUtf8("widget_6"));
+        widget_6->setMinimumSize(QSize(251, 71));
+        widget_6->setMaximumSize(QSize(251, 71));
         dataTypelabel_4 = new QLabel(widget_6);
         dataTypelabel_4->setObjectName(QString::fromUtf8("dataTypelabel_4"));
         dataTypelabel_4->setGeometry(QRect(0, 0, 251, 21));
@@ -192,14 +203,16 @@ public:
 "border-style: outset;\n"
 ""));
 
-        verticalLayout_3->addWidget(widget_6);
+        verticalLayout->addWidget(widget_6);
 
         verticalSpacer_6 = new QSpacerItem(20, 13, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
-        verticalLayout_3->addItem(verticalSpacer_6);
+        verticalLayout->addItem(verticalSpacer_6);
 
         widget_5 = new QWidget(SportWindow);
         widget_5->setObjectName(QString::fromUtf8("widget_5"));
+        widget_5->setMinimumSize(QSize(251, 71));
+        widget_5->setMaximumSize(QSize(251, 71));
         dataTypelabel = new QLabel(widget_5);
         dataTypelabel->setObjectName(QString::fromUtf8("dataTypelabel"));
         dataTypelabel->setGeometry(QRect(0, 0, 251, 21));
@@ -240,17 +253,43 @@ public:
 "border-style: outset;\n"
 ""));
 
-        verticalLayout_3->addWidget(widget_5);
+        verticalLayout->addWidget(widget_5);
 
         verticalSpacer_5 = new QSpacerItem(20, 13, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
-        verticalLayout_3->addItem(verticalSpacer_5);
+        verticalLayout->addItem(verticalSpacer_5);
 
-        startSportPushButton = new QPushButton(SportWindow);
+        widget_4 = new QWidget(SportWindow);
+        widget_4->setObjectName(QString::fromUtf8("widget_4"));
+        widget_4->setMinimumSize(QSize(251, 61));
+        widget_4->setMaximumSize(QSize(251, 61));
+        widget_4->setStyleSheet(QString::fromUtf8("background-color: rgb(3, 231, 231);\n"
+"QPushButton {\n"
+"    color: white;\n"
+"    font-size: 16px;\n"
+"    font-weight: bold;\n"
+"}\n"
+""));
+        label = new QLabel(widget_4);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setGeometry(QRect(10, 10, 41, 41));
+        label->setStyleSheet(QString::fromUtf8("border-image: url(:/icon/SportWindow/start.png);\n"
+"background-color: transparent;"));
+        label_2 = new QLabel(widget_4);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(60, 0, 190, 61));
+        QFont font4;
+        font4.setPointSize(17);
+        font4.setBold(true);
+        font4.setWeight(75);
+        label_2->setFont(font4);
+        label_2->setAlignment(Qt::AlignCenter);
+        startSportPushButton = new QPushButton(widget_4);
         startSportPushButton->setObjectName(QString::fromUtf8("startSportPushButton"));
+        startSportPushButton->setGeometry(QRect(0, 0, 251, 61));
         startSportPushButton->setMinimumSize(QSize(251, 61));
         startSportPushButton->setMaximumSize(QSize(251, 61));
-        startSportPushButton->setStyleSheet(QString::fromUtf8("background-color: rgb(3, 231, 231);\n"
+        startSportPushButton->setStyleSheet(QString::fromUtf8("background-color: transparent;\n"
 "QPushButton {\n"
 "    color: white;\n"
 "    font-size: 16px;\n"
@@ -258,17 +297,39 @@ public:
 "}\n"
 ""));
 
-        verticalLayout_3->addWidget(startSportPushButton);
+        verticalLayout->addWidget(widget_4);
 
         verticalSpacer_4 = new QSpacerItem(20, 13, QSizePolicy::Minimum, QSizePolicy::Fixed);
 
-        verticalLayout_3->addItem(verticalSpacer_4);
+        verticalLayout->addItem(verticalSpacer_4);
 
-        stopSportPushButton = new QPushButton(SportWindow);
+        widget_8 = new QWidget(SportWindow);
+        widget_8->setObjectName(QString::fromUtf8("widget_8"));
+        widget_8->setMinimumSize(QSize(251, 61));
+        widget_8->setMaximumSize(QSize(251, 61));
+        widget_8->setStyleSheet(QString::fromUtf8("background-color: rgb(3, 231, 231);\n"
+"QPushButton {\n"
+"    color: white;\n"
+"    font-size: 16px;\n"
+"    font-weight: bold;\n"
+"}\n"
+""));
+        label_3 = new QLabel(widget_8);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(10, 10, 41, 41));
+        label_3->setStyleSheet(QString::fromUtf8("border-image: url(:/icon/SportWindow/stop.png);\n"
+"background-color: transparent;"));
+        label_4 = new QLabel(widget_8);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setGeometry(QRect(60, 0, 190, 61));
+        label_4->setFont(font4);
+        label_4->setAlignment(Qt::AlignCenter);
+        stopSportPushButton = new QPushButton(widget_8);
         stopSportPushButton->setObjectName(QString::fromUtf8("stopSportPushButton"));
+        stopSportPushButton->setGeometry(QRect(0, 0, 251, 61));
         stopSportPushButton->setMinimumSize(QSize(251, 61));
         stopSportPushButton->setMaximumSize(QSize(251, 61));
-        stopSportPushButton->setStyleSheet(QString::fromUtf8("background-color: rgb(3, 231, 231);\n"
+        stopSportPushButton->setStyleSheet(QString::fromUtf8("background-color: transparent;\n"
 "QPushButton {\n"
 "    color: white;\n"
 "    font-size: 16px;\n"
@@ -276,24 +337,36 @@ public:
 "}\n"
 ""));
 
-        verticalLayout_3->addWidget(stopSportPushButton);
+        verticalLayout->addWidget(widget_8);
 
 
-        gridLayout_2->addLayout(verticalLayout_3, 1, 2, 2, 1);
+        gridLayout_2->addLayout(verticalLayout, 2, 2, 2, 2);
 
-        verticalSpacer_3 = new QSpacerItem(20, 38, QSizePolicy::Minimum, QSizePolicy::Fixed);
+        verticalSpacer_3 = new QSpacerItem(20, 145, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout_2->addItem(verticalSpacer_3, 3, 2, 1, 1);
+        gridLayout_2->addItem(verticalSpacer_3, 0, 3, 1, 1);
+
+        verticalSpacer_8 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer_8, 1, 3, 1, 1);
+
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer_3, 2, 1, 1, 1);
+
+        verticalSpacer_2 = new QSpacerItem(20, 145, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer_2, 4, 2, 1, 1);
 
         widget_3 = new QWidget(SportWindow);
         widget_3->setObjectName(QString::fromUtf8("widget_3"));
         widget_3->setMinimumSize(QSize(1181, 900));
         widget_3->setMaximumSize(QSize(1181, 900));
         widget_3->setStyleSheet(QString::fromUtf8("background-color: rgb(233, 243, 255);"));
-        widget = new QWidget(widget_3);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(0, 10, 331, 891));
-        gridLayout = new QGridLayout(widget);
+        layoutWidget = new QWidget(widget_3);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(0, 10, 331, 891));
+        gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
@@ -302,63 +375,63 @@ public:
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        widget1 = new QWidget(widget);
-        widget1->setObjectName(QString::fromUtf8("widget1"));
-        widget1->setMinimumSize(QSize(261, 141));
-        widget1->setMaximumSize(QSize(261, 141));
-        heartRateDataLabel = new QLabel(widget1);
+        widget = new QWidget(layoutWidget);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setMinimumSize(QSize(261, 141));
+        widget->setMaximumSize(QSize(261, 141));
+        heartRateDataLabel = new QLabel(widget);
         heartRateDataLabel->setObjectName(QString::fromUtf8("heartRateDataLabel"));
         heartRateDataLabel->setGeometry(QRect(0, 0, 261, 141));
-        QFont font4;
-        font4.setPointSize(30);
-        heartRateDataLabel->setFont(font4);
+        QFont font5;
+        font5.setPointSize(30);
+        heartRateDataLabel->setFont(font5);
         heartRateDataLabel->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(26, 95, 180);"));
-        DataTypeLabel = new QLabel(widget1);
+        DataTypeLabel = new QLabel(widget);
         DataTypeLabel->setObjectName(QString::fromUtf8("DataTypeLabel"));
         DataTypeLabel->setGeometry(QRect(20, 100, 91, 31));
-        QFont font5;
-        font5.setPointSize(13);
-        font5.setBold(true);
-        font5.setWeight(75);
-        DataTypeLabel->setFont(font5);
+        QFont font6;
+        font6.setPointSize(13);
+        font6.setBold(true);
+        font6.setWeight(75);
+        DataTypeLabel->setFont(font6);
         DataTypeLabel->setStyleSheet(QString::fromUtf8("background-color:transparent;"));
-        UnitLabel = new QLabel(widget1);
+        UnitLabel = new QLabel(widget);
         UnitLabel->setObjectName(QString::fromUtf8("UnitLabel"));
         UnitLabel->setGeometry(QRect(180, 110, 71, 18));
-        QFont font6;
-        font6.setPointSize(9);
-        UnitLabel->setFont(font6);
+        QFont font7;
+        font7.setPointSize(9);
+        UnitLabel->setFont(font7);
         UnitLabel->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         UnitLabel->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        verticalLayout_2->addWidget(widget1);
+        verticalLayout_2->addWidget(widget);
 
-        widget_2 = new QWidget(widget);
+        widget_2 = new QWidget(layoutWidget);
         widget_2->setObjectName(QString::fromUtf8("widget_2"));
         widget_2->setMinimumSize(QSize(261, 141));
         widget_2->setMaximumSize(QSize(261, 141));
         bloodOxygenDataLabel = new QLabel(widget_2);
         bloodOxygenDataLabel->setObjectName(QString::fromUtf8("bloodOxygenDataLabel"));
         bloodOxygenDataLabel->setGeometry(QRect(0, 0, 261, 141));
-        bloodOxygenDataLabel->setFont(font4);
+        bloodOxygenDataLabel->setFont(font5);
         bloodOxygenDataLabel->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(26, 95, 180);"));
         DataTypeLabel_2 = new QLabel(widget_2);
         DataTypeLabel_2->setObjectName(QString::fromUtf8("DataTypeLabel_2"));
         DataTypeLabel_2->setGeometry(QRect(20, 100, 91, 31));
-        DataTypeLabel_2->setFont(font5);
+        DataTypeLabel_2->setFont(font6);
         DataTypeLabel_2->setStyleSheet(QString::fromUtf8("background-color:transparent;"));
         UnitLabel_2 = new QLabel(widget_2);
         UnitLabel_2->setObjectName(QString::fromUtf8("UnitLabel_2"));
         UnitLabel_2->setGeometry(QRect(180, 110, 71, 18));
-        UnitLabel_2->setFont(font6);
+        UnitLabel_2->setFont(font7);
         UnitLabel_2->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         UnitLabel_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         verticalLayout_2->addWidget(widget_2);
 
-        EquipmentListWidget = new QListWidget(widget);
+        EquipmentListWidget = new QListWidget(layoutWidget);
         EquipmentListWidget->setObjectName(QString::fromUtf8("EquipmentListWidget"));
         EquipmentListWidget->setMinimumSize(QSize(0, 450));
         EquipmentListWidget->setStyleSheet(QString::fromUtf8("background-color: rgb(202, 226, 255);"));
@@ -367,7 +440,7 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        equipmentStatusLabel = new QLabel(widget);
+        equipmentStatusLabel = new QLabel(layoutWidget);
         equipmentStatusLabel->setObjectName(QString::fromUtf8("equipmentStatusLabel"));
         equipmentStatusLabel->setAlignment(Qt::AlignCenter);
 
@@ -377,7 +450,7 @@ public:
 
         horizontalLayout->addItem(horizontalSpacer);
 
-        searchPushButton = new QPushButton(widget);
+        searchPushButton = new QPushButton(layoutWidget);
         searchPushButton->setObjectName(QString::fromUtf8("searchPushButton"));
         searchPushButton->setMinimumSize(QSize(25, 25));
         searchPushButton->setMaximumSize(QSize(25, 25));
@@ -398,16 +471,16 @@ public:
 
         gridLayout->addLayout(verticalLayout_2, 0, 1, 1, 1);
 
-        returnBefore = new QPushButton(widget);
+        returnBefore = new QPushButton(layoutWidget);
         returnBefore->setObjectName(QString::fromUtf8("returnBefore"));
         returnBefore->setEnabled(true);
         returnBefore->setMinimumSize(QSize(60, 60));
-        QFont font7;
-        font7.setFamily(QString::fromUtf8("AR PL UMing CN"));
-        font7.setPointSize(14);
-        font7.setBold(true);
-        font7.setWeight(75);
-        returnBefore->setFont(font7);
+        QFont font8;
+        font8.setFamily(QString::fromUtf8("AR PL UMing CN"));
+        font8.setPointSize(14);
+        font8.setBold(true);
+        font8.setWeight(75);
+        returnBefore->setFont(font8);
         returnBefore->setStyleSheet(QString::fromUtf8("QPushButton{border-radius:15px;;background-color: rgb(221, 236, 255);border-image: url(:/icon/SportWindow/return.png);}\n"
 "\n"
 "\n"
@@ -424,15 +497,7 @@ public:
         gridLayout->addItem(horizontalSpacer_2, 1, 1, 1, 1);
 
 
-        gridLayout_2->addWidget(widget_3, 0, 0, 4, 1);
-
-        horizontalSpacer_4 = new QSpacerItem(68, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
-
-        gridLayout_2->addItem(horizontalSpacer_4, 2, 3, 1, 1);
-
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_2->addItem(horizontalSpacer_3, 1, 1, 1, 1);
+        gridLayout_2->addWidget(widget_3, 0, 0, 5, 1);
 
 
         retranslateUi(SportWindow);
@@ -458,7 +523,11 @@ public:
         SetData->setText(QCoreApplication::translate("SportWindow", "SET_DATA", nullptr));
         ReducePushButton->setText(QCoreApplication::translate("SportWindow", "-", nullptr));
         PromotrPushButton->setText(QCoreApplication::translate("SportWindow", "+", nullptr));
+        label->setText(QString());
+        label_2->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">\345\201\245\350\272\253\345\274\200\345\247\213</span></p></body></html>", nullptr));
         startSportPushButton->setText(QString());
+        label_3->setText(QString());
+        label_4->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">\345\201\245\350\272\253\345\201\234\346\255\242</span></p></body></html>", nullptr));
         stopSportPushButton->setText(QString());
         heartRateDataLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\"> &nbsp;DATA</span></p></body></html>", nullptr));
         DataTypeLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">\345\277\203\347\216\207</span></p></body></html>", nullptr));

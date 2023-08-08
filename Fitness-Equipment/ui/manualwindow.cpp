@@ -4,6 +4,7 @@
 #include "ui/applicationwindow.h"
 
 #include "userLib/userLib_ui.h"
+#include "QDebug"
 
 ManualWindow::ManualWindow(QWidget *parent) :
     QWidget(parent),

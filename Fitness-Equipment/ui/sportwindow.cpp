@@ -5,12 +5,17 @@
 
 #include "userLib/userLib_ui.h"
 #include "QSerialPortInfo"
+#include "QSerialPort"
+#include "QDebug"
+#include "QThread"
+#include "application/Equipment/equipmentconnection.h"
 
 SportWindow::SportWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SportWindow)
 {
     ui->setupUi(this);
+
 }
 
 SportWindow::~SportWindow()
@@ -25,5 +30,9 @@ void SportWindow::on_returnBefore_clicked()
 
 void SportWindow::on_searchPushButton_clicked()
 {
-    //按键按下自动搜索串口
+    //创建设备连接线程对象
+    equipmentConnection::EquipmentConnection *equipmentConnect = new equipmentConnection::EquipmentConnection;
+    equipmentConnect->start();
+
 }
+

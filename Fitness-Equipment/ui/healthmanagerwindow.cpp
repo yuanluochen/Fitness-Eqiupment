@@ -4,6 +4,7 @@
 #include "ui/applicationwindow.h"
 
 #include "userLib/userLib_ui.h"
+#include "QDebug"
 
 HealthManagerWindow::HealthManagerWindow(QWidget *parent) :
     QWidget(parent),

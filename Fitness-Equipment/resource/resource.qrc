@@ -25,6 +25,7 @@
         <file>icon/EquipmentItem/bicycleEquipment.png</file>
         <file>icon/EquipmentItem/add_item.png</file>
         <file>icon/SportWindow/search.png</file>
-        <file>icon/SportWindow/startSport.png</file>
+        <file>icon/SportWindow/stop.png</file>
+        <file>icon/SportWindow/start.png</file>
     </qresource>
 </RCC>

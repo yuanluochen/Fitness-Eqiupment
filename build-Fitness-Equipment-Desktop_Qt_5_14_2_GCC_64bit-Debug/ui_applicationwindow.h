@@ -60,6 +60,7 @@ public:
     QSpacerItem *horizontalSpacer_5;
     QSpacerItem *horizontalSpacer_10;
     QSpacerItem *verticalSpacer_11;
+    QSpacerItem *verticalSpacer_5;
 
     void setupUi(QWidget *ApplicationWindow)
     {
@@ -288,6 +289,10 @@ public:
         verticalSpacer_11 = new QSpacerItem(20, 108, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         gridLayout->addItem(verticalSpacer_11, 6, 4, 1, 1);
+
+        verticalSpacer_5 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout->addItem(verticalSpacer_5, 2, 9, 1, 1);
 
 
         retranslateUi(ApplicationWindow);
