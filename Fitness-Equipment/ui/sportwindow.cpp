@@ -29,6 +29,9 @@ SportWindow::~SportWindow()
 
 void SportWindow::on_returnBefore_clicked()
 {
+    //析构线程对象
+    delete this->equipmentSearch;
+
     CREATE_NEW_WINDOW(ApplicationWindow, this);
 }
 
@@ -50,4 +53,17 @@ void SportWindow::connectEquipment()
     }
     //开启设备连接线程
     this->equipmentSearch->start();
+
+    //接收发送可用设备列表
+    QObject::connect(this->equipmentSearch, &equipmentConnection::EquipmentSearch::sendMontoringEquipmentList, this, [=](QStringList availableList)
+    {
+        if (!availableList.empty())
+        {
+            ui->equipmentStatusLabel->setText("发现设备正在连接设备");
+        }
+        else
+        {
+            ui->equipmentStatusLabel->setText("没有发现设备");
+        }
+    });
 }

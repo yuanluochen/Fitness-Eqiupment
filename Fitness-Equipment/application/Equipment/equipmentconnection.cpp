@@ -5,18 +5,20 @@
 
 /**
  * @brief openEquipment 设备开启函数，输出船
- * @param EquipmentName 设备名称
+ * @brief equipmentSerialPort 设备串口
+ * @param equipmentName 设备名称
  * @param baudRate 波特率
  * @param dataBits 数据位
  * @param parity 校验位
  * @param stopBits 停止位
  * @param openMode 串口模式
  */
-void openEquipment(QString EquipmentName, qint32 baudRate, QSerialPort::DataBits dataBits, QSerialPort::Parity parity, QSerialPort::StopBits stopBits, QIODevice::OpenMode openMode);
-
+void openEquipment(QSerialPort* equipmentSerialPort, QString equipmentName, qint32 baudRate, QSerialPort::DataBits dataBits, QSerialPort::Parity parity, QSerialPort::StopBits stopBits, QIODevice::OpenMode openMode);
 
 equipmentConnection::EquipmentSearch::EquipmentSearch(QObject *parent) : QThread(parent)
 {
+    //初始化状态为未验证
+    this->montoringEquipmentCheckState = NOT_VALIDATE;
 }
 
 void  equipmentConnection::EquipmentSearch::run()
@@ -28,16 +30,43 @@ void  equipmentConnection::EquipmentSearch::run()
 
     qDebug() << "thread task finished, exit EquipmentConnect thread";
 
-    //遍历开启串口
-    for (QStringList::iterator it = allAvailableEquipmentList.begin(); it != allAvailableEquipmentList.end(); it++)
-    {
-        qDebug() << "try equipment: >>" << *it << "<<";
-        openEquipment(*it, QSerialPort::Baud115200, QSerialPort::Data8, QSerialPort::NoParity, QSerialPort::OneStop, QSerialPort::ReadOnly);
-    }
+    //设备验证,验证完毕添加到对应的设备清单内
+    equipmentCheck(allAvailableEquipmentList);
 
+    //发送可用设备列表
+    emit sendMontoringEquipmentList(availableMontoringEquipmentList);
+
+    qDebug() << "search equipment finished";
 
 }
 
+void equipmentConnection::EquipmentSearch::montoringEquipmentCheck()
+{
+    QByteArray receiveBuf =  this->testSerialPort->readAll();
+
+    if (!receiveBuf.isEmpty())
+    {
+        montoringEquipment::receivePack_t tempBuf;
+        //数据清空
+        memset(&tempBuf, 0, sizeof(montoringEquipment::receivePack_t));
+        memcpy(&tempBuf, receiveBuf.data(), sizeof(montoringEquipment::receivePack_t));
+
+        //验证数据
+        if (tempBuf.header == MONTORING_EQUIPMENT_HEADER && tempBuf.tail == MONTORING_EQUIPMENT_TAIL)
+        {
+            //设备验证通过，为监测设备
+            this->montoringEquipmentCheckState = VALIDATE;
+            qDebug() << "this serial port checked successful";
+        }
+        else
+        {
+            //设备不是监测设备，
+            this->montoringEquipmentCheckState = PASS;
+            qDebug() << "this serial port check fail";
+        }
+
+    }
+}
 /**
  * @brief 搜索可用串口， 将可用串口放入serialPortName中
  * @param serialPortName 存放可用串口名称的链表
@@ -66,17 +95,67 @@ bool equipmentConnection::EquipmentSearch::searchSerialPort(QStringList &serialP
     }
 }
 
-
-void openEquipment(QString EquipmentName, qint32 baudRate, QSerialPort::DataBits dataBits, QSerialPort::Parity parity, QSerialPort::StopBits stopBits, QIODevice::OpenMode openMode)
+void equipmentConnection::EquipmentSearch::equipmentCheck(QStringList &serialPortList)
 {
-    QSerialPort * Equipment = new QSerialPort;
-    Equipment->setPortName(EquipmentName);
-    Equipment->setBaudRate(baudRate);
-    Equipment->setDataBits(dataBits);
-    Equipment->setParity(parity);
-    Equipment->setStopBits(stopBits);
-    if (Equipment->open(openMode))
+    for (QStringList::iterator it = serialPortList.begin(); it != serialPortList.end(); it++)
     {
-        qDebug() << "serial port " << EquipmentName << " open";
+        qDebug() << "try equipment: >>" << *it << "<<";
+        //验证为监测设备
+        montorCheck(*it);
+    }
+    qDebug() << "check finished";
+}
+
+void equipmentConnection::EquipmentSearch::montorCheck(QString serialPortName)
+{
+    //初始化当前设备校验状态为未验证
+    this->montoringEquipmentCheckState = NOT_VALIDATE;
+    //实例化对象
+    this->testSerialPort = new QSerialPort;
+    //开启串口
+    openEquipment(this->testSerialPort, serialPortName, QSerialPort::Baud115200, QSerialPort::Data8, QSerialPort::NoParity, QSerialPort::OneStop, QSerialPort::ReadOnly);
+    //连接信号
+    QObject::connect(this->testSerialPort, &QSerialPort::readyRead, this, &EquipmentSearch::montoringEquipmentCheck);
+    //验证时间
+    int checkTime = 0;
+
+    qDebug() << "equipmet check start";
+    //等待验证发生或超过最大验证时间
+    while (this->montoringEquipmentCheckState == NOT_VALIDATE && checkTime++ <= MAX_CHECK_TIME)
+        ;
+
+    if (this->montoringEquipmentCheckState != NOT_VALIDATE)
+    {
+        //判断设备是否验证通过
+        if (this->montoringEquipmentCheckState == VALIDATE)
+        {
+            //存入可用监测设备列表
+            this->availableMontoringEquipmentList << serialPortName;
+        }
+    }
+
+    if (checkTime >= MAX_CHECK_TIME)
+        qDebug() << "not receive anything data from this equipment, check fail";
+
+    //关闭串口
+    this->testSerialPort->close();
+    //释放内存
+    delete this->testSerialPort;
+
+}
+
+void openEquipment(QSerialPort* equipmentSerialPort, QString equipmentName, qint32 baudRate, QSerialPort::DataBits dataBits, QSerialPort::Parity parity, QSerialPort::StopBits stopBits, QIODevice::OpenMode openMode)
+{
+    equipmentSerialPort->setPortName(equipmentName);
+    equipmentSerialPort->setBaudRate(baudRate);
+    equipmentSerialPort->setDataBits(dataBits);
+    equipmentSerialPort->setParity(parity);
+    equipmentSerialPort->setStopBits(stopBits);
+
+    if (equipmentSerialPort->open(openMode))
+    {
+        qDebug() << "serial port " << equipmentName << " open";
     }
 }
+
+
