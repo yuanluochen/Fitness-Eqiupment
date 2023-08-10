@@ -63,7 +63,7 @@ public:
     QSpacerItem *verticalSpacer_8;
     QSpacerItem *verticalSpacer_3;
     QWidget *widget_3;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QGridLayout *gridLayout;
     QSpacerItem *verticalSpacer;
     QVBoxLayout *verticalLayout_3;
@@ -366,10 +366,10 @@ public:
         widget_3->setMinimumSize(QSize(1181, 900));
         widget_3->setMaximumSize(QSize(1181, 900));
         widget_3->setStyleSheet(QString::fromUtf8("background-color: rgb(233, 243, 255);"));
-        widget = new QWidget(widget_3);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(1, 11, 293, 891));
-        gridLayout = new QGridLayout(widget);
+        layoutWidget = new QWidget(widget_3);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(1, 11, 293, 891));
+        gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
@@ -380,7 +380,7 @@ public:
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        widget1 = new QWidget(widget);
+        widget1 = new QWidget(layoutWidget);
         widget1->setObjectName(QString::fromUtf8("widget1"));
         widget1->setMinimumSize(QSize(261, 141));
         widget1->setMaximumSize(QSize(261, 141));
@@ -412,7 +412,7 @@ public:
 
         verticalLayout_2->addWidget(widget1);
 
-        widget_2 = new QWidget(widget);
+        widget_2 = new QWidget(layoutWidget);
         widget_2->setObjectName(QString::fromUtf8("widget_2"));
         widget_2->setMinimumSize(QSize(261, 141));
         widget_2->setMaximumSize(QSize(261, 141));
@@ -436,7 +436,7 @@ public:
 
         verticalLayout_2->addWidget(widget_2);
 
-        widget_9 = new QWidget(widget);
+        widget_9 = new QWidget(layoutWidget);
         widget_9->setObjectName(QString::fromUtf8("widget_9"));
         widget_9->setMinimumSize(QSize(0, 470));
         widget_9->setStyleSheet(QString::fromUtf8("background-color: rgb(153, 193, 241);"));
@@ -451,7 +451,7 @@ public:
 "}\n"
 "QListWidget\n"
 "{\n"
-"	background-color:rgb(143, 183, 231);\n"
+"	background-color:transparent;\n"
 "    border:none;\n"
 "	border-radius:15px;\n"
 "\n"
@@ -478,7 +478,7 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        equipmentStatusLabel = new QLabel(widget);
+        equipmentStatusLabel = new QLabel(layoutWidget);
         equipmentStatusLabel->setObjectName(QString::fromUtf8("equipmentStatusLabel"));
         equipmentStatusLabel->setAlignment(Qt::AlignCenter);
 
@@ -488,7 +488,7 @@ public:
 
         horizontalLayout->addItem(horizontalSpacer);
 
-        searchPushButton = new QPushButton(widget);
+        searchPushButton = new QPushButton(layoutWidget);
         searchPushButton->setObjectName(QString::fromUtf8("searchPushButton"));
         searchPushButton->setMinimumSize(QSize(25, 25));
         searchPushButton->setMaximumSize(QSize(25, 25));
@@ -517,7 +517,7 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        returnBefore = new QPushButton(widget);
+        returnBefore = new QPushButton(layoutWidget);
         returnBefore->setObjectName(QString::fromUtf8("returnBefore"));
         returnBefore->setEnabled(true);
         returnBefore->setMinimumSize(QSize(60, 60));

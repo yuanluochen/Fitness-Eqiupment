@@ -3,6 +3,9 @@
 
 #include <QWidget>
 #include "application/Equipment/equipmentconnection.h"
+#include <QVector>
+
+#include "equipmentitem.h"
 
 namespace Ui {
 class SportWindow;
@@ -23,6 +26,8 @@ private slots:
 
     void on_searchPushButton_clicked();
 
+public:
+//    QVector<Ui::EquipmentItem> equipmentIconList;
 
 private:
     Ui::SportWindow *ui;

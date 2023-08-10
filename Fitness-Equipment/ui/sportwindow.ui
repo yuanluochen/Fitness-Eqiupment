@@ -844,7 +844,7 @@ QPushButton {
      <property name="styleSheet">
       <string notr="true">background-color: rgb(233, 243, 255);</string>
      </property>
-     <widget class="QWidget" name="">
+     <widget class="QWidget" name="layoutWidget">
       <property name="geometry">
        <rect>
         <x>1</x>
@@ -1077,7 +1077,7 @@ background-color: rgb(26, 95, 180);</string>
 }
 QListWidget
 {
-	background-color:rgb(143, 183, 231);
+	background-color:transparent;
     border:none;
 	border-radius:15px;
 

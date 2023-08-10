@@ -9,7 +9,6 @@
 #include <QDebug>
 #include <QThread>
 #include <QListWidgetItem>
-#include "equipmentitem.h"
 
 SportWindow::SportWindow(QWidget *parent) :
     QWidget(parent),
@@ -22,6 +21,7 @@ SportWindow::SportWindow(QWidget *parent) :
     //进入页面自动连接设备
     connectEquipment();
 
+    //TODO 测试程序添加设备图标
     EquipmentItem *equipmentItem = new EquipmentItem(EquipmentItemCard::MONITORING);
     QListWidgetItem *item = new QListWidgetItem;
 
