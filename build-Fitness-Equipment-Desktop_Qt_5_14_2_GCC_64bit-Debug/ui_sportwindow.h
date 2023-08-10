@@ -26,7 +26,6 @@ class Ui_SportWindow
 {
 public:
     QGridLayout *gridLayout_2;
-    QSpacerItem *horizontalSpacer_4;
     QVBoxLayout *verticalLayout;
     QWidget *widget_7;
     QLabel *dataTypelabel_5;
@@ -58,16 +57,18 @@ public:
     QLabel *label_3;
     QLabel *label_4;
     QPushButton *stopSportPushButton;
-    QSpacerItem *verticalSpacer_3;
-    QSpacerItem *verticalSpacer_8;
     QSpacerItem *horizontalSpacer_3;
     QSpacerItem *verticalSpacer_2;
+    QSpacerItem *horizontalSpacer_4;
+    QSpacerItem *verticalSpacer_8;
+    QSpacerItem *verticalSpacer_3;
     QWidget *widget_3;
-    QWidget *layoutWidget;
+    QWidget *widget;
     QGridLayout *gridLayout;
     QSpacerItem *verticalSpacer;
+    QVBoxLayout *verticalLayout_3;
     QVBoxLayout *verticalLayout_2;
-    QWidget *widget;
+    QWidget *widget1;
     QLabel *heartRateDataLabel;
     QLabel *DataTypeLabel;
     QLabel *UnitLabel;
@@ -75,11 +76,13 @@ public:
     QLabel *bloodOxygenDataLabel;
     QLabel *DataTypeLabel_2;
     QLabel *UnitLabel_2;
+    QWidget *widget_9;
     QListWidget *EquipmentListWidget;
     QHBoxLayout *horizontalLayout;
     QLabel *equipmentStatusLabel;
     QSpacerItem *horizontalSpacer;
     QPushButton *searchPushButton;
+    QHBoxLayout *horizontalLayout_2;
     QPushButton *returnBefore;
     QSpacerItem *horizontalSpacer_2;
 
@@ -97,10 +100,6 @@ public:
 "border-radius:15px;"));
         gridLayout_2 = new QGridLayout(SportWindow);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        horizontalSpacer_4 = new QSpacerItem(68, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
-
-        gridLayout_2->addItem(horizontalSpacer_4, 3, 4, 1, 1);
-
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         widget_7 = new QWidget(SportWindow);
@@ -342,14 +341,6 @@ public:
 
         gridLayout_2->addLayout(verticalLayout, 2, 2, 2, 2);
 
-        verticalSpacer_3 = new QSpacerItem(20, 145, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_2->addItem(verticalSpacer_3, 0, 3, 1, 1);
-
-        verticalSpacer_8 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_2->addItem(verticalSpacer_8, 1, 3, 1, 1);
-
         horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         gridLayout_2->addItem(horizontalSpacer_3, 2, 1, 1, 1);
@@ -358,28 +349,42 @@ public:
 
         gridLayout_2->addItem(verticalSpacer_2, 4, 2, 1, 1);
 
+        horizontalSpacer_4 = new QSpacerItem(68, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
+
+        gridLayout_2->addItem(horizontalSpacer_4, 3, 4, 1, 1);
+
+        verticalSpacer_8 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer_8, 1, 3, 1, 1);
+
+        verticalSpacer_3 = new QSpacerItem(20, 145, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_2->addItem(verticalSpacer_3, 0, 3, 1, 1);
+
         widget_3 = new QWidget(SportWindow);
         widget_3->setObjectName(QString::fromUtf8("widget_3"));
         widget_3->setMinimumSize(QSize(1181, 900));
         widget_3->setMaximumSize(QSize(1181, 900));
         widget_3->setStyleSheet(QString::fromUtf8("background-color: rgb(233, 243, 255);"));
-        layoutWidget = new QWidget(widget_3);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(0, 10, 331, 891));
-        gridLayout = new QGridLayout(layoutWidget);
+        widget = new QWidget(widget_3);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(1, 11, 293, 891));
+        gridLayout = new QGridLayout(widget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
         verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
         gridLayout->addItem(verticalSpacer, 0, 0, 1, 1);
 
+        verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        widget = new QWidget(layoutWidget);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setMinimumSize(QSize(261, 141));
-        widget->setMaximumSize(QSize(261, 141));
-        heartRateDataLabel = new QLabel(widget);
+        widget1 = new QWidget(widget);
+        widget1->setObjectName(QString::fromUtf8("widget1"));
+        widget1->setMinimumSize(QSize(261, 141));
+        widget1->setMaximumSize(QSize(261, 141));
+        heartRateDataLabel = new QLabel(widget1);
         heartRateDataLabel->setObjectName(QString::fromUtf8("heartRateDataLabel"));
         heartRateDataLabel->setGeometry(QRect(0, 0, 261, 141));
         QFont font5;
@@ -387,7 +392,7 @@ public:
         heartRateDataLabel->setFont(font5);
         heartRateDataLabel->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(26, 95, 180);"));
-        DataTypeLabel = new QLabel(widget);
+        DataTypeLabel = new QLabel(widget1);
         DataTypeLabel->setObjectName(QString::fromUtf8("DataTypeLabel"));
         DataTypeLabel->setGeometry(QRect(20, 100, 91, 31));
         QFont font6;
@@ -396,7 +401,7 @@ public:
         font6.setWeight(75);
         DataTypeLabel->setFont(font6);
         DataTypeLabel->setStyleSheet(QString::fromUtf8("background-color:transparent;"));
-        UnitLabel = new QLabel(widget);
+        UnitLabel = new QLabel(widget1);
         UnitLabel->setObjectName(QString::fromUtf8("UnitLabel"));
         UnitLabel->setGeometry(QRect(180, 110, 71, 18));
         QFont font7;
@@ -405,9 +410,9 @@ public:
         UnitLabel->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         UnitLabel->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
-        verticalLayout_2->addWidget(widget);
+        verticalLayout_2->addWidget(widget1);
 
-        widget_2 = new QWidget(layoutWidget);
+        widget_2 = new QWidget(widget);
         widget_2->setObjectName(QString::fromUtf8("widget_2"));
         widget_2->setMinimumSize(QSize(261, 141));
         widget_2->setMaximumSize(QSize(261, 141));
@@ -431,16 +436,49 @@ public:
 
         verticalLayout_2->addWidget(widget_2);
 
-        EquipmentListWidget = new QListWidget(layoutWidget);
+        widget_9 = new QWidget(widget);
+        widget_9->setObjectName(QString::fromUtf8("widget_9"));
+        widget_9->setMinimumSize(QSize(0, 470));
+        widget_9->setStyleSheet(QString::fromUtf8("background-color: rgb(153, 193, 241);"));
+        EquipmentListWidget = new QListWidget(widget_9);
         EquipmentListWidget->setObjectName(QString::fromUtf8("EquipmentListWidget"));
+        EquipmentListWidget->setGeometry(QRect(0, 0, 261, 471));
         EquipmentListWidget->setMinimumSize(QSize(0, 450));
-        EquipmentListWidget->setStyleSheet(QString::fromUtf8("background-color: rgb(202, 226, 255);"));
+        EquipmentListWidget->setFocusPolicy(Qt::NoFocus);
+        EquipmentListWidget->setStyleSheet(QString::fromUtf8("QListWidget::item\n"
+"{\n"
+"	height:90px;\n"
+"}\n"
+"QListWidget\n"
+"{\n"
+"	background-color:rgb(143, 183, 231);\n"
+"    border:none;\n"
+"	border-radius:15px;\n"
+"\n"
+"}\n"
+"QListWidget::item:selected\n"
+"{\n"
+"	background-color:transparent;\n"
+"	border-radius:15px;\n"
+"	border:none;\n"
+"}\n"
+"QListWidget::item:hover\n"
+"{\n"
+"	background-color:rgb(133, 173, 221);\n"
+"    border-radius:15px;\n"
+"	border:none;\n"
+"}\n"
+"\n"
+""));
 
-        verticalLayout_2->addWidget(EquipmentListWidget);
+        verticalLayout_2->addWidget(widget_9);
+
+
+        verticalLayout_3->addLayout(verticalLayout_2);
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        equipmentStatusLabel = new QLabel(layoutWidget);
+        equipmentStatusLabel = new QLabel(widget);
         equipmentStatusLabel->setObjectName(QString::fromUtf8("equipmentStatusLabel"));
         equipmentStatusLabel->setAlignment(Qt::AlignCenter);
 
@@ -450,28 +488,36 @@ public:
 
         horizontalLayout->addItem(horizontalSpacer);
 
-        searchPushButton = new QPushButton(layoutWidget);
+        searchPushButton = new QPushButton(widget);
         searchPushButton->setObjectName(QString::fromUtf8("searchPushButton"));
         searchPushButton->setMinimumSize(QSize(25, 25));
         searchPushButton->setMaximumSize(QSize(25, 25));
         searchPushButton->setStyleSheet(QString::fromUtf8("\n"
-"QPushButton{border-radius:15px;;border-image: url(:/icon/SportWindow/search.png);;}\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"QPushButton:hover{border-radius:15px;background-color: rgb(202, 226, 255);border:none;border-image: url(:/icon/SportWindow/search.png);}\n"
+"QPushButton\n"
+"{\n"
+"	border-radius:5px;\n"
+"	border-image: url(:/icon/SportWindow/search.png);\n"
+"}\n"
+"QPushButton:hover\n"
+"{\n"
+"	border-radius:5px;\n"
+"	background-color: rgb(202, 226, 255);\n"
+"	border:none;\n"
+"	border-image: url(:/icon/SportWindow/search.png);\n"
+"}\n"
 ""));
 
         horizontalLayout->addWidget(searchPushButton);
 
 
-        verticalLayout_2->addLayout(horizontalLayout);
+        verticalLayout_3->addLayout(horizontalLayout);
 
 
-        gridLayout->addLayout(verticalLayout_2, 0, 1, 1, 1);
+        gridLayout->addLayout(verticalLayout_3, 0, 1, 1, 1);
 
-        returnBefore = new QPushButton(layoutWidget);
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
+        returnBefore = new QPushButton(widget);
         returnBefore->setObjectName(QString::fromUtf8("returnBefore"));
         returnBefore->setEnabled(true);
         returnBefore->setMinimumSize(QSize(60, 60));
@@ -490,11 +536,14 @@ public:
         returnBefore->setIconSize(QSize(20, 20));
         returnBefore->setAutoDefault(false);
 
-        gridLayout->addWidget(returnBefore, 1, 0, 1, 1);
+        horizontalLayout_2->addWidget(returnBefore);
 
         horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer_2, 1, 1, 1, 1);
+        horizontalLayout_2->addItem(horizontalSpacer_2);
+
+
+        gridLayout->addLayout(horizontalLayout_2, 1, 0, 1, 2);
 
 
         gridLayout_2->addWidget(widget_3, 0, 0, 5, 1);

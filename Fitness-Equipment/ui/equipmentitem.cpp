@@ -42,7 +42,7 @@ EquipmentItem::EquipmentItem(EquipmentItemCard::equipmentType type, QWidget *par
     }
 
     //设置参数到对应控件中
-    ui->EquiPmentItemIcon->setPixmap(QPixmap::fromImage(icon));
+    ui->EquiPmentItemIcon->setPixmap(QPixmap::fromImage(icon.scaled(ui->EquiPmentItemIcon->width(), ui->EquiPmentItemIcon->height())));
     ui->EquipmentItemName->setText(name);
 
     qDebug() << "create" << name << "item card";
@@ -57,7 +57,7 @@ EquipmentItem::~EquipmentItem()
 
 void EquipmentItem::on_pushButton_clicked()
 {
-    qDebug() << "close" << ui->EquipmentItemName->text() <<  "windows可";
+    qDebug() << "close" << ui->EquipmentItemName->text() <<  "windowsw";
     //关闭窗口
     this->close();
 }

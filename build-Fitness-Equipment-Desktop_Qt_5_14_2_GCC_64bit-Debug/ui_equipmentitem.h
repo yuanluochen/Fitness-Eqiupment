@@ -29,32 +29,29 @@ public:
     {
         if (EquipmentItem->objectName().isEmpty())
             EquipmentItem->setObjectName(QString::fromUtf8("EquipmentItem"));
-        EquipmentItem->resize(251, 91);
-        EquipmentItem->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
+        EquipmentItem->resize(261, 91);
+        EquipmentItem->setStyleSheet(QString::fromUtf8("background-color: transparent;\n"
 ""));
         widget = new QWidget(EquipmentItem);
         widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(0, 0, 251, 91));
+        widget->setGeometry(QRect(0, 0, 261, 91));
         pushButton = new QPushButton(widget);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setGeometry(QRect(230, 0, 25, 25));
         pushButton->setMinimumSize(QSize(25, 25));
         pushButton->setMaximumSize(QSize(25, 25));
-        pushButton->setStyleSheet(QString::fromUtf8("\n"
-"QPushButton{border:2px solid rgb(20,196,188);border-radius:15px;border-image: url(:/icon/EquipmentItem/close_item.png);}\n"
-"\n"
-"\n"
-"QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image: url(:/icon/EquipmentItem/close_item.png);}\n"
-""));
+        pushButton->setStyleSheet(QString::fromUtf8("border-image: url(:/icon/EquipmentItem/close_item.png);\n"
+"background-color: transparent;"));
         EquiPmentItemIcon = new QLabel(widget);
         EquiPmentItemIcon->setObjectName(QString::fromUtf8("EquiPmentItemIcon"));
         EquiPmentItemIcon->setGeometry(QRect(1, 1, 89, 89));
         EquiPmentItemIcon->setMinimumSize(QSize(89, 89));
         EquiPmentItemIcon->setMaximumSize(QSize(89, 89));
+        EquiPmentItemIcon->setStyleSheet(QString::fromUtf8(""));
         EquiPmentItemIcon->setAlignment(Qt::AlignCenter);
         EquipmentItemName = new QLabel(widget);
         EquipmentItemName->setObjectName(QString::fromUtf8("EquipmentItemName"));
-        EquipmentItemName->setGeometry(QRect(96, 1, 154, 89));
+        EquipmentItemName->setGeometry(QRect(90, 0, 171, 89));
         EquipmentItemName->setMaximumSize(QSize(16777215, 16777215));
         QFont font;
         font.setPointSize(14);
@@ -63,6 +60,9 @@ public:
         EquipmentItemName->setFont(font);
         EquipmentItemName->setStyleSheet(QString::fromUtf8("border-radius:15px;"));
         EquipmentItemName->setAlignment(Qt::AlignCenter);
+        EquiPmentItemIcon->raise();
+        EquipmentItemName->raise();
+        pushButton->raise();
 
         retranslateUi(EquipmentItem);
 

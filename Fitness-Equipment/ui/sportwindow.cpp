@@ -8,6 +8,8 @@
 #include <QSerialPort>
 #include <QDebug>
 #include <QThread>
+#include <QListWidgetItem>
+#include "equipmentitem.h"
 
 SportWindow::SportWindow(QWidget *parent) :
     QWidget(parent),
@@ -17,9 +19,15 @@ SportWindow::SportWindow(QWidget *parent) :
 
     //实例化线程对象
     this->equipmentSearch = new equipmentConnection::EquipmentSearch;
-
     //进入页面自动连接设备
     connectEquipment();
+
+    EquipmentItem *equipmentItem = new EquipmentItem(EquipmentItemCard::MONITORING);
+    QListWidgetItem *item = new QListWidgetItem;
+
+    ui->EquipmentListWidget->addItem(item);
+    ui->EquipmentListWidget->setItemWidget(item, equipmentItem);
+
 }
 
 SportWindow::~SportWindow()
@@ -59,7 +67,7 @@ void SportWindow::connectEquipment()
     {
         if (!availableList.empty())
         {
-            ui->equipmentStatusLabel->setText("发现设备正在连接设备");
+            ui->equipmentStatusLabel->setText("发现设备，正在连接设备");
         }
         else
         {
@@ -67,3 +75,4 @@ void SportWindow::connectEquipment()
         }
     });
 }
+

@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>251</width>
+    <width>261</width>
     <height>91</height>
    </rect>
   </property>
@@ -14,7 +14,7 @@
    <string>Form</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(255, 255, 255);
+   <string notr="true">background-color: transparent;
 </string>
   </property>
   <widget class="QWidget" name="widget" native="true">
@@ -22,7 +22,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>251</width>
+     <width>261</width>
      <height>91</height>
     </rect>
    </property>
@@ -48,12 +48,8 @@
      </size>
     </property>
     <property name="styleSheet">
-     <string notr="true">
-QPushButton{border:2px solid rgb(20,196,188);border-radius:15px;border-image: url(:/icon/EquipmentItem/close_item.png);}
-
-
-QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image: url(:/icon/EquipmentItem/close_item.png);}
-</string>
+     <string notr="true">border-image: url(:/icon/EquipmentItem/close_item.png);
+background-color: transparent;</string>
     </property>
     <property name="text">
      <string/>
@@ -80,6 +76,9 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image:
       <height>89</height>
      </size>
     </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="text">
      <string/>
     </property>
@@ -90,9 +89,9 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image:
    <widget class="QLabel" name="EquipmentItemName">
     <property name="geometry">
      <rect>
-      <x>96</x>
-      <y>1</y>
-      <width>154</width>
+      <x>90</x>
+      <y>0</y>
+      <width>171</width>
       <height>89</height>
      </rect>
     </property>
@@ -119,6 +118,9 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image:
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
+   <zorder>EquiPmentItemIcon</zorder>
+   <zorder>EquipmentItemName</zorder>
+   <zorder>pushButton</zorder>
   </widget>
  </widget>
  <resources/>

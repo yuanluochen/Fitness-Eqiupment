@@ -1,0 +1,185 @@
+commit b2cda7324ba505f7828dea88b0b573ef14c1ea5c
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 9 15:41:32 2023 +0800
+
+    完善了设备验证连接
+
+commit 7f8901c2800790fae965255a0f49a43e54f76154
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 9 00:20:54 2023 +0800
+
+    重新设计了设备连接部分的代码
+
+commit fbede1113335ab4c739f67e40ef6016b9bfd454d
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Tue Aug 8 16:18:30 2023 +0800
+
+    正在编写设备连接部分的代码
+
+commit 58c3a95adb1b2a6750ac1f59043b6508b36739b9
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 5 18:35:01 2023 +0800
+
+    绘制了运动界面的ui
+
+commit dd12de951855a86f25208d6dce61b29c88d7b977
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 5 01:20:40 2023 +0800
+
+    create dev branch
+
+commit c6aebdea1db4fcfba61bcc348ed06a101224716c
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 5 00:37:20 2023 +0800
+
+    update
+
+commit 3b261d6ed9674bcd747429565e3bd617a86c44e2
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 5 00:07:04 2023 +0800
+
+    对设备卡ui进行了有参重载设置了设备类型
+
+commit a426e9b132e4bff2176d30d25bfdaaaa89c5ea87
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Fri Aug 4 23:12:31 2023 +0800
+
+    添加了健身设备选项卡
+
+commit ef0532ca4e438cd5156b0d540a6aebd15329ec1a
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Thu Aug 3 23:05:30 2023 +0800
+
+    添加了设备管理界面
+
+commit 2bdf315f65fe340ecbc851482ed29751e4e3d66f
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Thu Aug 3 19:53:37 2023 +0800
+
+    优化了按键ui，优化了界面颜色
+
+commit e910020b836454e0c0a2853f8133b8abf6b9f5fa
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Thu Aug 3 12:39:02 2023 +0800
+
+    添加了开发资料，以便未来使用
+
+commit 4db01febae05e677e50f25f9b42f3f71f13abd7e
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Thu Aug 3 11:02:39 2023 +0800
+
+    add QSerialPort
+
+commit e12506e5de8e4dedcf7434fca5b34975c0ddc2e3
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 2 18:43:56 2023 +0800
+
+    保存数据
+
+commit 5f6e06bff21077336cfe7d70ca25de3666cef27e
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 2 17:35:54 2023 +0800
+
+    即将添加一张图表，以防崩溃
+
+commit 697efce4a294341d8109eb59ad5cbca6b68e2351
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 2 17:12:51 2023 +0800
+
+    应用层跳转健康管理窗口编写完毕
+
+commit 7d2118a6a5739a1a5404362d3ebcfed7e8cd44ce
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 2 16:57:22 2023 +0800
+
+    对应用程序界面进行了布局， 添加了健康管理界面
+
+commit 3e2030297a6341815470e47f507500416f4e38c3
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 2 15:10:43 2023 +0800
+
+    update readme
+
+commit f5bacf3ce177540854b1ba575134b60ff2641f00
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 2 15:09:23 2023 +0800
+
+    update readme and delete unusing file
+
+commit debbcc696693c780d8cecd8e5471782678edc58f
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 2 15:02:39 2023 +0800
+
+    在linux下重构了一下最初的代码结构
+
+commit b13f353aa660ad9d887e2f8df428f013bc2bac1d
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 2 12:28:15 2023 +0800
+
+    删除了applicationWindows
+
+commit 5f0cfd7f912fdf9284eed12993b91fa00bf2e7b5
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 2 12:24:51 2023 +0800
+
+    删除了cmake版的工程
+
+commit 7237169d90d0120fd4ad6e577b8d850927b14ce1
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Tue Aug 1 17:23:03 2023 +0800
+
+    创建了一版cmake工程
+
+commit 828eb986157e25ee579d7a93647a741395c61ca8
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Mon Jul 31 15:36:28 2023 +0800
+
+    修正了应用程序界面的类名
+
+commit 07631a17b783036b7a680cc692a6899c43d2f39b
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Mon Jul 31 13:32:59 2023 +0800
+
+    优化了应用界面
+
+commit 19040020ae5472c3b0d1f4293f3174cb3c3e6dfe
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Mon Jul 31 03:08:02 2023 +0800
+
+    改变了窗口尺寸默认为1280 * 800
+
+commit c4cef038dd1c52b2f56889fd214241da1425a1dd
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Mon Jul 31 02:49:42 2023 +0800
+
+    优化了第一个界面
+
+commit cb5effe01ffcc9b4a76c0015b9208e3ec29c3581
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Mon Jul 31 02:04:28 2023 +0800
+
+    设置了初版应用程序界面，没有布局
+
+commit f59e2e51f89bfac701ae91c7715e62442b978ee4
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Mon Jul 31 00:15:54 2023 +0800
+
+    添加应用窗口
+
+commit e24b5033b8fd660ec098d3f4545e3d14210d097b
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sun Jul 30 09:29:40 2023 +0800
+
+    编写了一版初始的windows
+
+commit 23bd82c9e24d610605a128c56c902c12cb61757f
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sun Jul 30 08:32:30 2023 +0800
+
+    create UI project
+
+commit ca152406d909241eedd352b4f9db5792fb8419ff
+Author: 原落尘 <103373398+yuanluochen@users.noreply.github.com>
+Date:   Sun Jul 30 16:15:58 2023 +0800
+
+    Initial commit

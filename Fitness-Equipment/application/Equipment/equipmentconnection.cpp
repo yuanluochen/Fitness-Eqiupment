@@ -1,7 +1,5 @@
 #include "equipmentconnection.h"
-
-
-#include "QDebug"
+#include <QDebug>
 
 /**
  * @brief openEquipment 设备开启函数，输出船
@@ -21,11 +19,12 @@ equipmentConnection::EquipmentSearch::EquipmentSearch(QObject *parent) : QThread
     this->montoringEquipmentCheckState = NOT_VALIDATE;
 }
 
-void  equipmentConnection::EquipmentSearch::run()
+void equipmentConnection::EquipmentSearch::run()
 {
     QStringList allAvailableEquipmentList;
     //搜索可用串口并判断是否存在可用串口
     if (!searchSerialPort(allAvailableEquipmentList))
+        if (!searchSerialPort(allAvailableEquipmentList))
         qDebug() << "not search equipment, exit EquipmentConnect thread";
 
     qDebug() << "thread task finished, exit EquipmentConnect thread";
@@ -113,7 +112,7 @@ void equipmentConnection::EquipmentSearch::montorCheck(QString serialPortName)
     //实例化对象
     this->testSerialPort = new QSerialPort;
     //开启串口
-    openEquipment(this->testSerialPort, serialPortName, QSerialPort::Baud115200, QSerialPort::Data8, QSerialPort::NoParity, QSerialPort::OneStop, QSerialPort::ReadOnly);
+    openEquipment(this->testSerialPort, serialPortName, MONTORING_BAUD, MONTORING_DATABITS, MONTORING_PARITY, MONTORING_STOPBITS, MONTORING_OPENMODE);
     //连接信号
     QObject::connect(this->testSerialPort, &QSerialPort::readyRead, this, &EquipmentSearch::montoringEquipmentCheck);
     //验证时间
@@ -141,6 +140,7 @@ void equipmentConnection::EquipmentSearch::montorCheck(QString serialPortName)
     this->testSerialPort->close();
     //释放内存
     delete this->testSerialPort;
+    this->testSerialPort = nullptr;
 
 }
 
@@ -159,3 +159,64 @@ void openEquipment(QSerialPort* equipmentSerialPort, QString equipmentName, qint
 }
 
 
+equipmentConnection::MontoringEquipmentThread::MontoringEquipmentThread(QString equipmentName, QObject *parent) : QThread(parent)
+{
+    this->equipment = new QSerialPort;
+    //开辟串口
+    openEquipment(this->equipment, equipmentName,  MONTORING_BAUD, MONTORING_DATABITS, MONTORING_PARITY, MONTORING_STOPBITS, MONTORING_OPENMODE);
+    //连接串口接收槽
+    QObject::connect(equipment, &QSerialPort::readyRead, this, &MontoringEquipmentThread::receivePack);
+}
+
+equipmentConnection::MontoringEquipmentThread::~MontoringEquipmentThread()
+{
+    if (equipment != nullptr)
+    {
+        //关闭串口
+        this->equipment->close();
+        delete this->equipment;
+        this->equipment = nullptr;
+    }
+}
+
+void equipmentConnection::MontoringEquipmentThread::run()
+{
+    qDebug() << "montoring equipment thread start";
+    while(1)
+    {
+        ;
+    }
+}
+
+void equipmentConnection::MontoringEquipmentThread::receivePack()
+{
+	QByteArray receiveBuf = equipment->readAll();
+    if (!receiveBuf.isEmpty())
+    {
+        montoringEquipment::receivePack_t tempPack;
+        memset(&tempPack, 0, sizeof(montoringEquipment::receivePack_t));
+        //数据存放暂存区
+        memcpy(&tempPack, receiveBuf.data(), sizeof(montoringEquipment::receivePack_t));
+       	
+        if (tempPack.header == MONTORING_EQUIPMENT_HEADER && tempPack.tail == MONTORING_EQUIPMENT_TAIL)
+        {
+            if (checkPack(tempPack))
+            {
+                memcpy(&this->receiveData, &tempPack, sizeof(equipmentConnection::montoringEquipment::receivePack_t));
+                //上传数据
+                emit sendReceivePack(this->receiveData);
+            }
+        }
+    }
+}
+
+bool equipmentConnection::MontoringEquipmentThread::checkPack(const montoringEquipment::receivePack_t &recvPack)
+{
+    //除去头尾其他数据相加
+    int32_t sumVal = recvPack.GSR + recvPack.accelX + recvPack.accelY + recvPack.accelZ + recvPack.heartRate + recvPack.bloodOxygen + recvPack.angularVelocityX + recvPack.angularVelocityY + recvPack.angularVelocityZ;
+    //数据提取
+    int32_to_int8 valSwitch;
+    valSwitch.int32Data = sumVal;
+    //提取低8位数据与校验数据比较
+    return (valSwitch.int8Data[0] == recvPack.checkSum);
+}

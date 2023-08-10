@@ -13,6 +13,13 @@ namespace equipmentConnection {
 //监测设备数据
 namespace montoringEquipment{
 
+//设备连接参数
+#define MONTORING_BAUD     QSerialPort::Baud115200
+#define MONTORING_DATABITS QSerialPort::Data8
+#define MONTORING_PARITY   QSerialPort::NoParity
+#define MONTORING_STOPBITS QSerialPort::OneStop
+#define MONTORING_OPENMODE QSerialPort::ReadOnly
+
 //数据头
 #define MONTORING_EQUIPMENT_HEADER 0xFA
 //数据尾
@@ -37,24 +44,10 @@ struct receivePack_t
     //血氧
     uint8_t bloodOxygen;
     //校验和
-    uint8_t checkSum;
+    int8_t checkSum;
 
     uint8_t tail;
 }__attribute__((packed));
-
-enum packReceiveStatus_e
-{
-    UNLOAD, //未读取
-    LOAD,	//已读取
-};
-
-
-struct equipmentReceive_t
-{
-    //数据接收状态
-    packReceiveStatus_e receiveStatus;
-    receivePack_t receivePackData;
-};
 
 }
 
@@ -67,6 +60,12 @@ enum equipmentCheckState_e
     NOT_VALIDATE, //未验证
     VALIDATE,     //验证通过
     PASS,        //未验证通过
+};
+
+union int32_to_int8
+{
+    int32_t int32Data;
+    int8_t int8Data[4];
 };
 
 #define MAX_CHECK_TIME 10000
@@ -96,7 +95,8 @@ signals:
 private slots:
     //设备校验
     void montoringEquipmentCheck();
-    public:
+
+public:
     //可用监测设备列表
     QStringList availableMontoringEquipmentList;
     //可用健身设备列表
@@ -111,8 +111,37 @@ private:
     equipmentCheckState_e montoringEquipmentCheckState;
 };
 
+//监测设备线程
+class MontoringEquipmentThread : public QThread
+{
+    Q_OBJECT
+public:
+    explicit MontoringEquipmentThread(QString equipmentName ,QObject *parent = nullptr);
+    ~MontoringEquipmentThread();
+    //校验接收数据包，校验成功返回true 失败返回 false
+    bool checkPack(const montoringEquipment::receivePack_t &recvPack);
+
+public:
+    //接收的数据
+    montoringEquipment::receivePack_t receiveData;
+    
+private:
+    //设备
+    QSerialPort *equipment;
+
+protected:
+    void run() override;
+
+signals:
+    // 发送监测设备数据
+    void sendReceivePack(montoringEquipment::receivePack_t receivePack);
+
+private slots:
+    void receivePack();
+
+};
+
+
 }
-
-
 
 #endif // EQUIPMENTCONNECTION_H
