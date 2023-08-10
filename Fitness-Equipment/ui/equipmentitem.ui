@@ -26,35 +26,6 @@
      <height>91</height>
     </rect>
    </property>
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>0</y>
-      <width>25</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>25</width>
-      <height>25</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>25</width>
-      <height>25</height>
-     </size>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">border-image: url(:/icon/EquipmentItem/close_item.png);
-background-color: transparent;</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-   </widget>
    <widget class="QLabel" name="EquiPmentItemIcon">
     <property name="geometry">
      <rect>
@@ -118,9 +89,6 @@ background-color: transparent;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <zorder>EquiPmentItemIcon</zorder>
-   <zorder>EquipmentItemName</zorder>
-   <zorder>pushButton</zorder>
   </widget>
  </widget>
  <resources/>

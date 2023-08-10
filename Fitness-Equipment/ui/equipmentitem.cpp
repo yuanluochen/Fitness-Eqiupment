@@ -55,9 +55,3 @@ EquipmentItem::~EquipmentItem()
     delete ui;
 }
 
-void EquipmentItem::on_pushButton_clicked()
-{
-    qDebug() << "close" << ui->EquipmentItemName->text() <<  "windowsw";
-    //关闭窗口
-    this->close();
-}

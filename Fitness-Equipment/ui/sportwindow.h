@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "application/Equipment/equipmentconnection.h"
 #include <QVector>
+#include <QListWidgetItem>
 
 #include "equipmentitem.h"
 
@@ -18,6 +19,7 @@ class SportWindow : public QWidget
 public:
     explicit SportWindow(QWidget *parent = nullptr);
     ~SportWindow();
+    QListWidgetItem *addEquipmentItem(EquipmentItemCard::equipmentType type);
 
 private:
     void connectEquipment();
@@ -27,7 +29,6 @@ private slots:
     void on_searchPushButton_clicked();
 
 public:
-//    QVector<Ui::EquipmentItem> equipmentIconList;
 
 private:
     Ui::SportWindow *ui;

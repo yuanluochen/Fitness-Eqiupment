@@ -23,7 +23,6 @@ SOURCES += \
     mainwindow.cpp \
     ui/applicationwindow.cpp \
     ui/equipmentitem.cpp \
-    ui/equipsettingwindow.cpp \
     ui/healthmanagerwindow.cpp \
     ui/manualwindow.cpp \
     ui/sportwindow.cpp \
@@ -34,17 +33,21 @@ HEADERS += \
     mainwindow.h \
     ui/applicationwindow.h \
     ui/equipmentitem.h \
-    ui/equipsettingwindow.h \
     ui/healthmanagerwindow.h \
     ui/manualwindow.h \
     ui/sportwindow.h \
+    userLib/UnitreeMotorSDK_A1Go1_Sup220423/include/CRC/crc32.h \
+    userLib/UnitreeMotorSDK_A1Go1_Sup220423/include/IOPort/IOPort.h \
+    userLib/UnitreeMotorSDK_A1Go1_Sup220423/include/serialPort/SerialPort.h \
+    userLib/UnitreeMotorSDK_A1Go1_Sup220423/include/serialPort/include/errorClass.h \
+    userLib/UnitreeMotorSDK_A1Go1_Sup220423/include/unitreeMotor/include/motor_msg.h \
+    userLib/UnitreeMotorSDK_A1Go1_Sup220423/include/unitreeMotor/unitreeMotor.h \
     userLib/userLib_ui.h
 
 FORMS += \
     mainwindow.ui \
     ui/applicationwindow.ui \
     ui/equipmentitem.ui \
-    ui/equipsettingwindow.ui \
     ui/healthmanagerwindow.ui \
     ui/manualwindow.ui \
     ui/sportwindow.ui
@@ -58,5 +61,12 @@ RESOURCES += \
     resource/resource.qrc
 
 DISTFILES += \
-    ../README.md
+    ../README.md \
 
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/userLib/UnitreeMotorSDK_A1Go1_Sup220423/lib/release/ -lunitreeMotorSDK_Linux64
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/userLib/UnitreeMotorSDK_A1Go1_Sup220423/lib/debug/ -lunitreeMotorSDK_Linux64
+else:unix: LIBS += -L$$PWD/userLib/UnitreeMotorSDK_A1Go1_Sup220423/lib/ -lunitreeMotorSDK_Linux64
+
+INCLUDEPATH += $$PWD/userLib/UnitreeMotorSDK_A1Go1_Sup220423/include
+DEPENDPATH += $$PWD/userLib/UnitreeMotorSDK_A1Go1_Sup220423/include

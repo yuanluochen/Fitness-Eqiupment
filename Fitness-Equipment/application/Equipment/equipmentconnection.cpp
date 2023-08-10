@@ -64,6 +64,7 @@ void equipmentConnection::EquipmentSearch::montoringEquipmentCheck()
             qDebug() << "this serial port check fail";
         }
 
+
     }
 }
 /**
@@ -212,7 +213,7 @@ void equipmentConnection::MontoringEquipmentThread::receivePack()
 
 bool equipmentConnection::MontoringEquipmentThread::checkPack(const montoringEquipment::receivePack_t &recvPack)
 {
-    //除去头尾其他数据相加
+    //除去头尾其他数据相将加
     int32_t sumVal = recvPack.GSR + recvPack.accelX + recvPack.accelY + recvPack.accelZ + recvPack.heartRate + recvPack.bloodOxygen + recvPack.angularVelocityX + recvPack.angularVelocityY + recvPack.angularVelocityZ;
     //数据提取
     int32_to_int8 valSwitch;

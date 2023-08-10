@@ -20,14 +20,7 @@ SportWindow::SportWindow(QWidget *parent) :
     this->equipmentSearch = new equipmentConnection::EquipmentSearch;
     //进入页面自动连接设备
     connectEquipment();
-
-    //TODO 测试程序添加设备图标
-    EquipmentItem *equipmentItem = new EquipmentItem(EquipmentItemCard::MONITORING);
-    QListWidgetItem *item = new QListWidgetItem;
-
-    ui->EquipmentListWidget->addItem(item);
-    ui->EquipmentListWidget->setItemWidget(item, equipmentItem);
-
+    
 }
 
 SportWindow::~SportWindow()
@@ -76,3 +69,11 @@ void SportWindow::connectEquipment()
     });
 }
 
+QListWidgetItem *SportWindow::addEquipmentItem(EquipmentItemCard::equipmentType type)
+{
+    EquipmentItem *equipmentItem = new EquipmentItem(type);
+    QListWidgetItem *item = new QListWidgetItem;
+    ui->EquipmentListWidget->addItem(item);
+    ui->EquipmentListWidget->setItemWidget(item, equipmentItem);
+    return item;
+}

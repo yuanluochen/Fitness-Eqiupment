@@ -12,7 +12,6 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -21,7 +20,6 @@ class Ui_EquipmentItem
 {
 public:
     QWidget *widget;
-    QPushButton *pushButton;
     QLabel *EquiPmentItemIcon;
     QLabel *EquipmentItemName;
 
@@ -35,13 +33,6 @@ public:
         widget = new QWidget(EquipmentItem);
         widget->setObjectName(QString::fromUtf8("widget"));
         widget->setGeometry(QRect(0, 0, 261, 91));
-        pushButton = new QPushButton(widget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(230, 0, 25, 25));
-        pushButton->setMinimumSize(QSize(25, 25));
-        pushButton->setMaximumSize(QSize(25, 25));
-        pushButton->setStyleSheet(QString::fromUtf8("border-image: url(:/icon/EquipmentItem/close_item.png);\n"
-"background-color: transparent;"));
         EquiPmentItemIcon = new QLabel(widget);
         EquiPmentItemIcon->setObjectName(QString::fromUtf8("EquiPmentItemIcon"));
         EquiPmentItemIcon->setGeometry(QRect(1, 1, 89, 89));
@@ -60,9 +51,6 @@ public:
         EquipmentItemName->setFont(font);
         EquipmentItemName->setStyleSheet(QString::fromUtf8("border-radius:15px;"));
         EquipmentItemName->setAlignment(Qt::AlignCenter);
-        EquiPmentItemIcon->raise();
-        EquipmentItemName->raise();
-        pushButton->raise();
 
         retranslateUi(EquipmentItem);
 
@@ -72,7 +60,6 @@ public:
     void retranslateUi(QWidget *EquipmentItem)
     {
         EquipmentItem->setWindowTitle(QCoreApplication::translate("EquipmentItem", "Form", nullptr));
-        pushButton->setText(QString());
         EquiPmentItemIcon->setText(QString());
         EquipmentItemName->setText(QString());
     } // retranslateUi
