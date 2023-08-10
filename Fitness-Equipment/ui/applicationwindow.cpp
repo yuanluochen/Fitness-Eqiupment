@@ -3,7 +3,6 @@
 
 #include "mainwindow.h"
 #include "ui/sportwindow.h"
-#include "ui/equipsettingwindow.h"
 #include "ui/manualwindow.h"
 #include "ui/healthmanagerwindow.h"
 
