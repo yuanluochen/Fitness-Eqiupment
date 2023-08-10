@@ -1052,7 +1052,7 @@ background-color: rgb(26, 95, 180);</string>
              <property name="styleSheet">
               <string notr="true">background-color: rgb(153, 193, 241);</string>
              </property>
-             <widget class="QListWidget" name="EquipmentListWidget">
+             <widget class="QListWidget" name="equipmentListWidget">
               <property name="geometry">
                <rect>
                 <x>0</x>

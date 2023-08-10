@@ -20,7 +20,6 @@ SportWindow::SportWindow(QWidget *parent) :
     this->equipmentSearch = new equipmentConnection::EquipmentSearch;
     //进入页面自动连接设备
     connectEquipment();
-    
 }
 
 SportWindow::~SportWindow()
@@ -69,11 +68,18 @@ void SportWindow::connectEquipment()
     });
 }
 
-QListWidgetItem *SportWindow::addEquipmentItem(EquipmentItemCard::equipmentType type)
+QListWidgetItem *SportWindow::addEquipmentItem(equipmentItemCard::equipmentType type)
 {
     EquipmentItem *equipmentItem = new EquipmentItem(type);
     QListWidgetItem *item = new QListWidgetItem;
-    ui->EquipmentListWidget->addItem(item);
-    ui->EquipmentListWidget->setItemWidget(item, equipmentItem);
+    ui->equipmentListWidget->addItem(item);
+    ui->equipmentListWidget->setItemWidget(item, equipmentItem);
     return item;
+}
+
+void SportWindow::removeEquipmentItem(QListWidgetItem* it)
+{
+    ui->equipmentListWidget->removeItemWidget(it);
+    delete it;
+    it = nullptr;
 }

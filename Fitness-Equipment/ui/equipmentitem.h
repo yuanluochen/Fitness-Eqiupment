@@ -5,7 +5,7 @@
 
 
 //设备ui卡
-namespace EquipmentItemCard{
+namespace equipmentItemCard{
 
 //健身泵图标
 #define FITNESS_EQUIPMENT_ICON ":/icon/EquipmentItem/fitnessEquipment.png"
@@ -54,7 +54,7 @@ class EquipmentItem : public QWidget
 
 public:
     explicit EquipmentItem(QWidget *parent = nullptr);
-    explicit EquipmentItem(EquipmentItemCard::equipmentType type, QWidget *parent = nullptr);
+    explicit EquipmentItem(equipmentItemCard::equipmentType type, QWidget *parent = nullptr);
     ~EquipmentItem();
 
 private slots:

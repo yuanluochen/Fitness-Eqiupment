@@ -77,7 +77,7 @@ public:
     QLabel *DataTypeLabel_2;
     QLabel *UnitLabel_2;
     QWidget *widget_9;
-    QListWidget *EquipmentListWidget;
+    QListWidget *equipmentListWidget;
     QHBoxLayout *horizontalLayout;
     QLabel *equipmentStatusLabel;
     QSpacerItem *horizontalSpacer;
@@ -440,12 +440,12 @@ public:
         widget_9->setObjectName(QString::fromUtf8("widget_9"));
         widget_9->setMinimumSize(QSize(0, 470));
         widget_9->setStyleSheet(QString::fromUtf8("background-color: rgb(153, 193, 241);"));
-        EquipmentListWidget = new QListWidget(widget_9);
-        EquipmentListWidget->setObjectName(QString::fromUtf8("EquipmentListWidget"));
-        EquipmentListWidget->setGeometry(QRect(0, 0, 261, 471));
-        EquipmentListWidget->setMinimumSize(QSize(0, 450));
-        EquipmentListWidget->setFocusPolicy(Qt::NoFocus);
-        EquipmentListWidget->setStyleSheet(QString::fromUtf8("QListWidget::item\n"
+        equipmentListWidget = new QListWidget(widget_9);
+        equipmentListWidget->setObjectName(QString::fromUtf8("equipmentListWidget"));
+        equipmentListWidget->setGeometry(QRect(0, 0, 261, 471));
+        equipmentListWidget->setMinimumSize(QSize(0, 450));
+        equipmentListWidget->setFocusPolicy(Qt::NoFocus);
+        equipmentListWidget->setStyleSheet(QString::fromUtf8("QListWidget::item\n"
 "{\n"
 "	height:90px;\n"
 "}\n"

@@ -10,7 +10,7 @@ EquipmentItem::EquipmentItem(QWidget *parent) :
 
 }
 
-EquipmentItem::EquipmentItem(EquipmentItemCard::equipmentType type, QWidget *parent) : QWidget(parent), ui(new Ui::EquipmentItem)
+EquipmentItem::EquipmentItem(equipmentItemCard::equipmentType type, QWidget *parent) : QWidget(parent), ui(new Ui::EquipmentItem)
 {
     ui->setupUi(this);
 
@@ -22,19 +22,19 @@ EquipmentItem::EquipmentItem(EquipmentItemCard::equipmentType type, QWidget *par
     switch (type)
     {
     //健身设备
-    case EquipmentItemCard::FITNESS:
+    case equipmentItemCard::FITNESS:
         icon.load(FITNESS_EQUIPMENT_ICON);
         name = FITNESS_EQUIPMENT_NAME;
         qDebug() << "set fitness equipment item parameter";
         break;
     //监测手环
-    case EquipmentItemCard::MONITORING:
+    case equipmentItemCard::MONITORING:
         icon.load(MONITORING_EQUIPMENT_ICON);
         name = MONITORING_EQUIPMENT_NAME;
         qDebug() << "set monitoring equipment item parameter";
         break;
     //自行车
-    case EquipmentItemCard::BICYCLE:
+    case equipmentItemCard::BICYCLE:
         icon.load(BICYCLE_EQUIPMENT_ICON);
         name = BICYCLE_EQUIPMENT_NAME;
         qDebug() << "set bicycle card item parameter";

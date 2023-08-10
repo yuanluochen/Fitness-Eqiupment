@@ -19,8 +19,9 @@ class SportWindow : public QWidget
 public:
     explicit SportWindow(QWidget *parent = nullptr);
     ~SportWindow();
-    QListWidgetItem *addEquipmentItem(EquipmentItemCard::equipmentType type);
 
+    QListWidgetItem *addEquipmentItem(equipmentItemCard::equipmentType type);
+    void removeEquipmentItem(QListWidgetItem* it);
 private:
     void connectEquipment();
 private slots:
