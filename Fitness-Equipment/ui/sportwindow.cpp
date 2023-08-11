@@ -1,8 +1,6 @@
 #include "sportwindow.h"
 #include "ui_sportwindow.h"
-
 #include "ui/applicationwindow.h"
-
 #include "userLib/userLib_ui.h"
 #include <QSerialPortInfo>
 #include <QSerialPort>

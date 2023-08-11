@@ -20,8 +20,6 @@ private slots:
 
     void on_sportPushButton_clicked();
 
-    void on_settingPushButton_clicked();
-
     void on_manualPushbutton_clicked();
 
     void on_healthManagerPushButton_clicked();
