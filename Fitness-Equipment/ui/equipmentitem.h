@@ -3,7 +3,6 @@
 
 #include <QWidget>
 
-
 //设备ui卡
 namespace equipmentItemCard{
 
@@ -41,8 +40,6 @@ struct equipMentItemCardData
 };
 
 };
-
-
 
 namespace Ui {
 class EquipmentItem;
