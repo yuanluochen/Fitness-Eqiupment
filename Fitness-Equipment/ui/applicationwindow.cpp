@@ -9,8 +9,6 @@
 #include "userLib/userLib_ui.h"
 #include <QDebug>
 
-
-
 ApplicationWindow::ApplicationWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ApplicationWindow)

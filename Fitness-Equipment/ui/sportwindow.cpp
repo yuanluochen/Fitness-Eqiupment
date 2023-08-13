@@ -45,6 +45,7 @@ void SportWindow::connectEquipment()
 {
     ui->equipmentStatusLabel->setText("正在搜索设备中");
     //判断线程对象是否为空
+
     if (this->equipmentSearch == nullptr)
     {
         return;

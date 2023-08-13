@@ -1,5 +1,6 @@
 # !/bin/bash
-
 cd ./build;
-make;
-./Fitness-Equipment;
+make -j16;
+cd ..
+./build/Fitness-Equipment;
+

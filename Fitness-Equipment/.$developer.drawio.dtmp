@@ -1,0 +1,13 @@
+<mxfile host="Electron" modified="2023-08-13T09:24:44.165Z" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/21.3.7 Chrome/112.0.5615.204 Electron/24.5.0 Safari/537.36" etag="WgSBMDPFu2Db7RQxUEn0" version="21.3.7" type="device">
+  <diagram name="Page-1" id="pgvasRSWgJNLkIhc_IIw">
+    <mxGraphModel dx="1418" dy="835" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="OCGjO5Ax_Dozerv-7LLk-4" value="健身页面项目代码实现" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="70" y="80" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
