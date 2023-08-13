@@ -22,6 +22,7 @@ SportWindow::SportWindow(QWidget *parent) :
 
 SportWindow::~SportWindow()
 {
+
     delete ui;
 }
 
@@ -67,6 +68,12 @@ void SportWindow::connectEquipment()
     });
 }
 
+/**
+ * @brief 添加设备标签
+ * 
+ * @param type 设备类型
+ * @return 设备标签地址 
+ */
 QListWidgetItem *SportWindow::addEquipmentItem(equipmentItemCard::equipmentType type)
 {
     EquipmentItem *equipmentItem = new EquipmentItem(type);
@@ -76,9 +83,49 @@ QListWidgetItem *SportWindow::addEquipmentItem(equipmentItemCard::equipmentType 
     return item;
 }
 
+/**
+ * @brief 删除设备标签
+ * 
+ * @param it 设备标签地址
+ */
 void SportWindow::removeEquipmentItem(QListWidgetItem* it)
 {
     ui->equipmentListWidget->removeItemWidget(it);
     delete it;
     it = nullptr;
 }
+
+/**
+ * @brief 设置心率数值
+ * 
+ * @param num 心率数值
+ */
+void SportWindow::setHeartRateData(double num)
+{
+    if (num >= 0)
+    {
+        ui->heartRateDataLabel->setNum(num);
+        //设置为白色
+        QPalette pe;
+        pe.setColor(QPalette::WindowText, Qt::white);
+        ui->heartRateDataLabel->setPalette(pe);
+    }
+}
+
+/**
+ * @brief 设置血氧数值 
+ * 
+ * @param num 血氧数值
+ */
+void SportWindow::setBooldOxygenData(double num)
+{
+    if (num >= 0 && num <= 100)
+    {
+        ui->bloodOxygenDataLabel->setNum(num);
+        //设置为白色
+        QPalette pe;
+        pe.setColor(QPalette::WindowText, Qt::white);
+        ui->bloodOxygenDataLabel->setPalette(pe);
+    }
+}
+

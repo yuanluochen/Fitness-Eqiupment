@@ -12,6 +12,16 @@ namespace Ui {
 class SportWindow;
 }
 
+
+namespace equipmentStatus{
+
+enum equipmentStatus
+{
+
+};
+
+}
+
 class SportWindow : public QWidget
 {
     Q_OBJECT
@@ -24,6 +34,8 @@ public:
     void removeEquipmentItem(QListWidgetItem* it);
 private:
     void connectEquipment();
+    void setHeartRateData(double num);
+    void setBooldOxygenData(double num);
 private slots:
     void on_returnBefore_clicked();
 
