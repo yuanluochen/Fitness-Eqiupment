@@ -63,8 +63,6 @@ void equipmentConnection::EquipmentSearch::montoringEquipmentCheck()
             this->montoringEquipmentCheckState = PASS;
             qDebug() << "this serial port check fail";
         }
-
-
     }
 }
 /**
