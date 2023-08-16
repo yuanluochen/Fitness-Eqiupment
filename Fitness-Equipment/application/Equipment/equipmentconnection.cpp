@@ -132,17 +132,13 @@ void equipmentConnection::EquipmentSearch::montorCheck(QString serialPortName)
     //开启串口
     openEquipment(this->testSerialPort, serialPortName, MONTORING_BAUD, MONTORING_DATABITS, MONTORING_PARITY, MONTORING_STOPBITS, MONTORING_OPENMODE);
     //连接信号
-    connect(this->testSerialPort, SIGNAL(readyRead()), this, SLOT(montoringEquipmentCheck()));
+    QObject::connect(this->testSerialPort, &QSerialPort::readyRead, this, &EquipmentSearch::montoringEquipmentCheck);
     //验证时间
     int checkTime = 0;
 
     qDebug() << "equipmet check start";
 
-    while (1) {
-
-    }
-
-    //等待验证发生或超过最大验证时间
+    // 等待验证发生或超过最大验证时间
     while (this->montoringEquipmentCheckState == NOT_VALIDATE && checkTime++ <= MAX_CHECK_TIME)
     
         ;
@@ -187,6 +183,7 @@ void openEquipment(QSerialPort* equipmentSerialPort, QString equipmentName, qint
     equipmentSerialPort->setParity(parity);
     equipmentSerialPort->setStopBits(stopBits);
     equipmentSerialPort->setFlowControl(QSerialPort::NoFlowControl);
+    
     
 
     if (equipmentSerialPort->open(openMode) == true)
