@@ -2155,7 +2155,13 @@ equipmentconnection.o: ../Fitness-Equipment/application/Equipment/equipmentconne
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qset.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontiguouscache.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer_impl.h
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer_impl.h \
+		../Fitness-Equipment/userLib/UnitreeMotorSDK_A1Go1_Sup220423/include/serialPort/SerialPort.h \
+		../Fitness-Equipment/userLib/UnitreeMotorSDK_A1Go1_Sup220423/include/serialPort/include/errorClass.h \
+		../Fitness-Equipment/userLib/UnitreeMotorSDK_A1Go1_Sup220423/include/unitreeMotor/unitreeMotor.h \
+		../Fitness-Equipment/userLib/UnitreeMotorSDK_A1Go1_Sup220423/include/unitreeMotor/include/motor_msg.h \
+		../Fitness-Equipment/userLib/UnitreeMotorSDK_A1Go1_Sup220423/include/CRC/crc32.h \
+		../Fitness-Equipment/userLib/UnitreeMotorSDK_A1Go1_Sup220423/include/IOPort/IOPort.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o equipmentconnection.o ../Fitness-Equipment/application/Equipment/equipmentconnection.cpp
 
 main.o: ../Fitness-Equipment/main.cpp ../Fitness-Equipment/mainwindow.h \

@@ -18,7 +18,7 @@ namespace montoringEquipment{
 #define MONTORING_DATABITS QSerialPort::Data8
 #define MONTORING_PARITY   QSerialPort::NoParity
 #define MONTORING_STOPBITS QSerialPort::OneStop
-#define MONTORING_OPENMODE QSerialPort::ReadOnly
+#define MONTORING_OPENMODE QSerialPort::ReadWrite
 
 //数据头
 #define MONTORING_EQUIPMENT_HEADER 0xFA
