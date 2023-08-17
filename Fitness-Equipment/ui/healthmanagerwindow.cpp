@@ -181,11 +181,6 @@ HealthManagerWindow::~HealthManagerWindow()
     delete ui;
 }
 
-void HealthManagerWindow::on_returnBefore_clicked()
-{
-    CREATE_NEW_WINDOW(ApplicationWindow, this);
-}
-
 /**
  * @brief 设置设备状态
  * 
@@ -211,3 +206,12 @@ void HealthManagerWindow::setEquipmentStatus(equipmentConnectStatus_e status)
     }
     ui->equipmentStatusLabel->setPalette(pe);
 }
+
+void HealthManagerWindow::on_returnBefore_clicked()
+{
+    this->montorSerialService->closeSerial();
+    montorThread.quit();
+    montorThread.wait();
+    CREATE_NEW_WINDOW(ApplicationWindow, this);
+}
+

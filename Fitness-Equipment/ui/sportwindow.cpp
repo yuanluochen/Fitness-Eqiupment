@@ -161,7 +161,6 @@ void SportWindow::montorReceive(QByteArray data)
 
 SportWindow::~SportWindow()
 {
-    this->montorSerialService->closeSerial();
     montorThread.quit();
     montorThread.wait();
     delete this->equipmentCheckTim;
@@ -170,6 +169,10 @@ SportWindow::~SportWindow()
 
 void SportWindow::on_returnBefore_clicked()
 {
+
+    this->montorSerialService->closeSerial();
+    montorThread.quit();
+    montorThread.wait();
 
     CREATE_NEW_WINDOW(ApplicationWindow, this);
 }

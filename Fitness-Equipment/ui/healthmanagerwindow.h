@@ -9,41 +9,12 @@
 #include <QSerialPort>
 #include <QThread>
 #include <QTimer>
-#include "sportwindow.h"
+#include "ui/equipmentconnect.h"
 
 // 图表
 #include <QtCharts>
 QT_CHARTS_USE_NAMESPACE
 
-// enum equipmentConnectStatus_e
-// {
-//     UNCONNECT,        // 未连接
-//     CONNECT,          // 连接
-//     SEARCH_EQUIPMENT, // 搜索设备
-// };
-
-// enum checkStatus_e
-// {
-//     PASS,   //通过
-//     UNPASS, //不通过
-// };
-//监测设备接收数据包
-// struct receivePack_t
-// {
-//     int16_t GSR;
-//     //加速度
-//     int16_t accelX;
-//     int16_t accelY;
-//     int16_t accelZ;
-//     //角速度
-//     int16_t angularVelocityX;
-//     int16_t angularVelocityY;
-//     int16_t angularVelocityZ;
-//     //心率
-//     int8_t heartRate;
-//     //血氧
-//     int8_t bloodOxygen;
-// };
 namespace Ui {
 class HealthManagerWindow;
 }
