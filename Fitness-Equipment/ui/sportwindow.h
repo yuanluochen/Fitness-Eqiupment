@@ -8,11 +8,12 @@
 #include <QVector>
 #include <QSerialPort>
 #include <QThread>
+#include <QTimer>
 
 #include "equipmentitem.h"
 #include "application/SerialPort/serialportservice.h"
 
-#define MAX_CONNECT_TIME 10000000
+#define CHECK_TIME 1000
 
 namespace Ui {
 class SportWindow;
@@ -46,6 +47,12 @@ enum equipmentConnectStatus_e
     SEARCH_EQUIPMENT, // 搜索设备
 };
 
+enum checkStatus_e
+{
+    PASS,   //通过
+    UNPASS, //不通过
+};
+
 class SportWindow : public QWidget
 {
     Q_OBJECT
@@ -66,6 +73,7 @@ private slots:
     void on_returnBefore_clicked();
     void on_searchPushButton_clicked();
     void montorReceive(QByteArray data);
+    void montorCheck();
 
 public:
     char receiveBuf[10000]; 
@@ -77,6 +85,9 @@ private:
     QThread montorThread;
     //监测设备串口
     SerialPortService *montorSerialService;
+    QTimer *equipmentCheckTim;
+    checkStatus_e checkstatus;
+    QStringList serialPortList;
 };
 
 #endif // SPORTWINDOW_H

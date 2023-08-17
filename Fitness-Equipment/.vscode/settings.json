@@ -2,6 +2,7 @@
     "files.associations": {
         "qdebug": "cpp",
         "qlistwidgetitem": "cpp",
-        "qserialport": "cpp"
+        "qserialport": "cpp",
+        "new": "cpp"
     }
 }

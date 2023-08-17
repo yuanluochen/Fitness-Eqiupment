@@ -6,15 +6,22 @@
 #include <QSerialPort>
 #include <QDebug>
 #include <QListWidgetItem>
+#include <QTimer>
+
+//imu加速度数据转真实数据
+#define IMU_ACCEL_DATA_TO_VALUE_DATA(imu) ((imu / 32768.0f) * 2.0f)
+//imu角速度数据转真实数据
+#define IMU_ANGULAR_VELOCITy_DATA_TO_VALUE_DATA(imu) ((imu / 32768.0f) * 250.0f)
 
 SportWindow::SportWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SportWindow)
 {
     ui->setupUi(this);
-
     //实例化监测设备服务
     this->montorSerialService = new SerialPortService;
+    //实例化设备校验定时
+    this->equipmentCheckTim = new QTimer;
     //将监测设备服务转移到监测设备线程
     this->montorSerialService->moveToThread(&this->montorThread);
     //启动线程
@@ -23,7 +30,8 @@ SportWindow::SportWindow(QWidget *parent) :
     this->setEquipmentStatus(UNCONNECT);
     //线程退出时自动删除对象
     QObject::connect(&this->montorThread, &QThread::finished, this->montorSerialService, &QObject::deleteLater);
-    
+
+    this->serialPortList = this->montorSerialService->getAvailableSerialPort();
     //自动连接设备
     this->connectEquipment();
 
@@ -31,20 +39,61 @@ SportWindow::SportWindow(QWidget *parent) :
 
 void SportWindow::connectEquipment()
 {
-    QStringList SerialPortList;
-    SerialPortList = this->montorSerialService->getAvailableSerialPort();
-    for (QStringList::iterator it = SerialPortList.begin(); it != SerialPortList.end(); it++)
+    QStringList::iterator it = serialPortList.begin();
+    if (this->montorSerialService->initSerialPort(*it, QSerialPort::Baud115200, QSerialPort::Data8, QSerialPort::NoParity, QSerialPort::OneStop, QIODevice::ReadWrite))
     {
-        //初始化串口设备服务
-        if (this->montorSerialService->initSerialPort(*it, QSerialPort::Baud115200, QSerialPort::Data8, QSerialPort::NoParity, QSerialPort::OneStop, QIODevice::ReadWrite))
-        {
-            qDebug() << "serial port open successful";
-            //连接信号和槽
-            QObject::connect(this->montorSerialService, SIGNAL(updateSerialData(QByteArray)), this, SLOT(montorReceive(QByteArray)));
-        }
-        
-    } 
+        qDebug() << "serial port open successful";
+        // 清空数据
+        memset(&this->montorReceiveData, 0, sizeof(receivePack_t));
+        // 连接信号和槽
+        QObject::connect(this->montorSerialService, SIGNAL(updateSerialData(QByteArray)), this, SLOT(montorReceive(QByteArray)));
+        // 定时等待验证
+        connect(this->equipmentCheckTim, &QTimer::timeout, this, &SportWindow::montorCheck);
+        this->checkstatus = UNPASS;
+        //开始定时
+        this->equipmentCheckTim->start(CHECK_TIME);
+    }
 }
+
+void SportWindow::montorCheck()
+{   
+    qDebug() << "check montoring equipment";
+    //停止定时
+    this->equipmentCheckTim->stop();
+    //设备校验
+    if (this->montorReceiveData.accelX != 0 || this->montorReceiveData.accelY != 0 || this->montorReceiveData.accelZ != 0 ||
+        this->montorReceiveData.angularVelocityX != 0 || this->montorReceiveData.angularVelocityY != 0 || this->montorReceiveData.angularVelocityZ != 0 ||
+        this->montorReceiveData.bloodOxygen != 0 || this->montorReceiveData.GSR != 0 || this->montorReceiveData.heartRate != 0)
+    {
+        this->checkstatus = PASS;
+        qDebug() << "check montoring equipment pass";
+        //添加设备
+        this->addEquipmentItem(equipmentItemCard::MONITORING);
+        return;
+    }
+
+    //校验失败关闭串口更换其他设备进行校验
+    this->checkstatus = UNPASS;
+    qDebug() << "check montoring equipment unpass";
+    //遍历删除指定串口名
+    for (QStringList::iterator it = this->serialPortList.begin(); it != this->serialPortList.end(); it++)
+    {
+        if (*it == this->montorSerialService->getCurSerialPortName())
+        {
+            qDebug() << "delete serial port";
+            this->serialPortList.pop_front();
+            this->montorSerialService->closeSerial();
+            break;
+        }
+    }
+
+    if (!this->serialPortList.isEmpty())
+    {
+        this->connectEquipment();
+    }
+    
+}
+
 uint8_t checkPack(uint8_t *receiveData)
 {
     uint8_t checkSum = 0;
@@ -54,7 +103,6 @@ uint8_t checkPack(uint8_t *receiveData)
         checkSum += receiveData[i];
     }
     return checkSum;
-
 }
 
 /**
@@ -92,8 +140,8 @@ void SportWindow::montorReceive(QByteArray data)
             if (checkSum == receiveBuf[17])
             {
 
-                qDebug() << "receive montoring equipment data";
-                this->montorReceiveData.GSR = (receiveBuf[1] << 8) + receiveBuf[2];
+                // qDebug() << "receive montoring equipment data";
+                this->montorReceiveData.GSR = ((receiveBuf[1] << 8) + receiveBuf[2]);
                 this->montorReceiveData.accelX = (receiveBuf[3] << 8) + receiveBuf[4];
                 this->montorReceiveData.accelY = (receiveBuf[5] << 8) + receiveBuf[6];
                 this->montorReceiveData.accelZ = (receiveBuf[7] << 8) + receiveBuf[8];
@@ -103,9 +151,8 @@ void SportWindow::montorReceive(QByteArray data)
                 this->montorReceiveData.heartRate = receiveBuf[15];
                 this->montorReceiveData.bloodOxygen = receiveBuf[16];
                 
-                ui->bloodOxygenDataLabel->setNum(this->montorReceiveData.bloodOxygen);
-                ui->heartRateDataLabel->setNum(this->montorReceiveData.heartRate);
-
+                this->setBooldOxygenData(this->montorReceiveData.bloodOxygen);
+                this->setHeartRateData(this->montorReceiveData.heartRate);
             }
         }
     }
@@ -115,6 +162,7 @@ SportWindow::~SportWindow()
 {
     montorThread.quit();
     montorThread.wait();
+    delete this->equipmentCheckTim;
     delete ui;
 }
 
@@ -126,7 +174,8 @@ void SportWindow::on_returnBefore_clicked()
 
 void SportWindow::on_searchPushButton_clicked()
 {
-
+    this->serialPortList = this->montorSerialService->getAvailableSerialPort();
+    this->connectEquipment();
 }
 
 

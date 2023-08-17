@@ -14,6 +14,7 @@ public:
     QStringList getAvailableSerialPort();
     bool initSerialPort(QString portName, qint32 baudRate, QSerialPort::DataBits dataBits, QSerialPort::Parity parity, QSerialPort::StopBits stopBits, QIODevice::OpenMode openMode);
     void closeSerial();
+    QString getCurSerialPortName();
 signals:
     void updateSerialData(QByteArray data);
 
@@ -23,6 +24,7 @@ public slots:
 
 private:
     QSerialPort *serialPort;
+    QString SerialPortName;
 
 };
 
