@@ -6,16 +6,22 @@
 #include "userLib/userLib_ui.h"
 #include <QDebug>
 #include <QThread>
+#include <QString>
 
 HealthManagerWindow::HealthManagerWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::HealthManagerWindow)
 {
     ui->setupUi(this);
+    ui->BMICalcPushButton->setEnabled(false);
+    ui->SaO2DetectionPushButton->setEnabled(false);
+    ui->heartRateDetectionPushbutton->setEnabled(false);
     //实例化监测设备服务
     this->montorSerialService = new SerialPortService;
     //实例化设备校验定时
     this->equipmentCheckTim = new QTimer;
+    //实例化检测定时
+    this->detectionTim = new QTimer;
     //将监测设备服务转移到监测设备线程
     this->montorSerialService->moveToThread(&this->montorThread);
     //启动线程
@@ -50,6 +56,11 @@ void HealthManagerWindow::montorCheck()
         this->addEquipmentItem(equipmentItemCard::MONITORING);
         //显示已连接设备
         this->setEquipmentStatus(CONNECT);
+        //按键使能
+        ui->BMICalcPushButton->setEnabled(true);
+        ui->SaO2DetectionPushButton->setEnabled(true);
+        ui->heartRateDetectionPushbutton->setEnabled(true);
+
         return;
     }
 
@@ -215,3 +226,38 @@ void HealthManagerWindow::on_returnBefore_clicked()
     CREATE_NEW_WINDOW(ApplicationWindow, this);
 }
 
+
+void HealthManagerWindow::on_heartRateDetectionPushbutton_clicked()
+{
+    qDebug() << "heart rate detection start";
+    ui->displayLabel->setText("心率检测开始, 请将您的手指放到健康监测手环背面,等待一段时间");
+    connect(this->detectionTim, &QTimer::timeout, this, &HealthManagerWindow::HeartRateShow);
+    this->detectionTim->start(600);
+}
+void HealthManagerWindow::SaO2Show()
+{
+    this->detectionTim->stop();
+    ui->displayLabel->setText("您的血氧为" + QString::number(this->montorReceiveData.bloodOxygen));
+
+}
+void HealthManagerWindow::HeartRateShow()
+{
+    this->detectionTim->stop();
+    
+    ui->displayLabel->setText("您的心率为" + QString::number(this->montorReceiveData.heartRate));
+    
+}
+
+void HealthManagerWindow::on_SaO2DetectionPushButton_clicked()
+{
+    qDebug() << "Sa02 detection start";
+    ui->displayLabel->setText("血氧检测开始, 请将您的手指放到健康监测手环背面,等待一段时间");
+    connect(this->detectionTim, &QTimer::timeout, this, &HealthManagerWindow::SaO2Show);
+    this->detectionTim->start(600);
+
+}
+
+void HealthManagerWindow::on_BMICalcPushButton_clicked()
+{
+
+}

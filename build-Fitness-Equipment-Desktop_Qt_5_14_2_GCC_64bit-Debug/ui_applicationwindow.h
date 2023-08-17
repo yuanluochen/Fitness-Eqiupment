@@ -61,7 +61,6 @@ public:
     QSpacerItem *horizontalSpacer_10;
     QSpacerItem *verticalSpacer_11;
     QSpacerItem *verticalSpacer_5;
-    QPushButton *equipmentConnectPushutton;
 
     void setupUi(QWidget *ApplicationWindow)
     {
@@ -295,21 +294,6 @@ public:
 
         gridLayout->addItem(verticalSpacer_5, 2, 9, 1, 1);
 
-        equipmentConnectPushutton = new QPushButton(ApplicationWindow);
-        equipmentConnectPushutton->setObjectName(QString::fromUtf8("equipmentConnectPushutton"));
-        equipmentConnectPushutton->setMinimumSize(QSize(0, 100));
-        QFont font3;
-        font3.setPointSize(16);
-        font3.setBold(true);
-        font3.setWeight(75);
-        equipmentConnectPushutton->setFont(font3);
-        equipmentConnectPushutton->setStyleSheet(QString::fromUtf8("QPushButton{border:2px solid rgb(20,196,188);border-radius:15px;border:none}\n"
-"\n"
-"\n"
-"QPushButton:hover{background-color: rgb(246, 245, 244);border:none;}"));
-
-        gridLayout->addWidget(equipmentConnectPushutton, 6, 9, 1, 1);
-
 
         retranslateUi(ApplicationWindow);
 
@@ -330,7 +314,6 @@ public:
         labelManual->setText(QCoreApplication::translate("ApplicationWindow", "\344\275\277\347\224\250\350\257\264\346\230\216", nullptr));
         returnBefore->setText(QString());
         labelReturn->setText(QCoreApplication::translate("ApplicationWindow", "\350\277\224\345\233\236", nullptr));
-        equipmentConnectPushutton->setText(QCoreApplication::translate("ApplicationWindow", "\350\256\276\345\244\207\350\277\236\346\216\245", nullptr));
     } // retranslateUi
 
 };

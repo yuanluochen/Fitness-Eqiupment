@@ -107,17 +107,25 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image:
     <bool>false</bool>
    </property>
   </widget>
-  <widget class="QLabel" name="label_6">
+  <widget class="QLabel" name="displayLabel">
    <property name="geometry">
     <rect>
-     <x>550</x>
-     <y>130</y>
+     <x>590</x>
+     <y>120</y>
      <width>781</width>
      <height>391</height>
     </rect>
    </property>
+   <property name="font">
+    <font>
+     <pointsize>15</pointsize>
+    </font>
+   </property>
    <property name="text">
     <string/>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignCenter</set>
    </property>
   </widget>
   <widget class="QWidget" name="">

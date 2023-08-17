@@ -29,7 +29,7 @@ public:
     QLabel *label_2;
     QLabel *label_4;
     QPushButton *returnBefore;
-    QLabel *label_6;
+    QLabel *displayLabel;
     QWidget *widget;
     QVBoxLayout *verticalLayout_2;
     QWidget *widget1;
@@ -99,9 +99,13 @@ public:
 "QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image: url(:/icon/HealthManagerWindow/return.png);}"));
         returnBefore->setIconSize(QSize(20, 20));
         returnBefore->setAutoDefault(false);
-        label_6 = new QLabel(HealthManagerWindow);
-        label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setGeometry(QRect(550, 130, 781, 391));
+        displayLabel = new QLabel(HealthManagerWindow);
+        displayLabel->setObjectName(QString::fromUtf8("displayLabel"));
+        displayLabel->setGeometry(QRect(590, 120, 781, 391));
+        QFont font1;
+        font1.setPointSize(15);
+        displayLabel->setFont(font1);
+        displayLabel->setAlignment(Qt::AlignCenter);
         widget = new QWidget(HealthManagerWindow);
         widget->setObjectName(QString::fromUtf8("widget"));
         widget->setGeometry(QRect(0, 0, 2, 2));
@@ -283,7 +287,7 @@ public:
         label_2->setText(QString());
         label_4->setText(QCoreApplication::translate("HealthManagerWindow", "\345\201\245\345\272\267\347\256\241\347\220\206", nullptr));
         returnBefore->setText(QString());
-        label_6->setText(QString());
+        displayLabel->setText(QString());
         equipmentStatusLabel->setText(QString());
         searchPushButton->setText(QString());
         BMICalcPushButton->setText(QString());

@@ -37,6 +37,14 @@ private slots:
     void on_returnBefore_clicked();
     void montorCheck();
     void montorReceive(QByteArray data);
+    void SaO2Show();
+    void HeartRateShow();
+
+    void on_heartRateDetectionPushbutton_clicked();
+
+    void on_SaO2DetectionPushButton_clicked();
+
+    void on_BMICalcPushButton_clicked();
 
 private:
     Ui::HealthManagerWindow *ui;
@@ -47,6 +55,9 @@ private:
     //监测设备串口服务
     SerialPortService *montorSerialService;
     QTimer *equipmentCheckTim;
+
+    // 监测定时器
+    QTimer *detectionTim;
     checkStatus_e checkstatus;
     QStringList serialPortList;
 };
