@@ -14,35 +14,27 @@ SportWindow::SportWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //实例化线程对象
-    this->equipmentSearch = new equipmentConnection::EquipmentSearch;
+    //实例化监测设备线程
+    this->montorThread = new QThread;
+    //实例化监测设备服务
+    this->montorSerialService = new SerialPortService;
+    //将监测设备服务转移到监测设备线程
+    this->montorSerialService->moveToThread(this->montorThread);
 
-    serialPort = new QSerialPort;
+    //显示设备连接状态为未连接
+    this->setEquipmentStatus(UNCONNECT);
+    
+    //自动连接设备
+    this->connectEquipment();
 
-    QStringList serialPortName;
-    for (const QSerialPortInfo &info : QSerialPortInfo::availablePorts())
-    {
-        // 导入列表
-        serialPortName << info.portName();
-    }
-    serialPort->setPortName(serialPortName[0]);
-    serialPort->setBaudRate(QSerialPort::Baud115200);
-    serialPort->setDataBits(QSerialPort::Data8);
-    serialPort->setParity(QSerialPort::NoParity);
-    serialPort->setStopBits(QSerialPort::OneStop);
-
-    connect(serialPort, &QSerialPort::readyRead, this, &SportWindow::read_Data);
-
-    if (serialPort->open(QIODevice::ReadWrite))
-    {
-        qDebug() << "open " << serialPortName[0] << " successful";
-        
-    }
-
-    //进入页面自动连接设备
-    connectEquipment();
 }
 
+void SportWindow::connectEquipment()
+{
+    QStringList SerialPortList;
+    SerialPortList = this->montorSerialService->getAvailableSerialPort();
+    // for (QStringList::) 
+}
 uint8_t checkPack(uint8_t *receiveData)
 {
     uint8_t checkSum = 0;
@@ -55,12 +47,27 @@ uint8_t checkPack(uint8_t *receiveData)
 
 }
 
-void SportWindow::read_Data()
+/**
+ * @brief 显示接收到的监测设备数据
+ * 
+ */
+void SportWindow::showMontorReceiveData()
 {
-    qDebug() << "receive data";
-    QByteArray receiveBuf = serialPort->readAll();
-    
-    qDebug() << "data is" << receiveBuf.toHex();
+    qDebug() << "receive pack GSR is" << this->montorReceiveData.GSR;
+    qDebug() << "receive pack accelX is" << this->montorReceiveData.accelX;
+    qDebug() << "receive pack accelY is" << this->montorReceiveData.accelY;
+    qDebug() << "receive pack accelZ is" << this->montorReceiveData.accelZ;
+    qDebug() << "receive pack angularVelocityX is" << this->montorReceiveData.angularVelocityX;
+    qDebug() << "receive pack angularVelocityY is" << this->montorReceiveData.angularVelocityY;
+    qDebug() << "receive pack angularVelocityZ is" << this->montorReceiveData.angularVelocityZ;
+    qDebug() << "receive pack heartRata is" << this->montorReceiveData.heartRate;
+    qDebug() << "receive pack bloodOxygen is" << this->montorReceiveData.bloodOxygen;
+}
+
+void SportWindow::montorReceive(QByteArray data)
+{
+    QByteArray receiveBuf = data;
+
     if (!receiveBuf.isEmpty())
     {
         uint8_t data = receiveBuf[18];
@@ -74,31 +81,25 @@ void SportWindow::read_Data()
 
             if (checkSum == receiveBuf[17])
             {
-                this->receiveData.GSR = (receiveBuf[1] << 8) + receiveBuf[2];
-                this->receiveData.accelX = (receiveBuf[3] << 8) + receiveBuf[4];
-                this->receiveData.accelY = (receiveBuf[5] << 8) + receiveBuf[6];
-                this->receiveData.accelZ = (receiveBuf[7] << 8) + receiveBuf[8];
-                this->receiveData.angularVelocityX = (receiveBuf[9] << 8) + receiveBuf[10];
-                this->receiveData.angularVelocityY = (receiveBuf[11] << 8) + receiveBuf[12];
-                this->receiveData.angularVelocityZ = (receiveBuf[13] << 8) + receiveBuf[14];
-                this->receiveData.heartRate = receiveBuf[15];
-                this->receiveData.bloodOxygen = receiveBuf[16];
 
-                qDebug() << "receive pack GSR is" << this->receiveData.GSR;
-                qDebug() << "receive pack accelX is" << this->receiveData.accelX;
-                qDebug() << "receive pack accelY is" << this->receiveData.accelY;
-                qDebug() << "receive pack accelZ is" << this->receiveData.accelZ;
-                qDebug() << "receive pack angularVelocityX is" << this->receiveData.angularVelocityX;
-                qDebug() << "receive pack angularVelocityY is" << this->receiveData.angularVelocityY;
-                qDebug() << "receive pack angularVelocityZ is" << this->receiveData.angularVelocityZ;
-                qDebug() << "receive pack heartRata is" << this->receiveData.heartRate;
-                qDebug() << "receive pack bloodOxygen is" << this->receiveData.bloodOxygen;
-                ui->bloodOxygenDataLabel->setNum(this->receiveData.bloodOxygen);
-                ui->heartRateDataLabel->setNum(this->receiveData.heartRate);
+                qDebug() << "receive montoring equipment data";
+                this->montorReceiveData.GSR = (receiveBuf[1] << 8) + receiveBuf[2];
+                this->montorReceiveData.accelX = (receiveBuf[3] << 8) + receiveBuf[4];
+                this->montorReceiveData.accelY = (receiveBuf[5] << 8) + receiveBuf[6];
+                this->montorReceiveData.accelZ = (receiveBuf[7] << 8) + receiveBuf[8];
+                this->montorReceiveData.angularVelocityX = (receiveBuf[9] << 8) + receiveBuf[10];
+                this->montorReceiveData.angularVelocityY = (receiveBuf[11] << 8) + receiveBuf[12];
+                this->montorReceiveData.angularVelocityZ = (receiveBuf[13] << 8) + receiveBuf[14];
+                this->montorReceiveData.heartRate = receiveBuf[15];
+                this->montorReceiveData.bloodOxygen = receiveBuf[16];
+                
+                ui->bloodOxygenDataLabel->setNum(this->montorReceiveData.bloodOxygen);
+                ui->heartRateDataLabel->setNum(this->montorReceiveData.heartRate);
+
             }
         }
     }
-}
+ }
 
 SportWindow::~SportWindow()
 {
@@ -108,48 +109,14 @@ SportWindow::~SportWindow()
 
 void SportWindow::on_returnBefore_clicked()
 {
-    //析构线程对象
-    delete this->equipmentSearch;
 
     CREATE_NEW_WINDOW(ApplicationWindow, this);
 }
 
 void SportWindow::on_searchPushButton_clicked()
 {
-    connectEquipment();
 }
 
-/**
- * @brief 开启线程连接设备函数
- */
-void SportWindow::connectEquipment()
-{
-    ui->equipmentStatusLabel->setText("正在搜索设备中");
-    //判断线程对象是否为空
-
-    if (this->equipmentSearch == nullptr)
-    {
-        return;
-    }
-    //开启设备连接线程
-    this->equipmentSearch->start();
-
-    //接收发送可用设备列表
-    QObject::connect(this->equipmentSearch, &equipmentConnection::EquipmentSearch::sendMontoringEquipmentList, this, [=](QStringList availableList)
-    {
-        if (!availableList.empty())
-        {
-            ui->equipmentStatusLabel->setText("发现设备，正在连接设备");
-        }
-        else
-        {
-            ui->equipmentStatusLabel->setText("没有发现设备");
-        }
-    });
-
-
-
-}
 
 /**
  * @brief 添加设备标签
@@ -210,5 +177,31 @@ void SportWindow::setBooldOxygenData(double num)
         pe.setColor(QPalette::WindowText, Qt::white);
         ui->bloodOxygenDataLabel->setPalette(pe);
     }
+}
+
+/**
+ * @brief 设置设备状态
+ * 
+ * @param status 
+ */
+void SportWindow::setEquipmentStatus(equipmentConnectStatus_e status)
+{
+    QPalette pe;
+    switch (status)
+    {
+    case UNCONNECT:
+        ui->equipmentStatusLabel->setText("设备未连接");
+        pe.setColor(QPalette::WindowText, Qt::red);
+        break;
+    case CONNECT:
+        ui->equipmentStatusLabel->setText("设备已连接");
+        pe.setColor(QPalette::WindowText, Qt::green);
+        break;
+    case SEARCH_EQUIPMENT:
+        ui->equipmentStatusLabel->setText("正在搜索设备");
+        pe.setColor(QPalette::WindowText, Qt::white);
+        break;
+    }
+    ui->equipmentStatusLabel->setPalette(pe);
 }
 

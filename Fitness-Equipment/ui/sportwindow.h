@@ -2,24 +2,26 @@
 #define SPORTWINDOW_H
 
 #include <QWidget>
-#include "application/Equipment/equipmentconnection.h"
 #include <QVector>
 #include <QListWidgetItem>
 #include <stdint.h>
 #include <QVector>
+#include <QSerialPort>
 
 #include "equipmentitem.h"
+#include "application/SerialPort/serialportservice.h"
+
+#define MAX_CONNECT_TIME 10000000
 
 namespace Ui {
 class SportWindow;
 }
 
 
+
 //监测设备接收数据包
 struct receivePack_t
 {
-    uint8_t header;
-    //肌电信号
     int16_t GSR;
     //加速度
     int16_t accelX;
@@ -33,26 +35,15 @@ struct receivePack_t
     int8_t heartRate;
     //血氧
     int8_t bloodOxygen;
-    //校验和
-    int8_t checkSum;
-
-    uint8_t tail;
-}__attribute__((packed));
-
-union int32_to_int8
-{
-    int32_t int32Data;
-    int8_t int8Data[4];
 };
 
-namespace equipmentStatus{
 
-enum equipmentStatus
+enum equipmentConnectStatus_e
 {
-
+    UNCONNECT,        // 未连接
+    CONNECT,          // 连接
+    SEARCH_EQUIPMENT, // 搜索设备
 };
-
-}
 
 class SportWindow : public QWidget
 {
@@ -68,21 +59,23 @@ private:
     void connectEquipment();
     void setHeartRateData(double num);
     void setBooldOxygenData(double num);
+    void setEquipmentStatus(equipmentConnectStatus_e status);
+    void showMontorReceiveData();
 private slots:
     void on_returnBefore_clicked();
-
     void on_searchPushButton_clicked();
-
-    void read_Data();
+    void montorReceive(QByteArray data);
 
 public:
     char receiveBuf[10000]; 
 private:
     Ui::SportWindow *ui;
-    //设备连接线程
-    equipmentConnection::EquipmentSearch *equipmentSearch;
-    QSerialPort *serialPort;
-    receivePack_t receiveData;
+    receivePack_t montorReceiveData;
+
+    //监测设备线程
+    QThread *montorThread;
+    //监测设备串口
+    SerialPortService *montorSerialService;
 };
 
 #endif // SPORTWINDOW_H

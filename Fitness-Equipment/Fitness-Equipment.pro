@@ -18,10 +18,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    application/Equipment/equipmentconnection.cpp \
+    application/SerialPort/serialportservice.cpp \
     main.cpp \
     mainwindow.cpp \
     ui/applicationwindow.cpp \
+    ui/equipmentconnect.cpp \
     ui/equipmentitem.cpp \
     ui/healthmanagerwindow.cpp \
     ui/manualwindow.cpp \
@@ -29,9 +30,10 @@ SOURCES += \
     userLib/userLib_ui.cpp
 
 HEADERS += \
-    application/Equipment/equipmentconnection.h \
+    application/SerialPort/serialportservice.h \
     mainwindow.h \
     ui/applicationwindow.h \
+    ui/equipmentconnect.h \
     ui/equipmentitem.h \
     ui/healthmanagerwindow.h \
     ui/manualwindow.h \
@@ -47,6 +49,7 @@ HEADERS += \
 FORMS += \
     mainwindow.ui \
     ui/applicationwindow.ui \
+    ui/equipmentconnect.ui \
     ui/equipmentitem.ui \
     ui/healthmanagerwindow.ui \
     ui/manualwindow.ui \
