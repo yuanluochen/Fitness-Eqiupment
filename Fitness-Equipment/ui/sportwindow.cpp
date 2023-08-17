@@ -13,6 +13,7 @@
 //imu角速度数据转真实数据
 #define IMU_ANGULAR_VELOCITy_DATA_TO_VALUE_DATA(imu) ((imu / 32768.0f) * 250.0f)
 
+
 SportWindow::SportWindow(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::SportWindow)
@@ -22,6 +23,9 @@ SportWindow::SportWindow(QWidget *parent) :
     this->montorSerialService = new SerialPortService;
     //实例化设备校验定时
     this->equipmentCheckTim = new QTimer;
+    //初始化运动状态
+    this->sportStatus = UNPLAY_SPORT;
+
     //将监测设备服务转移到监测设备线程
     this->montorSerialService->moveToThread(&this->montorThread);
     //启动线程
@@ -32,15 +36,19 @@ SportWindow::SportWindow(QWidget *parent) :
     QObject::connect(&this->montorThread, &QThread::finished, this->montorSerialService, &QObject::deleteLater);
 
     this->serialPortList = this->montorSerialService->getAvailableSerialPort();
-    //自动连接设备
-    this->connectEquipment();
+    if (!this->serialPortList.isEmpty())
+    {
+        // 自动连接设备
+        this->connectEquipment();
+    }
 
 }
 
 void SportWindow::connectEquipment()
 {
     QStringList::iterator it = serialPortList.begin();
-    if (this->montorSerialService->initSerialPort(*it, QSerialPort::Baud115200, QSerialPort::Data8, QSerialPort::NoParity, QSerialPort::OneStop, QIODevice::ReadWrite))
+    
+    if (this->montorSerialService->initSerialPort(*it, QSerialPort::Baud115200, QSerialPort::Data8, QSerialPort::NoParity, QSerialPort::OneStop, QIODevice::ReadOnly))
     {
         qDebug() << "serial port open successful";
         // 清空数据
@@ -75,6 +83,8 @@ void SportWindow::montorCheck()
     //校验失败关闭串口更换其他设备进行校验
     this->checkstatus = UNPASS;
     qDebug() << "check montoring equipment unpass";
+    //取消槽函数的链接
+    disconnect(this->equipmentCheckTim, &QTimer::timeout, this, &SportWindow::montorCheck);
     //遍历删除指定串口名
     for (QStringList::iterator it = this->serialPortList.begin(); it != this->serialPortList.end(); it++)
     {
@@ -94,16 +104,6 @@ void SportWindow::montorCheck()
     
 }
 
-uint8_t checkPack(uint8_t *receiveData)
-{
-    uint8_t checkSum = 0;
-    //除去头尾其他数据相将加
-    for (int i = 1; i < 17; i++)
-    {
-        checkSum += receiveData[i];
-    }
-    return checkSum;
-}
 
 /**
  * @brief 显示接收到的监测设备数据
@@ -153,6 +153,7 @@ void SportWindow::montorReceive(QByteArray data)
                 
                 this->setBooldOxygenData(this->montorReceiveData.bloodOxygen);
                 this->setHeartRateData(this->montorReceiveData.heartRate);
+                this->showMontorReceiveData();
             }
         }
     }
@@ -160,6 +161,7 @@ void SportWindow::montorReceive(QByteArray data)
 
 SportWindow::~SportWindow()
 {
+    this->montorSerialService->closeSerial();
     montorThread.quit();
     montorThread.wait();
     delete this->equipmentCheckTim;
@@ -175,7 +177,10 @@ void SportWindow::on_returnBefore_clicked()
 void SportWindow::on_searchPushButton_clicked()
 {
     this->serialPortList = this->montorSerialService->getAvailableSerialPort();
-    this->connectEquipment();
+    if (!this->serialPortList.isEmpty())
+    {
+        this->connectEquipment();
+    }
 }
 
 
@@ -239,6 +244,24 @@ void SportWindow::setBooldOxygenData(double num)
         ui->bloodOxygenDataLabel->setPalette(pe);
     }
 }
+void SportWindow::setSportDisplay(QString data)
+{
+    ui->sportDisplay->setText(data);
+    // 设置为白色
+    QPalette pe;
+    pe.setColor(QPalette::WindowText, Qt::black);
+    ui->sportDisplay->setPalette(pe);
+}
+
+void SportWindow::setSportDisplay(int num)
+{
+    ui->sportDisplay->setNum(num);
+    // 设置为白色
+    QPalette pe;
+    pe.setColor(QPalette::WindowText, Qt::black);
+    ui->sportDisplay->setPalette(pe);
+
+}
 
 /**
  * @brief 设置设备状态
@@ -266,3 +289,18 @@ void SportWindow::setEquipmentStatus(equipmentConnectStatus_e status)
     ui->equipmentStatusLabel->setPalette(pe);
 }
 
+
+void SportWindow::on_startSportPushButton_clicked()
+{
+    qDebug() << "start fitness";
+    this->setSportDisplay("运动开始");
+    //设置运动状态为运动
+    this->sportStatus = PLAY_SPORT;
+}
+
+void SportWindow::on_stopSportPushButton_clicked()
+{
+    qDebug() << "stop fitness";
+    this->setSportDisplay("运动停止");
+    this->sportStatus = UNPLAY_SPORT;
+}

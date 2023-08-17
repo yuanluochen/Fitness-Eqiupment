@@ -51,7 +51,7 @@ void SerialPortService::closeSerial()
         serialPort->close();
     }
 
-    qDebug() << "串口关闭成功";
+    qDebug() << "close serial port successful";
 }
 
 void SerialPortService::receviceSerialData()

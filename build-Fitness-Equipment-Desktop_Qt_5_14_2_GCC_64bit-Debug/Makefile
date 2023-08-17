@@ -819,7 +819,10 @@ qrc_resource.cpp: ../Fitness-Equipment/resource/resource.qrc \
 		../Fitness-Equipment/resource/icon/SportWindow/sport.png \
 		../Fitness-Equipment/resource/icon/MainWindow/enter.png \
 		../Fitness-Equipment/resource/icon/HealthManagerWindow/healthManager.png \
+		../Fitness-Equipment/resource/icon/HealthManagerWindow/SaO2.png \
+		../Fitness-Equipment/resource/icon/HealthManagerWindow/BMI.png \
 		../Fitness-Equipment/resource/icon/HealthManagerWindow/return.png \
+		../Fitness-Equipment/resource/icon/HealthManagerWindow/heartRate.png \
 		../Fitness-Equipment/resource/icon/EquipmentItem/bicycleEquipment.png \
 		../Fitness-Equipment/resource/icon/EquipmentItem/monitoringEquipment.png \
 		../Fitness-Equipment/resource/icon/EquipmentItem/fitnessEquipment.png \
@@ -902,6 +905,10 @@ moc_serialportservice.cpp: ../Fitness-Equipment/application/SerialPort/serialpor
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvarlengtharray.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontainerfwd.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobject_impl.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/QSerialPort \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/qserialport.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qiodevice.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/qserialportglobal.h \
 		moc_predefs.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/bin/moc
 	/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/moc_predefs.h -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment -I/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment/userLib/UnitreeMotorSDK_A1Go1_Sup220423/include -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Fitness-Equipment/application/SerialPort/serialportservice.h -o moc_serialportservice.cpp
@@ -2137,7 +2144,14 @@ moc_sportwindow.cpp: ../Fitness-Equipment/ui/sportwindow.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/QSerialPort \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/qserialport.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/qserialportglobal.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QThread \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qthread.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QTimer \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtimer.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbasictimer.h \
 		../Fitness-Equipment/ui/equipmentitem.h \
+		../Fitness-Equipment/application/SerialPort/serialportservice.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QObject \
 		moc_predefs.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/bin/moc
 	/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/bin/moc $(DEFINES) --include /home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/moc_predefs.h -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/mkspecs/linux-g++ -I/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment -I/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment/userLib/UnitreeMotorSDK_A1Go1_Sup220423/include -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCharts -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtWidgets -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtGui -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort -I/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/QtCore -I. -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include ../Fitness-Equipment/ui/sportwindow.h -o moc_sportwindow.cpp
@@ -2240,7 +2254,27 @@ serialportservice.o: ../Fitness-Equipment/application/SerialPort/serialportservi
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmetatype.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvarlengtharray.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontainerfwd.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobject_impl.h
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qobject_impl.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/QSerialPort \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/qserialport.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qiodevice.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/qserialportglobal.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/QSerialPortInfo \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/qserialportinfo.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QThread \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qthread.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QDebug \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qdebug.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qhash.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qmap.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtextstream.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qlocale.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qvariant.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qshareddata.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qset.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qcontiguouscache.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qsharedpointer_impl.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o serialportservice.o ../Fitness-Equipment/application/SerialPort/serialportservice.cpp
 
 main.o: ../Fitness-Equipment/main.cpp ../Fitness-Equipment/mainwindow.h \
@@ -2659,7 +2693,14 @@ applicationwindow.o: ../Fitness-Equipment/ui/applicationwindow.cpp ../Fitness-Eq
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/QSerialPort \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/qserialport.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/qserialportglobal.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QThread \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qthread.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QTimer \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtimer.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbasictimer.h \
 		../Fitness-Equipment/ui/equipmentitem.h \
+		../Fitness-Equipment/application/SerialPort/serialportservice.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QObject \
 		../Fitness-Equipment/ui/manualwindow.h \
 		../Fitness-Equipment/ui/healthmanagerwindow.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCharts/QtCharts \
@@ -2675,7 +2716,6 @@ applicationwindow.o: ../Fitness-Equipment/ui/applicationwindow.cpp ../Fitness-Eq
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qanimationgroup.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qarraydataops.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qarraydatapointer.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbasictimer.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbitarray.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbuffer.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbytearraymatcher.h \
@@ -2705,7 +2745,6 @@ applicationwindow.o: ../Fitness-Equipment/ui/applicationwindow.cpp ../Fitness-Eq
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qexception.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfactoryinterface.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfileselector.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QObject \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QStringList \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfilesystemwatcher.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qfinalstate.h \
@@ -2770,11 +2809,9 @@ applicationwindow.o: ../Fitness-Equipment/ui/applicationwindow.cpp ../Fitness-Eq
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtemporaryfile.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtextboundaryfinder.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtextcodec.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qthread.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qthreadpool.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qthreadstorage.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtimeline.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtimer.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtimezone.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtranslator.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtransposeproxymodel.h \
@@ -3887,8 +3924,9 @@ healthmanagerwindow.o: ../Fitness-Equipment/ui/healthmanagerwindow.cpp ../Fitnes
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCharts/qtchartsversion.h \
 		ui_healthmanagerwindow.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QApplication \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QGridLayout \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QHBoxLayout \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QLabel \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QListWidget \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QPushButton \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QSpacerItem \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QVBoxLayout \
@@ -4168,7 +4206,14 @@ sportwindow.o: ../Fitness-Equipment/ui/sportwindow.cpp ../Fitness-Equipment/ui/s
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/QSerialPort \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/qserialport.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/qserialportglobal.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QThread \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qthread.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QTimer \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qtimer.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qbasictimer.h \
 		../Fitness-Equipment/ui/equipmentitem.h \
+		../Fitness-Equipment/application/SerialPort/serialportservice.h \
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QObject \
 		ui_sportwindow.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QVariant \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtWidgets/QApplication \
@@ -4196,9 +4241,7 @@ sportwindow.o: ../Fitness-Equipment/ui/sportwindow.cpp ../Fitness-Equipment/ui/s
 		../Fitness-Equipment/userLib/userLib_ui.h \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QDebug \
 		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/QSerialPortInfo \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/qserialportinfo.h \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/QThread \
-		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtCore/qthread.h
+		../../../../Qt5.14.2/5.14.2/gcc_64/include/QtSerialPort/qserialportinfo.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o sportwindow.o ../Fitness-Equipment/ui/sportwindow.cpp
 
 userLib_ui.o: ../Fitness-Equipment/userLib/userLib_ui.cpp ../Fitness-Equipment/userLib/userLib_ui.h \

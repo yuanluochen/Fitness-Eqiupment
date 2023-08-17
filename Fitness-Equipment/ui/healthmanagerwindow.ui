@@ -15,85 +15,427 @@
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);
-border:2px solid rgb(20,196,188);border-radius:15px;</string>
+border:2px ;border-radius:15px;</string>
   </property>
-  <layout class="QGridLayout" name="gridLayout">
-   <item row="0" column="0">
-    <spacer name="verticalSpacer">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>782</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="1" column="0">
-    <layout class="QVBoxLayout" name="verticalLayout_5">
-     <item>
-      <widget class="QPushButton" name="returnBefore">
-       <property name="enabled">
-        <bool>true</bool>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>1420</x>
+     <y>0</y>
+     <width>172</width>
+     <height>207</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="minimumSize">
+       <size>
+        <width>170</width>
+        <height>170</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>170</width>
+        <height>170</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/icon/HealthManagerWindow/healthManager.png);</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_4">
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+        <weight>75</weight>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="text">
+       <string>健康管理</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QPushButton" name="returnBefore">
+   <property name="enabled">
+    <bool>true</bool>
+   </property>
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>840</y>
+     <width>60</width>
+     <height>60</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>60</width>
+     <height>60</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">
+
+QPushButton{border:2px solid rgb(20,196,188);border-radius:15px;border-image: url(:/icon/HealthManagerWindow/return.png);}
+
+
+QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image: url(:/icon/HealthManagerWindow/return.png);}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>20</width>
+     <height>20</height>
+    </size>
+   </property>
+   <property name="autoDefault">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>550</x>
+     <y>130</y>
+     <width>781</width>
+     <height>391</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>2</width>
+     <height>2</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_2"/>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>300</y>
+     <width>281</width>
+     <height>361</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout_3">
+    <item>
+     <widget class="QWidget" name="widget_9" native="true">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>300</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(153, 193, 241);</string>
+      </property>
+      <widget class="QListWidget" name="equipmentListWidget">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>0</y>
+         <width>281</width>
+         <height>301</height>
+        </rect>
        </property>
        <property name="minimumSize">
         <size>
-         <width>60</width>
-         <height>60</height>
+         <width>0</width>
+         <height>300</height>
         </size>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
        </property>
        <property name="styleSheet">
-        <string notr="true">border-image: url(:/icon/HealthManagerWindow/return.png);</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-       <property name="iconSize">
-        <size>
-         <width>20</width>
-         <height>20</height>
-        </size>
-       </property>
-       <property name="autoDefault">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="label">
-       <property name="font">
-        <font>
-         <pointsize>11</pointsize>
-         <weight>75</weight>
-         <bold>true</bold>
-        </font>
-       </property>
-       <property name="text">
-        <string>返回</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <string notr="true">QListWidget::item
+{
+	height:90px;
+}
+QListWidget
+{
+	background-color:transparent;
+    border:none;
+	border-radius:15px;
+
+}
+QListWidget::item:selected
+{
+	background-color:transparent;
+	border-radius:15px;
+	border:none;
+}
+QListWidget::item:hover
+{
+	background-color:rgb(133, 173, 221);
+    border-radius:15px;
+	border:none;
+}
+
+</string>
        </property>
       </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="1" column="1">
-    <spacer name="horizontalSpacer">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>1511</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-  </layout>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="equipmentStatusLabel">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>20</height>
+         </size>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeType">
+         <enum>QSizePolicy::Fixed</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="searchPushButton">
+        <property name="minimumSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>25</width>
+          <height>25</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">
+
+
+
+
+
+QPushButton{border:2px solid rgb(20,196,188);border-radius:15px;border-image: url(:/icon/SportWindow/search.png);}
+
+
+QPushButton:hover{background-color: rgb(246, 245, 244);border:none;	border-image: url(:/icon/SportWindow/search.png);}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>720</x>
+     <y>590</y>
+     <width>472</width>
+     <height>153</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="QPushButton" name="BMICalcPushButton">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>120</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>120</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{border:2px solid rgb(20,196,188);border-radius:15px;border-image: url(:/icon/HealthManagerWindow/BMI.png);}
+
+
+
+QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image: url(:/icon/HealthManagerWindow/BMI.png);}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>BMI计算</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <widget class="QPushButton" name="SaO2DetectionPushButton">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>120</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>120</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{border:2px solid rgb(20,196,188);border-radius:15px;border-image: url(:/icon/HealthManagerWindow/SaO2.png);}
+
+
+
+
+QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image: url(:/icon/HealthManagerWindow/SaO2.png);}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>血氧检测</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <spacer name="horizontalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_6">
+      <item>
+       <widget class="QPushButton" name="heartRateDetectionPushbutton">
+        <property name="minimumSize">
+         <size>
+          <width>120</width>
+          <height>120</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>120</width>
+          <height>120</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">QPushButton{border:2px solid rgb(20,196,188);border-radius:15px;border-image: url(:/icon/HealthManagerWindow/heartRate.png);}
+
+
+
+
+
+QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image: url(:/icon/HealthManagerWindow/heartRate.png);}</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>心率检测</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
  </widget>
  <resources/>
  <connections/>

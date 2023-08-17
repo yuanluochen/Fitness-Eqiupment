@@ -24,6 +24,8 @@ private slots:
 
     void on_healthManagerPushButton_clicked();
 
+    void on_equipmentConnectPushutton_clicked();
+
 private:
     Ui::ApplicationWindow *ui;
 };

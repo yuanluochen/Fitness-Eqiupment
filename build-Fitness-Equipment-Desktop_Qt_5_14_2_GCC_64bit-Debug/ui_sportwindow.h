@@ -85,6 +85,7 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QPushButton *returnBefore;
     QSpacerItem *horizontalSpacer_2;
+    QLabel *sportDisplay;
 
     void setupUi(QWidget *SportWindow)
     {
@@ -545,6 +546,13 @@ public:
 
         gridLayout->addLayout(horizontalLayout_2, 1, 0, 1, 2);
 
+        sportDisplay = new QLabel(widget_3);
+        sportDisplay->setObjectName(QString::fromUtf8("sportDisplay"));
+        sportDisplay->setGeometry(QRect(430, 70, 591, 341));
+        QFont font9;
+        font9.setPointSize(54);
+        sportDisplay->setFont(font9);
+        sportDisplay->setAlignment(Qt::AlignCenter);
 
         gridLayout_2->addWidget(widget_3, 0, 0, 5, 1);
 
@@ -587,6 +595,7 @@ public:
         equipmentStatusLabel->setText(QString());
         searchPushButton->setText(QString());
         returnBefore->setText(QString());
+        sportDisplay->setText(QString());
     } // retranslateUi
 
 };

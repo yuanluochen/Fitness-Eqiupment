@@ -1229,6 +1229,27 @@ QPushButton:hover{background-color: rgb(153, 193, 241);border:none;border-image:
        </item>
       </layout>
      </widget>
+     <widget class="QLabel" name="sportDisplay">
+      <property name="geometry">
+       <rect>
+        <x>430</x>
+        <y>70</y>
+        <width>591</width>
+        <height>341</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>54</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignCenter</set>
+      </property>
+     </widget>
     </widget>
    </item>
   </layout>

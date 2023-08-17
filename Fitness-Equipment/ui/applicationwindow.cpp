@@ -5,6 +5,7 @@
 #include "ui/sportwindow.h"
 #include "ui/manualwindow.h"
 #include "ui/healthmanagerwindow.h"
+#include "ui/equipmentconnect.h"
 
 #include "userLib/userLib_ui.h"
 #include <QDebug>
@@ -39,4 +40,10 @@ void ApplicationWindow::on_manualPushbutton_clicked()
 void ApplicationWindow::on_healthManagerPushButton_clicked()
 {
     CREATE_NEW_WINDOW(HealthManagerWindow, this);
+}
+void ApplicationWindow::on_equipmentConnectPushutton_clicked()
+{
+    // CREATE_NEW_WINDOW(EquipmentConnect, this);
+    EquipmentConnect *newWindows = new EquipmentConnect;
+    newWindows->show();
 }

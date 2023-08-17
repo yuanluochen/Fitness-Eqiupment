@@ -27,5 +27,8 @@
         <file>icon/SportWindow/search.png</file>
         <file>icon/SportWindow/stop.png</file>
         <file>icon/SportWindow/start.png</file>
+        <file>icon/HealthManagerWindow/SaO2.png</file>
+        <file>icon/HealthManagerWindow/heartRate.png</file>
+        <file>icon/HealthManagerWindow/BMI.png</file>
     </qresource>
 </RCC>
