@@ -12,14 +12,14 @@ class SerialPortService : public QObject
 public:
     explicit SerialPortService(QObject *parent = nullptr);
     QStringList getAvailableSerialPort();
-    bool InitSerialPort(QString portName, qint32 baudRate, QSerialPort::DataBits dataBits, QSerialPort::Parity parity, QSerialPort::StopBits stopBits, QIODevice::OpenMode openMode);
-    void CloseSerial();
+    bool initSerialPort(QString portName, qint32 baudRate, QSerialPort::DataBits dataBits, QSerialPort::Parity parity, QSerialPort::StopBits stopBits, QIODevice::OpenMode openMode);
+    void closeSerial();
 signals:
-    void UpdateSerialData(QByteArray data);
+    void updateSerialData(QByteArray data);
 
 public slots:
-    void ReceviceSerialData();
-    void SendSerialData(QByteArray data);
+    void receviceSerialData();
+    void sendSerialData(QByteArray data);
 
 private:
     QSerialPort *serialPort;

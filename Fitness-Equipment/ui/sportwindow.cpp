@@ -5,7 +5,6 @@
 #include <QSerialPortInfo>
 #include <QSerialPort>
 #include <QDebug>
-#include <QThread>
 #include <QListWidgetItem>
 
 SportWindow::SportWindow(QWidget *parent) :
@@ -14,15 +13,16 @@ SportWindow::SportWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    //实例化监测设备线程
-    this->montorThread = new QThread;
     //实例化监测设备服务
     this->montorSerialService = new SerialPortService;
     //将监测设备服务转移到监测设备线程
-    this->montorSerialService->moveToThread(this->montorThread);
-
+    this->montorSerialService->moveToThread(&this->montorThread);
+    //启动线程
+    this->montorThread.start();
     //显示设备连接状态为未连接
     this->setEquipmentStatus(UNCONNECT);
+    //线程退出时自动删除对象
+    QObject::connect(&this->montorThread, &QThread::finished, this->montorSerialService, &QObject::deleteLater);
     
     //自动连接设备
     this->connectEquipment();
@@ -33,7 +33,17 @@ void SportWindow::connectEquipment()
 {
     QStringList SerialPortList;
     SerialPortList = this->montorSerialService->getAvailableSerialPort();
-    // for (QStringList::) 
+    for (QStringList::iterator it = SerialPortList.begin(); it != SerialPortList.end(); it++)
+    {
+        //初始化串口设备服务
+        if (this->montorSerialService->initSerialPort(*it, QSerialPort::Baud115200, QSerialPort::Data8, QSerialPort::NoParity, QSerialPort::OneStop, QIODevice::ReadWrite))
+        {
+            qDebug() << "serial port open successful";
+            //连接信号和槽
+            QObject::connect(this->montorSerialService, SIGNAL(updateSerialData(QByteArray)), this, SLOT(montorReceive(QByteArray)));
+        }
+        
+    } 
 }
 uint8_t checkPack(uint8_t *receiveData)
 {
@@ -103,7 +113,8 @@ void SportWindow::montorReceive(QByteArray data)
 
 SportWindow::~SportWindow()
 {
-
+    montorThread.quit();
+    montorThread.wait();
     delete ui;
 }
 
@@ -115,6 +126,7 @@ void SportWindow::on_returnBefore_clicked()
 
 void SportWindow::on_searchPushButton_clicked()
 {
+
 }
 
 

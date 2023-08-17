@@ -20,7 +20,7 @@ QStringList SerialPortService::getAvailableSerialPort()
     return mPortsList;
 }
 
-bool SerialPortService::InitSerialPort(QString portName, qint32 baudRate, QSerialPort::DataBits dataBits, QSerialPort::Parity parity, QSerialPort::StopBits stopBits, QIODevice::OpenMode openMode)
+bool SerialPortService::initSerialPort(QString portName, qint32 baudRate, QSerialPort::DataBits dataBits, QSerialPort::Parity parity, QSerialPort::StopBits stopBits, QIODevice::OpenMode openMode)
 {
     this->serialPort->setPortName(portName);
     this->serialPort->setBaudRate(baudRate);
@@ -32,6 +32,7 @@ bool SerialPortService::InitSerialPort(QString portName, qint32 baudRate, QSeria
     if (this->serialPort->open(openMode) == true)
     {
         qDebug() << "open " << "serial port " << portName << "successful";
+        connect(this->serialPort, &QSerialPort::readyRead, this, &SerialPortService::receviceSerialData,  Qt::QueuedConnection);
         return true;
     }
     else
@@ -41,7 +42,7 @@ bool SerialPortService::InitSerialPort(QString portName, qint32 baudRate, QSeria
     }
 }
 
-void SerialPortService::CloseSerial()
+void SerialPortService::closeSerial()
 {
     if (serialPort->isOpen())
     {
@@ -52,15 +53,15 @@ void SerialPortService::CloseSerial()
     qDebug() << "串口关闭成功";
 }
 
-void SerialPortService::ReceviceSerialData()
+void SerialPortService::receviceSerialData()
 {
     QByteArray buffer = this->serialPort->readAll();
     qDebug() << QString(buffer)<< "当前线程ID："<< QThread::currentThreadId();
     // 发送数据至GUI
-    emit  UpdateSerialData(buffer);
+    emit  updateSerialData(buffer);
 }
 
-void SerialPortService::SendSerialData(QByteArray data)
+void SerialPortService::sendSerialData(QByteArray data)
 {
     // 接收GUI数据并发送
     this->serialPort->write(data);

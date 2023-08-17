@@ -7,6 +7,7 @@
 #include <stdint.h>
 #include <QVector>
 #include <QSerialPort>
+#include <QThread>
 
 #include "equipmentitem.h"
 #include "application/SerialPort/serialportservice.h"
@@ -73,7 +74,7 @@ private:
     receivePack_t montorReceiveData;
 
     //监测设备线程
-    QThread *montorThread;
+    QThread montorThread;
     //监测设备串口
     SerialPortService *montorSerialService;
 };
