@@ -67,7 +67,6 @@ private slots:
     void montorCheck();
     void montorReceive(QByteArray data);
 signals:
-    void sendMontorDataToSportWindow(receivePack_t data);
 private:
     Ui::EquipmentConnect *ui;
 

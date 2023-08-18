@@ -185,6 +185,7 @@ public:
 
         labelHealthManager = new QLabel(ApplicationWindow);
         labelHealthManager->setObjectName(QString::fromUtf8("labelHealthManager"));
+        labelHealthManager->setFont(font1);
         labelHealthManager->setAlignment(Qt::AlignCenter);
 
         verticalLayout_6->addWidget(labelHealthManager);
@@ -213,6 +214,7 @@ public:
 
         labelManual = new QLabel(ApplicationWindow);
         labelManual->setObjectName(QString::fromUtf8("labelManual"));
+        labelManual->setFont(font1);
         labelManual->setAlignment(Qt::AlignCenter);
 
         verticalLayout_4->addWidget(labelManual);
@@ -309,7 +311,7 @@ public:
         sportPushButton->setText(QString());
         labelSport->setText(QCoreApplication::translate("ApplicationWindow", "\350\277\220\345\212\250", nullptr));
         healthManagerPushButton->setText(QString());
-        labelHealthManager->setText(QCoreApplication::translate("ApplicationWindow", "\345\201\245\345\272\267\347\256\241\347\220\206", nullptr));
+        labelHealthManager->setText(QCoreApplication::translate("ApplicationWindow", "\345\201\245\345\272\267\346\243\200\346\265\213", nullptr));
         manualPushbutton->setText(QString());
         labelManual->setText(QCoreApplication::translate("ApplicationWindow", "\344\275\277\347\224\250\350\257\264\346\230\216", nullptr));
         returnBefore->setText(QString());

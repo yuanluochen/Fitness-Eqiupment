@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QThread>
 #include "ui/sportwindow.h"
+#include <QTime>
 
 EquipmentConnect::EquipmentConnect(QWidget *parent) :
     QWidget(parent),
@@ -22,7 +23,6 @@ EquipmentConnect::EquipmentConnect(QWidget *parent) :
     // 线程退出时自动删除对象
     QObject::connect(&this->montorThread, &QThread::finished, this->montorSerialService, &QObject::deleteLater);
     //连接其他界面
-
     this->serialPortList = this->montorSerialService->getAvailableSerialPort();
     if (!this->serialPortList.isEmpty())
     {
@@ -37,7 +37,7 @@ void EquipmentConnect::connectEquipment()
     
     if (this->montorSerialService->initSerialPort(*it, QSerialPort::Baud115200, QSerialPort::Data8, QSerialPort::NoParity, QSerialPort::OneStop, QIODevice::ReadOnly))
     {
-        qDebug() << "serial port open successful";
+        qDebug() << QTime::currentTime() << "serial port open successful";
         // 清空数据
         memset(&this->montorReceiveData, 0, sizeof(receivePack_t));
         // 连接信号和槽
@@ -77,7 +77,7 @@ void EquipmentConnect::montorReceive(QByteArray data)
                 this->montorReceiveData.angularVelocityZ = (receiveBuf[13] << 8) + receiveBuf[14];
                 this->montorReceiveData.heartRate = receiveBuf[15];
                 this->montorReceiveData.bloodOxygen = receiveBuf[16];
-                
+
                 this->showMontorReceiveData();
 
             }
@@ -86,7 +86,7 @@ void EquipmentConnect::montorReceive(QByteArray data)
 }
 void EquipmentConnect::montorCheck()
 {   
-    qDebug() << "check montoring equipment";
+    qDebug() << QTime::currentTime() << "check montoring equipment";
     //停止定时
     this->equipmentCheckTim->stop();
     //设备校验
@@ -95,7 +95,7 @@ void EquipmentConnect::montorCheck()
         this->montorReceiveData.bloodOxygen != 0 || this->montorReceiveData.GSR != 0 || this->montorReceiveData.heartRate != 0)
     {
         this->checkstatus = PASS;
-        qDebug() << "check montoring equipment pass";
+        qDebug() << QTime::currentTime() << "check montoring equipment pass";
         //添加设备
         this->addEquipmentItem(equipmentItemCard::MONITORING);
         //显示已连接设备
@@ -105,7 +105,7 @@ void EquipmentConnect::montorCheck()
 
     //校验失败关闭串口更换其他设备进行校验
     this->checkstatus = UNPASS;
-    qDebug() << "check montoring equipment unpass";
+    qDebug() << QTime::currentTime() << "check montoring equipment unpass";
     //取消槽函数的链接
     disconnect(this->equipmentCheckTim, &QTimer::timeout, this, &EquipmentConnect::montorCheck);
     //遍历删除指定串口名
@@ -113,7 +113,7 @@ void EquipmentConnect::montorCheck()
     {
         if (*it == this->montorSerialService->getCurSerialPortName())
         {
-            qDebug() << "delete serial port";
+            qDebug() << QTime::currentTime() << "delete serial port";
             this->serialPortList.pop_front();
             this->montorSerialService->closeSerial();
             
@@ -133,15 +133,15 @@ void EquipmentConnect::montorCheck()
  */
 void EquipmentConnect::showMontorReceiveData()
 {
-    qDebug() << "receive pack GSR is" << this->montorReceiveData.GSR;
-    qDebug() << "receive pack accelX is" << this->montorReceiveData.accelX;
-    qDebug() << "receive pack accelY is" << this->montorReceiveData.accelY;
-    qDebug() << "receive pack accelZ is" << this->montorReceiveData.accelZ;
-    qDebug() << "receive pack angularVelocityX is" << this->montorReceiveData.angularVelocityX;
-    qDebug() << "receive pack angularVelocityY is" << this->montorReceiveData.angularVelocityY;
-    qDebug() << "receive pack angularVelocityZ is" << this->montorReceiveData.angularVelocityZ;
-    qDebug() << "receive pack heartRata is" << this->montorReceiveData.heartRate;
-    qDebug() << "receive pack bloodOxygen is" << this->montorReceiveData.bloodOxygen;
+    qDebug() << QTime::currentTime() << "receive pack GSR is" << this->montorReceiveData.GSR;
+    qDebug() << QTime::currentTime() << "receive pack accelX is" << this->montorReceiveData.accelX;
+    qDebug() << QTime::currentTime() << "receive pack accelY is" << this->montorReceiveData.accelY;
+    qDebug() << QTime::currentTime() << "receive pack accelZ is" << this->montorReceiveData.accelZ;
+    qDebug() << QTime::currentTime() << "receive pack angularVelocityX is" << this->montorReceiveData.angularVelocityX;
+    qDebug() << QTime::currentTime() << "receive pack angularVelocityY is" << this->montorReceiveData.angularVelocityY;
+    qDebug() << QTime::currentTime() << "receive pack angularVelocityZ is" << this->montorReceiveData.angularVelocityZ;
+    qDebug() << QTime::currentTime() << "receive pack heartRata is" << this->montorReceiveData.heartRate;
+    qDebug() << QTime::currentTime() << "receive pack bloodOxygen is" << this->montorReceiveData.bloodOxygen;
 }
 /**
  * @brief 设置设备状态

@@ -7,6 +7,7 @@
 #include <QDebug>
 #include <QListWidgetItem>
 #include <QTimer>
+#include <QTime>
 
 //imu加速度数据转真实数据
 #define IMU_ACCEL_DATA_TO_VALUE_DATA(imu) ((imu / 32768.0f) * 2.0f)
@@ -50,7 +51,7 @@ void SportWindow::connectEquipment()
     
     if (this->montorSerialService->initSerialPort(*it, QSerialPort::Baud115200, QSerialPort::Data8, QSerialPort::NoParity, QSerialPort::OneStop, QIODevice::ReadOnly))
     {
-        qDebug() << "serial port open successful";
+        qDebug() << QTime::currentTime() << "serial port open successful";
         // 清空数据
         memset(&this->montorReceiveData, 0, sizeof(receivePack_t));
         // 连接信号和槽
@@ -65,7 +66,7 @@ void SportWindow::connectEquipment()
 
 void SportWindow::montorCheck()
 {   
-    qDebug() << "check montoring equipment";
+    qDebug() << QTime::currentTime() << "check montoring equipment";
     //停止定时
     this->equipmentCheckTim->stop();
     //设备校验
@@ -74,7 +75,7 @@ void SportWindow::montorCheck()
         this->montorReceiveData.bloodOxygen != 0 || this->montorReceiveData.GSR != 0 || this->montorReceiveData.heartRate != 0)
     {
         this->checkstatus = PASS;
-        qDebug() << "check montoring equipment pass";
+        qDebug() << QTime::currentTime() << "check montoring equipment pass";
         //添加设备
         this->addEquipmentItem(equipmentItemCard::MONITORING);
         return;
@@ -82,7 +83,7 @@ void SportWindow::montorCheck()
 
     //校验失败关闭串口更换其他设备进行校验
     this->checkstatus = UNPASS;
-    qDebug() << "check montoring equipment unpass";
+    qDebug() << QTime::currentTime() << "check montoring equipment unpass";
     //取消槽函数的链接
     disconnect(this->equipmentCheckTim, &QTimer::timeout, this, &SportWindow::montorCheck);
     //遍历删除指定串口名
@@ -90,7 +91,7 @@ void SportWindow::montorCheck()
     {
         if (*it == this->montorSerialService->getCurSerialPortName())
         {
-            qDebug() << "delete serial port";
+            qDebug() << QTime::currentTime() << "delete serial port";
             this->serialPortList.pop_front();
             this->montorSerialService->closeSerial();
             break;
@@ -111,16 +112,17 @@ void SportWindow::montorCheck()
  */
 void SportWindow::showMontorReceiveData()
 {
-    qDebug() << "receive pack GSR is" << this->montorReceiveData.GSR;
-    qDebug() << "receive pack accelX is" << this->montorReceiveData.accelX;
-    qDebug() << "receive pack accelY is" << this->montorReceiveData.accelY;
-    qDebug() << "receive pack accelZ is" << this->montorReceiveData.accelZ;
-    qDebug() << "receive pack angularVelocityX is" << this->montorReceiveData.angularVelocityX;
-    qDebug() << "receive pack angularVelocityY is" << this->montorReceiveData.angularVelocityY;
-    qDebug() << "receive pack angularVelocityZ is" << this->montorReceiveData.angularVelocityZ;
-    qDebug() << "receive pack heartRata is" << this->montorReceiveData.heartRate;
-    qDebug() << "receive pack bloodOxygen is" << this->montorReceiveData.bloodOxygen;
+    qDebug() << QTime::currentTime() << "receive pack GSR is" << this->montorReceiveData.GSR;
+    qDebug() << QTime::currentTime() << "receive pack accelX is" << this->montorReceiveData.accelX;
+    qDebug() << QTime::currentTime() << "receive pack accelY is" << this->montorReceiveData.accelY;
+    qDebug() << QTime::currentTime() << "receive pack accelZ is" << this->montorReceiveData.accelZ;
+    qDebug() << QTime::currentTime() << "receive pack angularVelocityX is" << this->montorReceiveData.angularVelocityX;
+    qDebug() << QTime::currentTime() << "receive pack angularVelocityY is" << this->montorReceiveData.angularVelocityY;
+    qDebug() << QTime::currentTime() << "receive pack angularVelocityZ is" << this->montorReceiveData.angularVelocityZ;
+    qDebug() << QTime::currentTime() << "receive pack heartRata is" << this->montorReceiveData.heartRate;
+    qDebug() << QTime::currentTime() << "receive pack bloodOxygen is" << this->montorReceiveData.bloodOxygen;
 }
+
 
 void SportWindow::montorReceive(QByteArray data)
 {
@@ -139,7 +141,6 @@ void SportWindow::montorReceive(QByteArray data)
 
             if (checkSum == receiveBuf[17])
             {
-
                 // qDebug() << "receive montoring equipment data";
                 this->montorReceiveData.GSR = ((receiveBuf[1] << 8) + receiveBuf[2]);
                 this->montorReceiveData.accelX = (receiveBuf[3] << 8) + receiveBuf[4];
@@ -163,7 +164,7 @@ void SportWindow::montorReceive(QByteArray data)
             }
         }
     }
- }
+}
 
 SportWindow::~SportWindow()
 {

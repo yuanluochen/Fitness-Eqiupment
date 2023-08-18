@@ -18,7 +18,7 @@ HealthManagerWindow::HealthManagerWindow(QWidget *parent) :
     ui->BMICalcPushButton->setEnabled(false);
     ui->SaO2DetectionPushButton->setEnabled(false);
     ui->heartRateDetectionPushbutton->setEnabled(false);
-    // ui->searchPushButton(true);
+
     //实例化监测设备服务
     this->montorSerialService = new SerialPortService;
     //实例化设备校验定时
@@ -44,7 +44,7 @@ HealthManagerWindow::HealthManagerWindow(QWidget *parent) :
 
 void HealthManagerWindow::montorCheck()
 {   
-    qDebug() << "check montoring equipment";
+    qDebug() << QTime::currentTime() << "check montoring equipment";
     //停止定时
     this->equipmentCheckTim->stop();
     //设备校验
@@ -53,7 +53,7 @@ void HealthManagerWindow::montorCheck()
         this->montorReceiveData.bloodOxygen != 0 || this->montorReceiveData.GSR != 0 || this->montorReceiveData.heartRate != 0)
     {
         this->checkstatus = PASS;
-        qDebug() << "check montoring equipment pass";
+        qDebug() << QTime::currentTime() << "check montoring equipment pass";
         //添加设备
         this->addEquipmentItem(equipmentItemCard::MONITORING);
         //显示已连接设备
@@ -75,10 +75,9 @@ void HealthManagerWindow::montorCheck()
     {
         if (*it == this->montorSerialService->getCurSerialPortName())
         {
-            qDebug() << "delete serial port";
+            qDebug() << QTime::currentTime() << "delete serial port";
             this->serialPortList.pop_front();
             this->montorSerialService->closeSerial();
-            
             break;
         }
     }
@@ -95,7 +94,7 @@ void HealthManagerWindow::connectEquipment()
     
     if (this->montorSerialService->initSerialPort(*it, QSerialPort::Baud115200, QSerialPort::Data8, QSerialPort::NoParity, QSerialPort::OneStop, QIODevice::ReadOnly))
     {
-        qDebug() << "serial port open successful";
+        qDebug() << QTime::currentTime() << "serial port open successful";
         // 清空数据
         memset(&this->montorReceiveData, 0, sizeof(receivePack_t));
         // 连接信号和槽
@@ -228,7 +227,7 @@ void HealthManagerWindow::on_returnBefore_clicked()
 
 void HealthManagerWindow::on_heartRateDetectionPushbutton_clicked()
 {
-    qDebug() << "heart rate detection start";
+    qDebug() << QTime::currentTime() << "heart rate detection start";
     ui->displayLabel->setText("心率检测开始, 请将您的手指放到健康监测手环背面,等待一段时间");
     connect(this->detectionTim, &QTimer::timeout, this, &HealthManagerWindow::HeartRateShow);
     this->detectionTim->start(20000);
@@ -249,7 +248,7 @@ void HealthManagerWindow::HeartRateShow()
 
 void HealthManagerWindow::on_SaO2DetectionPushButton_clicked()
 {
-    qDebug() << "Sa02 detection start";
+    qDebug() << QTime::currentTime() << "Sa02 detection start";
     ui->displayLabel->setText("血氧检测开始, 请将您的手指放到健康监测手环背面,等待一段时间");
     connect(this->detectionTim, &QTimer::timeout, this, &HealthManagerWindow::SaO2Show);
     this->detectionTim->start(20000);
@@ -257,7 +256,7 @@ void HealthManagerWindow::on_SaO2DetectionPushButton_clicked()
 
 void HealthManagerWindow::on_BMICalcPushButton_clicked()
 {
-    qDebug() << "BMI Calc start";
+    qDebug() << QTime::currentTime() << "BMI Calc start";
 }
 
 void HealthManagerWindow::on_searchPushButton_clicked()

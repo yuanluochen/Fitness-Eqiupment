@@ -13,9 +13,11 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QTabWidget>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -29,7 +31,6 @@ public:
     QLabel *label_2;
     QLabel *label_4;
     QPushButton *returnBefore;
-    QLabel *displayLabel;
     QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout_2;
     QWidget *layoutWidget2;
@@ -53,6 +54,14 @@ public:
     QLabel *equipmentStatusLabel;
     QSpacerItem *horizontalSpacer;
     QPushButton *searchPushButton;
+    QTabWidget *tabWidget;
+    QWidget *tab;
+    QLabel *displayLabel;
+    QWidget *tab_2;
+    QLineEdit *lineEdit;
+    QLineEdit *lineEdit_2;
+    QLineEdit *lineEdit_3;
+    QPushButton *pushButton;
 
     void setupUi(QWidget *HealthManagerWindow)
     {
@@ -99,13 +108,6 @@ public:
 "QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image: url(:/icon/HealthManagerWindow/return.png);}"));
         returnBefore->setIconSize(QSize(20, 20));
         returnBefore->setAutoDefault(false);
-        displayLabel = new QLabel(HealthManagerWindow);
-        displayLabel->setObjectName(QString::fromUtf8("displayLabel"));
-        displayLabel->setGeometry(QRect(590, 120, 781, 391));
-        QFont font1;
-        font1.setPointSize(19);
-        displayLabel->setFont(font1);
-        displayLabel->setAlignment(Qt::AlignCenter);
         layoutWidget1 = new QWidget(HealthManagerWindow);
         layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
         layoutWidget1->setGeometry(QRect(0, 0, 2, 2));
@@ -247,9 +249,9 @@ public:
         equipmentStatusLabel->setObjectName(QString::fromUtf8("equipmentStatusLabel"));
         equipmentStatusLabel->setMinimumSize(QSize(0, 20));
         equipmentStatusLabel->setMaximumSize(QSize(16777215, 20));
-        QFont font2;
-        font2.setPointSize(13);
-        equipmentStatusLabel->setFont(font2);
+        QFont font1;
+        font1.setPointSize(13);
+        equipmentStatusLabel->setFont(font1);
         equipmentStatusLabel->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(equipmentStatusLabel);
@@ -278,8 +280,39 @@ public:
 
         verticalLayout_3->addLayout(horizontalLayout);
 
+        tabWidget = new QTabWidget(HealthManagerWindow);
+        tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
+        tabWidget->setGeometry(QRect(630, 110, 751, 431));
+        tab = new QWidget();
+        tab->setObjectName(QString::fromUtf8("tab"));
+        displayLabel = new QLabel(tab);
+        displayLabel->setObjectName(QString::fromUtf8("displayLabel"));
+        displayLabel->setGeometry(QRect(0, 0, 751, 391));
+        QFont font2;
+        font2.setPointSize(19);
+        displayLabel->setFont(font2);
+        displayLabel->setAlignment(Qt::AlignCenter);
+        tabWidget->addTab(tab, QString());
+        tab_2 = new QWidget();
+        tab_2->setObjectName(QString::fromUtf8("tab_2"));
+        lineEdit = new QLineEdit(tab_2);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        lineEdit->setGeometry(QRect(60, 90, 431, 21));
+        lineEdit_2 = new QLineEdit(tab_2);
+        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
+        lineEdit_2->setGeometry(QRect(60, 150, 431, 21));
+        lineEdit_3 = new QLineEdit(tab_2);
+        lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
+        lineEdit_3->setGeometry(QRect(60, 220, 431, 21));
+        pushButton = new QPushButton(tab_2);
+        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton->setGeometry(QRect(60, 280, 431, 31));
+        tabWidget->addTab(tab_2, QString());
 
         retranslateUi(HealthManagerWindow);
+
+        tabWidget->setCurrentIndex(1);
+
 
         QMetaObject::connectSlotsByName(HealthManagerWindow);
     } // setupUi
@@ -288,9 +321,8 @@ public:
     {
         HealthManagerWindow->setWindowTitle(QCoreApplication::translate("HealthManagerWindow", "Form", nullptr));
         label_2->setText(QString());
-        label_4->setText(QCoreApplication::translate("HealthManagerWindow", "\345\201\245\345\272\267\347\256\241\347\220\206", nullptr));
+        label_4->setText(QCoreApplication::translate("HealthManagerWindow", "\345\201\245\345\272\267\346\243\200\346\265\213", nullptr));
         returnBefore->setText(QString());
-        displayLabel->setText(QString());
         BMICalcPushButton->setText(QString());
         label->setText(QCoreApplication::translate("HealthManagerWindow", "BMI\350\256\241\347\256\227", nullptr));
         SaO2DetectionPushButton->setText(QString());
@@ -299,6 +331,10 @@ public:
         label_5->setText(QCoreApplication::translate("HealthManagerWindow", "\345\277\203\347\216\207\346\243\200\346\265\213", nullptr));
         equipmentStatusLabel->setText(QString());
         searchPushButton->setText(QString());
+        displayLabel->setText(QString());
+        tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("HealthManagerWindow", "Tab 1", nullptr));
+        pushButton->setText(QCoreApplication::translate("HealthManagerWindow", "\345\274\200\345\247\213\350\256\241\347\256\227", nullptr));
+        tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("HealthManagerWindow", "Tab 2", nullptr));
     } // retranslateUi
 
 };

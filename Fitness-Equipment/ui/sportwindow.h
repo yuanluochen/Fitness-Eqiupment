@@ -49,7 +49,6 @@ private slots:
     void on_stopSportPushButton_clicked();
     void montorReceive(QByteArray data);
     void montorCheck();
-
 public:
 private:
     Ui::SportWindow *ui;

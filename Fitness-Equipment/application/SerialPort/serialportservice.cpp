@@ -2,6 +2,7 @@
 #include <QSerialPortInfo>
 #include <QThread>
 #include <QDebug>
+#include <QTime>
 
 
 SerialPortService::SerialPortService( QObject *parent) : QObject(parent)
@@ -32,13 +33,13 @@ bool SerialPortService::initSerialPort(QString portName, qint32 baudRate, QSeria
 
     if (this->serialPort->open(openMode) == true)
     {
-        qDebug() << "open " << "serial port " << portName << "successful";
+        qDebug() << QTime::currentTime() << "open " << "serial port " << portName << "successful";
         connect(this->serialPort, &QSerialPort::readyRead, this, &SerialPortService::receviceSerialData,  Qt::QueuedConnection);
         return true;
     }
     else
     {
-        qDebug() << "open " << "serial port " << portName << "fail";
+        qDebug() << QTime::currentTime() << "open " << "serial port " << portName << "fail";
         return false;
     }
 }
@@ -51,14 +52,12 @@ void SerialPortService::closeSerial()
         serialPort->close();
     }
 
-    qDebug() << "close serial port successful";
+    qDebug() << QTime::currentTime() << "close serial port successful";
 }
 
 void SerialPortService::receviceSerialData()
 {
     QByteArray buffer = this->serialPort->readAll();
-    // qDebug() << buffer.toHex() << "当前线程ID："<< QThread::currentThreadId();
-    // 发送数据至GUI
     emit  updateSerialData(buffer);
 }
 

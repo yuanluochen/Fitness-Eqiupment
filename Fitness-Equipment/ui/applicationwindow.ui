@@ -263,8 +263,14 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image:
        </item>
        <item>
         <widget class="QLabel" name="labelHealthManager">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
-          <string>健康管理</string>
+          <string>健康检测</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -321,6 +327,12 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image:
        </item>
        <item>
         <widget class="QLabel" name="labelManual">
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
          <property name="text">
           <string>使用说明</string>
          </property>

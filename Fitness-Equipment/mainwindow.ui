@@ -80,14 +80,14 @@ border-radius:15px;</string>
         <property name="font">
          <font>
           <family>JetBrains Mono Medium</family>
-          <pointsize>48</pointsize>
+          <pointsize>34</pointsize>
          </font>
         </property>
         <property name="styleSheet">
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>学生健康管理系统</string>
+         <string>青少年体质提升及健身管理系统</string>
         </property>
         <property name="scaledContents">
          <bool>false</bool>
