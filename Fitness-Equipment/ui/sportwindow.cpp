@@ -150,9 +150,15 @@ void SportWindow::montorReceive(QByteArray data)
                 this->montorReceiveData.angularVelocityZ = (receiveBuf[13] << 8) + receiveBuf[14];
                 this->montorReceiveData.heartRate = receiveBuf[15];
                 this->montorReceiveData.bloodOxygen = receiveBuf[16];
-                
+
                 this->setBooldOxygenData(this->montorReceiveData.bloodOxygen);
                 this->setHeartRateData(this->montorReceiveData.heartRate);
+                ui->XAccelLabel->setNum(this->montorReceiveData.accelX);
+                ui->YAccelLabel->setNum(this->montorReceiveData.accelY);
+                ui->ZAccelLabel->setNum(this->montorReceiveData.accelZ);
+                ui->YAWAngleVelocityLabel->setNum(this->montorReceiveData.angularVelocityX);
+                ui->PITCHAngleVelocityLabel->setNum(this->montorReceiveData.angularVelocityY);
+                ui->ROLLAngleVelocityLabel->setNum(this->montorReceiveData.angularVelocityZ);
                 this->showMontorReceiveData();
             }
         }

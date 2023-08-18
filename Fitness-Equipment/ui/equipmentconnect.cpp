@@ -2,6 +2,7 @@
 #include "ui_equipmentconnect.h"
 #include <QDebug>
 #include <QThread>
+#include "ui/sportwindow.h"
 
 EquipmentConnect::EquipmentConnect(QWidget *parent) :
     QWidget(parent),
@@ -20,6 +21,7 @@ EquipmentConnect::EquipmentConnect(QWidget *parent) :
     this->setEquipmentStatus(UNCONNECT);
     // 线程退出时自动删除对象
     QObject::connect(&this->montorThread, &QThread::finished, this->montorSerialService, &QObject::deleteLater);
+    //连接其他界面
 
     this->serialPortList = this->montorSerialService->getAvailableSerialPort();
     if (!this->serialPortList.isEmpty())
@@ -27,8 +29,6 @@ EquipmentConnect::EquipmentConnect(QWidget *parent) :
         // 自动连接设备
         this->connectEquipment();
     }
-
-
 }
 
 void EquipmentConnect::connectEquipment()
@@ -67,7 +67,6 @@ void EquipmentConnect::montorReceive(QByteArray data)
 
             if (checkSum == receiveBuf[17])
             {
-
                 // qDebug() << "receive montoring equipment data";
                 this->montorReceiveData.GSR = ((receiveBuf[1] << 8) + receiveBuf[2]);
                 this->montorReceiveData.accelX = (receiveBuf[3] << 8) + receiveBuf[4];
@@ -80,6 +79,7 @@ void EquipmentConnect::montorReceive(QByteArray data)
                 this->montorReceiveData.bloodOxygen = receiveBuf[16];
                 
                 this->showMontorReceiveData();
+
             }
         }
     }

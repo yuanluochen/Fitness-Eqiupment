@@ -46,6 +46,8 @@ private slots:
 
     void on_BMICalcPushButton_clicked();
 
+    void on_searchPushButton_clicked();
+
 private:
     Ui::HealthManagerWindow *ui;
 
@@ -60,6 +62,7 @@ private:
     QTimer *detectionTim;
     checkStatus_e checkstatus;
     QStringList serialPortList;
+
 };
 
 #endif // HEALTHMANAGERWINDOW_H

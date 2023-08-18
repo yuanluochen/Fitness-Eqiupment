@@ -7,6 +7,8 @@
 #include <QDebug>
 #include <QThread>
 #include <QString>
+#include <QTime>
+#include <QDateTime>
 
 HealthManagerWindow::HealthManagerWindow(QWidget *parent) :
     QWidget(parent),
@@ -16,6 +18,7 @@ HealthManagerWindow::HealthManagerWindow(QWidget *parent) :
     ui->BMICalcPushButton->setEnabled(false);
     ui->SaO2DetectionPushButton->setEnabled(false);
     ui->heartRateDetectionPushbutton->setEnabled(false);
+    // ui->searchPushButton(true);
     //实例化监测设备服务
     this->montorSerialService = new SerialPortService;
     //实例化设备校验定时
@@ -37,7 +40,6 @@ HealthManagerWindow::HealthManagerWindow(QWidget *parent) :
         // 自动连接设备
         this->connectEquipment();
     }
-
 }
 
 void HealthManagerWindow::montorCheck()
@@ -60,7 +62,6 @@ void HealthManagerWindow::montorCheck()
         ui->BMICalcPushButton->setEnabled(true);
         ui->SaO2DetectionPushButton->setEnabled(true);
         ui->heartRateDetectionPushbutton->setEnabled(true);
-
         return;
     }
 
@@ -150,8 +151,6 @@ void HealthManagerWindow::montorReceive(QByteArray data)
 
             if (checkSum == receiveBuf[17])
             {
-
-                // qDebug() << "receive montoring equipment data";
                 this->montorReceiveData.GSR = ((receiveBuf[1] << 8) + receiveBuf[2]);
                 this->montorReceiveData.accelX = (receiveBuf[3] << 8) + receiveBuf[4];
                 this->montorReceiveData.accelY = (receiveBuf[5] << 8) + receiveBuf[6];
@@ -161,7 +160,7 @@ void HealthManagerWindow::montorReceive(QByteArray data)
                 this->montorReceiveData.angularVelocityZ = (receiveBuf[13] << 8) + receiveBuf[14];
                 this->montorReceiveData.heartRate = receiveBuf[15];
                 this->montorReceiveData.bloodOxygen = receiveBuf[16];
-                
+                 
                 this->showMontorReceiveData();
             }
         }
@@ -173,15 +172,15 @@ void HealthManagerWindow::montorReceive(QByteArray data)
  */
 void HealthManagerWindow::showMontorReceiveData()
 {
-    qDebug() << "receive pack GSR is" << this->montorReceiveData.GSR;
-    qDebug() << "receive pack accelX is" << this->montorReceiveData.accelX;
-    qDebug() << "receive pack accelY is" << this->montorReceiveData.accelY;
-    qDebug() << "receive pack accelZ is" << this->montorReceiveData.accelZ;
-    qDebug() << "receive pack angularVelocityX is" << this->montorReceiveData.angularVelocityX;
-    qDebug() << "receive pack angularVelocityY is" << this->montorReceiveData.angularVelocityY;
-    qDebug() << "receive pack angularVelocityZ is" << this->montorReceiveData.angularVelocityZ;
-    qDebug() << "receive pack heartRata is" << this->montorReceiveData.heartRate;
-    qDebug() << "receive pack bloodOxygen is" << this->montorReceiveData.bloodOxygen;
+    qDebug() << QTime::currentTime() << "receive pack GSR is" << this->montorReceiveData.GSR;
+    qDebug() << QTime::currentTime() << "receive pack accelX is" << this->montorReceiveData.accelX;
+    qDebug() << QTime::currentTime() << "receive pack accelY is" << this->montorReceiveData.accelY;
+    qDebug() << QTime::currentTime() << "receive pack accelZ is" << this->montorReceiveData.accelZ;
+    qDebug() << QTime::currentTime() << "receive pack angularVelocityX is" << this->montorReceiveData.angularVelocityX;
+    qDebug() << QTime::currentTime() << "receive pack angularVelocityY is" << this->montorReceiveData.angularVelocityY;
+    qDebug() << QTime::currentTime() << "receive pack angularVelocityZ is" << this->montorReceiveData.angularVelocityZ;
+    qDebug() << QTime::currentTime() << "receive pack heartRata is" << this->montorReceiveData.heartRate;
+    qDebug() << QTime::currentTime() << "receive pack bloodOxygen is" << this->montorReceiveData.bloodOxygen;
 }
 
 HealthManagerWindow::~HealthManagerWindow()
@@ -232,18 +231,18 @@ void HealthManagerWindow::on_heartRateDetectionPushbutton_clicked()
     qDebug() << "heart rate detection start";
     ui->displayLabel->setText("心率检测开始, 请将您的手指放到健康监测手环背面,等待一段时间");
     connect(this->detectionTim, &QTimer::timeout, this, &HealthManagerWindow::HeartRateShow);
-    this->detectionTim->start(600);
+    this->detectionTim->start(20000);
 }
+
 void HealthManagerWindow::SaO2Show()
 {
     this->detectionTim->stop();
     ui->displayLabel->setText("您的血氧为" + QString::number(this->montorReceiveData.bloodOxygen));
-
 }
+
 void HealthManagerWindow::HeartRateShow()
 {
     this->detectionTim->stop();
-    
     ui->displayLabel->setText("您的心率为" + QString::number(this->montorReceiveData.heartRate));
     
 }
@@ -253,11 +252,19 @@ void HealthManagerWindow::on_SaO2DetectionPushButton_clicked()
     qDebug() << "Sa02 detection start";
     ui->displayLabel->setText("血氧检测开始, 请将您的手指放到健康监测手环背面,等待一段时间");
     connect(this->detectionTim, &QTimer::timeout, this, &HealthManagerWindow::SaO2Show);
-    this->detectionTim->start(600);
-
+    this->detectionTim->start(20000);
 }
 
 void HealthManagerWindow::on_BMICalcPushButton_clicked()
 {
+    qDebug() << "BMI Calc start";
+}
 
+void HealthManagerWindow::on_searchPushButton_clicked()
+{
+    this->serialPortList = this->montorSerialService->getAvailableSerialPort();
+    if (!this->serialPortList.isEmpty())
+    {
+        this->connectEquipment();
+    }
 }

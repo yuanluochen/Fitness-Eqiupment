@@ -41,9 +41,3 @@ void ApplicationWindow::on_healthManagerPushButton_clicked()
 {
     CREATE_NEW_WINDOW(HealthManagerWindow, this);
 }
-void ApplicationWindow::on_equipmentConnectPushutton_clicked()
-{
-    // CREATE_NEW_WINDOW(EquipmentConnect, this);
-    EquipmentConnect *newWindows = new EquipmentConnect;
-    newWindows->show();
-}
