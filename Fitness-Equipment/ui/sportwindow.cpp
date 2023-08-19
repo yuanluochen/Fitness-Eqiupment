@@ -26,7 +26,17 @@ SportWindow::SportWindow(QWidget *parent) :
     this->equipmentCheckTim = new QTimer;
     //初始化运动状态
     this->sportStatus = UNPLAY_SPORT;
-
+    //初始化健身参数
+    this->sportTarget = 0;
+    this->sportStrength = 0;
+    //显示参数
+    this->showSportStrength();
+    this->showSportTarget();
+    //设置按键状态
+    ui->sportStrengthPromotePushButton->setAutoRepeat(true);
+    ui->sportStrengthReducePushButton->setAutoRepeat(true);
+    ui->sportTargetReducePushButton->setAutoRepeat(true);
+    ui->sportTargetPromotePushButton->setAutoRepeat(true);
     //将监测设备服务转移到监测设备线程
     this->montorSerialService->moveToThread(&this->montorThread);
     //启动线程
@@ -45,6 +55,7 @@ SportWindow::SportWindow(QWidget *parent) :
 
 }
 
+
 void SportWindow::connectEquipment()
 {
     QStringList::iterator it = serialPortList.begin();
@@ -53,7 +64,7 @@ void SportWindow::connectEquipment()
     {
         qDebug() << QTime::currentTime() << "serial port open successful";
         // 清空数据
-        memset(&this->montorReceiveData, 0, sizeof(receivePack_t));
+        this->montorReceiveData.clear();
         // 连接信号和槽
         QObject::connect(this->montorSerialService, SIGNAL(updateSerialData(QByteArray)), this, SLOT(montorReceive(QByteArray)));
         // 定时等待验证
@@ -97,12 +108,10 @@ void SportWindow::montorCheck()
             break;
         }
     }
-
     if (!this->serialPortList.isEmpty())
     {
         this->connectEquipment();
     }
-    
 }
 
 
@@ -181,7 +190,9 @@ void SportWindow::on_returnBefore_clicked()
     montorThread.quit();
     montorThread.wait();
 
-    CREATE_NEW_WINDOW(ApplicationWindow, this);
+    // CREATE_NEW_WINDOW(ApplicationWindow, this);
+    this->close();
+
 }
 
 void SportWindow::on_searchPushButton_clicked()
@@ -254,10 +265,10 @@ void SportWindow::setBooldOxygenData(double num)
         ui->bloodOxygenDataLabel->setPalette(pe);
     }
 }
+
 void SportWindow::setSportDisplay(QString data)
 {
     ui->sportDisplay->setText(data);
-    // 设置为白色
     QPalette pe;
     pe.setColor(QPalette::WindowText, Qt::black);
     ui->sportDisplay->setPalette(pe);
@@ -266,13 +277,28 @@ void SportWindow::setSportDisplay(QString data)
 void SportWindow::setSportDisplay(int num)
 {
     ui->sportDisplay->setNum(num);
-    // 设置为白色
     QPalette pe;
     pe.setColor(QPalette::WindowText, Qt::black);
     ui->sportDisplay->setPalette(pe);
 
 }
 
+void SportWindow::showSportStrength()
+{
+    ui->sportStrengthLabel->setNum(this->sportStrength);
+    QPalette pe;
+    pe.setColor(QPalette::WindowText, Qt::blue);
+    ui->sportStrengthLabel->setPalette(pe);
+
+}
+
+void SportWindow::showSportTarget()
+{
+    ui->sportTargetLabel->setNum(this->sportTarget);
+    QPalette pe;
+    pe.setColor(QPalette::WindowText, Qt::blue);
+    ui->sportTargetLabel->setPalette(pe);
+}
 /**
  * @brief 设置设备状态
  * 
@@ -313,4 +339,58 @@ void SportWindow::on_stopSportPushButton_clicked()
     qDebug() << "stop fitness";
     this->setSportDisplay("运动停止");
     this->sportStatus = UNPLAY_SPORT;
+}
+
+
+void SportWindow::on_sportStrengthReducePushButton_clicked()
+{
+    if (this->sportStrength > MIN_SPORT_STRENGTH)
+    {
+        this->sportStrength--;
+    }
+    else
+    {
+        this->sportStrength = MAX_SPORT_STRENGTH;
+    }
+    this->showSportStrength();
+}
+
+
+void SportWindow::on_sportTargetReducePushButton_clicked()
+{
+    if (this->sportTarget > MIN_SPORT_TARGET)
+    {
+        this->sportTarget--;
+    }
+    else
+    {
+        this->sportTarget = MAX_SPORT_STRENGTH;
+    }
+    this->showSportTarget();
+}
+
+void SportWindow::on_sportTargetPromotePushButton_clicked()
+{
+    if  (this->sportTarget < MAX_SPORT_TARGET)
+    {
+        this->sportTarget++;
+    }
+    else
+    {
+        this->sportTarget = MIN_SPORT_TARGET;
+    }
+    this->showSportTarget();
+}
+
+void SportWindow::on_sportStrengthPromotePushButton_clicked()
+{
+    if (this->sportStrength < MAX_SPORT_STRENGTH)
+    {
+        this->sportStrength++;
+    }
+    else
+    {
+        this->sportStrength = MIN_SPORT_STRENGTH;
+    }
+    this->showSportStrength();
 }

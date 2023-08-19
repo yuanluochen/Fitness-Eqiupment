@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_HealthManagerWindow_t {
-    QByteArrayData data[12];
-    char stringdata0[231];
+    QByteArrayData data[13];
+    char stringdata0[253];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -40,15 +40,16 @@ QT_MOC_LITERAL(4, 57, 13), // "montorReceive"
 QT_MOC_LITERAL(5, 71, 4), // "data"
 QT_MOC_LITERAL(6, 76, 8), // "SaO2Show"
 QT_MOC_LITERAL(7, 85, 13), // "HeartRateShow"
-QT_MOC_LITERAL(8, 99, 39), // "on_heartRateDetectionPushbutt..."
-QT_MOC_LITERAL(9, 139, 34), // "on_SaO2DetectionPushButton_cl..."
-QT_MOC_LITERAL(10, 174, 28), // "on_BMICalcPushButton_clicked"
-QT_MOC_LITERAL(11, 203, 27) // "on_searchPushButton_clicked"
+QT_MOC_LITERAL(8, 99, 21), // "checkEquipmentConnect"
+QT_MOC_LITERAL(9, 121, 39), // "on_heartRateDetectionPushbutt..."
+QT_MOC_LITERAL(10, 161, 34), // "on_SaO2DetectionPushButton_cl..."
+QT_MOC_LITERAL(11, 196, 28), // "on_BMICalcPushButton_clicked"
+QT_MOC_LITERAL(12, 225, 27) // "on_searchPushButton_clicked"
 
     },
     "HealthManagerWindow\0on_returnBefore_clicked\0"
     "\0montorCheck\0montorReceive\0data\0"
-    "SaO2Show\0HeartRateShow\0"
+    "SaO2Show\0HeartRateShow\0checkEquipmentConnect\0"
     "on_heartRateDetectionPushbutton_clicked\0"
     "on_SaO2DetectionPushButton_clicked\0"
     "on_BMICalcPushButton_clicked\0"
@@ -62,7 +63,7 @@ static const uint qt_meta_data_HealthManagerWindow[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -70,20 +71,22 @@ static const uint qt_meta_data_HealthManagerWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   59,    2, 0x08 /* Private */,
-       3,    0,   60,    2, 0x08 /* Private */,
-       4,    1,   61,    2, 0x08 /* Private */,
-       6,    0,   64,    2, 0x08 /* Private */,
-       7,    0,   65,    2, 0x08 /* Private */,
-       8,    0,   66,    2, 0x08 /* Private */,
-       9,    0,   67,    2, 0x08 /* Private */,
-      10,    0,   68,    2, 0x08 /* Private */,
-      11,    0,   69,    2, 0x08 /* Private */,
+       1,    0,   64,    2, 0x08 /* Private */,
+       3,    0,   65,    2, 0x08 /* Private */,
+       4,    1,   66,    2, 0x08 /* Private */,
+       6,    0,   69,    2, 0x08 /* Private */,
+       7,    0,   70,    2, 0x08 /* Private */,
+       8,    0,   71,    2, 0x08 /* Private */,
+       9,    0,   72,    2, 0x08 /* Private */,
+      10,    0,   73,    2, 0x08 /* Private */,
+      11,    0,   74,    2, 0x08 /* Private */,
+      12,    0,   75,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, QMetaType::QByteArray,    5,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -105,10 +108,11 @@ void HealthManagerWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, 
         case 2: _t->montorReceive((*reinterpret_cast< QByteArray(*)>(_a[1]))); break;
         case 3: _t->SaO2Show(); break;
         case 4: _t->HeartRateShow(); break;
-        case 5: _t->on_heartRateDetectionPushbutton_clicked(); break;
-        case 6: _t->on_SaO2DetectionPushButton_clicked(); break;
-        case 7: _t->on_BMICalcPushButton_clicked(); break;
-        case 8: _t->on_searchPushButton_clicked(); break;
+        case 5: _t->checkEquipmentConnect(); break;
+        case 6: _t->on_heartRateDetectionPushbutton_clicked(); break;
+        case 7: _t->on_SaO2DetectionPushButton_clicked(); break;
+        case 8: _t->on_BMICalcPushButton_clicked(); break;
+        case 9: _t->on_searchPushButton_clicked(); break;
         default: ;
         }
     }
@@ -143,13 +147,13 @@ int HealthManagerWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 10;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 10)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 9;
+        _id -= 10;
     }
     return _id;
 }

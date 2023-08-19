@@ -34,21 +34,21 @@ public:
     QLabel *setUnitLabel_5;
     QLabel *SetData_5;
     QPushButton *ReducePushButton_5;
-    QPushButton *PromotrPushButton_5;
+    QPushButton *PromotePushButton_5;
     QSpacerItem *verticalSpacer_7;
     QWidget *widget_6;
     QLabel *dataTypelabel_4;
     QLabel *setUnitLabel_4;
-    QLabel *SetData_4;
-    QPushButton *ReducePushButton_4;
-    QPushButton *PromotrPushButton_4;
+    QLabel *sportTargetLabel;
+    QPushButton *sportTargetReducePushButton;
+    QPushButton *sportTargetPromotePushButton;
     QSpacerItem *verticalSpacer_6;
     QWidget *widget_5;
     QLabel *dataTypelabel;
     QLabel *setUnitLabel;
-    QLabel *SetData;
-    QPushButton *ReducePushButton;
-    QPushButton *PromotrPushButton;
+    QLabel *sportStrengthLabel;
+    QPushButton *sportStrengthReducePushButton;
+    QPushButton *sportStrengthPromotePushButton;
     QSpacerItem *verticalSpacer_5;
     QWidget *widget_4;
     QLabel *label;
@@ -178,11 +178,11 @@ public:
 "border-radius: 25px;  border: none;\n"
 "border-style: outset;\n"
 ""));
-        PromotrPushButton_5 = new QPushButton(widget_7);
-        PromotrPushButton_5->setObjectName(QString::fromUtf8("PromotrPushButton_5"));
-        PromotrPushButton_5->setGeometry(QRect(200, 10, 50, 50));
-        PromotrPushButton_5->setFont(font3);
-        PromotrPushButton_5->setStyleSheet(QString::fromUtf8("background-color: rgb(3, 231, 231);\n"
+        PromotePushButton_5 = new QPushButton(widget_7);
+        PromotePushButton_5->setObjectName(QString::fromUtf8("PromotePushButton_5"));
+        PromotePushButton_5->setGeometry(QRect(200, 10, 50, 50));
+        PromotePushButton_5->setFont(font3);
+        PromotePushButton_5->setStyleSheet(QString::fromUtf8("background-color: rgb(3, 231, 231);\n"
 "color: rgb(255,255,255);  \n"
 "border-radius: 25px;  border: none;\n"
 "border-style: outset;\n"
@@ -210,28 +210,28 @@ public:
         setUnitLabel_4->setFont(font2);
         setUnitLabel_4->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         setUnitLabel_4->setAlignment(Qt::AlignCenter);
-        SetData_4 = new QLabel(widget_6);
-        SetData_4->setObjectName(QString::fromUtf8("SetData_4"));
-        SetData_4->setGeometry(QRect(0, 0, 251, 71));
-        SetData_4->setMinimumSize(QSize(251, 71));
-        SetData_4->setMaximumSize(QSize(251, 71));
-        SetData_4->setFont(font);
-        SetData_4->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
-        SetData_4->setAlignment(Qt::AlignCenter);
-        ReducePushButton_4 = new QPushButton(widget_6);
-        ReducePushButton_4->setObjectName(QString::fromUtf8("ReducePushButton_4"));
-        ReducePushButton_4->setGeometry(QRect(0, 10, 50, 50));
-        ReducePushButton_4->setFont(font3);
-        ReducePushButton_4->setStyleSheet(QString::fromUtf8("background-color: rgb(3, 231, 231);\n"
+        sportTargetLabel = new QLabel(widget_6);
+        sportTargetLabel->setObjectName(QString::fromUtf8("sportTargetLabel"));
+        sportTargetLabel->setGeometry(QRect(0, 0, 251, 71));
+        sportTargetLabel->setMinimumSize(QSize(251, 71));
+        sportTargetLabel->setMaximumSize(QSize(251, 71));
+        sportTargetLabel->setFont(font);
+        sportTargetLabel->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
+        sportTargetLabel->setAlignment(Qt::AlignCenter);
+        sportTargetReducePushButton = new QPushButton(widget_6);
+        sportTargetReducePushButton->setObjectName(QString::fromUtf8("sportTargetReducePushButton"));
+        sportTargetReducePushButton->setGeometry(QRect(0, 10, 50, 50));
+        sportTargetReducePushButton->setFont(font3);
+        sportTargetReducePushButton->setStyleSheet(QString::fromUtf8("background-color: rgb(3, 231, 231);\n"
 "color: rgb(255,255,255);  \n"
 "border-radius: 25px;  border: none;\n"
 "border-style: outset;\n"
 ""));
-        PromotrPushButton_4 = new QPushButton(widget_6);
-        PromotrPushButton_4->setObjectName(QString::fromUtf8("PromotrPushButton_4"));
-        PromotrPushButton_4->setGeometry(QRect(200, 10, 50, 50));
-        PromotrPushButton_4->setFont(font3);
-        PromotrPushButton_4->setStyleSheet(QString::fromUtf8("background-color: rgb(3, 231, 231);\n"
+        sportTargetPromotePushButton = new QPushButton(widget_6);
+        sportTargetPromotePushButton->setObjectName(QString::fromUtf8("sportTargetPromotePushButton"));
+        sportTargetPromotePushButton->setGeometry(QRect(200, 10, 50, 50));
+        sportTargetPromotePushButton->setFont(font3);
+        sportTargetPromotePushButton->setStyleSheet(QString::fromUtf8("background-color: rgb(3, 231, 231);\n"
 "color: rgb(255,255,255);  \n"
 "border-radius: 25px;  border: none;\n"
 "border-style: outset;\n"
@@ -259,29 +259,29 @@ public:
         setUnitLabel->setFont(font2);
         setUnitLabel->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         setUnitLabel->setAlignment(Qt::AlignCenter);
-        SetData = new QLabel(widget_5);
-        SetData->setObjectName(QString::fromUtf8("SetData"));
-        SetData->setGeometry(QRect(0, 0, 251, 71));
-        SetData->setMinimumSize(QSize(251, 71));
-        SetData->setMaximumSize(QSize(251, 71));
-        SetData->setFont(font);
-        SetData->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
-        SetData->setAlignment(Qt::AlignCenter);
-        ReducePushButton = new QPushButton(widget_5);
-        ReducePushButton->setObjectName(QString::fromUtf8("ReducePushButton"));
-        ReducePushButton->setGeometry(QRect(0, 10, 50, 50));
-        ReducePushButton->setFont(font3);
-        ReducePushButton->setStyleSheet(QString::fromUtf8("background-color: rgb(3, 231, 231);\n"
+        sportStrengthLabel = new QLabel(widget_5);
+        sportStrengthLabel->setObjectName(QString::fromUtf8("sportStrengthLabel"));
+        sportStrengthLabel->setGeometry(QRect(0, 0, 251, 71));
+        sportStrengthLabel->setMinimumSize(QSize(251, 71));
+        sportStrengthLabel->setMaximumSize(QSize(251, 71));
+        sportStrengthLabel->setFont(font);
+        sportStrengthLabel->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
+        sportStrengthLabel->setAlignment(Qt::AlignCenter);
+        sportStrengthReducePushButton = new QPushButton(widget_5);
+        sportStrengthReducePushButton->setObjectName(QString::fromUtf8("sportStrengthReducePushButton"));
+        sportStrengthReducePushButton->setGeometry(QRect(0, 10, 50, 50));
+        sportStrengthReducePushButton->setFont(font3);
+        sportStrengthReducePushButton->setStyleSheet(QString::fromUtf8("background-color: rgb(3, 231, 231);\n"
 "color: rgb(255,255,255);  \n"
 "border-radius: 25px;  border: none;\n"
 "border-style: outset;\n"
 "\n"
 ""));
-        PromotrPushButton = new QPushButton(widget_5);
-        PromotrPushButton->setObjectName(QString::fromUtf8("PromotrPushButton"));
-        PromotrPushButton->setGeometry(QRect(200, 10, 50, 50));
-        PromotrPushButton->setFont(font3);
-        PromotrPushButton->setStyleSheet(QString::fromUtf8("background-color: rgb(3, 231, 231);\n"
+        sportStrengthPromotePushButton = new QPushButton(widget_5);
+        sportStrengthPromotePushButton->setObjectName(QString::fromUtf8("sportStrengthPromotePushButton"));
+        sportStrengthPromotePushButton->setGeometry(QRect(200, 10, 50, 50));
+        sportStrengthPromotePushButton->setFont(font3);
+        sportStrengthPromotePushButton->setStyleSheet(QString::fromUtf8("background-color: rgb(3, 231, 231);\n"
 "color: rgb(255,255,255);  \n"
 "border-radius: 25px;  border: none;\n"
 "border-style: outset;\n"
@@ -748,17 +748,17 @@ public:
         setUnitLabel_5->setText(QCoreApplication::translate("SportWindow", "unit", nullptr));
         SetData_5->setText(QCoreApplication::translate("SportWindow", "SET_DATA", nullptr));
         ReducePushButton_5->setText(QCoreApplication::translate("SportWindow", "-", nullptr));
-        PromotrPushButton_5->setText(QCoreApplication::translate("SportWindow", "+", nullptr));
-        dataTypelabel_4->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#62a0ea;\">dataType</span></p></body></html>", nullptr));
+        PromotePushButton_5->setText(QCoreApplication::translate("SportWindow", "+", nullptr));
+        dataTypelabel_4->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#62a0ea;\">\345\201\245\350\272\253\347\233\256\346\240\207</span></p></body></html>", nullptr));
         setUnitLabel_4->setText(QCoreApplication::translate("SportWindow", "unit", nullptr));
-        SetData_4->setText(QCoreApplication::translate("SportWindow", "SET_DATA", nullptr));
-        ReducePushButton_4->setText(QCoreApplication::translate("SportWindow", "-", nullptr));
-        PromotrPushButton_4->setText(QCoreApplication::translate("SportWindow", "+", nullptr));
-        dataTypelabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#62a0ea;\">dataType</span></p></body></html>", nullptr));
+        sportTargetLabel->setText(QCoreApplication::translate("SportWindow", "SET_DATA", nullptr));
+        sportTargetReducePushButton->setText(QCoreApplication::translate("SportWindow", "-", nullptr));
+        sportTargetPromotePushButton->setText(QCoreApplication::translate("SportWindow", "+", nullptr));
+        dataTypelabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#62a0ea;\">\345\201\245\350\272\253\345\274\272\345\272\246</span></p></body></html>", nullptr));
         setUnitLabel->setText(QCoreApplication::translate("SportWindow", "unit", nullptr));
-        SetData->setText(QCoreApplication::translate("SportWindow", "SET_DATA", nullptr));
-        ReducePushButton->setText(QCoreApplication::translate("SportWindow", "-", nullptr));
-        PromotrPushButton->setText(QCoreApplication::translate("SportWindow", "+", nullptr));
+        sportStrengthLabel->setText(QCoreApplication::translate("SportWindow", "SET_DATA", nullptr));
+        sportStrengthReducePushButton->setText(QCoreApplication::translate("SportWindow", "-", nullptr));
+        sportStrengthPromotePushButton->setText(QCoreApplication::translate("SportWindow", "+", nullptr));
         label->setText(QString());
         label_2->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">\345\201\245\350\272\253\345\274\200\345\247\213</span></p></body></html>", nullptr));
         startSportPushButton->setText(QString());

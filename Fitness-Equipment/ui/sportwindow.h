@@ -12,7 +12,11 @@
 
 #include "ui/equipmentconnect.h"
 
+#define MAX_SPORT_STRENGTH 100
+#define MIN_SPORT_STRENGTH 0
 
+#define MAX_SPORT_TARGET 100
+#define MIN_SPORT_TARGET 0
 
 namespace Ui {
 class SportWindow;
@@ -42,6 +46,8 @@ private:
     void showMontorReceiveData();
     void setSportDisplay(QString data);
     void setSportDisplay(int num);
+    void showSportStrength();
+    void showSportTarget();
 private slots:
     void on_returnBefore_clicked();
     void on_searchPushButton_clicked();
@@ -49,12 +55,25 @@ private slots:
     void on_stopSportPushButton_clicked();
     void montorReceive(QByteArray data);
     void montorCheck();
+    void on_sportStrengthReducePushButton_clicked();
+
+    void on_sportTargetReducePushButton_clicked();
+
+    void on_sportTargetPromotePushButton_clicked();
+
+    void on_sportStrengthPromotePushButton_clicked();
+
 public:
 private:
     Ui::SportWindow *ui;
-    receivePack_t montorReceiveData;
+    ReceivePack montorReceiveData;
     //运动状态
     sportStatus_e sportStatus;
+    
+    //健身目标
+    int sportTarget;
+    //健身强度
+    int sportStrength;
 
     //监测设备线程
     QThread montorThread;

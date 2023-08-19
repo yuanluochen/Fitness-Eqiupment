@@ -2,6 +2,11 @@
 #define APPLICATIONWINDOW_H
 
 #include <QWidget>
+#include "mainwindow.h"
+#include "ui/sportwindow.h"
+#include "ui/manualwindow.h"
+#include "ui/healthmanagerwindow.h"
+#include "ui/equipmentconnect.h"
 
 namespace Ui {
 class ApplicationWindow;
@@ -24,9 +29,14 @@ private slots:
 
     void on_healthManagerPushButton_clicked();
 
+    void on_equipmentConnectPushButton_clicked();
 
 private:
     Ui::ApplicationWindow *ui;
+    SportWindow *sportWindow;
+    ManualWindow *manualWindow;
+    HealthManagerWindow *healthManagerWindow;
+    EquipmentConnect *equipmentConnect;
 };
 
 #endif // APPLICATIONWINDOW_H

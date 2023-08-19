@@ -15,6 +15,7 @@
 #include <QtCharts>
 QT_CHARTS_USE_NAMESPACE
 
+
 namespace Ui {
 class HealthManagerWindow;
 }
@@ -39,6 +40,7 @@ private slots:
     void montorReceive(QByteArray data);
     void SaO2Show();
     void HeartRateShow();
+    void checkEquipmentConnect();
 
     void on_heartRateDetectionPushbutton_clicked();
 
@@ -51,12 +53,17 @@ private slots:
 private:
     Ui::HealthManagerWindow *ui;
 
-    receivePack_t montorReceiveData;
+    ReceivePack montorReceiveData;
+    //上一次数据
+    ReceivePack lastMontorReceiveData;
     // 监测设备线程
     QThread montorThread;
     //监测设备串口服务
     SerialPortService *montorSerialService;
+    //设备校验定时器
     QTimer *equipmentCheckTim;
+    //设备连接检测定时器
+    QTimer *equipmentCheckConnectTim;
 
     // 监测定时器
     QTimer *detectionTim;

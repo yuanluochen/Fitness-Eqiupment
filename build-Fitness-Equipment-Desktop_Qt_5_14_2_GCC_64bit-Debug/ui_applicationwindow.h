@@ -61,6 +61,7 @@ public:
     QSpacerItem *horizontalSpacer_10;
     QSpacerItem *verticalSpacer_11;
     QSpacerItem *verticalSpacer_5;
+    QPushButton *equipmentConnectPushButton;
 
     void setupUi(QWidget *ApplicationWindow)
     {
@@ -296,6 +297,17 @@ public:
 
         gridLayout->addItem(verticalSpacer_5, 2, 9, 1, 1);
 
+        equipmentConnectPushButton = new QPushButton(ApplicationWindow);
+        equipmentConnectPushButton->setObjectName(QString::fromUtf8("equipmentConnectPushButton"));
+        equipmentConnectPushButton->setMinimumSize(QSize(0, 100));
+        QFont font3;
+        font3.setPointSize(17);
+        font3.setBold(true);
+        font3.setWeight(75);
+        equipmentConnectPushButton->setFont(font3);
+
+        gridLayout->addWidget(equipmentConnectPushButton, 6, 9, 1, 1);
+
 
         retranslateUi(ApplicationWindow);
 
@@ -316,6 +328,7 @@ public:
         labelManual->setText(QCoreApplication::translate("ApplicationWindow", "\344\275\277\347\224\250\350\257\264\346\230\216", nullptr));
         returnBefore->setText(QString());
         labelReturn->setText(QCoreApplication::translate("ApplicationWindow", "\350\277\224\345\233\236", nullptr));
+        equipmentConnectPushButton->setText(QCoreApplication::translate("ApplicationWindow", "\350\256\276\345\244\207\350\277\236\346\216\245", nullptr));
     } // retranslateUi
 
 };

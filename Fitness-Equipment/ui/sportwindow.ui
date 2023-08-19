@@ -183,7 +183,7 @@ border-style: outset;
          <string>-</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="PromotrPushButton_5">
+       <widget class="QPushButton" name="PromotePushButton_5">
         <property name="geometry">
          <rect>
           <x>200</x>
@@ -260,7 +260,7 @@ border-style: outset;
          <string notr="true">background-color: transparent;</string>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#62a0ea;&quot;&gt;dataType&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#62a0ea;&quot;&gt;健身目标&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -290,7 +290,7 @@ border-style: outset;
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="SetData_4">
+       <widget class="QLabel" name="sportTargetLabel">
         <property name="geometry">
          <rect>
           <x>0</x>
@@ -326,7 +326,7 @@ border-style: outset;
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QPushButton" name="ReducePushButton_4">
+       <widget class="QPushButton" name="sportTargetReducePushButton">
         <property name="geometry">
          <rect>
           <x>0</x>
@@ -353,7 +353,7 @@ border-style: outset;
          <string>-</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="PromotrPushButton_4">
+       <widget class="QPushButton" name="sportTargetPromotePushButton">
         <property name="geometry">
          <rect>
           <x>200</x>
@@ -430,7 +430,7 @@ border-style: outset;
          <string notr="true">background-color: transparent;</string>
         </property>
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#62a0ea;&quot;&gt;dataType&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#62a0ea;&quot;&gt;健身强度&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -460,7 +460,7 @@ border-style: outset;
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QLabel" name="SetData">
+       <widget class="QLabel" name="sportStrengthLabel">
         <property name="geometry">
          <rect>
           <x>0</x>
@@ -496,7 +496,7 @@ border-style: outset;
          <set>Qt::AlignCenter</set>
         </property>
        </widget>
-       <widget class="QPushButton" name="ReducePushButton">
+       <widget class="QPushButton" name="sportStrengthReducePushButton">
         <property name="geometry">
          <rect>
           <x>0</x>
@@ -524,7 +524,7 @@ border-style: outset;
          <string>-</string>
         </property>
        </widget>
-       <widget class="QPushButton" name="PromotrPushButton">
+       <widget class="QPushButton" name="sportStrengthPromotePushButton">
         <property name="geometry">
          <rect>
           <x>200</x>

@@ -11,12 +11,25 @@
 #include <QTimer>
 #include "equipmentitem.h"
 
-//校验时间
+//设备校验时间
 #define CHECK_TIME 1000
+//设备连接校验时间
+#define CHECK_CONNECT_TIME 1000
 
 //监测设备接收数据包
-struct receivePack_t
+class ReceivePack
 {
+public:
+    ReceivePack() {};
+    ReceivePack(int16_t GSR, int16_t accelX, int16_t accelY, int16_t accelZ, 
+                int16_t angularVelocityX, int16_t angularVelocityY, int16_t angularVelocityZ,
+                int8_t heartRate, int8_t bloodOxygen);
+    ReceivePack(const ReceivePack &obj);
+
+    bool isSame(ReceivePack &obj);
+    void clear();
+    void assign(const ReceivePack &obj);
+public:
     int16_t GSR;
     //加速度
     int16_t accelX;
@@ -66,18 +79,27 @@ private:
 private slots:
     void montorCheck();
     void montorReceive(QByteArray data);
+    void checkEquipmentConnect();
+    void on_searchPushButton_clicked();
+
 signals:
 private:
     Ui::EquipmentConnect *ui;
 
-    receivePack_t montorReceiveData;
+    ReceivePack montorReceiveData;
     // 监测设备线程
     QThread montorThread;
     //监测设备串口服务
     SerialPortService *montorSerialService;
+    //设备校验定时器
     QTimer *equipmentCheckTim;
+    //设备连接校验定时器
+    QTimer *equipmentCheckConnectTim;
     checkStatus_e checkstatus;
     QStringList serialPortList;
+
+    //监测设备卡片地址
+    QListWidgetItem *montoringEquipmentItem;
 
 };
 

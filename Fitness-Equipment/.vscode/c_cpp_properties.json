@@ -5,7 +5,7 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/**",
-                "/home/yuanluochen/code/working/Fitness-Eqiupment/build-Fitness-Equipment-Desktop_Qt_5_14_2_GCC_64bit-Debug/**"
+                "/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment/build/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

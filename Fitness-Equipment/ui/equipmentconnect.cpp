@@ -14,6 +14,8 @@ EquipmentConnect::EquipmentConnect(QWidget *parent) :
     this->montorSerialService = new SerialPortService;
     //实例化设备校验定时
     this->equipmentCheckTim = new QTimer;
+    //实例化设备连接校验定时
+    this->equipmentCheckConnectTim = new QTimer;
     //将监测设备服务转移到监测设备线程
     this->montorSerialService->moveToThread(&this->montorThread);
     //启动线程
@@ -39,7 +41,7 @@ void EquipmentConnect::connectEquipment()
     {
         qDebug() << QTime::currentTime() << "serial port open successful";
         // 清空数据
-        memset(&this->montorReceiveData, 0, sizeof(receivePack_t));
+        this->montorReceiveData.clear();
         // 连接信号和槽
         QObject::connect(this->montorSerialService, SIGNAL(updateSerialData(QByteArray)), this, SLOT(montorReceive(QByteArray)));
         // 定时等待验证
@@ -97,9 +99,12 @@ void EquipmentConnect::montorCheck()
         this->checkstatus = PASS;
         qDebug() << QTime::currentTime() << "check montoring equipment pass";
         //添加设备
-        this->addEquipmentItem(equipmentItemCard::MONITORING);
+        this->montoringEquipmentItem = this->addEquipmentItem(equipmentItemCard::MONITORING);
         //显示已连接设备
         this->setEquipmentStatus(CONNECT);
+        connect(this->equipmentCheckConnectTim, &QTimer::timeout, this, &EquipmentConnect::checkEquipmentConnect);
+        //设备连接检测开始
+        this->equipmentCheckConnectTim->start(CHECK_CONNECT_TIME); 
         return;
     }
 
@@ -125,6 +130,25 @@ void EquipmentConnect::montorCheck()
     {
         this->connectEquipment();
     }
+    
+}
+
+void EquipmentConnect::checkEquipmentConnect()
+{
+    //对比两次数据检测设备是否连接
+    static ReceivePack lastMontorReceiveData(this->montorReceiveData);
+    if (lastMontorReceiveData.isSame(this->montorReceiveData))
+    {
+        //数据没变，没有接收过数据
+        qDebug() << QTime::currentTime() << "no receive montoring equipment data, ready close equipment, time is" << CHECK_CONNECT_TIME;
+        //清除卡片
+        if (this->montoringEquipmentItem != nullptr)
+        {
+            this->removeEquipmentItem(this->montoringEquipmentItem);
+            this->montorSerialService->closeSerial();
+        }
+    }
+    
     
 }
 /**
@@ -198,5 +222,80 @@ void EquipmentConnect::removeEquipmentItem(QListWidgetItem* it)
 
 EquipmentConnect::~EquipmentConnect()
 {
+    montorThread.quit();
+    montorThread.wait();
+    delete this->equipmentCheckTim;
+    delete this->equipmentCheckConnectTim;
+    delete this->montoringEquipmentItem;
     delete ui;
+}
+
+ReceivePack::ReceivePack(int16_t GSR, int16_t accelX, int16_t accelY, int16_t accelZ,
+                             int16_t angularVelocityX, int16_t angularVelocityY, int16_t angularVelocityZ,
+                             int8_t heartRate, int8_t bloodOxygen)
+{
+    this->GSR = GSR;
+    this->accelX = accelX;
+    this->accelY = accelY;
+    this->accelZ = accelZ;
+    this->angularVelocityX = angularVelocityX;
+    this->angularVelocityY = angularVelocityY;
+    this->angularVelocityZ = angularVelocityZ;
+    this->heartRate = heartRate;
+    this->bloodOxygen = bloodOxygen;
+}
+
+ReceivePack::ReceivePack(const ReceivePack &obj)
+{
+    this->accelX = obj.accelX;
+    this->accelY = obj.accelY;
+    this->accelZ = obj.accelZ;
+    this->angularVelocityX = obj.angularVelocityX;
+    this->angularVelocityY = obj.angularVelocityY;
+    this->angularVelocityZ = obj.angularVelocityZ;
+    this->bloodOxygen = obj.bloodOxygen;
+    this->GSR = obj.GSR;
+    this->heartRate = obj.heartRate;
+}
+
+bool ReceivePack::isSame(ReceivePack &obj)
+{
+    return (obj.accelX == this->accelX && obj.accelY == this->accelY && obj.accelZ == this->accelZ && 
+            obj.angularVelocityX == this->angularVelocityX && obj.angularVelocityY == this->angularVelocityY && obj.angularVelocityZ == this->angularVelocityZ &&
+            obj.bloodOxygen == this->bloodOxygen && obj.GSR == this->GSR && obj.heartRate == this->heartRate);
+}
+
+void ReceivePack::clear()
+{
+    this->accelX = 0;
+    this->accelY = 0;
+    this->accelZ = 0;
+    this->angularVelocityX = 0;
+    this->angularVelocityY = 0;
+    this->angularVelocityZ = 0;
+    this->bloodOxygen = 0;
+    this->GSR = 0;
+    this->heartRate = 0;
+}
+
+void ReceivePack::assign(const ReceivePack &obj)
+{
+    this->accelX = obj.accelX;
+    this->accelY = obj.accelY;
+    this->accelZ = obj.accelZ;
+    this->angularVelocityX = obj.angularVelocityX;
+    this->angularVelocityY = obj.angularVelocityY;
+    this->angularVelocityZ = obj.angularVelocityZ;
+    this->bloodOxygen = obj.bloodOxygen;
+    this->GSR = obj.GSR;
+    this->heartRate = obj.heartRate;
+}
+void EquipmentConnect::on_searchPushButton_clicked()
+{
+    this->serialPortList = this->montorSerialService->getAvailableSerialPort();
+    if (!this->serialPortList.isEmpty())
+    {
+        // 自动连接设备
+        this->connectEquipment();
+    }
 }

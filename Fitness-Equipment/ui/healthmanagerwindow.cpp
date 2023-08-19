@@ -23,6 +23,8 @@ HealthManagerWindow::HealthManagerWindow(QWidget *parent) :
     this->montorSerialService = new SerialPortService;
     //实例化设备校验定时
     this->equipmentCheckTim = new QTimer;
+    //实例化设备连接检测定时器
+    this->equipmentCheckConnectTim = new QTimer;
     //实例化检测定时
     this->detectionTim = new QTimer;
     //将监测设备服务转移到监测设备线程
@@ -62,6 +64,10 @@ void HealthManagerWindow::montorCheck()
         ui->BMICalcPushButton->setEnabled(true);
         ui->SaO2DetectionPushButton->setEnabled(true);
         ui->heartRateDetectionPushbutton->setEnabled(true);
+        connect(this->equipmentCheckConnectTim, &QTimer::timeout, this, &HealthManagerWindow::checkEquipmentConnect);
+        //设备连接检测开始
+        this->equipmentCheckConnectTim->start(CHECK_CONNECT_TIME);
+
         return;
     }
 
@@ -88,6 +94,11 @@ void HealthManagerWindow::montorCheck()
     }
     
 }
+
+void HealthManagerWindow::checkEquipmentConnect()
+{
+}
+
 void HealthManagerWindow::connectEquipment()
 {
     QStringList::iterator it = serialPortList.begin();
@@ -96,7 +107,7 @@ void HealthManagerWindow::connectEquipment()
     {
         qDebug() << QTime::currentTime() << "serial port open successful";
         // 清空数据
-        memset(&this->montorReceiveData, 0, sizeof(receivePack_t));
+        this->montorReceiveData.clear();
         // 连接信号和槽
         QObject::connect(this->montorSerialService, SIGNAL(updateSerialData(QByteArray)), this, SLOT(montorReceive(QByteArray)));
         // 定时等待验证
@@ -221,7 +232,7 @@ void HealthManagerWindow::on_returnBefore_clicked()
     this->montorSerialService->closeSerial();
     montorThread.quit();
     montorThread.wait();
-    CREATE_NEW_WINDOW(ApplicationWindow, this);
+    this->close();
 }
 
 
