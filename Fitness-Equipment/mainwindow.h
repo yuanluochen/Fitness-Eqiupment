@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "ui/applicationwindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -17,9 +18,10 @@ public:
 
 private slots:
     void on_enterSystem_clicked();
-
+    
+    void applicationBackToMain();
 private:
     Ui::MainWindow *ui;
-
+    ApplicationWindow *applicationWindow;
 };
 #endif // MAINWINDOW_H

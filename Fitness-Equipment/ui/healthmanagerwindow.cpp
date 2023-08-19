@@ -201,6 +201,7 @@ HealthManagerWindow::~HealthManagerWindow()
     delete ui;
 }
 
+
 /**
  * @brief 设置设备状态
  * 
@@ -233,6 +234,7 @@ void HealthManagerWindow::on_returnBefore_clicked()
     montorThread.quit();
     montorThread.wait();
     this->close();
+    emit backToApplication();
 }
 
 

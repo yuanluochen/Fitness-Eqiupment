@@ -17,6 +17,8 @@ public:
 
 private slots:
     void on_returnBefore_clicked();
+signals:
+    void backToApplication();
 
 private:
     Ui::ManualWindow *ui;

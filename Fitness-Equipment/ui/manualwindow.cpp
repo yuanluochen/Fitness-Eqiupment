@@ -20,5 +20,6 @@ ManualWindow::~ManualWindow()
 
 void ManualWindow::on_returnBefore_clicked()
 {
-    CREATE_NEW_WINDOW(ApplicationWindow, this);
+    emit backToApplication();
+    this->close();
 }

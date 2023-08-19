@@ -62,6 +62,8 @@ private slots:
     void on_sportTargetPromotePushButton_clicked();
 
     void on_sportStrengthPromotePushButton_clicked();
+signals:
+    void backToApplication();
 
 public:
 private:

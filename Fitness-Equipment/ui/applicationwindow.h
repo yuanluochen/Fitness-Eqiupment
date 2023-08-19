@@ -2,7 +2,6 @@
 #define APPLICATIONWINDOW_H
 
 #include <QWidget>
-#include "mainwindow.h"
 #include "ui/sportwindow.h"
 #include "ui/manualwindow.h"
 #include "ui/healthmanagerwindow.h"
@@ -30,7 +29,12 @@ private slots:
     void on_healthManagerPushButton_clicked();
 
     void on_equipmentConnectPushButton_clicked();
-
+    
+    void healthManagerBackToApplication();
+    void manualBackToApplication();
+    void sportBackToApplication();
+signals:
+    void backToMain();
 private:
     Ui::ApplicationWindow *ui;
     SportWindow *sportWindow;

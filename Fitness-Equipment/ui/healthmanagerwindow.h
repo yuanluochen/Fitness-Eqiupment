@@ -49,7 +49,8 @@ private slots:
     void on_BMICalcPushButton_clicked();
 
     void on_searchPushButton_clicked();
-
+signals:
+    void backToApplication();
 private:
     Ui::HealthManagerWindow *ui;
 

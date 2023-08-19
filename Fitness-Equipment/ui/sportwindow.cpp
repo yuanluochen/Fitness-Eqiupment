@@ -189,10 +189,8 @@ void SportWindow::on_returnBefore_clicked()
     this->montorSerialService->closeSerial();
     montorThread.quit();
     montorThread.wait();
-
-    // CREATE_NEW_WINDOW(ApplicationWindow, this);
+    emit backToApplication();
     this->close();
-
 }
 
 void SportWindow::on_searchPushButton_clicked()
