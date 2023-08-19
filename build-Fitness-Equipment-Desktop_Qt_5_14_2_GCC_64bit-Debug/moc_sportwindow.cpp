@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_SportWindow_t {
-    QByteArrayData data[11];
-    char stringdata0[294];
+    QByteArrayData data[13];
+    char stringdata0[318];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -39,17 +39,20 @@ QT_MOC_LITERAL(3, 31, 23), // "on_returnBefore_clicked"
 QT_MOC_LITERAL(4, 55, 31), // "on_startSportPushButton_clicked"
 QT_MOC_LITERAL(5, 87, 30), // "on_stopSportPushButton_clicked"
 QT_MOC_LITERAL(6, 118, 13), // "montorReceive"
-QT_MOC_LITERAL(7, 132, 40), // "on_sportStrengthReducePushBut..."
-QT_MOC_LITERAL(8, 173, 38), // "on_sportTargetReducePushButto..."
-QT_MOC_LITERAL(9, 212, 39), // "on_sportTargetPromotePushButt..."
-QT_MOC_LITERAL(10, 252, 41) // "on_sportStrengthPromotePushBu..."
+QT_MOC_LITERAL(7, 132, 11), // "ReceivePack"
+QT_MOC_LITERAL(8, 144, 11), // "receivePack"
+QT_MOC_LITERAL(9, 156, 40), // "on_sportStrengthReducePushBut..."
+QT_MOC_LITERAL(10, 197, 38), // "on_sportTargetReducePushButto..."
+QT_MOC_LITERAL(11, 236, 39), // "on_sportTargetPromotePushButt..."
+QT_MOC_LITERAL(12, 276, 41) // "on_sportStrengthPromotePushBu..."
 
     },
     "SportWindow\0backToApplication\0\0"
     "on_returnBefore_clicked\0"
     "on_startSportPushButton_clicked\0"
     "on_stopSportPushButton_clicked\0"
-    "montorReceive\0on_sportStrengthReducePushButton_clicked\0"
+    "montorReceive\0ReceivePack\0receivePack\0"
+    "on_sportStrengthReducePushButton_clicked\0"
     "on_sportTargetReducePushButton_clicked\0"
     "on_sportTargetPromotePushButton_clicked\0"
     "on_sportStrengthPromotePushButton_clicked"
@@ -76,11 +79,11 @@ static const uint qt_meta_data_SportWindow[] = {
        3,    0,   60,    2, 0x08 /* Private */,
        4,    0,   61,    2, 0x08 /* Private */,
        5,    0,   62,    2, 0x08 /* Private */,
-       6,    0,   63,    2, 0x08 /* Private */,
-       7,    0,   64,    2, 0x08 /* Private */,
-       8,    0,   65,    2, 0x08 /* Private */,
+       6,    1,   63,    2, 0x08 /* Private */,
        9,    0,   66,    2, 0x08 /* Private */,
       10,    0,   67,    2, 0x08 /* Private */,
+      11,    0,   68,    2, 0x08 /* Private */,
+      12,    0,   69,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -89,7 +92,7 @@ static const uint qt_meta_data_SportWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 7,    8,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -108,7 +111,7 @@ void SportWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 1: _t->on_returnBefore_clicked(); break;
         case 2: _t->on_startSportPushButton_clicked(); break;
         case 3: _t->on_stopSportPushButton_clicked(); break;
-        case 4: _t->montorReceive(); break;
+        case 4: _t->montorReceive((*reinterpret_cast< ReceivePack(*)>(_a[1]))); break;
         case 5: _t->on_sportStrengthReducePushButton_clicked(); break;
         case 6: _t->on_sportTargetReducePushButton_clicked(); break;
         case 7: _t->on_sportTargetPromotePushButton_clicked(); break;
@@ -125,7 +128,6 @@ void SportWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
             }
         }
     }
-    Q_UNUSED(_a);
 }
 
 QT_INIT_METAOBJECT const QMetaObject SportWindow::staticMetaObject = { {

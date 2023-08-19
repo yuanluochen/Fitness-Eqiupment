@@ -33,14 +33,6 @@ private:
 private slots:
     void on_returnBefore_clicked();
     void montorReceive(ReceivePack receivePack);
-    void SaO2Show();
-    void HeartRateShow();
-
-    void on_heartRateDetectionPushbutton_clicked();
-
-    void on_SaO2DetectionPushButton_clicked();
-
-    void on_BMICalcPushButton_clicked();
 
 signals:
     void backToApplication();

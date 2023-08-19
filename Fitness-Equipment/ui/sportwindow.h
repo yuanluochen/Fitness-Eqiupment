@@ -49,11 +49,8 @@ private slots:
     void on_stopSportPushButton_clicked();
     void montorReceive(ReceivePack receivePack);
     void on_sportStrengthReducePushButton_clicked();
-
     void on_sportTargetReducePushButton_clicked();
-
     void on_sportTargetPromotePushButton_clicked();
-
     void on_sportStrengthPromotePushButton_clicked();
 signals:
     void backToApplication();

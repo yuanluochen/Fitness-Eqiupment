@@ -19,6 +19,7 @@ EquipmentItem::EquipmentItem(equipmentItemCard::equipmentType type, QWidget *par
     //设备卡名称
     QString name;
     
+    QPalette pe;
     //根据设备配置设备卡类型
     switch (type)
     {
@@ -41,14 +42,13 @@ EquipmentItem::EquipmentItem(equipmentItemCard::equipmentType type, QWidget *par
         qDebug() << "set bicycle card item parameter";
         break;
     }
-    
     //设置参数到对应控件中
     ui->EquiPmentItemIcon->setPixmap(QPixmap::fromImage(icon.scaled(ui->EquiPmentItemIcon->width(), ui->EquiPmentItemIcon->height())));
     ui->EquipmentItemName->setText(name);
-
-    
+    ui->EquipmentItemName->setStyleSheet("color:white");
+    pe.setColor(QPalette::WindowText, Qt::white);
+    ui->EquipmentItemName->setPalette(pe);
     qDebug() << "create" << name << "item card";
-
 }
 
 

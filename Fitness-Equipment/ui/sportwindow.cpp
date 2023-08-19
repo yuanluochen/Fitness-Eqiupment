@@ -39,7 +39,7 @@ SportWindow::SportWindow(QWidget *parent) :
 
 void SportWindow::montorReceive(ReceivePack receivePack)
 {
-    qDebug() << QTime::currentTime() << "sport window receive montor data frome equipmentconnect";
+    // qDebug() << QTime::currentTime() << "sport window receive montor data frome equipmentconnect";
     this->montorReceiveData.assign(receivePack);
 }
 

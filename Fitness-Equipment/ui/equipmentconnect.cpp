@@ -26,7 +26,12 @@ EquipmentConnect::EquipmentConnect(QWidget *parent) :
     this->setEquipmentStatus(UNCONNECT);
     // 线程退出时自动删除对象
     QObject::connect(&this->montorThread, &QThread::finished, this->montorSerialService, &QObject::deleteLater);
-    
+    this->serialPortList = this->montorSerialService->getAvailableSerialPort();
+    if (!this->serialPortList.isEmpty())
+    {
+        // 自动连接设备
+        this->connectEquipment();
+    }   
 }
 
 EquipmentConnect::~EquipmentConnect()

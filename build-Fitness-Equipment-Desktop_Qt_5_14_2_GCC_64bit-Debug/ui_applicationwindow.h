@@ -305,6 +305,10 @@ public:
         font3.setBold(true);
         font3.setWeight(75);
         equipmentConnectPushButton->setFont(font3);
+        equipmentConnectPushButton->setStyleSheet(QString::fromUtf8("QPushButton{border:2px}\n"
+"\n"
+"\n"
+"QPushButton:hover{background-color: rgb(246, 245, 244);border:none;}"));
 
         gridLayout->addWidget(equipmentConnectPushButton, 6, 9, 1, 1);
 
@@ -323,7 +327,7 @@ public:
         sportPushButton->setText(QString());
         labelSport->setText(QCoreApplication::translate("ApplicationWindow", "\350\277\220\345\212\250", nullptr));
         healthManagerPushButton->setText(QString());
-        labelHealthManager->setText(QCoreApplication::translate("ApplicationWindow", "\345\201\245\345\272\267\346\243\200\346\265\213", nullptr));
+        labelHealthManager->setText(QCoreApplication::translate("ApplicationWindow", "\344\275\223\350\264\250\346\217\220\345\215\207", nullptr));
         manualPushbutton->setText(QString());
         labelManual->setText(QCoreApplication::translate("ApplicationWindow", "\344\275\277\347\224\250\350\257\264\346\230\216", nullptr));
         returnBefore->setText(QString());

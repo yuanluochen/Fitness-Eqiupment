@@ -15,16 +15,12 @@ HealthManagerWindow::HealthManagerWindow(QWidget *parent) :
     ui(new Ui::HealthManagerWindow)
 {
     ui->setupUi(this);
-    ui->BMICalcPushButton->setEnabled(false);
-    ui->SaO2DetectionPushButton->setEnabled(false);
-    ui->heartRateDetectionPushbutton->setEnabled(false);
-
 }
 
 
 void HealthManagerWindow::montorReceive(ReceivePack receivePack)
 {
-    qDebug() << QTime::currentTime() << "Health manager window receive montor data from equipmentconnect";
+    // qDebug() << QTime::currentTime() << "Health manager window receive montor data from equipmentconnect";
     this->montorReceiveData.assign(receivePack);
 }
 /**
@@ -58,38 +54,4 @@ void HealthManagerWindow::on_returnBefore_clicked()
     emit backToApplication();
 }
 
-
-void HealthManagerWindow::on_heartRateDetectionPushbutton_clicked()
-{
-    qDebug() << QTime::currentTime() << "heart rate detection start";
-    ui->displayLabel->setText("心率检测开始, 请将您的手指放到健康监测手环背面,等待一段时间");
-    connect(this->detectionTim, &QTimer::timeout, this, &HealthManagerWindow::HeartRateShow);
-    this->detectionTim->start(20000);
-}
-
-void HealthManagerWindow::SaO2Show()
-{
-    this->detectionTim->stop();
-    ui->displayLabel->setText("您的血氧为" + QString::number(this->montorReceiveData.bloodOxygen));
-}
-
-void HealthManagerWindow::HeartRateShow()
-{
-    this->detectionTim->stop();
-    ui->displayLabel->setText("您的心率为" + QString::number(this->montorReceiveData.heartRate));
-    
-}
-
-void HealthManagerWindow::on_SaO2DetectionPushButton_clicked()
-{
-    qDebug() << QTime::currentTime() << "Sa02 detection start";
-    ui->displayLabel->setText("血氧检测开始, 请将您的手指放到健康监测手环背面,等待一段时间");
-    connect(this->detectionTim, &QTimer::timeout, this, &HealthManagerWindow::SaO2Show);
-    this->detectionTim->start(20000);
-}
-
-void HealthManagerWindow::on_BMICalcPushButton_clicked()
-{
-    qDebug() << QTime::currentTime() << "BMI Calc start";
-}
 
