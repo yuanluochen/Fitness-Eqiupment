@@ -2,8 +2,10 @@
 #include "ui_equipmentconnect.h"
 #include <QDebug>
 #include <QThread>
-#include "ui/sportwindow.h"
 #include <QTime>
+#include "ui/sportwindow.h"
+#include "ui/sportwindow.h"
+#include "ui/healthmanagerwindow.h"
 
 EquipmentConnect::EquipmentConnect(QWidget *parent) :
     QWidget(parent),
@@ -24,13 +26,17 @@ EquipmentConnect::EquipmentConnect(QWidget *parent) :
     this->setEquipmentStatus(UNCONNECT);
     // 线程退出时自动删除对象
     QObject::connect(&this->montorThread, &QThread::finished, this->montorSerialService, &QObject::deleteLater);
-    //连接其他界面
-    this->serialPortList = this->montorSerialService->getAvailableSerialPort();
-    if (!this->serialPortList.isEmpty())
-    {
-        // 自动连接设备
-        this->connectEquipment();
-    }
+    
+}
+
+EquipmentConnect::~EquipmentConnect()
+{
+    montorThread.quit();
+    montorThread.wait();
+    delete this->equipmentCheckTim;
+    delete this->equipmentCheckConnectTim;
+    delete this->montoringEquipmentItem;
+    delete ui;
 }
 
 void EquipmentConnect::connectEquipment()
@@ -79,8 +85,12 @@ void EquipmentConnect::montorReceive(QByteArray data)
                 this->montorReceiveData.angularVelocityZ = (receiveBuf[13] << 8) + receiveBuf[14];
                 this->montorReceiveData.heartRate = receiveBuf[15];
                 this->montorReceiveData.bloodOxygen = receiveBuf[16];
+                //标志数据更新
+                this->montorReceiveData.update = true;
 
-                this->showMontorReceiveData();
+                emit sendMontorDataToSportWindow(this->montorReceiveData);
+                emit sendMontorDataToHealthManagerWindow(this->montorReceiveData);
+                // this->showMontorReceiveData();
 
             }
         }
@@ -104,7 +114,7 @@ void EquipmentConnect::montorCheck()
         this->setEquipmentStatus(CONNECT);
         connect(this->equipmentCheckConnectTim, &QTimer::timeout, this, &EquipmentConnect::checkEquipmentConnect);
         //设备连接检测开始
-        this->equipmentCheckConnectTim->start(CHECK_CONNECT_TIME); 
+        this->equipmentCheckConnectTim->start(CHECK_CONNECT_TIME);
         return;
     }
 
@@ -121,7 +131,6 @@ void EquipmentConnect::montorCheck()
             qDebug() << QTime::currentTime() << "delete serial port";
             this->serialPortList.pop_front();
             this->montorSerialService->closeSerial();
-            
             break;
         }
     }
@@ -135,21 +144,23 @@ void EquipmentConnect::montorCheck()
 
 void EquipmentConnect::checkEquipmentConnect()
 {
-    //对比两次数据检测设备是否连接
-    static ReceivePack lastMontorReceiveData(this->montorReceiveData);
-    if (lastMontorReceiveData.isSame(this->montorReceiveData))
+    if (!this->montorReceiveData.isUpdate())
     {
-        //数据没变，没有接收过数据
+        //没有更新
         qDebug() << QTime::currentTime() << "no receive montoring equipment data, ready close equipment, time is" << CHECK_CONNECT_TIME;
         //清除卡片
         if (this->montoringEquipmentItem != nullptr)
         {
             this->removeEquipmentItem(this->montoringEquipmentItem);
-            this->montorSerialService->closeSerial();
+            
         }
+        this->equipmentCheckConnectTim->stop();
+        disconnect(this->equipmentCheckConnectTim, &QTimer::timeout, this, &EquipmentConnect::checkEquipmentConnect);
+        this->setEquipmentStatus(UNCONNECT);
+        this->checkstatus = UNPASS;
+        this->montorSerialService->closeSerial();
+
     }
-    
-    
 }
 /**
  * @brief 显示接收到的监测设备数据
@@ -220,15 +231,7 @@ void EquipmentConnect::removeEquipmentItem(QListWidgetItem* it)
     it = nullptr;
 }
 
-EquipmentConnect::~EquipmentConnect()
-{
-    montorThread.quit();
-    montorThread.wait();
-    delete this->equipmentCheckTim;
-    delete this->equipmentCheckConnectTim;
-    delete this->montoringEquipmentItem;
-    delete ui;
-}
+
 
 ReceivePack::ReceivePack(int16_t GSR, int16_t accelX, int16_t accelY, int16_t accelZ,
                              int16_t angularVelocityX, int16_t angularVelocityY, int16_t angularVelocityZ,
@@ -256,13 +259,21 @@ ReceivePack::ReceivePack(const ReceivePack &obj)
     this->bloodOxygen = obj.bloodOxygen;
     this->GSR = obj.GSR;
     this->heartRate = obj.heartRate;
+    this->update = obj.update;
 }
 
 bool ReceivePack::isSame(ReceivePack &obj)
 {
     return (obj.accelX == this->accelX && obj.accelY == this->accelY && obj.accelZ == this->accelZ && 
             obj.angularVelocityX == this->angularVelocityX && obj.angularVelocityY == this->angularVelocityY && obj.angularVelocityZ == this->angularVelocityZ &&
-            obj.bloodOxygen == this->bloodOxygen && obj.GSR == this->GSR && obj.heartRate == this->heartRate);
+            obj.bloodOxygen == this->bloodOxygen && obj.GSR == this->GSR && obj.heartRate == this->heartRate && this->update == obj.update);
+}
+
+bool ReceivePack::isUpdate()
+{
+    bool curState = this->update;
+    this->update = false;
+    return curState;
 }
 
 void ReceivePack::clear()
@@ -289,6 +300,7 @@ void ReceivePack::assign(const ReceivePack &obj)
     this->bloodOxygen = obj.bloodOxygen;
     this->GSR = obj.GSR;
     this->heartRate = obj.heartRate;
+    this->update = obj.update;
 }
 void EquipmentConnect::on_searchPushButton_clicked()
 {

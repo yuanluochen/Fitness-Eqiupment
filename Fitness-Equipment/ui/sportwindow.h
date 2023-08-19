@@ -36,25 +36,18 @@ public:
     explicit SportWindow(QWidget *parent = nullptr);
     ~SportWindow();
 
-    QListWidgetItem *addEquipmentItem(equipmentItemCard::equipmentType type);
-    void removeEquipmentItem(QListWidgetItem* it);
 private:
-    void connectEquipment();
     void setHeartRateData(double num);
     void setBooldOxygenData(double num);
-    void setEquipmentStatus(equipmentConnectStatus_e status);
-    void showMontorReceiveData();
     void setSportDisplay(QString data);
     void setSportDisplay(int num);
     void showSportStrength();
     void showSportTarget();
 private slots:
     void on_returnBefore_clicked();
-    void on_searchPushButton_clicked();
     void on_startSportPushButton_clicked();
     void on_stopSportPushButton_clicked();
-    void montorReceive(QByteArray data);
-    void montorCheck();
+    void montorReceive(ReceivePack receivePack);
     void on_sportStrengthReducePushButton_clicked();
 
     void on_sportTargetReducePushButton_clicked();
@@ -76,14 +69,6 @@ private:
     int sportTarget;
     //健身强度
     int sportStrength;
-
-    //监测设备线程
-    QThread montorThread;
-    //监测设备串口服务
-    SerialPortService *montorSerialService;
-    QTimer *equipmentCheckTim;
-    checkStatus_e checkstatus;
-    QStringList serialPortList;
 };
 
 #endif // SPORTWINDOW_H

@@ -14,7 +14,6 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
-#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QTabWidget>
@@ -46,14 +45,6 @@ public:
     QVBoxLayout *verticalLayout_6;
     QPushButton *heartRateDetectionPushbutton;
     QLabel *label_5;
-    QWidget *layoutWidget3;
-    QVBoxLayout *verticalLayout_3;
-    QWidget *widget_9;
-    QListWidget *equipmentListWidget;
-    QHBoxLayout *horizontalLayout;
-    QLabel *equipmentStatusLabel;
-    QSpacerItem *horizontalSpacer;
-    QPushButton *searchPushButton;
     QTabWidget *tabWidget;
     QWidget *tab;
     QLabel *displayLabel;
@@ -200,86 +191,6 @@ public:
 
         horizontalLayout_2->addLayout(verticalLayout_6);
 
-        layoutWidget3 = new QWidget(HealthManagerWindow);
-        layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
-        layoutWidget3->setGeometry(QRect(21, 301, 263, 335));
-        verticalLayout_3 = new QVBoxLayout(layoutWidget3);
-        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
-        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
-        widget_9 = new QWidget(layoutWidget3);
-        widget_9->setObjectName(QString::fromUtf8("widget_9"));
-        widget_9->setMinimumSize(QSize(261, 300));
-        widget_9->setStyleSheet(QString::fromUtf8("background-color: rgb(153, 193, 241);"));
-        equipmentListWidget = new QListWidget(widget_9);
-        equipmentListWidget->setObjectName(QString::fromUtf8("equipmentListWidget"));
-        equipmentListWidget->setGeometry(QRect(0, 0, 261, 300));
-        equipmentListWidget->setMinimumSize(QSize(0, 300));
-        equipmentListWidget->setFocusPolicy(Qt::NoFocus);
-        equipmentListWidget->setStyleSheet(QString::fromUtf8("QListWidget::item\n"
-"{\n"
-"	height:90px;\n"
-"}\n"
-"QListWidget\n"
-"{\n"
-"	background-color:transparent;\n"
-"    border:none;\n"
-"	border-radius:15px;\n"
-"\n"
-"}\n"
-"QListWidget::item:selected\n"
-"{\n"
-"	background-color:transparent;\n"
-"	border-radius:15px;\n"
-"	border:none;\n"
-"}\n"
-"QListWidget::item:hover\n"
-"{\n"
-"	background-color:rgb(133, 173, 221);\n"
-"    border-radius:15px;\n"
-"	border:none;\n"
-"}\n"
-"\n"
-""));
-
-        verticalLayout_3->addWidget(widget_9);
-
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        equipmentStatusLabel = new QLabel(layoutWidget3);
-        equipmentStatusLabel->setObjectName(QString::fromUtf8("equipmentStatusLabel"));
-        equipmentStatusLabel->setMinimumSize(QSize(0, 20));
-        equipmentStatusLabel->setMaximumSize(QSize(16777215, 20));
-        QFont font1;
-        font1.setPointSize(13);
-        equipmentStatusLabel->setFont(font1);
-        equipmentStatusLabel->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout->addWidget(equipmentStatusLabel);
-
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer);
-
-        searchPushButton = new QPushButton(layoutWidget3);
-        searchPushButton->setObjectName(QString::fromUtf8("searchPushButton"));
-        searchPushButton->setMinimumSize(QSize(25, 25));
-        searchPushButton->setMaximumSize(QSize(25, 25));
-        searchPushButton->setStyleSheet(QString::fromUtf8("\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"\n"
-"QPushButton{border:2px solid rgb(20,196,188);border-radius:15px;border-image: url(:/icon/SportWindow/search.png);}\n"
-"\n"
-"\n"
-"QPushButton:hover{background-color: rgb(246, 245, 244);border:none;	border-image: url(:/icon/SportWindow/search.png);}"));
-
-        horizontalLayout->addWidget(searchPushButton);
-
-
-        verticalLayout_3->addLayout(horizontalLayout);
-
         tabWidget = new QTabWidget(HealthManagerWindow);
         tabWidget->setObjectName(QString::fromUtf8("tabWidget"));
         tabWidget->setGeometry(QRect(630, 110, 751, 431));
@@ -288,9 +199,9 @@ public:
         displayLabel = new QLabel(tab);
         displayLabel->setObjectName(QString::fromUtf8("displayLabel"));
         displayLabel->setGeometry(QRect(0, 0, 751, 391));
-        QFont font2;
-        font2.setPointSize(19);
-        displayLabel->setFont(font2);
+        QFont font1;
+        font1.setPointSize(19);
+        displayLabel->setFont(font1);
         displayLabel->setAlignment(Qt::AlignCenter);
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
@@ -329,8 +240,6 @@ public:
         label_3->setText(QCoreApplication::translate("HealthManagerWindow", "\350\241\200\346\260\247\346\243\200\346\265\213", nullptr));
         heartRateDetectionPushbutton->setText(QString());
         label_5->setText(QCoreApplication::translate("HealthManagerWindow", "\345\277\203\347\216\207\346\243\200\346\265\213", nullptr));
-        equipmentStatusLabel->setText(QString());
-        searchPushButton->setText(QString());
         displayLabel->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("HealthManagerWindow", "Tab 1", nullptr));
         pushButton->setText(QCoreApplication::translate("HealthManagerWindow", "\345\274\200\345\247\213\350\256\241\347\256\227", nullptr));

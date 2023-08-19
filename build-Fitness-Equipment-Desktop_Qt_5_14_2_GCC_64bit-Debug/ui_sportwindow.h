@@ -14,7 +14,6 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
-#include <QtWidgets/QListWidget>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QVBoxLayout>
@@ -76,12 +75,6 @@ public:
     QLabel *bloodOxygenDataLabel;
     QLabel *DataTypeLabel_2;
     QLabel *UnitLabel_2;
-    QWidget *widget_9;
-    QListWidget *equipmentListWidget;
-    QHBoxLayout *horizontalLayout;
-    QLabel *equipmentStatusLabel;
-    QSpacerItem *horizontalSpacer;
-    QPushButton *searchPushButton;
     QHBoxLayout *horizontalLayout_2;
     QPushButton *returnBefore;
     QSpacerItem *horizontalSpacer_2;
@@ -463,81 +456,8 @@ public:
 
         verticalLayout_2->addWidget(widget_2);
 
-        widget_9 = new QWidget(layoutWidget);
-        widget_9->setObjectName(QString::fromUtf8("widget_9"));
-        widget_9->setMinimumSize(QSize(0, 470));
-        widget_9->setStyleSheet(QString::fromUtf8("background-color: rgb(153, 193, 241);"));
-        equipmentListWidget = new QListWidget(widget_9);
-        equipmentListWidget->setObjectName(QString::fromUtf8("equipmentListWidget"));
-        equipmentListWidget->setGeometry(QRect(0, 0, 261, 471));
-        equipmentListWidget->setMinimumSize(QSize(0, 450));
-        equipmentListWidget->setFocusPolicy(Qt::NoFocus);
-        equipmentListWidget->setStyleSheet(QString::fromUtf8("QListWidget::item\n"
-"{\n"
-"	height:90px;\n"
-"}\n"
-"QListWidget\n"
-"{\n"
-"	background-color:transparent;\n"
-"    border:none;\n"
-"	border-radius:15px;\n"
-"\n"
-"}\n"
-"QListWidget::item:selected\n"
-"{\n"
-"	background-color:transparent;\n"
-"	border-radius:15px;\n"
-"	border:none;\n"
-"}\n"
-"QListWidget::item:hover\n"
-"{\n"
-"	background-color:rgb(133, 173, 221);\n"
-"    border-radius:15px;\n"
-"	border:none;\n"
-"}\n"
-"\n"
-""));
-
-        verticalLayout_2->addWidget(widget_9);
-
 
         verticalLayout_3->addLayout(verticalLayout_2);
-
-        horizontalLayout = new QHBoxLayout();
-        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        equipmentStatusLabel = new QLabel(layoutWidget);
-        equipmentStatusLabel->setObjectName(QString::fromUtf8("equipmentStatusLabel"));
-        equipmentStatusLabel->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout->addWidget(equipmentStatusLabel);
-
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Fixed, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer);
-
-        searchPushButton = new QPushButton(layoutWidget);
-        searchPushButton->setObjectName(QString::fromUtf8("searchPushButton"));
-        searchPushButton->setMinimumSize(QSize(25, 25));
-        searchPushButton->setMaximumSize(QSize(25, 25));
-        searchPushButton->setStyleSheet(QString::fromUtf8("\n"
-"QPushButton\n"
-"{\n"
-"	border-radius:5px;\n"
-"	border-image: url(:/icon/SportWindow/search.png);\n"
-"}\n"
-"QPushButton:hover\n"
-"{\n"
-"	border-radius:5px;\n"
-"	background-color: rgb(202, 226, 255);\n"
-"	border:none;\n"
-"	border-image: url(:/icon/SportWindow/search.png);\n"
-"}\n"
-""));
-
-        horizontalLayout->addWidget(searchPushButton);
-
-
-        verticalLayout_3->addLayout(horizontalLayout);
 
 
         gridLayout->addLayout(verticalLayout_3, 0, 1, 1, 1);
@@ -771,8 +691,6 @@ public:
         bloodOxygenDataLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\"> &nbsp;DATA</span></p></body></html>", nullptr));
         DataTypeLabel_2->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">\350\241\200\346\260\247</span></p></body></html>", nullptr));
         UnitLabel_2->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><h3 style=\" margin-top:14px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:large; font-weight:600; color:#deddda;\">%</span></h3></body></html>", nullptr));
-        equipmentStatusLabel->setText(QString());
-        searchPushButton->setText(QString());
         returnBefore->setText(QString());
         sportDisplay->setText(QString());
         XAccelLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\"> &nbsp;DATA</span></p></body></html>", nullptr));

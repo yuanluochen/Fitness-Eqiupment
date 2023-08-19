@@ -1,7 +1,7 @@
 #include "applicationwindow.h"
 #include "ui_applicationwindow.h"
 #include "mainwindow.h"
-#include "userLib/userLib_ui.h"
+#include "ui/equipmentconnect.h"
 #include <QDebug>
 #include <QTime>
 
@@ -20,6 +20,11 @@ ApplicationWindow::ApplicationWindow(QWidget *parent) :
     connect(this->sportWindow, &SportWindow::backToApplication, this, &ApplicationWindow::sportBackToApplication);
     connect(this->manualWindow, &ManualWindow::backToApplication, this, &ApplicationWindow::sportBackToApplication);
     connect(this->healthManagerWindow, &HealthManagerWindow::backToApplication, this, &ApplicationWindow::sportBackToApplication);
+
+
+    //数据发送连接到运动和健康管理界面
+    connect(this->equipmentConnect, SIGNAL(sendMontorDataToSportWindow(ReceivePack)), this->sportWindow, SLOT(montorReceive(ReceivePack)));
+    connect(this->equipmentConnect, SIGNAL(sendMontorDataToHealthManagerWindow(ReceivePack)), this->healthManagerWindow, SLOT(montorReceive(ReceivePack)));
 }
 
 ApplicationWindow::~ApplicationWindow()

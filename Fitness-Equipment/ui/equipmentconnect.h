@@ -12,7 +12,7 @@
 #include "equipmentitem.h"
 
 //设备校验时间
-#define CHECK_TIME 1000
+#define CHECK_TIME 100
 //设备连接校验时间
 #define CHECK_CONNECT_TIME 1000
 
@@ -27,6 +27,7 @@ public:
     ReceivePack(const ReceivePack &obj);
 
     bool isSame(ReceivePack &obj);
+    bool isUpdate();
     void clear();
     void assign(const ReceivePack &obj);
 public:
@@ -43,6 +44,8 @@ public:
     int8_t heartRate;
     //血氧
     int8_t bloodOxygen;
+    //更新标志
+    bool update;
 };
 
 
@@ -83,6 +86,8 @@ private slots:
     void on_searchPushButton_clicked();
 
 signals:
+    void sendMontorDataToSportWindow(ReceivePack receivePack);
+    void sendMontorDataToHealthManagerWindow(ReceivePack receivePack);
 private:
     Ui::EquipmentConnect *ui;
 
