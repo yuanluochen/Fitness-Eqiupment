@@ -19,6 +19,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     application/SerialPort/serialportservice.cpp \
+    application/UnitreeMotorSerialService/unitreemotorserialservice.cpp \
     main.cpp \
     mainwindow.cpp \
     ui/applicationwindow.cpp \
@@ -31,6 +32,7 @@ SOURCES += \
 
 HEADERS += \
     application/SerialPort/serialportservice.h \
+    application/UnitreeMotorSerialService/unitreemotorserialservice.h \
     mainwindow.h \
     ui/applicationwindow.h \
     ui/equipmentconnect.h \

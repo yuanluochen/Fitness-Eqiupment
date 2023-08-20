@@ -10,6 +10,7 @@
 #include <QThread>
 #include <QTimer>
 #include "equipmentitem.h"
+#include "application/UnitreeMotorSerialService/unitreemotorserialservice.h"
 
 //设备校验时间
 #define CHECK_TIME 100
