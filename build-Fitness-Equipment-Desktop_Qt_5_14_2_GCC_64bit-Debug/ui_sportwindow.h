@@ -12,7 +12,6 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
-#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QSpacerItem>
@@ -62,11 +61,7 @@ public:
     QSpacerItem *verticalSpacer_2;
     QSpacerItem *horizontalSpacer_4;
     QWidget *widget_3;
-    QWidget *layoutWidget;
-    QGridLayout *gridLayout;
-    QSpacerItem *verticalSpacer;
-    QVBoxLayout *verticalLayout_3;
-    QVBoxLayout *verticalLayout_2;
+    QLabel *sportDisplay;
     QWidget *widget1;
     QLabel *heartRateDataLabel;
     QLabel *DataTypeLabel;
@@ -75,12 +70,7 @@ public:
     QLabel *bloodOxygenDataLabel;
     QLabel *DataTypeLabel_2;
     QLabel *UnitLabel_2;
-    QHBoxLayout *horizontalLayout_2;
     QPushButton *returnBefore;
-    QSpacerItem *horizontalSpacer_2;
-    QLabel *sportDisplay;
-    QWidget *layoutWidget1;
-    QGridLayout *gridLayout_3;
     QWidget *widget1_9;
     QLabel *XAccelLabel;
     QLabel *DataTypeLabel_11;
@@ -386,94 +376,79 @@ public:
         widget_3->setMinimumSize(QSize(1181, 900));
         widget_3->setMaximumSize(QSize(1181, 900));
         widget_3->setStyleSheet(QString::fromUtf8("background-color: rgb(233, 243, 255);"));
-        layoutWidget = new QWidget(widget_3);
-        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(1, 11, 293, 891));
-        gridLayout = new QGridLayout(layoutWidget);
-        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        gridLayout->setContentsMargins(0, 0, 0, 0);
-        verticalSpacer = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout->addItem(verticalSpacer, 0, 0, 1, 1);
-
-        verticalLayout_3 = new QVBoxLayout();
-        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        widget1 = new QWidget(layoutWidget);
+        sportDisplay = new QLabel(widget_3);
+        sportDisplay->setObjectName(QString::fromUtf8("sportDisplay"));
+        sportDisplay->setGeometry(QRect(160, 20, 981, 391));
+        QFont font5;
+        font5.setPointSize(15);
+        font5.setBold(true);
+        font5.setWeight(75);
+        sportDisplay->setFont(font5);
+        sportDisplay->setStyleSheet(QString::fromUtf8("background-color: rgb(223, 233, 245);"));
+        sportDisplay->setAlignment(Qt::AlignCenter);
+        widget1 = new QWidget(widget_3);
         widget1->setObjectName(QString::fromUtf8("widget1"));
+        widget1->setGeometry(QRect(60, 450, 261, 141));
         widget1->setMinimumSize(QSize(261, 141));
         widget1->setMaximumSize(QSize(261, 141));
         heartRateDataLabel = new QLabel(widget1);
         heartRateDataLabel->setObjectName(QString::fromUtf8("heartRateDataLabel"));
         heartRateDataLabel->setGeometry(QRect(0, 0, 261, 141));
-        QFont font5;
-        font5.setPointSize(30);
-        heartRateDataLabel->setFont(font5);
+        QFont font6;
+        font6.setPointSize(30);
+        heartRateDataLabel->setFont(font6);
         heartRateDataLabel->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(26, 95, 180);"));
         DataTypeLabel = new QLabel(widget1);
         DataTypeLabel->setObjectName(QString::fromUtf8("DataTypeLabel"));
         DataTypeLabel->setGeometry(QRect(20, 100, 91, 31));
-        QFont font6;
-        font6.setPointSize(13);
-        font6.setBold(true);
-        font6.setWeight(75);
-        DataTypeLabel->setFont(font6);
+        QFont font7;
+        font7.setPointSize(13);
+        font7.setBold(true);
+        font7.setWeight(75);
+        DataTypeLabel->setFont(font7);
         DataTypeLabel->setStyleSheet(QString::fromUtf8("background-color:transparent;"));
         UnitLabel = new QLabel(widget1);
         UnitLabel->setObjectName(QString::fromUtf8("UnitLabel"));
         UnitLabel->setGeometry(QRect(180, 110, 71, 18));
-        QFont font7;
-        font7.setPointSize(9);
-        UnitLabel->setFont(font7);
+        QFont font8;
+        font8.setPointSize(9);
+        UnitLabel->setFont(font8);
         UnitLabel->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         UnitLabel->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        verticalLayout_2->addWidget(widget1);
-
-        widget_2 = new QWidget(layoutWidget);
+        widget_2 = new QWidget(widget_3);
         widget_2->setObjectName(QString::fromUtf8("widget_2"));
+        widget_2->setGeometry(QRect(60, 650, 261, 141));
         widget_2->setMinimumSize(QSize(261, 141));
         widget_2->setMaximumSize(QSize(261, 141));
         bloodOxygenDataLabel = new QLabel(widget_2);
         bloodOxygenDataLabel->setObjectName(QString::fromUtf8("bloodOxygenDataLabel"));
         bloodOxygenDataLabel->setGeometry(QRect(0, 0, 261, 141));
-        bloodOxygenDataLabel->setFont(font5);
+        bloodOxygenDataLabel->setFont(font6);
         bloodOxygenDataLabel->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(26, 95, 180);"));
         DataTypeLabel_2 = new QLabel(widget_2);
         DataTypeLabel_2->setObjectName(QString::fromUtf8("DataTypeLabel_2"));
         DataTypeLabel_2->setGeometry(QRect(20, 100, 91, 31));
-        DataTypeLabel_2->setFont(font6);
+        DataTypeLabel_2->setFont(font7);
         DataTypeLabel_2->setStyleSheet(QString::fromUtf8("background-color:transparent;"));
         UnitLabel_2 = new QLabel(widget_2);
         UnitLabel_2->setObjectName(QString::fromUtf8("UnitLabel_2"));
         UnitLabel_2->setGeometry(QRect(180, 110, 71, 18));
-        UnitLabel_2->setFont(font7);
+        UnitLabel_2->setFont(font8);
         UnitLabel_2->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         UnitLabel_2->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        verticalLayout_2->addWidget(widget_2);
-
-
-        verticalLayout_3->addLayout(verticalLayout_2);
-
-
-        gridLayout->addLayout(verticalLayout_3, 0, 1, 1, 1);
-
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        returnBefore = new QPushButton(layoutWidget);
+        returnBefore = new QPushButton(widget_3);
         returnBefore->setObjectName(QString::fromUtf8("returnBefore"));
         returnBefore->setEnabled(true);
+        returnBefore->setGeometry(QRect(3, 840, 60, 60));
         returnBefore->setMinimumSize(QSize(60, 60));
-        QFont font8;
-        font8.setFamily(QString::fromUtf8("AR PL UMing CN"));
-        font8.setPointSize(14);
-        font8.setBold(true);
-        font8.setWeight(75);
-        returnBefore->setFont(font8);
+        QFont font9;
+        font9.setFamily(QString::fromUtf8("AR PL UMing CN"));
+        font9.setPointSize(14);
+        font9.setBold(true);
+        font9.setWeight(75);
+        returnBefore->setFont(font9);
         returnBefore->setStyleSheet(QString::fromUtf8("QPushButton{border-radius:15px;;background-color: rgb(221, 236, 255);border-image: url(:/icon/SportWindow/return.png);}\n"
 "\n"
 "\n"
@@ -482,176 +457,141 @@ public:
 ""));
         returnBefore->setIconSize(QSize(20, 20));
         returnBefore->setAutoDefault(false);
-
-        horizontalLayout_2->addWidget(returnBefore);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_2->addItem(horizontalSpacer_2);
-
-
-        gridLayout->addLayout(horizontalLayout_2, 1, 0, 1, 2);
-
-        sportDisplay = new QLabel(widget_3);
-        sportDisplay->setObjectName(QString::fromUtf8("sportDisplay"));
-        sportDisplay->setGeometry(QRect(430, 70, 591, 341));
-        QFont font9;
-        font9.setPointSize(54);
-        sportDisplay->setFont(font9);
-        sportDisplay->setAlignment(Qt::AlignCenter);
-        layoutWidget1 = new QWidget(widget_3);
-        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(410, 450, 530, 437));
-        gridLayout_3 = new QGridLayout(layoutWidget1);
-        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
-        gridLayout_3->setContentsMargins(0, 0, 0, 0);
-        widget1_9 = new QWidget(layoutWidget1);
+        widget1_9 = new QWidget(widget_3);
         widget1_9->setObjectName(QString::fromUtf8("widget1_9"));
+        widget1_9->setGeometry(QRect(411, 451, 261, 141));
         widget1_9->setMinimumSize(QSize(261, 141));
         widget1_9->setMaximumSize(QSize(261, 141));
         XAccelLabel = new QLabel(widget1_9);
         XAccelLabel->setObjectName(QString::fromUtf8("XAccelLabel"));
         XAccelLabel->setGeometry(QRect(0, 0, 261, 141));
-        XAccelLabel->setFont(font5);
+        XAccelLabel->setFont(font6);
         XAccelLabel->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(26, 95, 180);"));
         DataTypeLabel_11 = new QLabel(widget1_9);
         DataTypeLabel_11->setObjectName(QString::fromUtf8("DataTypeLabel_11"));
         DataTypeLabel_11->setGeometry(QRect(20, 100, 91, 31));
-        DataTypeLabel_11->setFont(font6);
+        DataTypeLabel_11->setFont(font7);
         DataTypeLabel_11->setStyleSheet(QString::fromUtf8("background-color:transparent;"));
         UnitLabel_11 = new QLabel(widget1_9);
         UnitLabel_11->setObjectName(QString::fromUtf8("UnitLabel_11"));
         UnitLabel_11->setGeometry(QRect(180, 110, 71, 18));
-        UnitLabel_11->setFont(font7);
+        UnitLabel_11->setFont(font8);
         UnitLabel_11->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         UnitLabel_11->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        gridLayout_3->addWidget(widget1_9, 0, 0, 1, 1);
-
-        widget1_6 = new QWidget(layoutWidget1);
+        widget1_6 = new QWidget(widget_3);
         widget1_6->setObjectName(QString::fromUtf8("widget1_6"));
+        widget1_6->setGeometry(QRect(678, 451, 261, 141));
         widget1_6->setMinimumSize(QSize(261, 141));
         widget1_6->setMaximumSize(QSize(261, 141));
         YAWAngleVelocityLabel = new QLabel(widget1_6);
         YAWAngleVelocityLabel->setObjectName(QString::fromUtf8("YAWAngleVelocityLabel"));
         YAWAngleVelocityLabel->setGeometry(QRect(0, 0, 261, 141));
-        YAWAngleVelocityLabel->setFont(font5);
+        YAWAngleVelocityLabel->setFont(font6);
         YAWAngleVelocityLabel->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(26, 95, 180);"));
         DataTypeLabel_8 = new QLabel(widget1_6);
         DataTypeLabel_8->setObjectName(QString::fromUtf8("DataTypeLabel_8"));
         DataTypeLabel_8->setGeometry(QRect(20, 100, 121, 31));
-        DataTypeLabel_8->setFont(font6);
+        DataTypeLabel_8->setFont(font7);
         DataTypeLabel_8->setStyleSheet(QString::fromUtf8("background-color:transparent;"));
         UnitLabel_8 = new QLabel(widget1_6);
         UnitLabel_8->setObjectName(QString::fromUtf8("UnitLabel_8"));
         UnitLabel_8->setGeometry(QRect(180, 110, 71, 18));
-        UnitLabel_8->setFont(font7);
+        UnitLabel_8->setFont(font8);
         UnitLabel_8->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         UnitLabel_8->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        gridLayout_3->addWidget(widget1_6, 0, 1, 1, 1);
-
-        widget1_2 = new QWidget(layoutWidget1);
+        widget1_2 = new QWidget(widget_3);
         widget1_2->setObjectName(QString::fromUtf8("widget1_2"));
+        widget1_2->setGeometry(QRect(411, 598, 261, 141));
         widget1_2->setMinimumSize(QSize(261, 141));
         widget1_2->setMaximumSize(QSize(261, 141));
         YAccelLabel = new QLabel(widget1_2);
         YAccelLabel->setObjectName(QString::fromUtf8("YAccelLabel"));
         YAccelLabel->setGeometry(QRect(0, 0, 261, 141));
-        YAccelLabel->setFont(font5);
+        YAccelLabel->setFont(font6);
         YAccelLabel->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(26, 95, 180);"));
         DataTypeLabel_4 = new QLabel(widget1_2);
         DataTypeLabel_4->setObjectName(QString::fromUtf8("DataTypeLabel_4"));
         DataTypeLabel_4->setGeometry(QRect(20, 100, 91, 31));
-        DataTypeLabel_4->setFont(font6);
+        DataTypeLabel_4->setFont(font7);
         DataTypeLabel_4->setStyleSheet(QString::fromUtf8("background-color:transparent;"));
         UnitLabel_4 = new QLabel(widget1_2);
         UnitLabel_4->setObjectName(QString::fromUtf8("UnitLabel_4"));
         UnitLabel_4->setGeometry(QRect(180, 110, 71, 18));
-        UnitLabel_4->setFont(font7);
+        UnitLabel_4->setFont(font8);
         UnitLabel_4->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         UnitLabel_4->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        gridLayout_3->addWidget(widget1_2, 1, 0, 1, 1);
-
-        widget1_4 = new QWidget(layoutWidget1);
+        widget1_4 = new QWidget(widget_3);
         widget1_4->setObjectName(QString::fromUtf8("widget1_4"));
+        widget1_4->setGeometry(QRect(678, 598, 261, 141));
         widget1_4->setMinimumSize(QSize(261, 141));
         widget1_4->setMaximumSize(QSize(261, 141));
         PITCHAngleVelocityLabel = new QLabel(widget1_4);
         PITCHAngleVelocityLabel->setObjectName(QString::fromUtf8("PITCHAngleVelocityLabel"));
         PITCHAngleVelocityLabel->setGeometry(QRect(0, 0, 261, 141));
-        PITCHAngleVelocityLabel->setFont(font5);
+        PITCHAngleVelocityLabel->setFont(font6);
         PITCHAngleVelocityLabel->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(26, 95, 180);"));
         DataTypeLabel_6 = new QLabel(widget1_4);
         DataTypeLabel_6->setObjectName(QString::fromUtf8("DataTypeLabel_6"));
         DataTypeLabel_6->setGeometry(QRect(20, 100, 131, 31));
-        DataTypeLabel_6->setFont(font6);
+        DataTypeLabel_6->setFont(font7);
         DataTypeLabel_6->setStyleSheet(QString::fromUtf8("background-color:transparent;"));
         UnitLabel_6 = new QLabel(widget1_4);
         UnitLabel_6->setObjectName(QString::fromUtf8("UnitLabel_6"));
         UnitLabel_6->setGeometry(QRect(180, 110, 71, 18));
-        UnitLabel_6->setFont(font7);
+        UnitLabel_6->setFont(font8);
         UnitLabel_6->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         UnitLabel_6->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        gridLayout_3->addWidget(widget1_4, 1, 1, 1, 1);
-
-        widget1_3 = new QWidget(layoutWidget1);
+        widget1_3 = new QWidget(widget_3);
         widget1_3->setObjectName(QString::fromUtf8("widget1_3"));
+        widget1_3->setGeometry(QRect(411, 745, 261, 141));
         widget1_3->setMinimumSize(QSize(261, 141));
         widget1_3->setMaximumSize(QSize(261, 141));
         ZAccelLabel = new QLabel(widget1_3);
         ZAccelLabel->setObjectName(QString::fromUtf8("ZAccelLabel"));
         ZAccelLabel->setGeometry(QRect(0, 0, 261, 141));
-        ZAccelLabel->setFont(font5);
+        ZAccelLabel->setFont(font6);
         ZAccelLabel->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(26, 95, 180);"));
         DataTypeLabel_5 = new QLabel(widget1_3);
         DataTypeLabel_5->setObjectName(QString::fromUtf8("DataTypeLabel_5"));
         DataTypeLabel_5->setGeometry(QRect(20, 100, 91, 31));
-        DataTypeLabel_5->setFont(font6);
+        DataTypeLabel_5->setFont(font7);
         DataTypeLabel_5->setStyleSheet(QString::fromUtf8("background-color:transparent;"));
         UnitLabel_5 = new QLabel(widget1_3);
         UnitLabel_5->setObjectName(QString::fromUtf8("UnitLabel_5"));
         UnitLabel_5->setGeometry(QRect(180, 110, 71, 18));
-        UnitLabel_5->setFont(font7);
+        UnitLabel_5->setFont(font8);
         UnitLabel_5->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         UnitLabel_5->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
         ZAccelLabel->raise();
         UnitLabel_5->raise();
         DataTypeLabel_5->raise();
-
-        gridLayout_3->addWidget(widget1_3, 2, 0, 1, 1);
-
-        widget1_5 = new QWidget(layoutWidget1);
+        widget1_5 = new QWidget(widget_3);
         widget1_5->setObjectName(QString::fromUtf8("widget1_5"));
+        widget1_5->setGeometry(QRect(678, 745, 261, 141));
         widget1_5->setMinimumSize(QSize(261, 141));
         widget1_5->setMaximumSize(QSize(261, 141));
         ROLLAngleVelocityLabel = new QLabel(widget1_5);
         ROLLAngleVelocityLabel->setObjectName(QString::fromUtf8("ROLLAngleVelocityLabel"));
         ROLLAngleVelocityLabel->setGeometry(QRect(0, 0, 261, 141));
-        ROLLAngleVelocityLabel->setFont(font5);
+        ROLLAngleVelocityLabel->setFont(font6);
         ROLLAngleVelocityLabel->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(26, 95, 180);"));
         DataTypeLabel_7 = new QLabel(widget1_5);
         DataTypeLabel_7->setObjectName(QString::fromUtf8("DataTypeLabel_7"));
         DataTypeLabel_7->setGeometry(QRect(20, 100, 121, 31));
-        DataTypeLabel_7->setFont(font6);
+        DataTypeLabel_7->setFont(font7);
         DataTypeLabel_7->setStyleSheet(QString::fromUtf8("background-color:transparent;"));
         UnitLabel_7 = new QLabel(widget1_5);
         UnitLabel_7->setObjectName(QString::fromUtf8("UnitLabel_7"));
         UnitLabel_7->setGeometry(QRect(180, 110, 71, 18));
-        UnitLabel_7->setFont(font7);
+        UnitLabel_7->setFont(font8);
         UnitLabel_7->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         UnitLabel_7->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        gridLayout_3->addWidget(widget1_5, 2, 1, 1, 1);
-
 
         gridLayout_2->addWidget(widget_3, 0, 0, 5, 1);
 
@@ -685,6 +625,7 @@ public:
         label_3->setText(QString());
         label_4->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">\345\201\245\350\272\253\345\201\234\346\255\242</span></p></body></html>", nullptr));
         stopSportPushButton->setText(QString());
+        sportDisplay->setText(QString());
         heartRateDataLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\"> &nbsp;DATA</span></p></body></html>", nullptr));
         DataTypeLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">\345\277\203\347\216\207</span></p></body></html>", nullptr));
         UnitLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#deddda;\">bpm</span></p></body></html>", nullptr));
@@ -692,7 +633,6 @@ public:
         DataTypeLabel_2->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">\350\241\200\346\260\247</span></p></body></html>", nullptr));
         UnitLabel_2->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><h3 style=\" margin-top:14px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:large; font-weight:600; color:#deddda;\">%</span></h3></body></html>", nullptr));
         returnBefore->setText(QString());
-        sportDisplay->setText(QString());
         XAccelLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\"> &nbsp;DATA</span></p></body></html>", nullptr));
         DataTypeLabel_11->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">X\350\275\264\345\212\240\351\200\237\345\272\246</span></p></body></html>", nullptr));
         UnitLabel_11->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#deddda;\">bpm</span></p></body></html>", nullptr));

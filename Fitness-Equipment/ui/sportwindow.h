@@ -48,6 +48,8 @@ private slots:
     void on_startSportPushButton_clicked();
     void on_stopSportPushButton_clicked();
     void montorReceive(ReceivePack receivePack);
+    void healthManagerToSportWindow(int sportTarget, int sportStrength);
+    
     void on_sportStrengthReducePushButton_clicked();
     void on_sportTargetReducePushButton_clicked();
     void on_sportTargetPromotePushButton_clicked();

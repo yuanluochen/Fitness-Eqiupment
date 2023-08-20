@@ -125,6 +125,18 @@ void SportWindow::showSportTarget()
     ui->sportTargetLabel->setPalette(pe);
 }
 
+void SportWindow::healthManagerToSportWindow(int sportTarget, int sportStrength)
+{
+    this->show();
+    this->sportTarget = sportTarget;
+    this->sportStrength = sportStrength;
+
+    this->showSportTarget();
+    this->showSportStrength();
+
+    this->setSportDisplay("体质检测开始，请在一分钟内尽您最大实力进行运动，我们将会检测您的各项数据，为您订制健身计划");
+}
+
 void SportWindow::on_startSportPushButton_clicked()
 {
     qDebug() << "start fitness";

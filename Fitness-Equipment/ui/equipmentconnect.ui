@@ -54,7 +54,7 @@ border:2px;border-radius:15px;</string>
           <x>0</x>
           <y>0</y>
           <width>261</width>
-          <height>301</height>
+          <height>401</height>
          </rect>
         </property>
         <property name="minimumSize">
@@ -92,6 +92,9 @@ QListWidget::item:hover
 }
 
 </string>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
         </property>
        </widget>
       </widget>
