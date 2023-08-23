@@ -11,6 +11,7 @@
 #include <QTimer>
 
 #include "ui/equipmentconnect.h"
+#include "application/UnitreeMotorSerialService/unitreemotorserialservice.h"
 
 #define MAX_SPORT_STRENGTH 100
 #define MIN_SPORT_STRENGTH 0
@@ -48,6 +49,7 @@ private slots:
     void on_startSportPushButton_clicked();
     void on_stopSportPushButton_clicked();
     void montorReceive(ReceivePack receivePack);
+    void UnitreeMotorReceive(MOTOR_recv receivePack);
     void healthManagerToSportWindow(int sportTarget, int sportStrength);
     
     void on_sportStrengthReducePushButton_clicked();
@@ -61,6 +63,7 @@ public:
 private:
     Ui::SportWindow *ui;
     ReceivePack montorReceiveData;
+    MOTOR_recv fitnessReceiveData;
     //运动状态
     sportStatus_e sportStatus;
     

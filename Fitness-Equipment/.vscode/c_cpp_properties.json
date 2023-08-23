@@ -4,8 +4,8 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/**",
-                "/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment/build/**"
+                "/home/yuanluochen/code/Fitness-Eqiupment/Fitness-Equipment/build/**",
+                "/usr/include/arm-linux-gnueabihf/qt5/**"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

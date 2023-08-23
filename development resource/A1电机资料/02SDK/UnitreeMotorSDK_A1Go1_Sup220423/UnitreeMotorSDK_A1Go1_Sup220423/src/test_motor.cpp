@@ -3,7 +3,7 @@
 
 int main(){
     // set the serial port name
-    SerialPort serial("/dev/ttyUSB0");
+    SerialPort serial("/dev/Unitree-A1");
 
     // send message struct
     MOTOR_send motor_run, motor_stop;
@@ -15,7 +15,7 @@ int main(){
     // set the motor type, A1Go1 or B1
     motor_run.motorType = MotorType::A1Go1;
     motor_run.mode = 5;
-    motor_run.T = 0.0;
+    motor_run.T = 0;
     motor_run.W = 0.0;
     motor_run.Pos = 0.0;
     motor_run.K_P = 0.0;
@@ -32,7 +32,7 @@ int main(){
     modify_data(&motor_stop);
 
     // turn for 3 second
-    for(int i(0); i<3; ++i){
+    for(int i(0); i<10; ++i){
         serial.sendRecv(&motor_run, &motor_r);
         // decode data from motor states
         extract_data(&motor_r);

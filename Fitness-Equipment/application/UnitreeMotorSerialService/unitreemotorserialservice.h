@@ -12,17 +12,20 @@ class UnitreeMotorThread : public QThread
     Q_OBJECT
 public:
     explicit UnitreeMotorThread(QString serialPort, QObject *parent = nullptr);
+    ~UnitreeMotorThread();
 private:
     void initControlMessage();
     void encodeSendMessage();
     void decodeReceiveMessage();
-    
+    void setControlT(float T);
+
+    void stop();
 
 protected:
     void run();
 
 signals:
-
+    void sendUnitreeMotorDataToSportWindow(MOTOR_recv receivemessage);
 public slots:
 
 private:
