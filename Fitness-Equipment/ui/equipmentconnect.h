@@ -90,6 +90,9 @@ private slots:
 signals:
     void sendMontorDataToSportWindow(ReceivePack receivePack);
     void sendMontorDataToHealthManagerWindow(ReceivePack receivePack);
+public:
+
+    UnitreeMotorThread *fitnessEquipmentServiceThread; 
 private:
     Ui::EquipmentConnect *ui;
 
@@ -98,7 +101,6 @@ private:
     QThread montorThread;
     //监测设备串口服务
     SerialPortService *montorSerialService;
-    UnitreeMotorThread *fitnessEquipmentServiceThread; 
     //设备校验定时器
     QTimer *equipmentCheckTim;
     //设备连接校验定时器

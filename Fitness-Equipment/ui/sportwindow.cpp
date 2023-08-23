@@ -8,7 +8,6 @@
 #include <QListWidgetItem>
 #include <QTimer>
 #include <QTime>
-
 //imu加速度数据转真实数据
 #define IMU_ACCEL_DATA_TO_VALUE_DATA(imu) ((imu / 32768.0f) * 2.0f)
 //imu角速度数据转真实数据
@@ -44,6 +43,10 @@ void SportWindow::montorReceive(ReceivePack receivePack)
     this->montorReceiveData.assign(receivePack);
 }
 
+void SportWindow::UnitreeMotorReceive(MOTOR_recv receivePack)
+{
+    this->fitnessReceiveData = receivePack;
+}
 SportWindow::~SportWindow()
 {
     delete ui;
