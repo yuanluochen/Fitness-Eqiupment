@@ -79,12 +79,13 @@ private:
     void showMontorReceiveData();
     QListWidgetItem *addEquipmentItem(equipmentItemCard::equipmentType type);
     void removeEquipmentItem(QListWidgetItem *it);
-
+    
 private slots:
-    void montorCheck();
     void montorReceive(QByteArray data);
     void checkEquipmentConnect();
     void on_searchPushButton_clicked();
+    QStringList getAvailableSerialPort();
+    bool connectFitnessEquipment(QString serialPort);
 
 signals:
     void sendMontorDataToSportWindow(ReceivePack receivePack);
@@ -97,10 +98,13 @@ private:
     QThread montorThread;
     //监测设备串口服务
     SerialPortService *montorSerialService;
+    UnitreeMotorThread *fitnessEquipmentServiceThread; 
     //设备校验定时器
     QTimer *equipmentCheckTim;
     //设备连接校验定时器
     QTimer *equipmentCheckConnectTim;
+    //下一个设备连接等待计时
+    QTimer *nextEquipmentConnectTim;
     checkStatus_e checkstatus;
     QStringList serialPortList;
 

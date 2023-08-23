@@ -12,7 +12,7 @@ link_directories(
 )
 
 add_executable(test_motor src/test_motor.cpp)
-target_link_libraries(test_motor libunitreeMotorSDK_Linux64.so)
+target_link_libraries(test_motor libunitreeMotorSDK_Arm64.so)
 
 add_executable(changeID src/changeID.cpp)
-target_link_libraries(changeID libunitreeMotorSDK_Linux64.so)
+target_link_libraries(changeID libunitreeMotorSDK_Arm64.so)

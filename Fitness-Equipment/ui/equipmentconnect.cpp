@@ -6,6 +6,7 @@
 #include "ui/sportwindow.h"
 #include "ui/sportwindow.h"
 #include "ui/healthmanagerwindow.h"
+#include <QSerialPortInfo>
 
 EquipmentConnect::EquipmentConnect(QWidget *parent) :
     QWidget(parent),
@@ -18,21 +19,35 @@ EquipmentConnect::EquipmentConnect(QWidget *parent) :
     this->equipmentCheckTim = new QTimer;
     //实例化设备连接校验定时
     this->equipmentCheckConnectTim = new QTimer;
+    //实例化健身设备对象
+    this->fitnessEquipmentServiceThread = new UnitreeMotorThread("/dev/Unitree-A1");
+    //开启设备连接线程
+    this->fitnessEquipmentServiceThread->start();
+    //添加设备卡
+    this->addEquipmentItem(equipmentItemCard::FITNESS);
     //将监测设备服务转移到监测设备线程
     this->montorSerialService->moveToThread(&this->montorThread);
     //启动线程
     this->montorThread.start();
-    //显示设备连接状态为未连接
-    this->setEquipmentStatus(UNCONNECT);
-    
-    // 线程退出时自动删除对象
+    //线程退出时自动删除对象
     QObject::connect(&this->montorThread, &QThread::finished, this->montorSerialService, &QObject::deleteLater);
-    this->serialPortList = this->montorSerialService->getAvailableSerialPort();
+    this->serialPortList = this->getAvailableSerialPort();
     if (!this->serialPortList.isEmpty())
     {
         // 自动连接设备
         this->connectEquipment();
     }   
+}
+
+QStringList EquipmentConnect::getAvailableSerialPort()
+{
+    QStringList mPortsList;
+
+    for (const QSerialPortInfo &info : QSerialPortInfo::availablePorts())
+    {
+        mPortsList << info.portName();
+    }
+    return mPortsList;
 }
 
 EquipmentConnect::~EquipmentConnect()
@@ -47,21 +62,22 @@ EquipmentConnect::~EquipmentConnect()
 
 void EquipmentConnect::connectEquipment()
 {
-    QStringList::iterator it = serialPortList.begin();
-    
-    if (this->montorSerialService->initSerialPort(*it, QSerialPort::Baud115200, QSerialPort::Data8, QSerialPort::NoParity, QSerialPort::OneStop, QIODevice::ReadOnly))
+    //检测设备连接
+    if (this->montorSerialService->initSerialPort("GSR", QSerialPort::Baud115200, QSerialPort::Data8, QSerialPort::NoParity, QSerialPort::OneStop, QIODevice::ReadOnly))
     {
         qDebug() << QTime::currentTime() << "serial port open successful";
         // 清空数据
         this->montorReceiveData.clear();
         // 连接信号和槽
         QObject::connect(this->montorSerialService, SIGNAL(updateSerialData(QByteArray)), this, SLOT(montorReceive(QByteArray)));
-        // 定时等待验证
-        connect(this->equipmentCheckTim, &QTimer::timeout, this, &EquipmentConnect::montorCheck);
-        this->checkstatus = UNPASS;
-        //开始定时
-        this->equipmentCheckTim->start(CHECK_TIME);
+        // 添加设备
+        this->montoringEquipmentItem = this->addEquipmentItem(equipmentItemCard::MONITORING);
+        // 设备检测
+        connect(this->equipmentCheckConnectTim, &QTimer::timeout, this, &EquipmentConnect::checkEquipmentConnect);
+        this->equipmentCheckConnectTim->start(CHECK_CONNECT_TIME);
     }
+
+
 }
 
 void EquipmentConnect::montorReceive(QByteArray data)
@@ -102,52 +118,19 @@ void EquipmentConnect::montorReceive(QByteArray data)
         }
     }
 }
-void EquipmentConnect::montorCheck()
-{   
-    qDebug() << QTime::currentTime() << "check montoring equipment";
-    //停止定时
-    this->equipmentCheckTim->stop();
-    //设备校验
-    if (this->montorReceiveData.accelX != 0 || this->montorReceiveData.accelY != 0 || this->montorReceiveData.accelZ != 0 ||
-        this->montorReceiveData.angularVelocityX != 0 || this->montorReceiveData.angularVelocityY != 0 || this->montorReceiveData.angularVelocityZ != 0 ||
-        this->montorReceiveData.bloodOxygen != 0 || this->montorReceiveData.GSR != 0 || this->montorReceiveData.heartRate != 0)
-    {
-        this->checkstatus = PASS;
-        qDebug() << QTime::currentTime() << "check montoring equipment pass";
-        //添加设备
-        this->montoringEquipmentItem = this->addEquipmentItem(equipmentItemCard::MONITORING);
-        //显示已连接设备
-        this->setEquipmentStatus(CONNECT);
-        connect(this->equipmentCheckConnectTim, &QTimer::timeout, this, &EquipmentConnect::checkEquipmentConnect);
-        //设备连接检测开始
-        this->equipmentCheckConnectTim->start(CHECK_CONNECT_TIME);
-        return;
-    }
 
-    //校验失败关闭串口更换其他设备进行校验
-    this->checkstatus = UNPASS;
-    qDebug() << QTime::currentTime() << "check montoring equipment unpass";
-    //取消槽函数的链接
-    disconnect(this->equipmentCheckTim, &QTimer::timeout, this, &EquipmentConnect::montorCheck);
-    //遍历删除指定串口名
-    for (QStringList::iterator it = this->serialPortList.begin(); it != this->serialPortList.end(); it++)
-    {
-        if (*it == this->montorSerialService->getCurSerialPortName())
-        {
-            qDebug() << QTime::currentTime() << "delete serial port";
-            this->serialPortList.pop_front();
-            this->montorSerialService->closeSerial();
-            break;
-        }
-    }
 
-    if (!this->serialPortList.isEmpty())
+bool EquipmentConnect::connectFitnessEquipment(QString serialPort)
+{
+    if (this->fitnessEquipmentServiceThread == nullptr)
     {
-        this->connectEquipment();
+        this->fitnessEquipmentServiceThread = new UnitreeMotorThread("/dev/" + serialPort);
+        this->fitnessEquipmentServiceThread->start();
+        this->addEquipmentItem(equipmentItemCard::FITNESS);
+        return true;
     }
-    
+    return false; 
 }
-
 void EquipmentConnect::checkEquipmentConnect()
 {
     if (!this->montorReceiveData.isUpdate())
@@ -163,7 +146,6 @@ void EquipmentConnect::checkEquipmentConnect()
         this->equipmentCheckConnectTim->stop();
         disconnect(this->equipmentCheckConnectTim, &QTimer::timeout, this, &EquipmentConnect::checkEquipmentConnect);
         this->setEquipmentStatus(UNCONNECT);
-        this->checkstatus = UNPASS;
         this->montorSerialService->closeSerial();
 
     }

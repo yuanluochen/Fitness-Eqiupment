@@ -35,6 +35,7 @@ SportWindow::SportWindow(QWidget *parent) :
     ui->sportTargetReducePushButton->setAutoRepeat(true);
     ui->sportTargetPromotePushButton->setAutoRepeat(true);
     
+     
 }
 
 void SportWindow::montorReceive(ReceivePack receivePack)
