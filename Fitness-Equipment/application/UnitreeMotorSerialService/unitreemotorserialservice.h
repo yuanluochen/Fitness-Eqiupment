@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QThread>
 #include "serialPort/SerialPort.h"
+#include "userLib/packet.hpp"
 #include <csignal>
 
 
@@ -25,7 +26,7 @@ protected:
     void run();
 
 signals:
-    void sendUnitreeMotorDataToSportWindow(MOTOR_recv receivemessage);
+    void sendUnitreeMotorDataToEquipmentConnectWindow(UnitreeReceive receivemessage);
 public slots:
     //设置力矩
     void setMoment(int moment);
@@ -35,6 +36,8 @@ private:
     //接收发送的控制数据
     MOTOR_send sendMessage;
     MOTOR_recv receiveMessage;
+    //电机接收数据结构体
+    UnitreeReceive receive;
     
 };
 

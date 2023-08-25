@@ -7,12 +7,14 @@
 #include "ui/sportwindow.h"
 #include "ui/healthmanagerwindow.h"
 #include <QSerialPortInfo>
+#include <QMetaType>
 
 EquipmentConnect::EquipmentConnect(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::EquipmentConnect)
 {
     ui->setupUi(this);
+    qRegisterMetaType<UnitreeReceive>("UnitreeReceive");
     // 实例化监测设备服务
     this->montorSerialService = new SerialPortService;
     //实例化设备校验定时
@@ -21,6 +23,8 @@ EquipmentConnect::EquipmentConnect(QWidget *parent) :
     this->equipmentCheckConnectTim = new QTimer;
     //实例化健身设备对象
     this->fitnessEquipmentServiceThread = new UnitreeMotorThread("/dev/Unitree-A1");
+    //电机数据与该界面链接
+    QObject::connect(this->fitnessEquipmentServiceThread, SIGNAL(sendUnitreeMotorDataToEquipmentConnectWindow(UnitreeReceive)), this, SLOT(UnitreeMotorReceive(UnitreeReceive)));
     //开启设备连接线程
     this->fitnessEquipmentServiceThread->start();
     //添加设备卡
@@ -76,6 +80,7 @@ void EquipmentConnect::connectEquipment()
         QObject::connect(this->montorSerialService, SIGNAL(updateSerialData(QByteArray)), this, SLOT(montorReceive(QByteArray)));
         // 添加设备
         this->montoringEquipmentItem = this->addEquipmentItem(equipmentItemCard::MONITORING);
+        this->setEquipmentStatus(CONNECT);
         // 设备检测
         connect(this->equipmentCheckConnectTim, &QTimer::timeout, this, &EquipmentConnect::checkEquipmentConnect);
         this->equipmentCheckConnectTim->start(CHECK_CONNECT_TIME);
@@ -115,12 +120,17 @@ void EquipmentConnect::montorReceive(QByteArray data)
                 emit sendMontorDataToSportWindow(this->montorReceiveData);
                 emit sendMontorDataToHealthManagerWindow(this->montorReceiveData);
                 // this->showMontorReceiveData();
-
             }
         }
     }
 }
 
+void EquipmentConnect::UnitreeMotorReceive(UnitreeReceive data)
+{
+    // qDebug() << QTime::currentTime() << "receive UNITREE";
+    this->unitreeReceive.assign(data);
+    emit this->sendUnitreeMotorDataToSportWindow(this->unitreeReceive);
+}
 
 bool EquipmentConnect::connectFitnessEquipment(QString serialPort)
 {
@@ -143,13 +153,11 @@ void EquipmentConnect::checkEquipmentConnect()
         if (this->montoringEquipmentItem != nullptr)
         {
             this->removeEquipmentItem(this->montoringEquipmentItem);
-            
         }
         this->equipmentCheckConnectTim->stop();
         disconnect(this->equipmentCheckConnectTim, &QTimer::timeout, this, &EquipmentConnect::checkEquipmentConnect);
         this->setEquipmentStatus(UNCONNECT);
         this->montorSerialService->closeSerial();
-
     }
 }
 /**
@@ -221,77 +229,6 @@ void EquipmentConnect::removeEquipmentItem(QListWidgetItem* it)
     it = nullptr;
 }
 
-
-
-ReceivePack::ReceivePack(int16_t GSR, int16_t accelX, int16_t accelY, int16_t accelZ,
-                             int16_t angularVelocityX, int16_t angularVelocityY, int16_t angularVelocityZ,
-                             int8_t heartRate, int8_t bloodOxygen)
-{
-    this->GSR = GSR;
-    this->accelX = accelX;
-    this->accelY = accelY;
-    this->accelZ = accelZ;
-    this->angularVelocityX = angularVelocityX;
-    this->angularVelocityY = angularVelocityY;
-    this->angularVelocityZ = angularVelocityZ;
-    this->heartRate = heartRate;
-    this->bloodOxygen = bloodOxygen;
-}
-
-ReceivePack::ReceivePack(const ReceivePack &obj)
-{
-    this->accelX = obj.accelX;
-    this->accelY = obj.accelY;
-    this->accelZ = obj.accelZ;
-    this->angularVelocityX = obj.angularVelocityX;
-    this->angularVelocityY = obj.angularVelocityY;
-    this->angularVelocityZ = obj.angularVelocityZ;
-    this->bloodOxygen = obj.bloodOxygen;
-    this->GSR = obj.GSR;
-    this->heartRate = obj.heartRate;
-    this->update = obj.update;
-}
-
-bool ReceivePack::isSame(ReceivePack &obj)
-{
-    return (obj.accelX == this->accelX && obj.accelY == this->accelY && obj.accelZ == this->accelZ && 
-            obj.angularVelocityX == this->angularVelocityX && obj.angularVelocityY == this->angularVelocityY && obj.angularVelocityZ == this->angularVelocityZ &&
-            obj.bloodOxygen == this->bloodOxygen && obj.GSR == this->GSR && obj.heartRate == this->heartRate && this->update == obj.update);
-}
-
-bool ReceivePack::isUpdate()
-{
-    bool curState = this->update;
-    this->update = false;
-    return curState;
-}
-
-void ReceivePack::clear()
-{
-    this->accelX = 0;
-    this->accelY = 0;
-    this->accelZ = 0;
-    this->angularVelocityX = 0;
-    this->angularVelocityY = 0;
-    this->angularVelocityZ = 0;
-    this->bloodOxygen = 0;
-    this->GSR = 0;
-    this->heartRate = 0;
-}
-
-void ReceivePack::assign(const ReceivePack &obj)
-{
-    this->accelX = obj.accelX;
-    this->accelY = obj.accelY;
-    this->accelZ = obj.accelZ;
-    this->angularVelocityX = obj.angularVelocityX;
-    this->angularVelocityY = obj.angularVelocityY;
-    this->angularVelocityZ = obj.angularVelocityZ;
-    this->bloodOxygen = obj.bloodOxygen;
-    this->GSR = obj.GSR;
-    this->heartRate = obj.heartRate;
-    this->update = obj.update;
-}
 void EquipmentConnect::on_searchPushButton_clicked()
 {
     this->serialPortList = this->montorSerialService->getAvailableSerialPort();

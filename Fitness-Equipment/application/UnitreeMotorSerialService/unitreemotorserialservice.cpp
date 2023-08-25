@@ -16,7 +16,13 @@ void UnitreeMotorThread::run()
     while(1)
     {
         this->motorSerialPort->sendRecv(&this->sendMessage, &this->receiveMessage);
-        qDebug() << "Pos:" <<  this->receiveMessage.Pos;
+        // qDebug() << "T: " << this->sendMessage.T;
+        // qDebug() << "Pos: "  <<  this->receiveMessage.Pos;
+        //赋值
+        this->receive.assign(this->receiveMessage);
+        //发送
+        emit this->sendUnitreeMotorDataToEquipmentConnectWindow(this->receive);
+        QThread::sleep(1);
     }
     qDebug() << "Unitree thread finished";
 }
@@ -24,6 +30,7 @@ void UnitreeMotorThread::run()
 
 void UnitreeMotorThread::setMoment(int moment)
 {
+    qDebug() << "receive";
     this->setControlT(moment);
 }
 void UnitreeMotorThread::setControlT(float T)
@@ -47,8 +54,12 @@ void UnitreeMotorThread::stop()
     qDebug() << QTime::currentTime() << "stop motor";
     this->receiveMessage.motorType = this->sendMessage.motorType;
     this->encodeSendMessage();
-    for (int i = 0; i < 100; i++)
+    for (int i = 0; i < 3; i++)
+    {
         this->motorSerialPort->sendRecv(&this->sendMessage, &this->receiveMessage);
+        QThread::sleep(1);
+    }
+
 }
 UnitreeMotorThread::~UnitreeMotorThread()
 {
@@ -63,7 +74,7 @@ void UnitreeMotorThread::initControlMessage()
     // 设置电机类型，A1Go1
     this->sendMessage.motorType = MotorType::A1Go1;
     //线程启动时电机默认为空闲
-    this->sendMessage.mode = 5;
+    this->sendMessage.mode = 0;
     this->sendMessage.T = 0.0;
     this->sendMessage.W = 0.0;
     this->sendMessage.Pos = 0.0;

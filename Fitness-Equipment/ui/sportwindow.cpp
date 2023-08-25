@@ -39,11 +39,16 @@ void SportWindow::montorReceive(ReceivePack receivePack)
 {
     // qDebug() << QTime::currentTime() << "sport window receive montor data frome equipmentconnect";
     this->montorReceiveData.assign(receivePack);
+    this->setGSRData(receivePack.GSR);
+    this->setHeartRateData(receivePack.heartRate);
 }
 
-void SportWindow::UnitreeMotorReceive(MOTOR_recv receivePack)
+void SportWindow::UnitreeMotorReceive(UnitreeReceive receivePack)
 {
-    this->fitnessReceiveData = receivePack;
+    qDebug() << "receive Unitree data";
+    this->fitnessReceiveData.assign(receivePack);
+    this->setMomentData(receivePack.T);
+
 }
 SportWindow::~SportWindow()
 {
@@ -78,22 +83,34 @@ void SportWindow::setHeartRateData(double num)
     }
 }
 
-// /**
-//  * @brief 设置血氧数值 
-//  * 
-//  * @param num 血氧数值
-//  */
-// void SportWindow::setBooldOxygenData(double num)
-// {
-//     if (num >= 0 && num <= 100)
-//     {
-//         ui->bloodOxygenDataLabel->setNum(num);
-//         //设置为白色
-//         QPalette pe;
-//         pe.setColor(QPalette::WindowText, Qt::white);
-//         ui->bloodOxygenDataLabel->setPalette(pe);
-//     }
-// }
+void SportWindow::setGSRData(double num)
+{
+    ui->GSRLabel->setNum(num);
+    // 设置为白色
+    QPalette pe;
+    pe.setColor(QPalette::WindowText, Qt::white);
+    ui->GSRLabel->setPalette(pe);
+
+}
+
+void SportWindow::setMomentData(double num)
+{
+    ui->momentlLabel->setNum(num);
+    // 设置为白色
+    QPalette pe;
+    pe.setColor(QPalette::WindowText, Qt::white);
+    ui->momentlLabel->setPalette(pe);
+}
+
+void SportWindow::setSportCountData(double num)
+{
+    ui->sportCountLabel->setNum(num);
+    // 设置为白色
+    QPalette pe;
+    pe.setColor(QPalette::WindowText, Qt::white);
+    ui->sportCountLabel->setPalette(pe);
+}
+
 
 void SportWindow::setSportDisplay(QString data)
 {
@@ -147,8 +164,10 @@ void SportWindow::on_startSportPushButton_clicked()
     this->setSportDisplay("运动开始");
     //设置运动状态为运动
     this->sportStatus = PLAY_SPORT;
-    //
-    this->setMotorMoment(this->sportStrength);
+
+    //发送电机开始运动指令
+    emit this->setMotorMoment(this->sportStrength);
+
 }
 
 void SportWindow::on_stopSportPushButton_clicked()
@@ -156,7 +175,7 @@ void SportWindow::on_stopSportPushButton_clicked()
     qDebug() << "stop fitness";
     this->setSportDisplay("运动停止");
     this->sportStatus = UNPLAY_SPORT;
-    this->setMotorMoment(0);
+    emit this->setMotorMoment(0);
 }
 
 
@@ -198,6 +217,7 @@ void SportWindow::on_sportTargetPromotePushButton_clicked()
         this->sportTarget = MIN_SPORT_TARGET;
     }
     this->showSportTarget();
+    
 }
 
 void SportWindow::on_sportStrengthPromotePushButton_clicked()

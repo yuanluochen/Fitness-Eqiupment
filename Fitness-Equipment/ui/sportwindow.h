@@ -39,6 +39,9 @@ public:
 
 private:
     void setHeartRateData(double num);
+    void setGSRData(double num);
+    void setMomentData(double num);
+    void setSportCountData(double num);
     // void setBooldOxygenData(double num);
     void setSportDisplay(QString data);
     void setSportDisplay(int num);
@@ -49,7 +52,7 @@ private slots:
     void on_startSportPushButton_clicked();
     void on_stopSportPushButton_clicked();
     void montorReceive(ReceivePack receivePack);
-    void UnitreeMotorReceive(MOTOR_recv receivePack);
+    void UnitreeMotorReceive(UnitreeReceive receivePack);
     void healthManagerToSportWindow(int sportTarget, int sportStrength);
     
     void on_sportStrengthReducePushButton_clicked();
@@ -64,7 +67,7 @@ public:
 private:
     Ui::SportWindow *ui;
     ReceivePack montorReceiveData;
-    MOTOR_recv fitnessReceiveData;
+    UnitreeReceive fitnessReceiveData;
     //运动状态
     sportStatus_e sportStatus;
     

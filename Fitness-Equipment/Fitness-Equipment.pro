@@ -46,6 +46,7 @@ HEADERS += \
     userLib/UnitreeMotorSDK_A1Go1_Sup220423/include/serialPort/include/errorClass.h \
     userLib/UnitreeMotorSDK_A1Go1_Sup220423/include/unitreeMotor/include/motor_msg.h \
     userLib/UnitreeMotorSDK_A1Go1_Sup220423/include/unitreeMotor/unitreeMotor.h \
+    userLib/packet.hpp \
     userLib/userLib_ui.h
 
 FORMS += \
