@@ -42,15 +42,15 @@ public:
     QLabel *DataTypeLabel;
     QLabel *UnitLabel;
     QWidget *widget1_4;
-    QLabel *PITCHAngleVelocityLabel;
+    QLabel *GSRLabel;
     QLabel *DataTypeLabel_6;
     QLabel *UnitLabel_6;
     QWidget *widget1_3;
-    QLabel *ZAccelLabel;
+    QLabel *momentlLabel;
     QLabel *DataTypeLabel_5;
     QLabel *UnitLabel_5;
     QWidget *widget1_5;
-    QLabel *ROLLAngleVelocityLabel;
+    QLabel *sportCountLabel;
     QLabel *DataTypeLabel_7;
     QLabel *UnitLabel_7;
     QSpacerItem *verticalSpacer_4;
@@ -192,11 +192,11 @@ public:
         widget1_4->setObjectName(QString::fromUtf8("widget1_4"));
         widget1_4->setMinimumSize(QSize(261, 141));
         widget1_4->setMaximumSize(QSize(261, 141));
-        PITCHAngleVelocityLabel = new QLabel(widget1_4);
-        PITCHAngleVelocityLabel->setObjectName(QString::fromUtf8("PITCHAngleVelocityLabel"));
-        PITCHAngleVelocityLabel->setGeometry(QRect(0, 0, 261, 141));
-        PITCHAngleVelocityLabel->setFont(font2);
-        PITCHAngleVelocityLabel->setStyleSheet(QString::fromUtf8("\n"
+        GSRLabel = new QLabel(widget1_4);
+        GSRLabel->setObjectName(QString::fromUtf8("GSRLabel"));
+        GSRLabel->setGeometry(QRect(0, 0, 261, 141));
+        GSRLabel->setFont(font2);
+        GSRLabel->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(26, 95, 180);"));
         DataTypeLabel_6 = new QLabel(widget1_4);
         DataTypeLabel_6->setObjectName(QString::fromUtf8("DataTypeLabel_6"));
@@ -216,11 +216,11 @@ public:
         widget1_3->setObjectName(QString::fromUtf8("widget1_3"));
         widget1_3->setMinimumSize(QSize(261, 141));
         widget1_3->setMaximumSize(QSize(261, 141));
-        ZAccelLabel = new QLabel(widget1_3);
-        ZAccelLabel->setObjectName(QString::fromUtf8("ZAccelLabel"));
-        ZAccelLabel->setGeometry(QRect(0, 0, 261, 141));
-        ZAccelLabel->setFont(font2);
-        ZAccelLabel->setStyleSheet(QString::fromUtf8("\n"
+        momentlLabel = new QLabel(widget1_3);
+        momentlLabel->setObjectName(QString::fromUtf8("momentlLabel"));
+        momentlLabel->setGeometry(QRect(0, 0, 261, 141));
+        momentlLabel->setFont(font2);
+        momentlLabel->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(26, 95, 180);"));
         DataTypeLabel_5 = new QLabel(widget1_3);
         DataTypeLabel_5->setObjectName(QString::fromUtf8("DataTypeLabel_5"));
@@ -233,7 +233,7 @@ public:
         UnitLabel_5->setFont(font4);
         UnitLabel_5->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         UnitLabel_5->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-        ZAccelLabel->raise();
+        momentlLabel->raise();
         UnitLabel_5->raise();
         DataTypeLabel_5->raise();
 
@@ -243,11 +243,11 @@ public:
         widget1_5->setObjectName(QString::fromUtf8("widget1_5"));
         widget1_5->setMinimumSize(QSize(261, 141));
         widget1_5->setMaximumSize(QSize(261, 141));
-        ROLLAngleVelocityLabel = new QLabel(widget1_5);
-        ROLLAngleVelocityLabel->setObjectName(QString::fromUtf8("ROLLAngleVelocityLabel"));
-        ROLLAngleVelocityLabel->setGeometry(QRect(0, 0, 261, 141));
-        ROLLAngleVelocityLabel->setFont(font2);
-        ROLLAngleVelocityLabel->setStyleSheet(QString::fromUtf8("\n"
+        sportCountLabel = new QLabel(widget1_5);
+        sportCountLabel->setObjectName(QString::fromUtf8("sportCountLabel"));
+        sportCountLabel->setGeometry(QRect(0, 0, 261, 141));
+        sportCountLabel->setFont(font2);
+        sportCountLabel->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(26, 95, 180);"));
         DataTypeLabel_7 = new QLabel(widget1_5);
         DataTypeLabel_7->setObjectName(QString::fromUtf8("DataTypeLabel_7"));
@@ -559,13 +559,13 @@ public:
         heartRateDataLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\"> &nbsp;DATA</span></p></body></html>", nullptr));
         DataTypeLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">\345\277\203\347\216\207</span></p></body></html>", nullptr));
         UnitLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#deddda;\">bpm</span></p></body></html>", nullptr));
-        PITCHAngleVelocityLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\"> &nbsp;DATA</span></p></body></html>", nullptr));
+        GSRLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\"> &nbsp;DATA</span></p></body></html>", nullptr));
         DataTypeLabel_6->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">GSR</span></p></body></html>", nullptr));
         UnitLabel_6->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#deddda;\">bpm</span></p></body></html>", nullptr));
-        ZAccelLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\"> &nbsp;DATA</span></p></body></html>", nullptr));
+        momentlLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\"> &nbsp;DATA</span></p></body></html>", nullptr));
         DataTypeLabel_5->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">\345\212\233\347\237\251</span></p></body></html>", nullptr));
         UnitLabel_5->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#deddda;\">bpm</span></p></body></html>", nullptr));
-        ROLLAngleVelocityLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\"> &nbsp;DATA</span></p></body></html>", nullptr));
+        sportCountLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\"> &nbsp;DATA</span></p></body></html>", nullptr));
         DataTypeLabel_7->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">\350\277\220\345\212\250\346\254\241\346\225\260</span></p></body></html>", nullptr));
         UnitLabel_7->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#deddda;\">bpm</span></p></body></html>", nullptr));
         returnBefore->setText(QString());

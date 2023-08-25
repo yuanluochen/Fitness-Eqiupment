@@ -1,4 +1,4 @@
-/home/yuanluochen/code/Fitness-Eqiupment/development resource/A1电机资料/02SDK/UnitreeMotorSDK_A1Go1_Sup220423/UnitreeMotorSDK_A1Go1_Sup220423/build/CMakeFiles/rebuild_cache.dir
-/home/yuanluochen/code/Fitness-Eqiupment/development resource/A1电机资料/02SDK/UnitreeMotorSDK_A1Go1_Sup220423/UnitreeMotorSDK_A1Go1_Sup220423/build/CMakeFiles/edit_cache.dir
-/home/yuanluochen/code/Fitness-Eqiupment/development resource/A1电机资料/02SDK/UnitreeMotorSDK_A1Go1_Sup220423/UnitreeMotorSDK_A1Go1_Sup220423/build/CMakeFiles/changeID.dir
-/home/yuanluochen/code/Fitness-Eqiupment/development resource/A1电机资料/02SDK/UnitreeMotorSDK_A1Go1_Sup220423/UnitreeMotorSDK_A1Go1_Sup220423/build/CMakeFiles/test_motor.dir
+/home/yuanluochen/code/working/Fitness-Eqiupment/development resource/A1电机资料/02SDK/UnitreeMotorSDK_A1Go1_Sup220423/UnitreeMotorSDK_A1Go1_Sup220423/build/CMakeFiles/test_motor.dir
+/home/yuanluochen/code/working/Fitness-Eqiupment/development resource/A1电机资料/02SDK/UnitreeMotorSDK_A1Go1_Sup220423/UnitreeMotorSDK_A1Go1_Sup220423/build/CMakeFiles/changeID.dir
+/home/yuanluochen/code/working/Fitness-Eqiupment/development resource/A1电机资料/02SDK/UnitreeMotorSDK_A1Go1_Sup220423/UnitreeMotorSDK_A1Go1_Sup220423/build/CMakeFiles/edit_cache.dir
+/home/yuanluochen/code/working/Fitness-Eqiupment/development resource/A1电机资料/02SDK/UnitreeMotorSDK_A1Go1_Sup220423/UnitreeMotorSDK_A1Go1_Sup220423/build/CMakeFiles/rebuild_cache.dir

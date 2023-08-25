@@ -1,21 +1,20 @@
 {
-    "configurations": [
-        {
-            "name": "Linux",
-            "includePath": [
-                "${workspaceFolder}/**",
-                "/home/yuanluochen/code/Fitness-Eqiupment/Fitness-Equipment/build/**",
-                "/usr/include/arm-linux-gnueabihf/qt5/**",
-                
-                "/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/**",
-                "/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment/build/**"
-            ],
-            "defines": [],
-            "compilerPath": "/usr/bin/gcc",
-            "cStandard": "c17",
-            "cppStandard": "gnu++17",
-            "intelliSenseMode": "linux-gcc-x64"
-        }
-    ],
-    "version": 4
+  "configurations": [
+    {
+      "name": "linux-gcc-x64",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "/home/yuanluochen/code/Fitness-Eqiupment/Fitness-Equipment/build/**",
+        "/usr/include/arm-linux-gnueabihf/qt5/**",
+        "/home/yuanluochen/Qt5.14.2/5.14.2/gcc_64/include/**",
+        "/home/yuanluochen/code/working/Fitness-Eqiupment/Fitness-Equipment/build/**"
+      ],
+      "defines": [],
+      "compilerPath": "/usr/bin/gcc",
+      "cStandard": "${default}",
+      "cppStandard": "${default}",
+      "intelliSenseMode": "linux-gcc-x64"
+    }
+  ],
+  "version": 4
 }

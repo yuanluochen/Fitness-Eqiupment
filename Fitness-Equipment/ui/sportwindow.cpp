@@ -33,8 +33,6 @@ SportWindow::SportWindow(QWidget *parent) :
     ui->sportStrengthReducePushButton->setAutoRepeat(true);
     ui->sportTargetReducePushButton->setAutoRepeat(true);
     ui->sportTargetPromotePushButton->setAutoRepeat(true);
-    
-     
 }
 
 void SportWindow::montorReceive(ReceivePack receivePack)
@@ -49,6 +47,8 @@ void SportWindow::UnitreeMotorReceive(MOTOR_recv receivePack)
 }
 SportWindow::~SportWindow()
 {
+
+    qDebug() << QTime::currentTime() << "destruct sport window";
     delete ui;
 }
 
@@ -147,6 +147,8 @@ void SportWindow::on_startSportPushButton_clicked()
     this->setSportDisplay("运动开始");
     //设置运动状态为运动
     this->sportStatus = PLAY_SPORT;
+    //
+    this->setMotorMoment(this->sportStrength);
 }
 
 void SportWindow::on_stopSportPushButton_clicked()
@@ -154,6 +156,7 @@ void SportWindow::on_stopSportPushButton_clicked()
     qDebug() << "stop fitness";
     this->setSportDisplay("运动停止");
     this->sportStatus = UNPLAY_SPORT;
+    this->setMotorMoment(0);
 }
 
 

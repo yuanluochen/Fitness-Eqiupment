@@ -262,7 +262,7 @@ background-color: rgb(26, 95, 180);</string>
               <height>141</height>
              </size>
             </property>
-            <widget class="QLabel" name="PITCHAngleVelocityLabel">
+            <widget class="QLabel" name="GSRLabel">
              <property name="geometry">
               <rect>
                <x>0</x>
@@ -347,7 +347,7 @@ background-color: rgb(26, 95, 180);</string>
               <height>141</height>
              </size>
             </property>
-            <widget class="QLabel" name="ZAccelLabel">
+            <widget class="QLabel" name="momentlLabel">
              <property name="geometry">
               <rect>
                <x>0</x>
@@ -416,7 +416,7 @@ background-color: rgb(26, 95, 180);</string>
               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
              </property>
             </widget>
-            <zorder>ZAccelLabel</zorder>
+            <zorder>momentlLabel</zorder>
             <zorder>UnitLabel_5</zorder>
             <zorder>DataTypeLabel_5</zorder>
            </widget>
@@ -435,7 +435,7 @@ background-color: rgb(26, 95, 180);</string>
               <height>141</height>
              </size>
             </property>
-            <widget class="QLabel" name="ROLLAngleVelocityLabel">
+            <widget class="QLabel" name="sportCountLabel">
              <property name="geometry">
               <rect>
                <x>0</x>

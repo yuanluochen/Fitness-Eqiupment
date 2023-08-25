@@ -15,6 +15,8 @@ ManualWindow::ManualWindow(QWidget *parent) :
 
 ManualWindow::~ManualWindow()
 {
+
+    qDebug() << QTime::currentTime() << "destruct manual window";
     delete ui;
 }
 

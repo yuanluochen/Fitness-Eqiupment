@@ -27,6 +27,8 @@ protected:
 signals:
     void sendUnitreeMotorDataToSportWindow(MOTOR_recv receivemessage);
 public slots:
+    //设置力矩
+    void setMoment(int moment);
 
 private:
     SerialPort *motorSerialPort;

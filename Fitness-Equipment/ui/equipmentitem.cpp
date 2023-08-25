@@ -1,6 +1,7 @@
 #include "equipmentitem.h"
 #include "ui_equipmentitem.h"
 #include <QDebug>
+#include <QTime>
 
 EquipmentItem::EquipmentItem(QWidget *parent) :
     QWidget(parent),
@@ -54,6 +55,8 @@ EquipmentItem::EquipmentItem(equipmentItemCard::equipmentType type, QWidget *par
 
 EquipmentItem::~EquipmentItem()
 {
+
+    qDebug() << QTime::currentTime() << "destruct equipment window";
     delete ui;
 }
 

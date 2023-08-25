@@ -1,4 +1,4 @@
-# Install script for directory: /home/yuanluochen/code/Fitness-Eqiupment/development resource/A1电机资料/02SDK/UnitreeMotorSDK_A1Go1_Sup220423/UnitreeMotorSDK_A1Go1_Sup220423
+# Install script for directory: /home/yuanluochen/code/working/Fitness-Eqiupment/development resource/A1电机资料/02SDK/UnitreeMotorSDK_A1Go1_Sup220423/UnitreeMotorSDK_A1Go1_Sup220423
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/yuanluochen/code/Fitness-Eqiupment/development resource/A1电机资料/02SDK/UnitreeMotorSDK_A1Go1_Sup220423/UnitreeMotorSDK_A1Go1_Sup220423/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/yuanluochen/code/working/Fitness-Eqiupment/development resource/A1电机资料/02SDK/UnitreeMotorSDK_A1Go1_Sup220423/UnitreeMotorSDK_A1Go1_Sup220423/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

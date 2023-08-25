@@ -74,6 +74,9 @@ void HealthManagerWindow::showMontorReceiveData()
 
 HealthManagerWindow::~HealthManagerWindow()
 {
+
+    qDebug() << QTime::currentTime() << "destruct health manager window";
+    delete this->detectionTim;
     delete ui;
 }
 

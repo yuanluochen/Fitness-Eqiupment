@@ -8,6 +8,7 @@ UnitreeMotorThread::UnitreeMotorThread(QString serialPort, QObject *parent) : QT
     this->motorSerialPort = new SerialPort(serialPort.toStdString());
     //初始化接收发送的控制数据
     this->initControlMessage();
+
 }
 void UnitreeMotorThread::run()
 {
@@ -20,6 +21,11 @@ void UnitreeMotorThread::run()
     qDebug() << "Unitree thread finished";
 }
 
+
+void UnitreeMotorThread::setMoment(int moment)
+{
+    this->setControlT(moment);
+}
 void UnitreeMotorThread::setControlT(float T)
 {
     this->sendMessage.mode = 10;
@@ -38,14 +44,15 @@ void UnitreeMotorThread::stop()
     this->sendMessage.Pos = 0.0;
     this->sendMessage.K_P = 0.0;
     this->sendMessage.K_W = 0.0;
-
+    qDebug() << QTime::currentTime() << "stop motor";
     this->receiveMessage.motorType = this->sendMessage.motorType;
     this->encodeSendMessage();
-    for (int i = 0; i < 1000; i++)
+    for (int i = 0; i < 100; i++)
         this->motorSerialPort->sendRecv(&this->sendMessage, &this->receiveMessage);
 }
 UnitreeMotorThread::~UnitreeMotorThread()
 {
+    qDebug() << QTime::currentTime() << "destruct Unitree motor thread";
     //电机停止运行 
     this->stop();
     delete this->motorSerialPort;
@@ -56,7 +63,7 @@ void UnitreeMotorThread::initControlMessage()
     // 设置电机类型，A1Go1
     this->sendMessage.motorType = MotorType::A1Go1;
     //线程启动时电机默认为空闲
-    this->sendMessage.mode = 0;
+    this->sendMessage.mode = 5;
     this->sendMessage.T = 0.0;
     this->sendMessage.W = 0.0;
     this->sendMessage.Pos = 0.0;

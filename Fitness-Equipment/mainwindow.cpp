@@ -16,6 +16,8 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    qDebug() << QTime::currentTime() << "destruct mainwindow";
+    delete this->applicationWindow;
     delete ui;
 }
 

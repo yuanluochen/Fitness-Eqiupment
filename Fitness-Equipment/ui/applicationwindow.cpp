@@ -12,7 +12,6 @@ ApplicationWindow::ApplicationWindow(QWidget *parent) :
     ui(new Ui::ApplicationWindow)
 {
     ui->setupUi(this);
-
     //实例化界面对象
     this->sportWindow = new SportWindow;
     this->manualWindow = new ManualWindow;
@@ -25,15 +24,24 @@ ApplicationWindow::ApplicationWindow(QWidget *parent) :
     //数据发送连接到运动和健康管理界面
     connect(this->equipmentConnect, SIGNAL(sendMontorDataToSportWindow(ReceivePack)), this->sportWindow, SLOT(montorReceive(ReceivePack)));
     connect(this->equipmentConnect, SIGNAL(sendMontorDataToHealthManagerWindow(ReceivePack)), this->healthManagerWindow, SLOT(montorReceive(ReceivePack)));
+    //发送电机控制数据
+    connect(this->sportWindow, SIGNAL(setMotorMoment(int)), this->equipmentConnect->fitnessEquipmentServiceThread, SLOT(setMoment(int)));
     //电机数据发送到运动界面
-    // connect(this->equipmentConnect->fitnessEquipmentServiceThread, SIGNAL(sendUnitreeMotorDataToSportWindow(MOTOR_recv)), this->sportWindow, SLOT(UnitreeMotorReceive(MOTOR_recv)));
+    connect(this->equipmentConnect->fitnessEquipmentServiceThread, SIGNAL(sendUnitreeMotorDataToSportWindow(MOTOR_recv)), this->sportWindow, SLOT(UnitreeMotorReceive(MOTOR_recv)));
     //健身检测
     connect(this->healthManagerWindow, SIGNAL(goToSportWindow(int, int)), this->sportWindow, SLOT(healthManagerToSportWindow(int, int)));
+    
 
 }
 
 ApplicationWindow::~ApplicationWindow()
 {
+
+    qDebug() << QTime::currentTime() << "destruct mainwindow";
+    delete this->sportWindow;
+    delete this->manualWindow;
+    delete this->healthManagerWindow;
+    delete this->equipmentConnect;
     delete ui;
 }
 

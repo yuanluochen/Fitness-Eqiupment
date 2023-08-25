@@ -58,6 +58,7 @@ private slots:
     void on_sportStrengthPromotePushButton_clicked();
 signals:
     void backToApplication();
+    void setMotorMoment(int moment);
 
 public:
 private:

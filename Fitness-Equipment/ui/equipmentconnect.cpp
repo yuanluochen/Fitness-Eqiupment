@@ -20,11 +20,11 @@ EquipmentConnect::EquipmentConnect(QWidget *parent) :
     //实例化设备连接校验定时
     this->equipmentCheckConnectTim = new QTimer;
     //实例化健身设备对象
-    // this->fitnessEquipmentServiceThread = new UnitreeMotorThread("/dev/Unitree-A1");
+    this->fitnessEquipmentServiceThread = new UnitreeMotorThread("/dev/Unitree-A1");
     //开启设备连接线程
-    // this->fitnessEquipmentServiceThread->start();
+    this->fitnessEquipmentServiceThread->start();
     //添加设备卡
-    // this->addEquipmentItem(equipmentItemCard::FITNESS);
+    this->addEquipmentItem(equipmentItemCard::FITNESS);
     //将监测设备服务转移到监测设备线程
     this->montorSerialService->moveToThread(&this->montorThread);
     //启动线程
@@ -32,6 +32,7 @@ EquipmentConnect::EquipmentConnect(QWidget *parent) :
     //线程退出时自动删除对象
     QObject::connect(&this->montorThread, &QThread::finished, this->montorSerialService, &QObject::deleteLater);
     this->serialPortList = this->getAvailableSerialPort();
+    qDebug() << this->serialPortList;
     if (!this->serialPortList.isEmpty())
     {
         // 自动连接设备
@@ -52,8 +53,11 @@ QStringList EquipmentConnect::getAvailableSerialPort()
 
 EquipmentConnect::~EquipmentConnect()
 {
+    qDebug() << QTime::currentTime() << "destruct equipment connect";
     montorThread.quit();
     montorThread.wait();
+
+    delete this->fitnessEquipmentServiceThread;
     delete this->equipmentCheckTim;
     delete this->equipmentCheckConnectTim;
     delete this->montoringEquipmentItem;
@@ -76,8 +80,6 @@ void EquipmentConnect::connectEquipment()
         connect(this->equipmentCheckConnectTim, &QTimer::timeout, this, &EquipmentConnect::checkEquipmentConnect);
         this->equipmentCheckConnectTim->start(CHECK_CONNECT_TIME);
     }
-
-
 }
 
 void EquipmentConnect::montorReceive(QByteArray data)
