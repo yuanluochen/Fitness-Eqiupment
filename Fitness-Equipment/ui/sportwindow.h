@@ -39,7 +39,7 @@ public:
 
 private:
     void setHeartRateData(double num);
-    void setBooldOxygenData(double num);
+    // void setBooldOxygenData(double num);
     void setSportDisplay(QString data);
     void setSportDisplay(int num);
     void showSportStrength();

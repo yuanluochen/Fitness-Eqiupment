@@ -26,7 +26,7 @@ ApplicationWindow::ApplicationWindow(QWidget *parent) :
     connect(this->equipmentConnect, SIGNAL(sendMontorDataToSportWindow(ReceivePack)), this->sportWindow, SLOT(montorReceive(ReceivePack)));
     connect(this->equipmentConnect, SIGNAL(sendMontorDataToHealthManagerWindow(ReceivePack)), this->healthManagerWindow, SLOT(montorReceive(ReceivePack)));
     //电机数据发送到运动界面
-    connect(this->equipmentConnect->fitnessEquipmentServiceThread, SIGNAL(sendUnitreeMotorDataToSportWindow(MOTOR_recv)), this->sportWindow, SLOT(UnitreeMotorReceive(MOTOR_recv)));
+    // connect(this->equipmentConnect->fitnessEquipmentServiceThread, SIGNAL(sendUnitreeMotorDataToSportWindow(MOTOR_recv)), this->sportWindow, SLOT(UnitreeMotorReceive(MOTOR_recv)));
     //健身检测
     connect(this->healthManagerWindow, SIGNAL(goToSportWindow(int, int)), this->sportWindow, SLOT(healthManagerToSportWindow(int, int)));
 

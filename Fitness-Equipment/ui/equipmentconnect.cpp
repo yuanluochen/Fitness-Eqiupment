@@ -20,11 +20,11 @@ EquipmentConnect::EquipmentConnect(QWidget *parent) :
     //实例化设备连接校验定时
     this->equipmentCheckConnectTim = new QTimer;
     //实例化健身设备对象
-    this->fitnessEquipmentServiceThread = new UnitreeMotorThread("/dev/Unitree-A1");
+    // this->fitnessEquipmentServiceThread = new UnitreeMotorThread("/dev/Unitree-A1");
     //开启设备连接线程
-    this->fitnessEquipmentServiceThread->start();
+    // this->fitnessEquipmentServiceThread->start();
     //添加设备卡
-    this->addEquipmentItem(equipmentItemCard::FITNESS);
+    // this->addEquipmentItem(equipmentItemCard::FITNESS);
     //将监测设备服务转移到监测设备线程
     this->montorSerialService->moveToThread(&this->montorThread);
     //启动线程

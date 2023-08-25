@@ -69,9 +69,9 @@ DISTFILES += \
     ../README.md \
 
 
-win32:CONFIG(release, debug|release): LIBS += -L$$PWD/userLib/UnitreeMotorSDK_A1Go1_Sup220423/lib/release/ -lunitreeMotorSDK_Arm64
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/userLib/UnitreeMotorSDK_A1Go1_Sup220423/lib/debug/ -lunitreeMotorSDK_Arm64
-else:unix: LIBS += -L$$PWD/userLib/UnitreeMotorSDK_A1Go1_Sup220423/lib/ -lunitreeMotorSDK_Arm64
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/userLib/UnitreeMotorSDK_A1Go1_Sup220423/lib/release/ -lunitreeMotorSDK_Linux64
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/userLib/UnitreeMotorSDK_A1Go1_Sup220423/lib/debug/ -lunitreeMotorSDK_Linux64
+else:unix: LIBS += -L$$PWD/userLib/UnitreeMotorSDK_A1Go1_Sup220423/lib/ -lunitreeMotorSDK_Linux64
 
 INCLUDEPATH += $$PWD/userLib/UnitreeMotorSDK_A1Go1_Sup220423/include
 DEPENDPATH += $$PWD/userLib/UnitreeMotorSDK_A1Go1_Sup220423/include

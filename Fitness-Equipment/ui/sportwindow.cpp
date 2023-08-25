@@ -78,22 +78,22 @@ void SportWindow::setHeartRateData(double num)
     }
 }
 
-/**
- * @brief 设置血氧数值 
- * 
- * @param num 血氧数值
- */
-void SportWindow::setBooldOxygenData(double num)
-{
-    if (num >= 0 && num <= 100)
-    {
-        ui->bloodOxygenDataLabel->setNum(num);
-        //设置为白色
-        QPalette pe;
-        pe.setColor(QPalette::WindowText, Qt::white);
-        ui->bloodOxygenDataLabel->setPalette(pe);
-    }
-}
+// /**
+//  * @brief 设置血氧数值 
+//  * 
+//  * @param num 血氧数值
+//  */
+// void SportWindow::setBooldOxygenData(double num)
+// {
+//     if (num >= 0 && num <= 100)
+//     {
+//         ui->bloodOxygenDataLabel->setNum(num);
+//         //设置为白色
+//         QPalette pe;
+//         pe.setColor(QPalette::WindowText, Qt::white);
+//         ui->bloodOxygenDataLabel->setPalette(pe);
+//     }
+// }
 
 void SportWindow::setSportDisplay(QString data)
 {
