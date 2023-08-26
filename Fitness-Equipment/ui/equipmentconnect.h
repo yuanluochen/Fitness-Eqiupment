@@ -16,7 +16,7 @@
 //设备校验时间
 #define CHECK_TIME 100
 //设备连接校验时间
-#define CHECK_CONNECT_TIME 1000
+#define CHECK_CONNECT_TIME 5000
 
 
 
