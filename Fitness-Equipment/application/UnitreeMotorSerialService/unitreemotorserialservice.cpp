@@ -16,9 +16,8 @@ void UnitreeMotorThread::run()
     while(1)
     {
         this->motorSerialPort->sendRecv(&this->sendMessage, &this->receiveMessage);
-        // qDebug() << "T: " << this->sendMessage.T;
-        // qDebug() << "Pos: "  <<  this->receiveMessage.Pos;
-        //赋值
+        this->decodeReceiveMessage();
+        // 赋值
         this->receive.assign(this->receiveMessage);
         //发送
         emit this->sendUnitreeMotorDataToEquipmentConnectWindow(this->receive);

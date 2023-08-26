@@ -84,8 +84,8 @@ void ApplicationWindow::on_healthManagerPushButton_clicked()
 void ApplicationWindow::on_equipmentConnectPushButton_clicked()
 {
     qDebug() << QTime::currentTime() << "show health manager Window";
+    this->equipmentConnect->close();
     this->equipmentConnect->show();
-
 }
 
 void ApplicationWindow::healthManagerBackToApplication()

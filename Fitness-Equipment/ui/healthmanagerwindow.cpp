@@ -172,7 +172,12 @@ void HealthManagerWindow::on_saO2DetectionPushButton_clicked()
 
 void HealthManagerWindow::on_FitnessDetectionPushButton_clicked()
 {
-    emit goToSportWindow(10, 10);
+    emit goToSportWindow(100, 10);
 
     this->close();
+}
+
+void HealthManagerWindow::on_pushButton_clicked()
+{
+    ui->tabWidget->setCurrentWidget(ui->tab_3);
 }

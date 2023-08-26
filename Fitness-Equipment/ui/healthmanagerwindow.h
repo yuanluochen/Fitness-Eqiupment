@@ -51,6 +51,8 @@ private slots:
 
     void on_FitnessDetectionPushButton_clicked();
 
+    void on_pushButton_clicked();
+
 signals:
     void backToApplication();
     void goToSportWindow(int sportTarget, int sportStrength);
@@ -63,6 +65,7 @@ private:
 
     int8_t curHeartRate;
     int8_t curBloodOxygen;
+
 
     // 监测定时器
     QTimer *detectionTim;

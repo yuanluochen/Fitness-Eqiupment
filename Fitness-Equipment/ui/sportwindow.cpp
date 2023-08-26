@@ -1,7 +1,6 @@
 #include "sportwindow.h"
 #include "ui_sportwindow.h"
 #include "ui/applicationwindow.h"
-#include "userLib/userLib_ui.h"
 #include <QSerialPortInfo>
 #include <QSerialPort>
 #include <QDebug>
@@ -26,6 +25,7 @@ SportWindow::SportWindow(QWidget *parent) :
     this->sportTarget = 0;
     this->sportStrength = 0;
     this->sportCount = 0;
+    this->sampCount = 0;
     //显示参数
     this->showSportStrength();
     this->showSportTarget();
@@ -40,15 +40,53 @@ void SportWindow::montorReceive(ReceivePack receivePack)
 {
     // qDebug() << QTime::currentTime() << "sport window receive montor data frome equipmentconnect";
     this->montorReceiveData.assign(receivePack);
+    this->judgeStop(receivePack.accelX, receivePack.accelY, receivePack.accelZ);
+
     this->setGSRData(receivePack.GSR);
     this->setHeartRateData(receivePack.heartRate);
 }
 
+bool SportWindow::judgeStop(int imuX, int imuY, int imuZ)
+{
+    float xHighFrequency = this->imuAccelX.calcHighFrequency(imuX);
+    float yHighFrequency = this->imuAccelY.calcHighFrequency(imuY);
+    float zHighFrequency = this->imuAccelZ.calcHighFrequency(imuZ);
+
+    qDebug() << "high frequency: " << "x: " << xHighFrequency << "y: " << yHighFrequency << "z: " << zHighFrequency;
+
+    return true;
+}
+
 void SportWindow::UnitreeMotorReceive(UnitreeReceive receivePack)
 {
+    static bool sportCountFlag;
     qDebug() << "receive Unitree data";
     this->fitnessReceiveData.assign(receivePack);
+    //健身计数
+    
+    //判断当前速度是否为反向速度,并且sportCountFlag为false
+    if (this->fitnessReceiveData.W >= FIT_SPEED && sportCountFlag == false)
+    {
+        //判断发生拉的动作
+        sportCountFlag = true;
+    }
+    else if (this->fitnessReceiveData.W < FIT_SPEED && sportCount == true)
+    {
+        //判断发生回收的动作
+        sportCountFlag = false;
+        this->sportCount++;
+        // qDebug() << "sport count is" << QString::number(this->sportCount());
+    }
+
+    if (this->sportCount >= this->sportTarget)
+    {
+        this->setSportDisplay("您已经完成了您的运动，当前运动次数为" + QString::number(this->sportCount));
+    }
+    //显示当前力矩
     this->setMomentData(receivePack.T);
+    //显示当前运动次数
+    this->setSportCountData(this->sportCount);
+
 
 }
 SportWindow::~SportWindow()
@@ -163,6 +201,8 @@ void SportWindow::on_startSportPushButton_clicked()
     this->setSportDisplay("运动开始，本次健身目标为" + QString::number(this->sportTarget) + "，  " + "本次健身强度为" + QString::number(this->sportStrength));
     //设置运动状态为运动
     this->sportStatus = PLAY_SPORT;
+    //运动次数初始化
+    this->sportCount = 0;
 
     //发送电机开始运动指令
     emit this->setMotorMoment(this->sportStrength);

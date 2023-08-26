@@ -4,6 +4,8 @@
 #include <QDebug>
 #include <QTime>
 
+#define HIGH_FREQUENCY_NUM 9
+
 // 创建新窗口
 #define CREATE_NEW_WINDOW(newType, curPoint)                                         \
 {                                                                                    \
@@ -14,5 +16,17 @@
     qDebug() << QTime::currentTime() << "close current window and cteate new window";\
 }                                                                                    \
 
+class HighFrequency
+{
+public:
+    HighFrequency();
+private:
+    float val[HIGH_FREQUENCY_NUM];
+    float input; 
+    float output;
+public:
+    float calcHighFrequency(float input);
+    
+};
 
 #endif // USERLIB_UI_H
