@@ -28,7 +28,7 @@
 //停止的差值
 #define ERROR_STOP_VAL 5000
 //停止计数
-#define STOP_COUNT 50
+#define STOP_COUNT 70
 
 namespace Ui {
 class SportWindow;

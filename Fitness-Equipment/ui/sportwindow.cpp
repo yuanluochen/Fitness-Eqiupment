@@ -55,9 +55,9 @@ void SportWindow::montorReceive(ReceivePack receivePack)
 
 bool SportWindow::judgeStop(int imuX, int imuY, int imuZ)
 {
-    float xHighFrequency = this->imuAccelX.calcHighFrequency(imuX);
-    float yHighFrequency = this->imuAccelY.calcHighFrequency(imuY);
-    float zHighFrequency = this->imuAccelZ.calcHighFrequency(imuZ);
+    float xHighFrequency = qAbs(this->imuAccelX.calcHighFrequency(imuX));
+    float yHighFrequency = qAbs(this->imuAccelY.calcHighFrequency(imuY));
+    float zHighFrequency = qAbs(this->imuAccelZ.calcHighFrequency(imuZ));
     
 
     qDebug() << "high frequency: " << "x: " << xHighFrequency << "y: " << yHighFrequency << "z: " << zHighFrequency;
