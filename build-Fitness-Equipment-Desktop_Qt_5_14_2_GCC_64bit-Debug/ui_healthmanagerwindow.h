@@ -56,11 +56,13 @@ public:
     QSpacerItem *horizontalSpacer_18;
     QSpacerItem *verticalSpacer_9;
     QWidget *tab_2;
-    QGridLayout *gridLayout_10;
-    QSpacerItem *horizontalSpacer_24;
+    QGridLayout *gridLayout_4;
+    QVBoxLayout *verticalLayout_4;
+    QHBoxLayout *horizontalLayout_7;
+    QSpacerItem *horizontalSpacer_7;
     QLabel *label_2;
-    QSpacerItem *horizontalSpacer_25;
-    QListWidget *listWidget_2;
+    QSpacerItem *horizontalSpacer_10;
+    QLabel *label_4;
     QWidget *tab_3;
     QGridLayout *gridLayout_8;
     QSpacerItem *horizontalSpacer_14;
@@ -156,9 +158,12 @@ public:
         QListWidgetItem *__qlistwidgetitem = new QListWidgetItem(listWidget);
         __qlistwidgetitem->setTextAlignment(Qt::AlignCenter);
         __qlistwidgetitem->setFont(font);
+        QFont font1;
+        font1.setBold(true);
+        font1.setWeight(75);
         QListWidgetItem *__qlistwidgetitem1 = new QListWidgetItem(listWidget);
         __qlistwidgetitem1->setTextAlignment(Qt::AlignCenter);
-        __qlistwidgetitem1->setFont(font);
+        __qlistwidgetitem1->setFont(font1);
         QListWidgetItem *__qlistwidgetitem2 = new QListWidgetItem(listWidget);
         __qlistwidgetitem2->setTextAlignment(Qt::AlignCenter);
         __qlistwidgetitem2->setFont(font);
@@ -211,11 +216,11 @@ public:
         label->setObjectName(QString::fromUtf8("label"));
         label->setMinimumSize(QSize(451, 101));
         label->setMaximumSize(QSize(451, 101));
-        QFont font1;
-        font1.setPointSize(36);
-        font1.setBold(true);
-        font1.setWeight(75);
-        label->setFont(font1);
+        QFont font2;
+        font2.setPointSize(36);
+        font2.setBold(true);
+        font2.setWeight(75);
+        label->setFont(font2);
         label->setAlignment(Qt::AlignCenter);
 
         horizontalLayout_6->addWidget(label);
@@ -251,10 +256,7 @@ public:
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setMinimumSize(QSize(201, 61));
         pushButton->setMaximumSize(QSize(201, 61));
-        QFont font2;
-        font2.setBold(true);
-        font2.setWeight(75);
-        pushButton->setFont(font2);
+        pushButton->setFont(font1);
         pushButton->setStyleSheet(QString::fromUtf8("QPushButton{\n"
 "	border:2px;\n"
 "	border-radius:15px;\n"
@@ -295,27 +297,41 @@ public:
         tabWidget->addTab(tab, QString());
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
-        gridLayout_10 = new QGridLayout(tab_2);
-        gridLayout_10->setObjectName(QString::fromUtf8("gridLayout_10"));
-        horizontalSpacer_24 = new QSpacerItem(579, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        gridLayout_4 = new QGridLayout(tab_2);
+        gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
+        verticalLayout_4 = new QVBoxLayout();
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        horizontalLayout_7 = new QHBoxLayout();
+        horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
+        horizontalSpacer_7 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout_10->addItem(horizontalSpacer_24, 0, 0, 1, 1);
+        horizontalLayout_7->addItem(horizontalSpacer_7);
 
         label_2 = new QLabel(tab_2);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setFont(font1);
+        label_2->setMinimumSize(QSize(288, 70));
+        label_2->setMaximumSize(QSize(288, 70));
+        label_2->setFont(font2);
         label_2->setAlignment(Qt::AlignCenter);
 
-        gridLayout_10->addWidget(label_2, 0, 1, 1, 1);
+        horizontalLayout_7->addWidget(label_2);
 
-        horizontalSpacer_25 = new QSpacerItem(578, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_10 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout_10->addItem(horizontalSpacer_25, 0, 2, 1, 1);
+        horizontalLayout_7->addItem(horizontalSpacer_10);
 
-        listWidget_2 = new QListWidget(tab_2);
-        listWidget_2->setObjectName(QString::fromUtf8("listWidget_2"));
 
-        gridLayout_10->addWidget(listWidget_2, 1, 0, 1, 3);
+        verticalLayout_4->addLayout(horizontalLayout_7);
+
+        label_4 = new QLabel(tab_2);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setMinimumSize(QSize(0, 768));
+        label_4->setAlignment(Qt::AlignCenter);
+
+        verticalLayout_4->addWidget(label_4);
+
+
+        gridLayout_4->addLayout(verticalLayout_4, 0, 0, 1, 1);
 
         tabWidget->addTab(tab_2, QString());
         tab_3 = new QWidget();
@@ -369,7 +385,7 @@ public:
         groupBox_5->setObjectName(QString::fromUtf8("groupBox_5"));
         groupBox_5->setMinimumSize(QSize(210, 120));
         groupBox_5->setMaximumSize(QSize(210, 120));
-        groupBox_5->setFont(font2);
+        groupBox_5->setFont(font1);
         groupBox_5->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(26, 95, 180);\n"
 "border:2px;border-radius:15px;\n"
@@ -398,7 +414,7 @@ public:
         groupBox_10->setObjectName(QString::fromUtf8("groupBox_10"));
         groupBox_10->setMinimumSize(QSize(210, 120));
         groupBox_10->setMaximumSize(QSize(210, 120));
-        groupBox_10->setFont(font2);
+        groupBox_10->setFont(font1);
         groupBox_10->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(26, 95, 180);\n"
 "border:2px;border-radius:15px;\n"
@@ -415,7 +431,7 @@ public:
         groupBox_9->setObjectName(QString::fromUtf8("groupBox_9"));
         groupBox_9->setMinimumSize(QSize(210, 120));
         groupBox_9->setMaximumSize(QSize(210, 120));
-        groupBox_9->setFont(font2);
+        groupBox_9->setFont(font1);
         groupBox_9->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(26, 95, 180);\n"
 "border:2px;border-radius:15px;\n"
@@ -436,7 +452,7 @@ public:
         groupBox_7->setObjectName(QString::fromUtf8("groupBox_7"));
         groupBox_7->setMinimumSize(QSize(210, 120));
         groupBox_7->setMaximumSize(QSize(210, 120));
-        groupBox_7->setFont(font2);
+        groupBox_7->setFont(font1);
         groupBox_7->setStyleSheet(QString::fromUtf8("\n"
 "background-color: rgb(26, 95, 180);\n"
 "border:2px;border-radius:15px;\n"
@@ -464,7 +480,7 @@ public:
         FitnessDetectionPushButton->setObjectName(QString::fromUtf8("FitnessDetectionPushButton"));
         FitnessDetectionPushButton->setMinimumSize(QSize(300, 50));
         FitnessDetectionPushButton->setMaximumSize(QSize(300, 50));
-        FitnessDetectionPushButton->setFont(font2);
+        FitnessDetectionPushButton->setFont(font1);
         FitnessDetectionPushButton->setStyleSheet(QString::fromUtf8("\n"
 "\n"
 "QPushButton{\n"
@@ -641,7 +657,7 @@ public:
 
         retranslateUi(HealthManagerWindow);
 
-        tabWidget->setCurrentIndex(2);
+        tabWidget->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(HealthManagerWindow);
@@ -657,7 +673,7 @@ public:
         QListWidgetItem *___qlistwidgetitem = listWidget->item(0);
         ___qlistwidgetitem->setText(QCoreApplication::translate("HealthManagerWindow", "\344\275\223\350\203\275\346\217\220\345\215\207\350\256\241\345\210\222", nullptr));
         QListWidgetItem *___qlistwidgetitem1 = listWidget->item(1);
-        ___qlistwidgetitem1->setText(QCoreApplication::translate("HealthManagerWindow", "\345\201\245\350\272\253\350\256\260\345\275\225", nullptr));
+        ___qlistwidgetitem1->setText(QCoreApplication::translate("HealthManagerWindow", "\345\201\245\350\272\253\350\277\220\345\212\250\347\256\200\344\273\213", nullptr));
         QListWidgetItem *___qlistwidgetitem2 = listWidget->item(2);
         ___qlistwidgetitem2->setText(QCoreApplication::translate("HealthManagerWindow", "\344\275\223\350\203\275\346\243\200\346\265\213", nullptr));
         QListWidgetItem *___qlistwidgetitem3 = listWidget->item(3);
@@ -673,7 +689,11 @@ public:
                         "\201\347\244\276\344\272\244\350\203\275\345\212\233\347\255\211\347\232\204</span></p><p><span style=\" font-family:'-apple-system','BlinkMacSystemFont','Helvetica Neue','PingFang SC','Microsoft YaHei','Source Han Sans SC','Noto Sans CJK SC','WenQuanYi Micro Hei','sans-serif'; font-size:12pt; font-weight:600; color:#121212; background-color:#ffffff;\">\345\217\221\345\261\225\345\222\214\345\205\273\346\210\220\351\203\275\351\235\236\345\270\270\346\234\211\345\270\256\345\212\251\357\274\214\344\270\224\345\217\227\347\233\212\347\273\210\350\272\253\343\200\202</span></p></body></html>", nullptr));
         pushButton->setText(QCoreApplication::translate("HealthManagerWindow", "\345\274\200\345\220\257\344\275\223\350\203\275\346\217\220\345\215\207\344\271\213\346\227\205", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab), QCoreApplication::translate("HealthManagerWindow", "Tab 1", nullptr));
-        label_2->setText(QCoreApplication::translate("HealthManagerWindow", "\345\201\245\350\272\253\350\256\260\345\275\225", nullptr));
+        label_2->setText(QCoreApplication::translate("HealthManagerWindow", "\345\201\245\350\272\253\350\277\220\345\212\250\347\256\200\344\273\213", nullptr));
+        label_4->setText(QCoreApplication::translate("HealthManagerWindow", "<html><head/><body><p><span style=\" font-family:'Helvetica Neue','Helvetica','Arial','PingFang SC','Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei','sans-serif','font-extend'; font-size:22pt; font-weight:600; color:#333333; background-color:#ffffff;\">\345\201\245\350\272\253\350\277\220\345\212\250\346\230\257\344\270\200\351\241\271\351\200\232\350\277\207\345\276\222\346\211\213\346\210\226\345\210\251\347\224\250\345\220\204\347\247\215\345\231\250\346\242\260\357\274\214\350\277\220\347\224\250\344\270\223\351\227\250\347\232\204\345\212\250\344\275\234\346\226\271\345\274\217\345\222\214\346\226\271\346\263\225\350\277\233\350\241\214\351\224\273\347\202\274\357\274\214\344\273\245\345\217\221\350\276\276\350\202\214\350\202\211\343\200\201\345\242\236\351\225\277\344\275\223\345\212\233\343\200\201\346\224\271</span></p><p><span style=\" font-family:'Helvetica Neue','Helvetica','Arial','PingFang SC','Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei','sans-serif','font-extend'; font-si"
+                        "ze:22pt; font-weight:600; color:#333333; background-color:#ffffff;\">\345\226\204\345\275\242\344\275\223\345\222\214\351\231\266\345\206\266\346\203\205\346\223\215\344\270\272\347\233\256\347\232\204\347\232\204\350\277\220\345\212\250\351\241\271\347\233\256\343\200\202\345\201\245\350\272\253\350\277\220\345\212\250\347\256\200\345\215\225\346\230\223\350\241\214\343\200\201\351\200\202\345\275\223\350\277\220\345\212\250\357\274\214\350\203\275\346\234\211\346\225\210\345\234\260\345\242\236\345\274\272\344\272\272\344\273\254\347\232\204\344\275\223\350\264\250\357\274\214\345\242\236\350\277\233\344\272\272\344\273\254\347\232\204</span></p><p><span style=\" font-family:'Helvetica Neue','Helvetica','Arial','PingFang SC','Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei','sans-serif','font-extend'; font-size:22pt; font-weight:600; color:#333333; background-color:#ffffff;\">\345\201\245\345\272\267\357\274\214\345\217\221\350\276\276\345\205\250\350\272\253\350\202\214\345\212\233\357\274\214\345\242"
+                        "\236\345\274\272\345\212\233\351\207\217\357\274\214\346\217\220\351\253\230\347\224\237\344\272\247\345\212\263\345\212\250\346\225\210\347\216\207\357\274\233\350\277\230\350\203\275\346\224\271\345\226\204\344\272\272\344\273\254\347\232\204\344\275\223\345\236\213\343\200\201\344\275\223\346\200\201\343\200\201\351\231\266\345\206\266\344\272\272\344\273\254\347\232\204\347\276\216\345\245\275\346\203\205\346\223\215\357\274\214\346\211\200</span></p><p><span style=\" font-family:'Helvetica Neue','Helvetica','Arial','PingFang SC','Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei','sans-serif','font-extend'; font-size:22pt; font-weight:600; color:#333333; background-color:#ffffff;\">\344\273\245\346\267\261\345\217\227\344\272\272\346\260\221\345\244\247\344\274\227\347\232\204\345\226\234\347\210\261\357\274\214\347\211\271\345\210\253\346\230\257\346\226\207\345\214\226\347\237\245\350\257\206\346\260\264\345\271\263\350\276\203\351\253\230\347\232\204\344\272\272\344\273\254\343\200\202\345\234\250"
+                        "\345\274\200\345\261\225\345\205\250\346\260\221\345\201\245\350\272\253\350\277\220\345\212\250\347\232\204\344\273\212\345\244\251\357\274\214\345\201\245\350\272\253\350\277\220\345\212\250\346\234\211\345\276\210\345\274\272\347\232\204\345\220\270</span></p><p><span style=\" font-family:'Helvetica Neue','Helvetica','Arial','PingFang SC','Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei','sans-serif','font-extend'; font-size:22pt; font-weight:600; color:#333333; background-color:#ffffff;\">\345\274\225\345\212\233\357\274\214\345\256\203\345\217\257\344\273\245\344\275\277\347\230\246\345\274\261\350\200\205\345\217\230\345\274\272\345\243\256\357\274\214\344\275\277\350\202\245\350\203\226\350\200\205\345\217\230\347\273\223\345\256\236\357\274\214\344\275\277\345\260\221\345\204\277\345\201\245\345\272\267\346\210\220\351\225\277\357\274\214\344\275\277\350\200\201\345\271\264\344\272\272\345\201\245\345\272\267\343\200\201\351\225\277\345\257\277\343\200\202</span></p></body></html>", nullptr));
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("HealthManagerWindow", "Tab 2", nullptr));
         fitnessdetectionDisplayLabel->setText(QString());
         groupBox_5->setTitle(QCoreApplication::translate("HealthManagerWindow", "\350\257\267\351\200\211\346\213\251\346\202\250\347\232\204\346\200\247\345\210\253", nullptr));

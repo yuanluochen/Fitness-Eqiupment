@@ -29,15 +29,31 @@
 #define ERROR_STOP_VAL 5000
 //停止计数
 #define STOP_COUNT 70
+//GSR系数
+#define GSR_PROPORTION 10
+//运动量系数 运动量为 运动力矩 * 运动次数
+#define SPORT_ENERGY_PROPORTION 1
+//显示运动计划时间
+#define SHOW_SPORT_PORJECT 5000
 
 namespace Ui {
 class SportWindow;
 }
 
+//运动等级
 enum sportStatus_e
 {
     PLAY_SPORT,
     UNPLAY_SPORT,
+};
+
+//运动等级
+enum sportGrade_e
+{
+    GRADE_1,
+    GRADE_2,
+    GRADE_3,
+    GRADE_4,
 };
 
 
@@ -60,6 +76,7 @@ private:
     void showSportStrength();
     void showSportTarget();
     bool judgeStop(int imuX, int imuY, int imuZ);
+    float calcSportScore();
 private slots:
     void on_returnBefore_clicked();
     void on_startSportPushButton_clicked();
@@ -67,6 +84,7 @@ private slots:
     void montorReceive(ReceivePack receivePack);
     void UnitreeMotorReceive(UnitreeReceive receivePack);
     void healthManagerToSportWindow(int sportTarget, int sportStrength);
+    void showSportProject();
     
     void on_sportStrengthReducePushButton_clicked();
     void on_sportTargetReducePushButton_clicked();
@@ -98,6 +116,18 @@ private:
 
     //停止数值
     int stopCount;
+
+    //最初的GSR
+    int beginGSR;
+    //GSR差值
+    int errorGSR;
+    
+    //健身分数
+    float sportScore;
+
+    sportGrade_e sportGrade;
+    QTimer sportProjectTim;
+
 };
 
 #endif // SPORTWINDOW_H

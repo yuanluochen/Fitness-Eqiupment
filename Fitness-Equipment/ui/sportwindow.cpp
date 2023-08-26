@@ -27,6 +27,10 @@ SportWindow::SportWindow(QWidget *parent) :
     this->sportStrength = 0;
     this->sportCount = 0;
     this->stopCount = 0;
+
+    //初始化GSR
+    this->beginGSR = 0;
+    this->errorGSR = 0;
     //显示参数
     this->showSportStrength();
     this->showSportTarget();
@@ -204,12 +208,13 @@ void SportWindow::showSportTarget()
 
 void SportWindow::healthManagerToSportWindow(int sportTarget, int sportStrength)
 {
-    this->show();
+
+    this->showMaximized();
     this->sportTarget = sportTarget;
     this->sportStrength = sportStrength;
     this->showSportTarget();
     this->showSportStrength();
-    this->setSportDisplay("体质检测开始，请在一分钟内尽您最大实力进行运动，我们将会检测您的各项数据，为您订制健身计划");
+    this->setSportDisplay("体质检测开始，请在尽您最大实力进行运动，我们将会检测您的各项数据，为您订制健身计划");
 }
 
 void SportWindow::on_startSportPushButton_clicked()
@@ -218,6 +223,8 @@ void SportWindow::on_startSportPushButton_clicked()
     this->setSportDisplay("运动开始，本次健身目标为" + QString::number(this->sportTarget) + "，  " + "本次健身强度为" + QString::number(this->sportStrength));
     //设置运动状态为运动
     this->sportStatus = PLAY_SPORT;
+    //获取当前皮肤电数据
+    this->beginGSR = this->montorReceiveData.GSR;
     //运动次数初始化
     this->sportCount = 0;
     //发送电机开始运动指令
@@ -230,6 +237,65 @@ void SportWindow::on_stopSportPushButton_clicked()
     this->setSportDisplay("运动停止，本次健身次数为" + QString::number(this->sportCount) + "，  " + "本次健身强度为" + QString::number(this->sportStrength));
     this->sportStatus = UNPLAY_SPORT;
     emit this->setMotorMoment(0);
+
+    //制定下一次计划，根据力矩与运动数量和皮肤电差值打分计算，根据分数获取结果
+    float sportScore = this->calcSportScore();
+    
+    if (sportScore < 40)
+    {
+        this->sportGrade = GRADE_1;
+    }
+    else if (40 <= sportScore && sportScore < 80)
+    {
+        this->sportGrade = GRADE_2;   
+    }
+    else if (80 <= sportScore && sportScore < 120)
+    {
+        this->sportGrade = GRADE_3;
+    }
+    else
+    {
+        this->sportGrade = GRADE_4;
+    }
+    connect(&this->sportProjectTim, &QTimer::timeout, this, &SportWindow::showSportProject);
+    this->sportProjectTim.start(SHOW_SPORT_PORJECT);
+}
+
+void SportWindow::showSportProject()
+{
+
+    disconnect(&this->sportProjectTim, &QTimer::timeout, this, &SportWindow::showSportProject);
+    QString begin = "根据健身结果为您匹配最佳下次最佳的健身计划";
+    QString data;
+    switch (this->sportGrade)
+    {
+    case GRADE_1:
+        data = "运动强度1, 运动目标10";
+        break;
+    case GRADE_2:
+        data = "运动强度2, 运动目标10";
+        break;
+    case GRADE_3:
+        data = "运动强度3, 运动目标10";
+        break;
+    case GRADE_4:
+        data = "运动强度4, 运动目标10";
+        break;
+
+    default:
+        break;
+    }
+    this->setSportDisplay(begin + ", " + "下次健身计划为： " + data);
+}
+/**
+ * @brief 计算运动分数 运动次数 * 运动强度 - 皮肤电
+ * 
+ * @return float 
+ */
+float SportWindow::calcSportScore()
+{
+    this->errorGSR = this->montorReceiveData.GSR - this->beginGSR;
+    return (float)(-this->errorGSR * GSR_PROPORTION + this->sportCount * this->sportStrength * SPORT_ENERGY_PROPORTION);
 }
 
 
