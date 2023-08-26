@@ -31,7 +31,6 @@ public:
     QSpacerItem *horizontalSpacer_2;
     QLabel *sportDisplay;
     QSpacerItem *horizontalSpacer_6;
-    QSpacerItem *verticalSpacer_9;
     QGridLayout *gridLayout_3;
     QSpacerItem *horizontalSpacer_7;
     QSpacerItem *horizontalSpacer_5;
@@ -55,6 +54,7 @@ public:
     QLabel *UnitLabel_7;
     QSpacerItem *verticalSpacer_4;
     QPushButton *returnBefore;
+    QSpacerItem *verticalSpacer_9;
     QSpacerItem *verticalSpacer_3;
     QSpacerItem *verticalSpacer_8;
     QSpacerItem *horizontalSpacer_4;
@@ -114,7 +114,7 @@ public:
         sportDisplay->setObjectName(QString::fromUtf8("sportDisplay"));
         sportDisplay->setMinimumSize(QSize(981, 391));
         QFont font1;
-        font1.setPointSize(15);
+        font1.setPointSize(16);
         font1.setBold(true);
         font1.setWeight(75);
         sportDisplay->setFont(font1);
@@ -129,10 +129,6 @@ public:
 
 
         gridLayout_4->addLayout(horizontalLayout, 0, 0, 1, 2);
-
-        verticalSpacer_9 = new QSpacerItem(20, 414, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_4->addItem(verticalSpacer_9, 1, 0, 1, 1);
 
         gridLayout_3 = new QGridLayout();
         gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
@@ -287,6 +283,10 @@ public:
         returnBefore->setAutoDefault(false);
 
         gridLayout_4->addWidget(returnBefore, 2, 0, 1, 1);
+
+        verticalSpacer_9 = new QSpacerItem(20, 414, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
+        gridLayout_4->addItem(verticalSpacer_9, 1, 0, 1, 1);
 
 
         gridLayout_2->addWidget(widget_3, 0, 0, 4, 1);
@@ -510,13 +510,13 @@ public:
         UnitLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#deddda;\">bpm</span></p></body></html>", nullptr));
         GSRLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\"> &nbsp;DATA</span></p></body></html>", nullptr));
         DataTypeLabel_6->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">GSR</span></p></body></html>", nullptr));
-        UnitLabel_6->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#deddda;\">bpm</span></p></body></html>", nullptr));
+        UnitLabel_6->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#f6f5f4;\">v</span></p></body></html>", nullptr));
         momentlLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\"> &nbsp;DATA</span></p></body></html>", nullptr));
         DataTypeLabel_5->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">\345\212\233\347\237\251</span></p></body></html>", nullptr));
-        UnitLabel_5->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#deddda;\">bpm</span></p></body></html>", nullptr));
+        UnitLabel_5->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#f6f5f4;\">N\302\267m</span></p></body></html>", nullptr));
         sportCountLabel->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\"> &nbsp;DATA</span></p></body></html>", nullptr));
         DataTypeLabel_7->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#ffffff;\">\350\277\220\345\212\250\346\254\241\346\225\260</span></p></body></html>", nullptr));
-        UnitLabel_7->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#deddda;\">bpm</span></p></body></html>", nullptr));
+        UnitLabel_7->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><br/></p></body></html>", nullptr));
         returnBefore->setText(QString());
         dataTypelabel_4->setText(QCoreApplication::translate("SportWindow", "<html><head/><body><p><span style=\" color:#62a0ea;\">\345\201\245\350\272\253\347\233\256\346\240\207</span></p></body></html>", nullptr));
         setUnitLabel_4->setText(QCoreApplication::translate("SportWindow", "unit", nullptr));

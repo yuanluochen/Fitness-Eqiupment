@@ -75,15 +75,15 @@ public:
     QGroupBox *groupBox_5;
     QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_2;
-    QRadioButton *radioButton;
-    QRadioButton *radioButton_2;
+    QRadioButton *boyRadioButton;
+    QRadioButton *girlRadioButton;
     QGroupBox *groupBox_10;
-    QSpinBox *spinBox_3;
+    QSpinBox *WeightSpinBox;
     QGroupBox *groupBox_9;
-    QSpinBox *spinBox;
+    QSpinBox *ageSpinBox;
     QGroupBox *groupBox_7;
     QGroupBox *groupBox_8;
-    QSpinBox *spinBox_2;
+    QSpinBox *heightSpinBox;
     QSpacerItem *horizontalSpacer_11;
     QPushButton *FitnessDetectionPushButton;
     QSpacerItem *horizontalSpacer_17;
@@ -165,35 +165,15 @@ public:
         QListWidgetItem *__qlistwidgetitem3 = new QListWidgetItem(listWidget);
         __qlistwidgetitem3->setTextAlignment(Qt::AlignCenter);
         __qlistwidgetitem3->setFont(font);
+        QBrush brush(QColor(0, 0, 0, 255));
+        brush.setStyle(Qt::NoBrush);
         QListWidgetItem *__qlistwidgetitem4 = new QListWidgetItem(listWidget);
         __qlistwidgetitem4->setTextAlignment(Qt::AlignCenter);
         __qlistwidgetitem4->setFont(font);
+        __qlistwidgetitem4->setBackground(brush);
         listWidget->setObjectName(QString::fromUtf8("listWidget"));
         listWidget->setMaximumSize(QSize(120, 16777215));
-        listWidget->setStyleSheet(QString::fromUtf8("QListWidget::item\n"
-"{\n"
-"	height:90px;\n"
-"}\n"
-"QListWidget\n"
-"{\n"
-"	background-color:transparent;\n"
-"    border:none;\n"
-"	border-radius:15px;\n"
-"\n"
-"}\n"
-"QListWidget::item:selected\n"
-"{\n"
-"	background-color: transparent;\n"
-"    border-radius:15px;\n"
-"	border:none;\n"
-"	color:black;\n"
-"}\n"
-"QListWidget::item:hover\n"
-"{\n"
-"	background-color: rgb(246, 245, 244);;\n"
-"    border-radius:15px;\n"
-"	border:none;\n"
-"}"));
+        listWidget->setStyleSheet(QString::fromUtf8(""));
         listWidget->setFrameShape(QFrame::NoFrame);
         listWidget->setProperty("showDropIndicator", QVariant(false));
 
@@ -401,15 +381,15 @@ public:
         verticalLayout_2 = new QVBoxLayout(layoutWidget);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        radioButton = new QRadioButton(layoutWidget);
-        radioButton->setObjectName(QString::fromUtf8("radioButton"));
+        boyRadioButton = new QRadioButton(layoutWidget);
+        boyRadioButton->setObjectName(QString::fromUtf8("boyRadioButton"));
 
-        verticalLayout_2->addWidget(radioButton);
+        verticalLayout_2->addWidget(boyRadioButton);
 
-        radioButton_2 = new QRadioButton(layoutWidget);
-        radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
+        girlRadioButton = new QRadioButton(layoutWidget);
+        girlRadioButton->setObjectName(QString::fromUtf8("girlRadioButton"));
 
-        verticalLayout_2->addWidget(radioButton_2);
+        verticalLayout_2->addWidget(girlRadioButton);
 
 
         gridLayout_5->addWidget(groupBox_5, 0, 0, 1, 1);
@@ -424,9 +404,10 @@ public:
 "border:2px;border-radius:15px;\n"
 "color:white;"));
         groupBox_10->setAlignment(Qt::AlignCenter);
-        spinBox_3 = new QSpinBox(groupBox_10);
-        spinBox_3->setObjectName(QString::fromUtf8("spinBox_3"));
-        spinBox_3->setGeometry(QRect(30, 50, 151, 41));
+        WeightSpinBox = new QSpinBox(groupBox_10);
+        WeightSpinBox->setObjectName(QString::fromUtf8("WeightSpinBox"));
+        WeightSpinBox->setGeometry(QRect(30, 50, 151, 41));
+        WeightSpinBox->setStyleSheet(QString::fromUtf8(""));
 
         gridLayout_5->addWidget(groupBox_10, 0, 1, 1, 1);
 
@@ -440,14 +421,14 @@ public:
 "border:2px;border-radius:15px;\n"
 "color:white"));
         groupBox_9->setAlignment(Qt::AlignCenter);
-        spinBox = new QSpinBox(groupBox_9);
-        spinBox->setObjectName(QString::fromUtf8("spinBox"));
-        spinBox->setGeometry(QRect(30, 50, 151, 41));
+        ageSpinBox = new QSpinBox(groupBox_9);
+        ageSpinBox->setObjectName(QString::fromUtf8("ageSpinBox"));
+        ageSpinBox->setGeometry(QRect(30, 50, 151, 41));
         QFont font4;
         font4.setPointSize(11);
         font4.setBold(false);
         font4.setWeight(50);
-        spinBox->setFont(font4);
+        ageSpinBox->setFont(font4);
 
         gridLayout_5->addWidget(groupBox_9, 1, 0, 1, 1);
 
@@ -466,9 +447,9 @@ public:
         groupBox_8->setGeometry(QRect(-450, -40, 210, 231));
         groupBox_8->setMinimumSize(QSize(210, 0));
         groupBox_8->setMaximumSize(QSize(210, 16777215));
-        spinBox_2 = new QSpinBox(groupBox_7);
-        spinBox_2->setObjectName(QString::fromUtf8("spinBox_2"));
-        spinBox_2->setGeometry(QRect(30, 50, 151, 41));
+        heightSpinBox = new QSpinBox(groupBox_7);
+        heightSpinBox->setObjectName(QString::fromUtf8("heightSpinBox"));
+        heightSpinBox->setGeometry(QRect(30, 50, 151, 41));
 
         gridLayout_5->addWidget(groupBox_7, 1, 1, 1, 1);
 
@@ -660,7 +641,7 @@ public:
 
         retranslateUi(HealthManagerWindow);
 
-        tabWidget->setCurrentIndex(4);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(HealthManagerWindow);
@@ -696,8 +677,8 @@ public:
         tabWidget->setTabText(tabWidget->indexOf(tab_2), QCoreApplication::translate("HealthManagerWindow", "Tab 2", nullptr));
         fitnessdetectionDisplayLabel->setText(QString());
         groupBox_5->setTitle(QCoreApplication::translate("HealthManagerWindow", "\350\257\267\351\200\211\346\213\251\346\202\250\347\232\204\346\200\247\345\210\253", nullptr));
-        radioButton->setText(QCoreApplication::translate("HealthManagerWindow", "\347\224\267", nullptr));
-        radioButton_2->setText(QCoreApplication::translate("HealthManagerWindow", "\345\245\263", nullptr));
+        boyRadioButton->setText(QCoreApplication::translate("HealthManagerWindow", "\347\224\267", nullptr));
+        girlRadioButton->setText(QCoreApplication::translate("HealthManagerWindow", "\345\245\263", nullptr));
         groupBox_10->setTitle(QCoreApplication::translate("HealthManagerWindow", "\350\257\267\350\276\223\345\205\245\346\202\250\347\232\204\344\275\223\351\207\215(kg)", nullptr));
         groupBox_9->setTitle(QCoreApplication::translate("HealthManagerWindow", "\350\257\267\350\276\223\345\205\245\346\202\250\347\232\204\345\271\264\351\276\204", nullptr));
         groupBox_7->setTitle(QCoreApplication::translate("HealthManagerWindow", "\350\257\267\350\276\223\345\205\245\346\202\250\347\232\204\350\272\253\351\253\230(cm)", nullptr));

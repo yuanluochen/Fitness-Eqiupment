@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_SportWindow_t {
     QByteArrayData data[20];
-    char stringdata0[424];
+    char stringdata0[428];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -44,14 +44,14 @@ QT_MOC_LITERAL(8, 140, 13), // "montorReceive"
 QT_MOC_LITERAL(9, 154, 11), // "ReceivePack"
 QT_MOC_LITERAL(10, 166, 11), // "receivePack"
 QT_MOC_LITERAL(11, 178, 19), // "UnitreeMotorReceive"
-QT_MOC_LITERAL(12, 198, 10), // "MOTOR_recv"
-QT_MOC_LITERAL(13, 209, 26), // "healthManagerToSportWindow"
-QT_MOC_LITERAL(14, 236, 11), // "sportTarget"
-QT_MOC_LITERAL(15, 248, 13), // "sportStrength"
-QT_MOC_LITERAL(16, 262, 40), // "on_sportStrengthReducePushBut..."
-QT_MOC_LITERAL(17, 303, 38), // "on_sportTargetReducePushButto..."
-QT_MOC_LITERAL(18, 342, 39), // "on_sportTargetPromotePushButt..."
-QT_MOC_LITERAL(19, 382, 41) // "on_sportStrengthPromotePushBu..."
+QT_MOC_LITERAL(12, 198, 14), // "UnitreeReceive"
+QT_MOC_LITERAL(13, 213, 26), // "healthManagerToSportWindow"
+QT_MOC_LITERAL(14, 240, 11), // "sportTarget"
+QT_MOC_LITERAL(15, 252, 13), // "sportStrength"
+QT_MOC_LITERAL(16, 266, 40), // "on_sportStrengthReducePushBut..."
+QT_MOC_LITERAL(17, 307, 38), // "on_sportTargetReducePushButto..."
+QT_MOC_LITERAL(18, 346, 39), // "on_sportTargetPromotePushButt..."
+QT_MOC_LITERAL(19, 386, 41) // "on_sportStrengthPromotePushBu..."
 
     },
     "SportWindow\0backToApplication\0\0"
@@ -59,7 +59,7 @@ QT_MOC_LITERAL(19, 382, 41) // "on_sportStrengthPromotePushBu..."
     "on_startSportPushButton_clicked\0"
     "on_stopSportPushButton_clicked\0"
     "montorReceive\0ReceivePack\0receivePack\0"
-    "UnitreeMotorReceive\0MOTOR_recv\0"
+    "UnitreeMotorReceive\0UnitreeReceive\0"
     "healthManagerToSportWindow\0sportTarget\0"
     "sportStrength\0on_sportStrengthReducePushButton_clicked\0"
     "on_sportTargetReducePushButton_clicked\0"
@@ -128,7 +128,7 @@ void SportWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 3: _t->on_startSportPushButton_clicked(); break;
         case 4: _t->on_stopSportPushButton_clicked(); break;
         case 5: _t->montorReceive((*reinterpret_cast< ReceivePack(*)>(_a[1]))); break;
-//        case 6: _t->UnitreeMotorReceive((*reinterpret_cast< MOTOR_recv(*)>(_a[1]))); break;
+        case 6: _t->UnitreeMotorReceive((*reinterpret_cast< UnitreeReceive(*)>(_a[1]))); break;
         case 7: _t->healthManagerToSportWindow((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 8: _t->on_sportStrengthReducePushButton_clicked(); break;
         case 9: _t->on_sportTargetReducePushButton_clicked(); break;

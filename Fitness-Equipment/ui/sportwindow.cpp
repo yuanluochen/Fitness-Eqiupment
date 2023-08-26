@@ -25,6 +25,7 @@ SportWindow::SportWindow(QWidget *parent) :
     //初始化健身参数
     this->sportTarget = 0;
     this->sportStrength = 0;
+    this->sportCount = 0;
     //显示参数
     this->showSportStrength();
     this->showSportTarget();
@@ -83,7 +84,7 @@ void SportWindow::setHeartRateData(double num)
 
 void SportWindow::setGSRData(double num)
 {
-    ui->GSRLabel->setNum(num);
+    ui->GSRLabel->setNum((num / 4095) * 3.3);
     // 设置为白色
     QPalette pe;
     pe.setColor(QPalette::WindowText, Qt::white);
@@ -159,7 +160,7 @@ void SportWindow::healthManagerToSportWindow(int sportTarget, int sportStrength)
 void SportWindow::on_startSportPushButton_clicked()
 {
     qDebug() << "start fitness";
-    this->setSportDisplay("运动开始");
+    this->setSportDisplay("运动开始，本次健身目标为" + QString::number(this->sportTarget) + "，  " + "本次健身强度为" + QString::number(this->sportStrength));
     //设置运动状态为运动
     this->sportStatus = PLAY_SPORT;
 
@@ -171,7 +172,7 @@ void SportWindow::on_startSportPushButton_clicked()
 void SportWindow::on_stopSportPushButton_clicked()
 {
     qDebug() << "stop fitness";
-    this->setSportDisplay("运动停止");
+    this->setSportDisplay("运动停止，本次健身次数为" + QString::number(this->sportCount) + "，  " + "本次健身强度为" + QString::number(this->sportStrength));
     this->sportStatus = UNPLAY_SPORT;
     emit this->setMotorMoment(0);
 }

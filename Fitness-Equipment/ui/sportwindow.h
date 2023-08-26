@@ -75,6 +75,8 @@ private:
     int sportTarget;
     //健身强度
     int sportStrength;
+    //健身次数
+    int sportCount;
 };
 
 #endif // SPORTWINDOW_H

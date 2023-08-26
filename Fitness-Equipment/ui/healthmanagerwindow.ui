@@ -81,30 +81,7 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image:
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">QListWidget::item
-{
-	height:90px;
-}
-QListWidget
-{
-	background-color:transparent;
-    border:none;
-	border-radius:15px;
-
-}
-QListWidget::item:selected
-{
-	background-color: transparent;
-    border-radius:15px;
-	border:none;
-	color:black;
-}
-QListWidget::item:hover
-{
-	background-color: rgb(246, 245, 244);;
-    border-radius:15px;
-	border:none;
-}</string>
+          <string notr="true"/>
          </property>
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
@@ -186,6 +163,15 @@ QListWidget::item:hover
           <property name="textAlignment">
            <set>AlignCenter</set>
           </property>
+          <property name="background">
+           <brush brushstyle="NoBrush">
+            <color alpha="255">
+             <red>0</red>
+             <green>0</green>
+             <blue>0</blue>
+            </color>
+           </brush>
+          </property>
          </item>
         </widget>
        </item>
@@ -204,7 +190,7 @@ QTabBar::tab
 }</string>
          </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="tab">
           <attribute name="title">
@@ -304,8 +290,7 @@ QTabBar::tab
              <item row="2" column="0">
               <widget class="QLabel" name="label_3">
                <property name="styleSheet">
-                <string notr="true">
-</string>
+                <string notr="true"/>
                </property>
                <property name="text">
                 <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'-apple-system','BlinkMacSystemFont','Helvetica Neue','PingFang SC','Microsoft YaHei','Source Han Sans SC','Noto Sans CJK SC','WenQuanYi Micro Hei','sans-serif'; font-size:12pt; font-weight:600; color:#121212; background-color:#ffffff;&quot;&gt;受应试教育影响，部分家长存在重智轻体现象，忽视对幼少儿身体素质的培养，幼儿身体素质呈下降趋势。资料显示，&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'-apple-system','BlinkMacSystemFont','Helvetica Neue','PingFang SC','Microsoft YaHei','Source Han Sans SC','Noto Sans CJK SC','WenQuanYi Micro Hei','sans-serif'; font-size:12pt; font-weight:600; color:#121212; background-color:#ffffff;&quot;&gt;我国5岁以下儿童贫血率为12.6%，18岁以下儿童超重的发生率达17.6%。社会的发展、科技的进步对人才提出了更新、&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'-apple-system','BlinkMacSystemFont','Helvetica Neue','PingFang SC','Microsoft YaHei','Source Han Sans SC','Noto Sans CJK SC','WenQuanYi Micro Hei','sans-serif'; font-size:12pt; font-weight:600; color:#121212; background-color:#ffffff;&quot;&gt;更高的要求，良好的身体素质便是其中之一。&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'-apple-system','BlinkMacSystemFont','Helvetica Neue','PingFang SC','Microsoft YaHei','Source Han Sans SC','Noto Sans CJK SC','WenQuanYi Micro Hei','sans-serif'; font-size:12pt; font-weight:600; color:#121212; background-color:#ffffff;&quot;&gt;生命在于运动。科学研究和实践证明，参加体能训练，对孩子的性格、身体、智力、自尊心、自信心、社交能力等的&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'-apple-system','BlinkMacSystemFont','Helvetica Neue','PingFang SC','Microsoft YaHei','Source Han Sans SC','Noto Sans CJK SC','WenQuanYi Micro Hei','sans-serif'; font-size:12pt; font-weight:600; color:#121212; background-color:#ffffff;&quot;&gt;发展和养成都非常有帮助，且受益终身。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
@@ -656,14 +641,14 @@ color:white;</string>
                   </property>
                   <layout class="QVBoxLayout" name="verticalLayout_2">
                    <item>
-                    <widget class="QRadioButton" name="radioButton">
+                    <widget class="QRadioButton" name="boyRadioButton">
                      <property name="text">
                       <string>男</string>
                      </property>
                     </widget>
                    </item>
                    <item>
-                    <widget class="QRadioButton" name="radioButton_2">
+                    <widget class="QRadioButton" name="girlRadioButton">
                      <property name="text">
                       <string>女</string>
                      </property>
@@ -705,7 +690,7 @@ color:white;</string>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
-                 <widget class="QSpinBox" name="spinBox_3">
+                 <widget class="QSpinBox" name="WeightSpinBox">
                   <property name="geometry">
                    <rect>
                     <x>30</x>
@@ -713,6 +698,9 @@ color:white;</string>
                     <width>151</width>
                     <height>41</height>
                    </rect>
+                  </property>
+                  <property name="styleSheet">
+                   <string notr="true"/>
                   </property>
                  </widget>
                 </widget>
@@ -749,7 +737,7 @@ color:white</string>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
-                 <widget class="QSpinBox" name="spinBox">
+                 <widget class="QSpinBox" name="ageSpinBox">
                   <property name="geometry">
                    <rect>
                     <x>30</x>
@@ -825,7 +813,7 @@ color:white;</string>
                    <string>请输入您的年龄?</string>
                   </property>
                  </widget>
-                 <widget class="QSpinBox" name="spinBox_2">
+                 <widget class="QSpinBox" name="heightSpinBox">
                   <property name="geometry">
                    <rect>
                     <x>30</x>
