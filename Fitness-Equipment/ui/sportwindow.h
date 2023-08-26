@@ -26,9 +26,9 @@
 //停止数值比例
 #define STOP_PROPORTION 0.7f
 //停止的差值
-#define ERROR_STOP_VAL 2000
+#define ERROR_STOP_VAL 5000
 //停止计数
-#define STOP_COUNT 40
+#define STOP_COUNT 50
 
 namespace Ui {
 class SportWindow;
