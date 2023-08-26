@@ -7,6 +7,7 @@
 #include <QListWidgetItem>
 #include <QTimer>
 #include <QTime>
+
 //imu加速度数据转真实数据
 #define IMU_ACCEL_DATA_TO_VALUE_DATA(imu) ((imu / 32768.0f) * 2.0f)
 //imu角速度数据转真实数据
@@ -25,7 +26,7 @@ SportWindow::SportWindow(QWidget *parent) :
     this->sportTarget = 0;
     this->sportStrength = 0;
     this->sportCount = 0;
-    this->sampCount = 0;
+    this->stopCount = 0;
     //显示参数
     this->showSportStrength();
     this->showSportTarget();
@@ -38,12 +39,18 @@ SportWindow::SportWindow(QWidget *parent) :
 
 void SportWindow::montorReceive(ReceivePack receivePack)
 {
-    // qDebug() << QTime::currentTime() << "sport window receive montor data frome equipmentconnect";
     this->montorReceiveData.assign(receivePack);
-    this->judgeStop(receivePack.accelX, receivePack.accelY, receivePack.accelZ);
-
+    
     this->setGSRData(receivePack.GSR);
     this->setHeartRateData(receivePack.heartRate);
+    if (this->judgeStop(receivePack.accelX, receivePack.accelY, receivePack.accelZ))
+    {
+        this->setSportDisplay("感受到危险，紧急停止运动");
+        //电机停止转动
+        emit this->setMotorMoment(0);
+        //设置为运动停止
+        this->sportStatus = UNPLAY_SPORT;
+    }
 }
 
 bool SportWindow::judgeStop(int imuX, int imuY, int imuZ)
@@ -51,10 +58,30 @@ bool SportWindow::judgeStop(int imuX, int imuY, int imuZ)
     float xHighFrequency = this->imuAccelX.calcHighFrequency(imuX);
     float yHighFrequency = this->imuAccelY.calcHighFrequency(imuY);
     float zHighFrequency = this->imuAccelZ.calcHighFrequency(imuZ);
+    
 
     qDebug() << "high frequency: " << "x: " << xHighFrequency << "y: " << yHighFrequency << "z: " << zHighFrequency;
-
-    return true;
+    //判断是否多次出现高频信号 
+    if (xHighFrequency > ERROR_STOP_VAL || yHighFrequency > ERROR_STOP_VAL || zHighFrequency > ERROR_STOP_VAL)
+    { 
+        this->stopCount++;
+    }
+    else
+    {
+        this->stopCount--;
+    }
+    if (this->stopCount < 0)
+    {
+        this->stopCount = 0;
+    }
+    qDebug() << "this->stopCount" << "is " << this->stopCount;
+    if (this->stopCount > STOP_COUNT && this->sportStatus == PLAY_SPORT)
+    {
+        this->stopCount = 0;
+        return true;
+    }
+    
+    return false;
 }
 
 void SportWindow::UnitreeMotorReceive(UnitreeReceive receivePack)
@@ -75,10 +102,9 @@ void SportWindow::UnitreeMotorReceive(UnitreeReceive receivePack)
         //判断发生回收的动作
         sportCountFlag = false;
         this->sportCount++;
-        // qDebug() << "sport count is" << QString::number(this->sportCount());
     }
 
-    if (this->sportCount >= this->sportTarget)
+    if (this->sportCount >= this->sportTarget && this->sportStatus == PLAY_SPORT)
     {
         this->setSportDisplay("您已经完成了您的运动，当前运动次数为" + QString::number(this->sportCount));
     }
@@ -86,19 +112,15 @@ void SportWindow::UnitreeMotorReceive(UnitreeReceive receivePack)
     this->setMomentData(receivePack.T);
     //显示当前运动次数
     this->setSportCountData(this->sportCount);
-
-
 }
 SportWindow::~SportWindow()
 {
-
     qDebug() << QTime::currentTime() << "destruct sport window";
     delete ui;
 }
 
 void SportWindow::on_returnBefore_clicked()
 {
-
     emit backToApplication();
     this->close();
 }
@@ -127,7 +149,6 @@ void SportWindow::setGSRData(double num)
     QPalette pe;
     pe.setColor(QPalette::WindowText, Qt::white);
     ui->GSRLabel->setPalette(pe);
-
 }
 
 void SportWindow::setMomentData(double num)
@@ -163,7 +184,6 @@ void SportWindow::setSportDisplay(int num)
     QPalette pe;
     pe.setColor(QPalette::WindowText, Qt::black);
     ui->sportDisplay->setPalette(pe);
-
 }
 
 void SportWindow::showSportStrength()
@@ -172,7 +192,6 @@ void SportWindow::showSportStrength()
     QPalette pe;
     pe.setColor(QPalette::WindowText, Qt::blue);
     ui->sportStrengthLabel->setPalette(pe);
-
 }
 
 void SportWindow::showSportTarget()
@@ -188,10 +207,8 @@ void SportWindow::healthManagerToSportWindow(int sportTarget, int sportStrength)
     this->show();
     this->sportTarget = sportTarget;
     this->sportStrength = sportStrength;
-
     this->showSportTarget();
     this->showSportStrength();
-
     this->setSportDisplay("体质检测开始，请在一分钟内尽您最大实力进行运动，我们将会检测您的各项数据，为您订制健身计划");
 }
 
@@ -203,10 +220,8 @@ void SportWindow::on_startSportPushButton_clicked()
     this->sportStatus = PLAY_SPORT;
     //运动次数初始化
     this->sportCount = 0;
-
     //发送电机开始运动指令
     emit this->setMotorMoment(this->sportStrength);
-
 }
 
 void SportWindow::on_stopSportPushButton_clicked()

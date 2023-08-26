@@ -20,14 +20,15 @@
 #define MAX_SPORT_TARGET 100
 #define MIN_SPORT_TARGET 0
 
-
 #define FIT_SPEED 3
 //采样周期
 #define SAMP_PERIOD 1000
 //停止数值比例
 #define STOP_PROPORTION 0.7f
 //停止的差值
-#define ERROR_STOP_VAL 1000
+#define ERROR_STOP_VAL 2000
+//停止计数
+#define STOP_COUNT 40
 
 namespace Ui {
 class SportWindow;
@@ -83,7 +84,6 @@ private:
     //运动状态
     sportStatus_e sportStatus;
 
-    int sampCount; 
     //健身目标
     int sportTarget;
     //健身强度
@@ -95,6 +95,9 @@ private:
     HighFrequency imuAccelX;
     HighFrequency imuAccelY;
     HighFrequency imuAccelZ;
+
+    //停止数值
+    int stopCount;
 };
 
 #endif // SPORTWINDOW_H
