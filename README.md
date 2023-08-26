@@ -21,7 +21,7 @@
 ## 硬件设备
 
 - 主控核心: 树莓派4B
-- 动力设备: Unitree A1 电机
+- 动力设备: [Unitree A1 电机](./development%20resource/A1电机资料/01电机手册及文档/)
 - 监测设备: [皮肤电手环](https://sichiray-tech.yuque.com/dm0eyv/chanpin/tisx58x4wb8fuu75)
 
 ## 开发日志
