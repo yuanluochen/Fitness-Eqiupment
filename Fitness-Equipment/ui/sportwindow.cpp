@@ -64,8 +64,6 @@ void SportWindow::on_returnBefore_clicked()
     this->close();
 }
 
-
-
 /**
  * @brief 设置心率数值
  * 

@@ -128,7 +128,7 @@ void SportWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id,
         case 3: _t->on_startSportPushButton_clicked(); break;
         case 4: _t->on_stopSportPushButton_clicked(); break;
         case 5: _t->montorReceive((*reinterpret_cast< ReceivePack(*)>(_a[1]))); break;
-        case 6: _t->UnitreeMotorReceive((*reinterpret_cast< MOTOR_recv(*)>(_a[1]))); break;
+//        case 6: _t->UnitreeMotorReceive((*reinterpret_cast< MOTOR_recv(*)>(_a[1]))); break;
         case 7: _t->healthManagerToSportWindow((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 8: _t->on_sportStrengthReducePushButton_clicked(); break;
         case 9: _t->on_sportTargetReducePushButton_clicked(); break;
