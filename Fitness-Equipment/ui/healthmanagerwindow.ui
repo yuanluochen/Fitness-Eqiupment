@@ -114,7 +114,7 @@ QListWidget::item:hover
          </property>
          <item>
           <property name="text">
-           <string>体质提升计划</string>
+           <string>体能提升计划</string>
           </property>
           <property name="font">
            <font>
@@ -144,7 +144,7 @@ QListWidget::item:hover
          </item>
          <item>
           <property name="text">
-           <string>体质检测</string>
+           <string>体能检测</string>
           </property>
           <property name="font">
            <font>
@@ -204,43 +204,294 @@ QTabBar::tab
 }</string>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="tab">
           <attribute name="title">
            <string>Tab 1</string>
           </attribute>
-          <widget class="QLabel" name="label">
-           <property name="geometry">
-            <rect>
-             <x>310</x>
-             <y>170</y>
-             <width>71</width>
-             <height>18</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>1</string>
-           </property>
-          </widget>
+          <layout class="QGridLayout" name="gridLayout_9">
+           <item row="0" column="1">
+            <spacer name="verticalSpacer_10">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>50</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="1" rowspan="2">
+            <layout class="QGridLayout" name="gridLayout_6">
+             <item row="0" column="0">
+              <layout class="QHBoxLayout" name="horizontalLayout_6">
+               <item>
+                <spacer name="horizontalSpacer_21">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QLabel" name="label">
+                 <property name="minimumSize">
+                  <size>
+                   <width>451</width>
+                   <height>101</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>451</width>
+                   <height>101</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <pointsize>36</pointsize>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="text">
+                  <string>青少年体能提升计划</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_22">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+             <item row="1" column="0">
+              <spacer name="verticalSpacer_8">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="2" column="0">
+              <widget class="QLabel" name="label_3">
+               <property name="styleSheet">
+                <string notr="true">
+</string>
+               </property>
+               <property name="text">
+                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-family:'-apple-system','BlinkMacSystemFont','Helvetica Neue','PingFang SC','Microsoft YaHei','Source Han Sans SC','Noto Sans CJK SC','WenQuanYi Micro Hei','sans-serif'; font-size:12pt; font-weight:600; color:#121212; background-color:#ffffff;&quot;&gt;受应试教育影响，部分家长存在重智轻体现象，忽视对幼少儿身体素质的培养，幼儿身体素质呈下降趋势。资料显示，&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'-apple-system','BlinkMacSystemFont','Helvetica Neue','PingFang SC','Microsoft YaHei','Source Han Sans SC','Noto Sans CJK SC','WenQuanYi Micro Hei','sans-serif'; font-size:12pt; font-weight:600; color:#121212; background-color:#ffffff;&quot;&gt;我国5岁以下儿童贫血率为12.6%，18岁以下儿童超重的发生率达17.6%。社会的发展、科技的进步对人才提出了更新、&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'-apple-system','BlinkMacSystemFont','Helvetica Neue','PingFang SC','Microsoft YaHei','Source Han Sans SC','Noto Sans CJK SC','WenQuanYi Micro Hei','sans-serif'; font-size:12pt; font-weight:600; color:#121212; background-color:#ffffff;&quot;&gt;更高的要求，良好的身体素质便是其中之一。&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'-apple-system','BlinkMacSystemFont','Helvetica Neue','PingFang SC','Microsoft YaHei','Source Han Sans SC','Noto Sans CJK SC','WenQuanYi Micro Hei','sans-serif'; font-size:12pt; font-weight:600; color:#121212; background-color:#ffffff;&quot;&gt;生命在于运动。科学研究和实践证明，参加体能训练，对孩子的性格、身体、智力、自尊心、自信心、社交能力等的&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-family:'-apple-system','BlinkMacSystemFont','Helvetica Neue','PingFang SC','Microsoft YaHei','Source Han Sans SC','Noto Sans CJK SC','WenQuanYi Micro Hei','sans-serif'; font-size:12pt; font-weight:600; color:#121212; background-color:#ffffff;&quot;&gt;发展和养成都非常有帮助，且受益终身。&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+               </property>
+              </widget>
+             </item>
+             <item row="3" column="0">
+              <spacer name="verticalSpacer_7">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item row="4" column="0">
+              <layout class="QHBoxLayout" name="horizontalLayout_5">
+               <item>
+                <spacer name="horizontalSpacer_19">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+               <item>
+                <widget class="QPushButton" name="pushButton">
+                 <property name="minimumSize">
+                  <size>
+                   <width>201</width>
+                   <height>61</height>
+                  </size>
+                 </property>
+                 <property name="maximumSize">
+                  <size>
+                   <width>201</width>
+                   <height>61</height>
+                  </size>
+                 </property>
+                 <property name="font">
+                  <font>
+                   <weight>75</weight>
+                   <bold>true</bold>
+                  </font>
+                 </property>
+                 <property name="styleSheet">
+                  <string notr="true">QPushButton{
+	border:2px;
+	border-radius:15px;
+	background-color: rgb(246, 245, 244);
+	color: black;
+}
+
+
+QPushButton:hover{
+	background-color: rgb(236, 235, 234);
+	border:none;
+}</string>
+                 </property>
+                 <property name="text">
+                  <string>开启体能提升之旅</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <spacer name="horizontalSpacer_20">
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="sizeHint" stdset="0">
+                  <size>
+                   <width>40</width>
+                   <height>20</height>
+                  </size>
+                 </property>
+                </spacer>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item row="1" column="2">
+            <spacer name="horizontalSpacer_23">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>250</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="0">
+            <spacer name="horizontalSpacer_18">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>250</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="3" column="1">
+            <spacer name="verticalSpacer_9">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>40</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+          </layout>
          </widget>
          <widget class="QWidget" name="tab_2">
           <attribute name="title">
            <string>Tab 2</string>
           </attribute>
-          <widget class="QLabel" name="label_2">
-           <property name="geometry">
-            <rect>
-             <x>330</x>
-             <y>230</y>
-             <width>71</width>
-             <height>18</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>2</string>
-           </property>
-          </widget>
+          <layout class="QGridLayout" name="gridLayout_10">
+           <item row="0" column="0">
+            <spacer name="horizontalSpacer_24">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>579</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLabel" name="label_2">
+             <property name="font">
+              <font>
+               <pointsize>36</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="text">
+              <string>健身记录</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="2">
+            <spacer name="horizontalSpacer_25">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>578</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="1" column="0" colspan="3">
+            <widget class="QListWidget" name="listWidget_2"/>
+           </item>
+          </layout>
          </widget>
          <widget class="QWidget" name="tab_3">
           <attribute name="title">
@@ -394,7 +645,7 @@ color:white;</string>
                  <property name="alignment">
                   <set>Qt::AlignCenter</set>
                  </property>
-                 <widget class="QWidget" name="">
+                 <widget class="QWidget" name="layoutWidget">
                   <property name="geometry">
                    <rect>
                     <x>50</x>
@@ -836,23 +1087,52 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;}</string>
           <attribute name="title">
            <string>Page</string>
           </attribute>
-          <layout class="QGridLayout" name="gridLayout_4">
+          <layout class="QGridLayout" name="gridLayout_3">
+           <item row="0" column="3" rowspan="2">
+            <spacer name="horizontalSpacer_8">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
            <item row="0" column="0">
-            <layout class="QGridLayout" name="gridLayout_3">
-             <item row="0" column="0">
-              <spacer name="horizontalSpacer_7">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="0" column="1" rowspan="2" colspan="2">
+            <spacer name="horizontalSpacer_9">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>99</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="2" column="2">
+            <spacer name="verticalSpacer_5">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+             <property name="sizeType">
+              <enum>QSizePolicy::Fixed</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>20</width>
+               <height>70</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item row="0" column="1" rowspan="2" colspan="2">
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <item>
               <widget class="QLabel" name="saO2DisplayLabel">
                <property name="minimumSize">
                 <size>
@@ -885,20 +1165,7 @@ border:2px ;border-radius:15px;</string>
                </property>
               </widget>
              </item>
-             <item row="1" column="3">
-              <spacer name="horizontalSpacer_8">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="2" column="1">
+             <item>
               <spacer name="verticalSpacer_4">
                <property name="orientation">
                 <enum>Qt::Vertical</enum>
@@ -911,7 +1178,7 @@ border:2px ;border-radius:15px;</string>
                </property>
               </spacer>
              </item>
-             <item row="3" column="0" colspan="3">
+             <item>
               <layout class="QHBoxLayout" name="horizontalLayout_4">
                <item>
                 <spacer name="horizontalSpacer_5">
@@ -921,22 +1188,6 @@ border:2px ;border-radius:15px;</string>
                  <property name="sizeHint" stdset="0">
                   <size>
                    <width>40</width>
-                   <height>20</height>
-                  </size>
-                 </property>
-                </spacer>
-               </item>
-               <item>
-                <spacer name="horizontalSpacer_10">
-                 <property name="orientation">
-                  <enum>Qt::Horizontal</enum>
-                 </property>
-                 <property name="sizeType">
-                  <enum>QSizePolicy::Fixed</enum>
-                 </property>
-                 <property name="sizeHint" stdset="0">
-                  <size>
-                   <width>100</width>
                    <height>20</height>
                   </size>
                  </property>
@@ -1001,35 +1252,6 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;}</string>
                 </spacer>
                </item>
               </layout>
-             </item>
-             <item row="4" column="2">
-              <spacer name="verticalSpacer_5">
-               <property name="orientation">
-                <enum>Qt::Vertical</enum>
-               </property>
-               <property name="sizeType">
-                <enum>QSizePolicy::Fixed</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>20</width>
-                 <height>70</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="4" column="0">
-              <spacer name="horizontalSpacer_9">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
              </item>
             </layout>
            </item>

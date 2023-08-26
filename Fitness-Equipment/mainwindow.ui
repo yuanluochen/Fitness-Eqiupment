@@ -87,7 +87,7 @@ border-radius:15px;</string>
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>青少年体质提升及健身管理系统</string>
+         <string>青少年体能提升及健身管理系统</string>
         </property>
         <property name="scaledContents">
          <bool>false</bool>

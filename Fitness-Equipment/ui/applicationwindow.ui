@@ -134,7 +134,7 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image:
           </font>
          </property>
          <property name="text">
-          <string>体质提升</string>
+          <string>体能提升</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignCenter</set>
@@ -226,7 +226,7 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image:
      </property>
     </spacer>
    </item>
-   <item row="4" column="10">
+   <item row="4" column="9">
     <spacer name="horizontalSpacer_6">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -239,7 +239,7 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image:
      </property>
     </spacer>
    </item>
-   <item row="0" column="10" rowspan="2">
+   <item row="0" column="9" rowspan="2">
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QLabel" name="labelPicture">
@@ -294,7 +294,7 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image:
      </item>
     </layout>
    </item>
-   <item row="2" column="9">
+   <item row="2" column="8">
     <spacer name="horizontalSpacer_9">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -349,7 +349,7 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image:
      </property>
     </widget>
    </item>
-   <item row="3" column="10">
+   <item row="3" column="9">
     <spacer name="verticalSpacer_3">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -362,7 +362,20 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image:
      </property>
     </spacer>
    </item>
-   <item row="2" column="10">
+   <item row="3" column="6">
+    <spacer name="horizontalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="2" column="9">
     <spacer name="verticalSpacer_5">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -452,7 +465,7 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image:
      </property>
     </spacer>
    </item>
-   <item row="0" column="9">
+   <item row="0" column="8">
     <spacer name="horizontalSpacer_4">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -465,20 +478,7 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image:
      </property>
     </spacer>
    </item>
-   <item row="3" column="8">
-    <spacer name="verticalSpacer_7">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>422</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="6" column="10">
+   <item row="6" column="9">
     <widget class="QPushButton" name="equipmentConnectPushButton">
      <property name="minimumSize">
       <size>
@@ -503,19 +503,6 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;}</string>
       <string>设备连接</string>
      </property>
     </widget>
-   </item>
-   <item row="3" column="6">
-    <spacer name="horizontalSpacer_2">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>40</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
    </item>
   </layout>
  </widget>

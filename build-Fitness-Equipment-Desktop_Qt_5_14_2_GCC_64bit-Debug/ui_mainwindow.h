@@ -183,7 +183,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        label->setText(QCoreApplication::translate("MainWindow", "\351\235\222\345\260\221\345\271\264\344\275\223\350\264\250\346\217\220\345\215\207\345\217\212\345\201\245\350\272\253\347\256\241\347\220\206\347\263\273\347\273\237", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "\351\235\222\345\260\221\345\271\264\344\275\223\350\203\275\346\217\220\345\215\207\345\217\212\345\201\245\350\272\253\347\256\241\347\220\206\347\263\273\347\273\237", nullptr));
         label_3->setText(QString());
         enterSystem->setText(QString());
         label_2->setText(QCoreApplication::translate("MainWindow", "\350\277\233\345\205\245", nullptr));

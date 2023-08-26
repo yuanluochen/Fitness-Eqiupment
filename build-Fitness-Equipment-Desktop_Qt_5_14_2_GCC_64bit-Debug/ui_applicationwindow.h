@@ -50,15 +50,14 @@ public:
     QSpacerItem *verticalSpacer_9;
     QLabel *labelPicture2;
     QSpacerItem *verticalSpacer_3;
+    QSpacerItem *horizontalSpacer_2;
     QSpacerItem *verticalSpacer_5;
     QVBoxLayout *verticalLayout_5;
     QPushButton *returnBefore;
     QLabel *labelReturn;
     QSpacerItem *verticalSpacer_10;
     QSpacerItem *horizontalSpacer_4;
-    QSpacerItem *verticalSpacer_7;
     QPushButton *equipmentConnectPushButton;
-    QSpacerItem *horizontalSpacer_2;
 
     void setupUi(QWidget *ApplicationWindow)
     {
@@ -172,7 +171,7 @@ public:
 
         horizontalSpacer_6 = new QSpacerItem(149, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer_6, 4, 10, 1, 1);
+        gridLayout->addItem(horizontalSpacer_6, 4, 9, 1, 1);
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
@@ -198,11 +197,11 @@ public:
         verticalLayout->addWidget(labelTiltle);
 
 
-        gridLayout->addLayout(verticalLayout, 0, 10, 2, 1);
+        gridLayout->addLayout(verticalLayout, 0, 9, 2, 1);
 
         horizontalSpacer_9 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer_9, 2, 9, 1, 1);
+        gridLayout->addItem(horizontalSpacer_9, 2, 8, 1, 1);
 
         verticalSpacer_8 = new QSpacerItem(20, 185, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
@@ -221,11 +220,15 @@ public:
 
         verticalSpacer_3 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout->addItem(verticalSpacer_3, 3, 10, 1, 1);
+        gridLayout->addItem(verticalSpacer_3, 3, 9, 1, 1);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        gridLayout->addItem(horizontalSpacer_2, 3, 6, 1, 1);
 
         verticalSpacer_5 = new QSpacerItem(20, 40, QSizePolicy::Minimum, QSizePolicy::Expanding);
 
-        gridLayout->addItem(verticalSpacer_5, 2, 10, 1, 1);
+        gridLayout->addItem(verticalSpacer_5, 2, 9, 1, 1);
 
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
@@ -264,11 +267,7 @@ public:
 
         horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout->addItem(horizontalSpacer_4, 0, 9, 1, 1);
-
-        verticalSpacer_7 = new QSpacerItem(20, 422, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout->addItem(verticalSpacer_7, 3, 8, 1, 1);
+        gridLayout->addItem(horizontalSpacer_4, 0, 8, 1, 1);
 
         equipmentConnectPushButton = new QPushButton(ApplicationWindow);
         equipmentConnectPushButton->setObjectName(QString::fromUtf8("equipmentConnectPushButton"));
@@ -283,11 +282,7 @@ public:
 "\n"
 "QPushButton:hover{background-color: rgb(246, 245, 244);border:none;}"));
 
-        gridLayout->addWidget(equipmentConnectPushButton, 6, 10, 1, 1);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout->addItem(horizontalSpacer_2, 3, 6, 1, 1);
+        gridLayout->addWidget(equipmentConnectPushButton, 6, 9, 1, 1);
 
 
         retranslateUi(ApplicationWindow);
@@ -301,7 +296,7 @@ public:
         sportPushButton->setText(QString());
         labelSport->setText(QCoreApplication::translate("ApplicationWindow", "\350\277\220\345\212\250", nullptr));
         healthManagerPushButton->setText(QString());
-        labelHealthManager->setText(QCoreApplication::translate("ApplicationWindow", "\344\275\223\350\264\250\346\217\220\345\215\207", nullptr));
+        labelHealthManager->setText(QCoreApplication::translate("ApplicationWindow", "\344\275\223\350\203\275\346\217\220\345\215\207", nullptr));
         labelPicture->setText(QString());
         labelTiltle->setText(QCoreApplication::translate("ApplicationWindow", "\345\272\224\347\224\250\347\250\213\345\272\217", nullptr));
         labelPicture2->setText(QString());
