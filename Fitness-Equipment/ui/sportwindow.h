@@ -17,7 +17,7 @@
 #define MAX_SPORT_STRENGTH 100
 #define MIN_SPORT_STRENGTH 0
 
-#define MAX_SPORT_TARGET 100
+#define MAX_SPORT_TARGET 300
 #define MIN_SPORT_TARGET 0
 
 #define FIT_SPEED 3
@@ -35,6 +35,20 @@
 #define SPORT_ENERGY_PROPORTION 1
 //显示运动计划时间
 #define SHOW_SPORT_PORJECT 5000
+
+//等级1
+#define GRADE_1_SPORT_STRENGTH 5
+#define GRADE_1_SPORT_TARGET  30
+//等级2
+#define GRADE_2_SPORT_STRENGTH 10
+#define GRADE_2_SPORT_TARGET  50
+//等级3
+#define GRADE_3_SPORT_STRENGTH 20
+#define GRADE_3_SPORT_TARGET  70
+//等级4
+#define GRADE_4_SPORT_STRENGTH 40
+#define GRADE_4_SPORT_TARGET  100
+
 
 namespace Ui {
 class SportWindow;

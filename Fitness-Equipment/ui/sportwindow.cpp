@@ -243,19 +243,19 @@ void SportWindow::on_stopSportPushButton_clicked()
     //制定下一次计划，根据力矩与运动数量和皮肤电差值打分计算，根据分数获取结果
     float sportScore = this->calcSportScore();
     
-    if (sportScore < 40)
+    if (sportScore < (GRADE_1_SPORT_STRENGTH * GRADE_1_SPORT_TARGET))
     {
         this->sportGrade = GRADE_1;
     }
-    else if (40 <= sportScore && sportScore < 80)
+    else if ((GRADE_1_SPORT_STRENGTH * GRADE_1_SPORT_TARGET) <= sportScore && sportScore < (GRADE_2_SPORT_STRENGTH * GRADE_2_SPORT_TARGET))
     {
         this->sportGrade = GRADE_2;   
     }
-    else if (80 <= sportScore && sportScore < 120)
+    else if ((GRADE_2_SPORT_STRENGTH * GRADE_2_SPORT_TARGET) <= sportScore && sportScore < (GRADE_3_SPORT_STRENGTH * GRADE_3_SPORT_TARGET))
     {
         this->sportGrade = GRADE_3;
     }
-    else
+    else if ((GRADE_3_SPORT_STRENGTH * GRADE_3_SPORT_TARGET) <= sportScore)
     {
         this->sportGrade = GRADE_4;
     }
@@ -272,16 +272,16 @@ void SportWindow::showSportProject()
     switch (this->sportGrade)
     {
     case GRADE_1:
-        data = "运动强度1, 运动目标10";
+        data = "运动强度: " + QString::number(GRADE_1_SPORT_STRENGTH) + "运动目标: " + QString::number(GRADE_1_SPORT_TARGET);
         break;
     case GRADE_2:
-        data = "运动强度2, 运动目标10";
+        data = "运动强度: " + QString::number(GRADE_2_SPORT_STRENGTH) + "运动目标: " + QString::number(GRADE_2_SPORT_TARGET);
         break;
     case GRADE_3:
-        data = "运动强度3, 运动目标10";
+        data = "运动强度: " + QString::number(GRADE_3_SPORT_STRENGTH) + "运动目标: " + QString::number(GRADE_3_SPORT_TARGET);
         break;
     case GRADE_4:
-        data = "运动强度4, 运动目标10";
+        data = "运动强度: " + QString::number(GRADE_4_SPORT_STRENGTH) + "运动目标: " + QString::number(GRADE_4_SPORT_TARGET);
         break;
 
     default:
@@ -298,7 +298,7 @@ float SportWindow::calcSportScore()
 {
     this->errorGSR = this->montorReceiveData.GSR - this->beginGSR;
     qDebug() << "show" << "this->errorGSR: " << this->errorGSR << "this->spotCount: " << this->sportCount << "this->sportStrength: " << this->sportStrength;
-    return (float)(-this->errorGSR * GSR_PROPORTION + this->sportCount * this->sportStrength * SPORT_ENERGY_PROPORTION);
+    return (float)(-this->errorGSR * GSR_PROPORTION + this->sportCount * this->sportStrength * SPORT_ENERGY_PROPORTION) + 1;
 }
 
 
