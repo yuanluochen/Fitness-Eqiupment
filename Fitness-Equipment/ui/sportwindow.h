@@ -30,7 +30,7 @@
 //停止计数
 #define STOP_COUNT 70
 //GSR系数
-#define GSR_PROPORTION 10
+#define GSR_PROPORTION 1
 //运动量系数 运动量为 运动力矩 * 运动次数
 #define SPORT_ENERGY_PROPORTION 1
 //显示运动计划时间

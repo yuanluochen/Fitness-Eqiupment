@@ -227,6 +227,8 @@ void SportWindow::on_startSportPushButton_clicked()
     this->beginGSR = this->montorReceiveData.GSR;
     //运动次数初始化
     this->sportCount = 0;
+    //停止运动判断归零
+    this->stopCount = 0;
     //发送电机开始运动指令
     emit this->setMotorMoment(this->sportStrength);
 }
@@ -295,6 +297,7 @@ void SportWindow::showSportProject()
 float SportWindow::calcSportScore()
 {
     this->errorGSR = this->montorReceiveData.GSR - this->beginGSR;
+    qDebug() << "show" << "this->errorGSR: " << this->errorGSR << "this->spotCount: " << this->sportCount << "this->sportStrength: " << this->sportStrength;
     return (float)(-this->errorGSR * GSR_PROPORTION + this->sportCount * this->sportStrength * SPORT_ENERGY_PROPORTION);
 }
 
