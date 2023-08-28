@@ -110,6 +110,7 @@ QPushButton:hover{background-color: rgb(246, 245, 244);border:none;border-image:
           </property>
           <property name="font">
            <font>
+            <pointsize>12</pointsize>
             <weight>75</weight>
             <bold>true</bold>
            </font>
@@ -189,7 +190,7 @@ QTabBar::tab
 }</string>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="tab">
           <attribute name="title">
