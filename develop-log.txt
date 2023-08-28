@@ -1,75 +1,486 @@
-* 5663145 update
-* 3f124b3 树莓派测试完毕
-* 4ef3d7c 软件已完整开发完毕,准备移植到树莓派上进行测试
-* 62a12d7 update
-* 93a7b2e 功能测试完毕,初步调参完毕准备合并到master分支
-* 722b8b3 利用FIR滤波器实现了,手臂抖动停止这一操作
-* 15f74be 实现了一个简单的FIR滤波器,利用他实现手臂抖动判断
-* cc7df8b 修改了一些细节问题
-* bd62496 软件ui设计完毕
-* 91385a1 树莓派测试移植
-* 8025512 update
-* b090348 完成了程序关闭自动关闭电机
-* 623f987 现在在x86_64的计算机上编写优化代码,配置了开启即最大的
-* bd3cffb 添加了数据通信连接
-* b378c23 修改了树莓派的端口设备名称，修改了通信方式
-* 4a53363 delete temporary file
-* c6e3d7c build program in raspberrypi and test pass
-* 8faee52 修复了动态链接库链接的问题
-* 8042037 初版健康检测框架建立完毕
-* be58059 通信稳定版
-* 37a14ba 成功修改了整个工程的设备通信结构
-* f0dedb1 修改优化了页面切换代码,降低了内存使用
-* 811231a 准备让设备通信转化到一个页面中
-* 3b76d2c 明确了项目开发任务,更名项目为<青少年体质提升及健身管理系统>, 修改了开发计划
-* fa8084b 保存一份备份
-* e5b12ef 添加了心率检测,血氧检测
-* f46472c 修复了窗口切换无法终止线程的问题
-* 4d89eb4 添加了设备连接界面, 增加了健康管理界面
-* 7fe06ba 初步实现了自动链接
-* 251de6e 实现了多线程串口
-* bda407f 准备移植到树莓派
-* 1c148b9 串口问题解决,基本功能测试完毕准备封装代码
-* df99bc9 正在解决串口接收问题
-* 6dce749 添加了库
-* 4bd93d4 更改了运动界面的代码,准备修改代码结构
-* c63699c 添加了开发逻辑框图
-* d2ae5c2 编写了项目开发计划,明确了项目开发内容
-* 6d2559d 修改了开发工具用vscode 开发
-* 36bdb30 保存一次代码,以防出问题
-* aedf869 卡片添加与删除编写完毕
-* dd987ec update
-* dd02af7 添加了unitree 电机的lib
-* 9354bb3 修改了一点问题
-* 3f66402 优化了设备添加的ui
-* b2cda73 完善了设备验证连接
-* 7f8901c 重新设计了设备连接部分的代码
-* fbede11 正在编写设备连接部分的代码
-* 58c3a95 绘制了运动界面的ui
-* dd12de9 create dev branch
-* c6aebde update
-* 3b261d6 对设备卡ui进行了有参重载设置了设备类型
-* a426e9b 添加了健身设备选项卡
-* ef0532c 添加了设备管理界面
-* 2bdf315 优化了按键ui，优化了界面颜色
-* e910020 添加了开发资料，以便未来使用
-* 4db01fe add QSerialPort
-* e12506e 保存数据
-* 5f6e06b 即将添加一张图表，以防崩溃
-* 697efce 应用层跳转健康管理窗口编写完毕
-* 7d2118a 对应用程序界面进行了布局， 添加了健康管理界面
-* 3e20302 update readme
-* f5bacf3 update readme and delete unusing file
-* debbcc6 在linux下重构了一下最初的代码结构
-* b13f353 删除了applicationWindows
-* 5f0cfd7 删除了cmake版的工程
-* 7237169 创建了一版cmake工程
-* 828eb98 修正了应用程序界面的类名
-* 07631a1 优化了应用界面
-* 1904002 改变了窗口尺寸默认为1280 * 800
-* c4cef03 优化了第一个界面
-* cb5effe 设置了初版应用程序界面，没有布局
-* f59e2e5 添加应用窗口
-* e24b503 编写了一版初始的windows
-* 23bd82c create UI project
-* ca15240 Initial commit
+commit 21fdcbfc93e4c5d2dc9cd098b7fefad8140612b8
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Mon Aug 28 02:59:01 2023 +0100
+
+    修复了一点关于健身管理的bug
+
+commit a2163ee9cb4c9d3b0b74399920bb54e2dd7e65e4
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Mon Aug 28 09:41:16 2023 +0800
+
+    修改了一下ui
+
+commit eeefd198bfafb8579aa003cec95559ba8a77dcaf
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sun Aug 27 10:50:53 2023 +0100
+
+    完善了运动计划的部分
+
+commit 2d17096b22036a230440d9646399dcda26f18546
+Merge: df7ba7b 7d887a4
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sun Aug 27 05:35:59 2023 +0100
+
+    Merge branch 'master' of github.com:yuanluochen/Fitness-Eqiupment
+
+commit df7ba7b1e0aa876989c238bb011aeb413e4a5192
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sun Aug 27 05:35:39 2023 +0100
+
+    修复了一点问题
+
+commit 7d887a4943ce8e1c7e36c527a90c9d942704f8e3
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sun Aug 27 01:03:35 2023 +0800
+
+    update
+
+commit 5da31b3ed6f4b60c7987d578d05a7629a5805571
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sun Aug 27 00:11:16 2023 +0800
+
+    更新了readme文档
+
+commit 3f124b31a08d11e016ca2822f8dfe967322133e6
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 26 15:36:14 2023 +0100
+
+    树莓派测试完毕
+
+commit 4ef3d7ccf7f3715a768d8ad3cea399cb71b0c2d2
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 26 22:16:26 2023 +0800
+
+    软件已完整开发完毕,准备移植到树莓派上进行测试
+
+commit 62a12d77e0491f548580d5fae5ad4c905bff4d8a
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 26 20:35:17 2023 +0800
+
+    update
+
+commit 93a7b2e2e2f08043de3f25b7f77dc783af5527e5
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 26 19:38:05 2023 +0800
+
+    功能测试完毕,初步调参完毕准备合并到master分支
+
+commit 722b8b3186420bbf80aa7b57a1ece87a331b24b2
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 26 19:19:55 2023 +0800
+
+    利用FIR滤波器实现了,手臂抖动停止这一操作
+
+commit 15f74be9ede409cd4c1e23fcf052138ce2db1b64
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 26 17:50:42 2023 +0800
+
+    实现了一个简单的FIR滤波器,利用他实现手臂抖动判断
+
+commit cc7df8b54742f13ecebb5901f5694be1f3fb532d
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 26 12:34:09 2023 +0800
+
+    修改了一些细节问题
+
+commit bd62496ff4911d57fdf604dbc865de6bac2bed58
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 26 11:00:39 2023 +0800
+
+    软件ui设计完毕
+
+commit 91385a1f581aeac436fa98838fac460d5eb5f964
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 26 10:24:02 2023 +0800
+
+    树莓派测试移植
+
+commit 8025512163ed0590fc32cf4cb7fa99619e75ea04
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Fri Aug 25 15:47:36 2023 +0800
+
+    update
+
+commit b09034856be13411427ad301230a1972c9cb57a6
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Fri Aug 25 13:13:40 2023 +0800
+
+    完成了程序关闭自动关闭电机
+
+commit 623f98790deab0e199d335026fd3da98c5faa0c4
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Fri Aug 25 10:54:46 2023 +0800
+
+    现在在x86_64的计算机上编写优化代码,配置了开启即最大的
+
+commit bd3cffb0cce6ef4ceb4b02c4f27e9871b25e8e3f
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 23 17:59:31 2023 +0100
+
+    添加了数据通信连接
+
+commit b378c23979a3fb4bad7edaf98ea720e56aaa239b
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 23 17:36:12 2023 +0100
+
+    修改了树莓派的端口设备名称，修改了通信方式
+
+commit 4a53363779661ab8c5bb609740c752ec02713500
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Tue Aug 22 11:09:19 2023 +0100
+
+    delete temporary file
+
+commit c6e3d7ce071daf593103aaf3606489dbde2f4134
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Tue Aug 22 11:06:44 2023 +0100
+
+    build program in raspberrypi and test pass
+
+commit 8faee52c8c754b388e5f7c7bf1fd996069ca3a19
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sun Aug 20 12:02:16 2023 +0800
+
+    修复了动态链接库链接的问题
+
+commit 8042037affe140ef641d8b429b58d09e1a4e31f9
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sun Aug 20 09:53:51 2023 +0800
+
+    初版健康检测框架建立完毕
+
+commit be58059013b324cf4dc9af62f4801b4254d86c52
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 19 21:05:17 2023 +0800
+
+    通信稳定版
+
+commit 37a14ba57f8df16714bd4f70eb2a02239e79045a
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 19 20:03:46 2023 +0800
+
+    成功修改了整个工程的设备通信结构
+
+commit f0dedb163b71d030d6ac52d0011c42b25fd805e2
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 19 18:50:13 2023 +0800
+
+    修改优化了页面切换代码,降低了内存使用
+
+commit 811231a3615a29cd64ad8c99fe15950f1641d95d
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 19 09:41:10 2023 +0800
+
+    准备让设备通信转化到一个页面中
+
+commit 3b76d2cb5d6a59a93afdce4cf7b71f884ebb964e
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Fri Aug 18 21:48:01 2023 +0800
+
+    明确了项目开发任务,更名项目为<青少年体质提升及健身管理系统>, 修改了开发计划
+
+commit fa8084bea0a58cb81005375e2a89058f0bd394df
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Fri Aug 18 09:28:07 2023 +0800
+
+    保存一份备份
+
+commit e5b12ef6ab473cf753af5da3d9cced7cf63cbc26
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Thu Aug 17 22:50:01 2023 +0800
+
+    添加了心率检测,血氧检测
+
+commit f46472c8f9b403feb1d9da94d69d5d5804e057b6
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Thu Aug 17 21:50:06 2023 +0800
+
+    修复了窗口切换无法终止线程的问题
+
+commit 4d89eb4378adfd945295072023fc98bc1a38f28c
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Thu Aug 17 21:14:57 2023 +0800
+
+    添加了设备连接界面, 增加了健康管理界面
+
+commit 7fe06ba7381a9c4567e6eee56cf1ec3dce589390
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Thu Aug 17 16:37:15 2023 +0800
+
+    初步实现了自动链接
+
+commit 251de6eb79bfe7412e482d0063e9de138e234133
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Thu Aug 17 14:59:13 2023 +0800
+
+    实现了多线程串口
+
+commit bda407fc504a4e03ad9436cfd0dda471e9244b70
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Thu Aug 17 12:27:21 2023 +0800
+
+    准备移植到树莓派
+
+commit 1c148b92583f1ad93ca4be67e9dc881cc21ac7b1
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 16 22:08:21 2023 +0800
+
+    串口问题解决,基本功能测试完毕准备封装代码
+
+commit df99bc94728d5a50476e92250be7f6239564876c
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 16 12:29:52 2023 +0800
+
+    正在解决串口接收问题
+
+commit 6dce7495686a46fa460a362c557ca599bb71597a
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Mon Aug 14 13:31:58 2023 +0800
+
+    添加了库
+
+commit 4bd93d4c781d6732d19a2142365362986c27ded9
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Mon Aug 14 02:11:50 2023 +0800
+
+    更改了运动界面的代码,准备修改代码结构
+
+commit c63699c37d1650add9b044758a2cfb55e7f1a78d
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sun Aug 13 19:40:22 2023 +0800
+
+    添加了开发逻辑框图
+
+commit d2ae5c28ae329a902d4e54874f4878de56c8b362
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sun Aug 13 17:28:02 2023 +0800
+
+    编写了项目开发计划,明确了项目开发内容
+
+commit 6d2559df9f57c8985ac2facd2bbfa9478c14a5ad
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Fri Aug 11 12:10:03 2023 +0800
+
+    修改了开发工具用vscode 开发
+
+commit 36bdb3061ceaaca6f23e7e5da53e3aa5410faf0d
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Fri Aug 11 12:00:24 2023 +0800
+
+    保存一次代码,以防出问题
+
+commit aedf869050aa940b9beff53bc46d380c7f7cfaf4
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Fri Aug 11 00:03:51 2023 +0800
+
+    卡片添加与删除编写完毕
+
+commit dd987ec97e22bafd6aa58dbb4f6eab35552b1974
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Thu Aug 10 23:42:10 2023 +0800
+
+    update
+
+commit dd02af7250eacb7fcc6b5f022202d237a8d80959
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Thu Aug 10 23:27:36 2023 +0800
+
+    添加了unitree 电机的lib
+
+commit 9354bb3c1ff2cd316970b906c51524b632d8ba8e
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Thu Aug 10 18:40:00 2023 +0800
+
+    修改了一点问题
+
+commit 3f66402127f7459176915296517148735b292185
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Thu Aug 10 18:18:22 2023 +0800
+
+    优化了设备添加的ui
+
+commit b2cda7324ba505f7828dea88b0b573ef14c1ea5c
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 9 15:41:32 2023 +0800
+
+    完善了设备验证连接
+
+commit 7f8901c2800790fae965255a0f49a43e54f76154
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 9 00:20:54 2023 +0800
+
+    重新设计了设备连接部分的代码
+
+commit fbede1113335ab4c739f67e40ef6016b9bfd454d
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Tue Aug 8 16:18:30 2023 +0800
+
+    正在编写设备连接部分的代码
+
+commit 58c3a95adb1b2a6750ac1f59043b6508b36739b9
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 5 18:35:01 2023 +0800
+
+    绘制了运动界面的ui
+
+commit dd12de951855a86f25208d6dce61b29c88d7b977
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 5 01:20:40 2023 +0800
+
+    create dev branch
+
+commit c6aebdea1db4fcfba61bcc348ed06a101224716c
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 5 00:37:20 2023 +0800
+
+    update
+
+commit 3b261d6ed9674bcd747429565e3bd617a86c44e2
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sat Aug 5 00:07:04 2023 +0800
+
+    对设备卡ui进行了有参重载设置了设备类型
+
+commit a426e9b132e4bff2176d30d25bfdaaaa89c5ea87
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Fri Aug 4 23:12:31 2023 +0800
+
+    添加了健身设备选项卡
+
+commit ef0532ca4e438cd5156b0d540a6aebd15329ec1a
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Thu Aug 3 23:05:30 2023 +0800
+
+    添加了设备管理界面
+
+commit 2bdf315f65fe340ecbc851482ed29751e4e3d66f
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Thu Aug 3 19:53:37 2023 +0800
+
+    优化了按键ui，优化了界面颜色
+
+commit e910020b836454e0c0a2853f8133b8abf6b9f5fa
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Thu Aug 3 12:39:02 2023 +0800
+
+    添加了开发资料，以便未来使用
+
+commit 4db01febae05e677e50f25f9b42f3f71f13abd7e
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Thu Aug 3 11:02:39 2023 +0800
+
+    add QSerialPort
+
+commit e12506e5de8e4dedcf7434fca5b34975c0ddc2e3
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 2 18:43:56 2023 +0800
+
+    保存数据
+
+commit 5f6e06bff21077336cfe7d70ca25de3666cef27e
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 2 17:35:54 2023 +0800
+
+    即将添加一张图表，以防崩溃
+
+commit 697efce4a294341d8109eb59ad5cbca6b68e2351
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 2 17:12:51 2023 +0800
+
+    应用层跳转健康管理窗口编写完毕
+
+commit 7d2118a6a5739a1a5404362d3ebcfed7e8cd44ce
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 2 16:57:22 2023 +0800
+
+    对应用程序界面进行了布局， 添加了健康管理界面
+
+commit 3e2030297a6341815470e47f507500416f4e38c3
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 2 15:10:43 2023 +0800
+
+    update readme
+
+commit f5bacf3ce177540854b1ba575134b60ff2641f00
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 2 15:09:23 2023 +0800
+
+    update readme and delete unusing file
+
+commit debbcc696693c780d8cecd8e5471782678edc58f
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 2 15:02:39 2023 +0800
+
+    在linux下重构了一下最初的代码结构
+
+commit b13f353aa660ad9d887e2f8df428f013bc2bac1d
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 2 12:28:15 2023 +0800
+
+    删除了applicationWindows
+
+commit 5f0cfd7f912fdf9284eed12993b91fa00bf2e7b5
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Wed Aug 2 12:24:51 2023 +0800
+
+    删除了cmake版的工程
+
+commit 7237169d90d0120fd4ad6e577b8d850927b14ce1
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Tue Aug 1 17:23:03 2023 +0800
+
+    创建了一版cmake工程
+
+commit 828eb986157e25ee579d7a93647a741395c61ca8
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Mon Jul 31 15:36:28 2023 +0800
+
+    修正了应用程序界面的类名
+
+commit 07631a17b783036b7a680cc692a6899c43d2f39b
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Mon Jul 31 13:32:59 2023 +0800
+
+    优化了应用界面
+
+commit 19040020ae5472c3b0d1f4293f3174cb3c3e6dfe
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Mon Jul 31 03:08:02 2023 +0800
+
+    改变了窗口尺寸默认为1280 * 800
+
+commit c4cef038dd1c52b2f56889fd214241da1425a1dd
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Mon Jul 31 02:49:42 2023 +0800
+
+    优化了第一个界面
+
+commit cb5effe01ffcc9b4a76c0015b9208e3ec29c3581
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Mon Jul 31 02:04:28 2023 +0800
+
+    设置了初版应用程序界面，没有布局
+
+commit f59e2e51f89bfac701ae91c7715e62442b978ee4
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Mon Jul 31 00:15:54 2023 +0800
+
+    添加应用窗口
+
+commit e24b5033b8fd660ec098d3f4545e3d14210d097b
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sun Jul 30 09:29:40 2023 +0800
+
+    编写了一版初始的windows
+
+commit 23bd82c9e24d610605a128c56c902c12cb61757f
+Author: yuanluochen <yuanluochen@foxmail.com>
+Date:   Sun Jul 30 08:32:30 2023 +0800
+
+    create UI project
+
+commit ca152406d909241eedd352b4f9db5792fb8419ff
+Author: 原落尘 <103373398+yuanluochen@users.noreply.github.com>
+Date:   Sun Jul 30 16:15:58 2023 +0800
+
+    Initial commit
