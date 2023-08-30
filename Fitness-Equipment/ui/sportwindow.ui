@@ -578,584 +578,12 @@ QPushButton:hover{background-color: rgb(153, 193, 241);border:none;border-image:
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>145</height>
+       <height>146</height>
       </size>
      </property>
     </spacer>
    </item>
    <item row="1" column="2">
-    <spacer name="verticalSpacer_8">
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>20</width>
-       <height>40</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="2" column="1">
-    <spacer name="horizontalSpacer_4">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="sizeType">
-      <enum>QSizePolicy::Fixed</enum>
-     </property>
-     <property name="sizeHint" stdset="0">
-      <size>
-       <width>68</width>
-       <height>20</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item row="2" column="2">
-    <layout class="QVBoxLayout" name="verticalLayout">
-     <item>
-      <spacer name="verticalSpacer_7">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>13</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QWidget" name="widget_6" native="true">
-       <property name="minimumSize">
-        <size>
-         <width>251</width>
-         <height>71</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>251</width>
-         <height>71</height>
-        </size>
-       </property>
-       <widget class="QLabel" name="dataTypelabel_4">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>251</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: transparent;</string>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#62a0ea;&quot;&gt;健身目标&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QLabel" name="setUnitLabel_4">
-        <property name="geometry">
-         <rect>
-          <x>6</x>
-          <y>50</y>
-          <width>241</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>8</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: transparent;</string>
-        </property>
-        <property name="text">
-         <string>unit</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QLabel" name="sportTargetLabel">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>251</width>
-          <height>71</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>251</width>
-          <height>71</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>251</width>
-          <height>71</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>14</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: transparent;</string>
-        </property>
-        <property name="text">
-         <string>SET_DATA</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="sportTargetReducePushButton">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>10</y>
-          <width>50</width>
-          <height>50</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>20</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(3, 231, 231);
-color: rgb(255,255,255);  
-border-radius: 25px;  border: none;
-border-style: outset;
-</string>
-        </property>
-        <property name="text">
-         <string>-</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="sportTargetPromotePushButton">
-        <property name="geometry">
-         <rect>
-          <x>200</x>
-          <y>10</y>
-          <width>50</width>
-          <height>50</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>20</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(3, 231, 231);
-color: rgb(255,255,255);  
-border-radius: 25px;  border: none;
-border-style: outset;
-</string>
-        </property>
-        <property name="text">
-         <string>+</string>
-        </property>
-       </widget>
-      </widget>
-     </item>
-     <item>
-      <spacer name="verticalSpacer_6">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>20</width>
-         <height>13</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QWidget" name="widget_5" native="true">
-       <property name="minimumSize">
-        <size>
-         <width>251</width>
-         <height>71</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>251</width>
-         <height>71</height>
-        </size>
-       </property>
-       <widget class="QLabel" name="dataTypelabel">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>251</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: transparent;</string>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#62a0ea;&quot;&gt;健身强度&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QLabel" name="setUnitLabel">
-        <property name="geometry">
-         <rect>
-          <x>6</x>
-          <y>50</y>
-          <width>241</width>
-          <height>21</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>8</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: transparent;</string>
-        </property>
-        <property name="text">
-         <string>unit</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QLabel" name="sportStrengthLabel">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>251</width>
-          <height>71</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>251</width>
-          <height>71</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>251</width>
-          <height>71</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>14</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: transparent;</string>
-        </property>
-        <property name="text">
-         <string>SET_DATA</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="sportStrengthReducePushButton">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>10</y>
-          <width>50</width>
-          <height>50</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>20</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(3, 231, 231);
-color: rgb(255,255,255);  
-border-radius: 25px;  border: none;
-border-style: outset;
-
-</string>
-        </property>
-        <property name="text">
-         <string>-</string>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="sportStrengthPromotePushButton">
-        <property name="geometry">
-         <rect>
-          <x>200</x>
-          <y>10</y>
-          <width>50</width>
-          <height>50</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>20</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: rgb(3, 231, 231);
-color: rgb(255,255,255);  
-border-radius: 25px;  border: none;
-border-style: outset;
-</string>
-        </property>
-        <property name="text">
-         <string>+</string>
-        </property>
-       </widget>
-      </widget>
-     </item>
-     <item>
-      <widget class="QWidget" name="widget_4" native="true">
-       <property name="minimumSize">
-        <size>
-         <width>251</width>
-         <height>61</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>251</width>
-         <height>61</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(3, 231, 231);
-QPushButton {
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-}
-</string>
-       </property>
-       <widget class="QLabel" name="label">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>41</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border-image: url(:/icon/SportWindow/start.png);
-background-color: transparent;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_2">
-        <property name="geometry">
-         <rect>
-          <x>60</x>
-          <y>0</y>
-          <width>190</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>17</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;健身开始&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="startSportPushButton">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>251</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>251</width>
-          <height>61</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>251</width>
-          <height>61</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: transparent;
-QPushButton {
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-}
-</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </widget>
-     </item>
-     <item>
-      <widget class="QWidget" name="widget_8" native="true">
-       <property name="minimumSize">
-        <size>
-         <width>251</width>
-         <height>61</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>251</width>
-         <height>61</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background-color: rgb(3, 231, 231);
-QPushButton {
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-}
-</string>
-       </property>
-       <widget class="QLabel" name="label_3">
-        <property name="geometry">
-         <rect>
-          <x>10</x>
-          <y>10</y>
-          <width>41</width>
-          <height>41</height>
-         </rect>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">border-image: url(:/icon/SportWindow/stop.png);
-background-color: transparent;</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_4">
-        <property name="geometry">
-         <rect>
-          <x>60</x>
-          <y>0</y>
-          <width>190</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>17</pointsize>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;健身停止&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-        </property>
-        <property name="alignment">
-         <set>Qt::AlignCenter</set>
-        </property>
-       </widget>
-       <widget class="QPushButton" name="stopSportPushButton">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>251</width>
-          <height>61</height>
-         </rect>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>251</width>
-          <height>61</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>251</width>
-          <height>61</height>
-         </size>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">background-color: transparent;
-QPushButton {
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-}
-</string>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
-      </widget>
-     </item>
-    </layout>
-   </item>
-   <item row="3" column="2">
     <spacer name="verticalSpacer">
      <property name="orientation">
       <enum>Qt::Vertical</enum>
@@ -1163,7 +591,636 @@ QPushButton {
      <property name="sizeHint" stdset="0">
       <size>
        <width>20</width>
-       <height>155</height>
+       <height>146</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="2" column="1">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>61</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="2" column="2">
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="QWidget" name="widget_6" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>251</width>
+           <height>71</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>251</width>
+           <height>71</height>
+          </size>
+         </property>
+         <widget class="QLabel" name="dataTypelabel_4">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>251</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: transparent;</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#62a0ea;&quot;&gt;健身目标&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QLabel" name="setUnitLabel_4">
+          <property name="geometry">
+           <rect>
+            <x>6</x>
+            <y>50</y>
+            <width>241</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: transparent;</string>
+          </property>
+          <property name="text">
+           <string>unit</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QLabel" name="sportTargetLabel">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>251</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>251</width>
+            <height>71</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>251</width>
+            <height>71</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: transparent;</string>
+          </property>
+          <property name="text">
+           <string>SET_DATA</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="sportTargetReducePushButton">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>50</width>
+            <height>50</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>20</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(3, 231, 231);
+color: rgb(255,255,255);  
+border-radius: 25px;  border: none;
+border-style: outset;
+</string>
+          </property>
+          <property name="text">
+           <string>-</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="sportTargetPromotePushButton">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>10</y>
+            <width>50</width>
+            <height>50</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>20</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(3, 231, 231);
+color: rgb(255,255,255);  
+border-radius: 25px;  border: none;
+border-style: outset;
+</string>
+          </property>
+          <property name="text">
+           <string>+</string>
+          </property>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_6">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType">
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>13</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget_5" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>251</width>
+           <height>71</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>251</width>
+           <height>71</height>
+          </size>
+         </property>
+         <widget class="QLabel" name="dataTypelabel">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>251</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: transparent;</string>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#62a0ea;&quot;&gt;健身强度&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QLabel" name="setUnitLabel">
+          <property name="geometry">
+           <rect>
+            <x>6</x>
+            <y>50</y>
+            <width>241</width>
+            <height>21</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>8</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: transparent;</string>
+          </property>
+          <property name="text">
+           <string>unit</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QLabel" name="sportStrengthLabel">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>251</width>
+            <height>71</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>251</width>
+            <height>71</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>251</width>
+            <height>71</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: transparent;</string>
+          </property>
+          <property name="text">
+           <string>SET_DATA</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="sportStrengthReducePushButton">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>10</y>
+            <width>50</width>
+            <height>50</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>20</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(3, 231, 231);
+color: rgb(255,255,255);  
+border-radius: 25px;  border: none;
+border-style: outset;
+
+</string>
+          </property>
+          <property name="text">
+           <string>-</string>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="sportStrengthPromotePushButton">
+          <property name="geometry">
+           <rect>
+            <x>200</x>
+            <y>10</y>
+            <width>50</width>
+            <height>50</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>20</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgb(3, 231, 231);
+color: rgb(255,255,255);  
+border-radius: 25px;  border: none;
+border-style: outset;
+</string>
+          </property>
+          <property name="text">
+           <string>+</string>
+          </property>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget_4" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>251</width>
+           <height>61</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>251</width>
+           <height>61</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(3, 231, 231);
+QPushButton {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+</string>
+         </property>
+         <widget class="QLabel" name="label">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>41</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-image: url(:/icon/SportWindow/start.png);
+background-color: transparent;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_2">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>0</y>
+            <width>190</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>17</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;健身开始&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="startSportPushButton">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>251</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>251</width>
+            <height>61</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>251</width>
+            <height>61</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: transparent;
+QPushButton {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </widget>
+       </item>
+       <item>
+        <widget class="QWidget" name="widget_8" native="true">
+         <property name="minimumSize">
+          <size>
+           <width>251</width>
+           <height>61</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>251</width>
+           <height>61</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(3, 231, 231);
+QPushButton {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+</string>
+         </property>
+         <widget class="QLabel" name="label_3">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>41</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">border-image: url(:/icon/SportWindow/stop.png);
+background-color: transparent;</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_4">
+          <property name="geometry">
+           <rect>
+            <x>60</x>
+            <y>0</y>
+            <width>190</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>17</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;健身停止&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignCenter</set>
+          </property>
+         </widget>
+         <widget class="QPushButton" name="stopSportPushButton">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>251</width>
+            <height>61</height>
+           </rect>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>251</width>
+            <height>61</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>251</width>
+            <height>61</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: transparent;
+QPushButton {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="sportProjectTargetLabel">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(233, 243, 255);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="sportProjectStrengthLabel">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(233, 243, 255);</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="importProjectPushButton">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(3, 231, 231);
+QPushButton {
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+};
+color: white;
+</string>
+         </property>
+         <property name="text">
+          <string>导入</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item row="2" column="3">
+    <spacer name="horizontalSpacer_3">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>61</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="3" column="2">
+    <spacer name="verticalSpacer_2">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>146</height>
       </size>
      </property>
     </spacer>

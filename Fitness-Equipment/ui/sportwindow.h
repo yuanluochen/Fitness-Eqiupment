@@ -9,7 +9,6 @@
 #include <QSerialPort>
 #include <QThread>
 #include <QTimer>
-
 #include "ui/equipmentconnect.h"
 #include "application/UnitreeMotorSerialService/unitreemotorserialservice.h"
 #include "userLib/userLib_ui.h"
@@ -49,6 +48,9 @@
 #define GRADE_4_SPORT_STRENGTH 40
 #define GRADE_4_SPORT_TARGET  100
 
+#define SPORT_PROJECT_FILE "/home/yuanluochen/code/Fitness-Eqiupment/Fitness-Equipment/userLib/sportProject.json"
+#define SPORT_PROJECT_STRENGTH_KEY "sportStrength"
+#define SPORT_PROJECT_TARGET_KEY "sportTarget"
 
 namespace Ui {
 class SportWindow;
@@ -89,8 +91,12 @@ private:
     void setSportDisplay(int num);
     void showSportStrength();
     void showSportTarget();
+    void showSportCurProject();
     bool judgeStop(int imuX, int imuY, int imuZ);
     float calcSportScore();
+
+    void saveSportProjectToJson(int sportStrength, int sportTarget);
+    void readSportProjectFromJson();
 private slots:
     void on_returnBefore_clicked();
     void on_startSportPushButton_clicked();
@@ -104,6 +110,8 @@ private slots:
     void on_sportTargetReducePushButton_clicked();
     void on_sportTargetPromotePushButton_clicked();
     void on_sportStrengthPromotePushButton_clicked();
+    void on_importProjectPushButton_clicked();
+
 signals:
     void backToApplication();
     void setMotorMoment(int moment);
@@ -135,12 +143,16 @@ private:
     int beginGSR;
     //GSR差值
     int errorGSR;
-    
+
     //健身分数
     float sportScore;
 
     sportGrade_e sportGrade;
     QTimer sportProjectTim;
+
+
+    int sportProjectTarget;
+    int sportProjectStrength;
 
 };
 

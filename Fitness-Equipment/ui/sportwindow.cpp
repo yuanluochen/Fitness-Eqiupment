@@ -7,6 +7,8 @@
 #include <QListWidgetItem>
 #include <QTimer>
 #include <QTime>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 //imu加速度数据转真实数据
 #define IMU_ACCEL_DATA_TO_VALUE_DATA(imu) ((imu / 32768.0f) * 2.0f)
@@ -28,6 +30,12 @@ SportWindow::SportWindow(QWidget *parent) :
     this->sportCount = 0;
     this->stopCount = 0;
 
+    this->sportProjectTarget = 0;
+    this->sportProjectStrength = 0;
+    //获取运动任务
+    this->readSportProjectFromJson();
+    //显示
+    this->showSportCurProject();
     //初始化GSR
     this->beginGSR = 0;
     this->errorGSR = 0;
@@ -39,6 +47,7 @@ SportWindow::SportWindow(QWidget *parent) :
     ui->sportStrengthReducePushButton->setAutoRepeat(true);
     ui->sportTargetReducePushButton->setAutoRepeat(true);
     ui->sportTargetPromotePushButton->setAutoRepeat(true);
+
 }
 
 void SportWindow::montorReceive(ReceivePack receivePack)
@@ -265,28 +274,36 @@ void SportWindow::on_stopSportPushButton_clicked()
 
 void SportWindow::showSportProject()
 {
-
+    int nextSportTaget = 0;
+    int nextSportStrength = 0;
     disconnect(&this->sportProjectTim, &QTimer::timeout, this, &SportWindow::showSportProject);
     QString begin = "根据健身结果为您匹配最佳下次最佳的健身计划";
     QString data;
+
     switch (this->sportGrade)
     {
     case GRADE_1:
-        data = "运动强度: " + QString::number(GRADE_1_SPORT_STRENGTH) + "运动目标: " + QString::number(GRADE_1_SPORT_TARGET);
+        nextSportStrength = GRADE_1_SPORT_STRENGTH;
+        nextSportTaget = GRADE_1_SPORT_TARGET;
         break;
     case GRADE_2:
-        data = "运动强度: " + QString::number(GRADE_2_SPORT_STRENGTH) + "运动目标: " + QString::number(GRADE_2_SPORT_TARGET);
+        nextSportStrength = GRADE_2_SPORT_STRENGTH;
+        nextSportTaget = GRADE_2_SPORT_TARGET;
         break;
     case GRADE_3:
-        data = "运动强度: " + QString::number(GRADE_3_SPORT_STRENGTH) + "运动目标: " + QString::number(GRADE_3_SPORT_TARGET);
+        nextSportStrength = GRADE_3_SPORT_STRENGTH;
+        nextSportTaget = GRADE_3_SPORT_TARGET;
         break;
     case GRADE_4:
-        data = "运动强度: " + QString::number(GRADE_4_SPORT_STRENGTH) + "运动目标: " + QString::number(GRADE_4_SPORT_TARGET);
+        nextSportStrength = GRADE_4_SPORT_STRENGTH;
+        nextSportTaget = GRADE_4_SPORT_TARGET;
         break;
 
     default:
         break;
     }
+    data = "运动强度: " + QString::number(nextSportStrength) + "运动目标: " + QString::number(nextSportTaget);
+    this->saveSportProjectToJson(nextSportStrength, nextSportTaget);
     this->setSportDisplay(begin + ", " + "下次健身计划为： " + data);
 }
 /**
@@ -354,4 +371,62 @@ void SportWindow::on_sportStrengthPromotePushButton_clicked()
         this->sportStrength = MIN_SPORT_STRENGTH;
     }
     this->showSportStrength();
+}
+
+void SportWindow::saveSportProjectToJson(int sportStrength, int sportTarget)
+{
+    qDebug() << QTime::currentTime() << "write sport project to json, sport strength is " << sportStrength << " sport target is " << sportTarget;
+    QJsonObject obj;
+
+    obj.insert(SPORT_PROJECT_TARGET_KEY, sportTarget);
+    obj.insert(SPORT_PROJECT_STRENGTH_KEY, sportStrength);
+
+    QJsonDocument doc(obj);
+    QByteArray json = doc.toJson();
+
+    QFile file(SPORT_PROJECT_FILE);
+    file.open(QFile::WriteOnly);
+    file.write(json);
+    file.close();
+}
+
+void SportWindow::readSportProjectFromJson()
+{
+    QFile file(SPORT_PROJECT_FILE);
+    file.open(QFile::ReadOnly);
+    QByteArray json = file.readAll();
+    file.close();
+
+    QJsonDocument doc = QJsonDocument::fromJson(json);
+    if (doc.isObject())
+    {
+        QJsonObject obj = doc.object();
+        //提取数据
+        QJsonValue value = obj.value(SPORT_PROJECT_TARGET_KEY);
+        this->sportProjectTarget = value.toInt();
+        //提取数据
+        value = obj.value(SPORT_PROJECT_STRENGTH_KEY);
+        this->sportProjectStrength = value.toInt();
+        qDebug() << QTime::currentTime() << "read sport project from json, sport strength is " << this->sportProjectStrength << " sport target is " << this->sportProjectTarget;
+    }
+
+}
+
+void SportWindow::showSportCurProject()
+{
+    ui->sportProjectTargetLabel->setText("计划健身目标为: " + QString::number(this->sportProjectTarget));
+    ui->sportProjectStrengthLabel->setText("计划健身强度为: " + QString::number(this->sportProjectStrength));
+    QPalette pe;
+    pe.setColor(QPalette::WindowText, Qt::blue);
+    ui->sportProjectTargetLabel->setPalette(pe);
+    ui->sportProjectStrengthLabel->setPalette(pe);
+
+}
+
+void SportWindow::on_importProjectPushButton_clicked()
+{
+    this->sportStrength = this->sportProjectStrength;
+    this->showSportStrength();
+    this->sportTarget = this->sportProjectTarget;
+    this->showSportTarget();
 }
