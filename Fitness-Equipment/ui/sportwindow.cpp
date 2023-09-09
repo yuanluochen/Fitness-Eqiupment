@@ -105,12 +105,12 @@ void SportWindow::UnitreeMotorReceive(UnitreeReceive receivePack)
     //健身计数
     
     //判断当前速度是否为反向速度,并且sportCountFlag为false
-    if (this->fitnessReceiveData.W >= FIT_SPEED && sportCountFlag == false)
+    if (this->fitnessReceiveData.W <= -FIT_SPEED && sportCountFlag == false)
     {
         //判断发生拉的动作
         sportCountFlag = true;
     }
-    else if (this->fitnessReceiveData.W < FIT_SPEED && sportCount == true)
+    else if (this->fitnessReceiveData.W >= FIT_SPEED && sportCountFlag == true)
     {
         //判断发生回收的动作
         sportCountFlag = false;
@@ -239,7 +239,7 @@ void SportWindow::on_startSportPushButton_clicked()
     //停止运动判断归零
     this->stopCount = 0;
     //发送电机开始运动指令
-    emit this->setMotorMoment(this->sportStrength);
+    emit this->setMotorMoment(this->sportStrength / 10.0);
 }
 
 void SportWindow::on_stopSportPushButton_clicked()

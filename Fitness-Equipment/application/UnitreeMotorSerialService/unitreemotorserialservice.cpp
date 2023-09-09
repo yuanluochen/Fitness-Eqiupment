@@ -17,17 +17,18 @@ void UnitreeMotorThread::run()
     {
         this->motorSerialPort->sendRecv(&this->sendMessage, &this->receiveMessage);
         this->decodeReceiveMessage();
+        qDebug() << "motor speed: " << this->receiveMessage.W;
         // 赋值
         this->receive.assign(this->receiveMessage);
         //发送
         emit this->sendUnitreeMotorDataToEquipmentConnectWindow(this->receive);
-        QThread::sleep(1);
+        QThread::msleep(100);
     }
     qDebug() << "Unitree thread finished";
 }
 
 
-void UnitreeMotorThread::setMoment(int moment)
+void UnitreeMotorThread::setMoment(float moment)
 {
     qDebug() << "receive";
     this->setControlT(moment);

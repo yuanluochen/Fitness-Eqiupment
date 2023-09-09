@@ -29,7 +29,7 @@ signals:
     void sendUnitreeMotorDataToEquipmentConnectWindow(UnitreeReceive receivemessage);
 public slots:
     //设置力矩
-    void setMoment(int moment);
+    void setMoment(float moment);
 
 private:
     SerialPort *motorSerialPort;

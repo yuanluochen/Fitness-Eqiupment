@@ -172,7 +172,7 @@ void HealthManagerWindow::on_saO2DetectionPushButton_clicked()
 
 void HealthManagerWindow::on_FitnessDetectionPushButton_clicked()
 {
-    emit goToSportWindow(100, 20);
+    emit goToSportWindow(100, 2);
 
     this->close();
 }

@@ -36,16 +36,16 @@
 #define SHOW_SPORT_PORJECT 5000
 
 //等级1
-#define GRADE_1_SPORT_STRENGTH 5
-#define GRADE_1_SPORT_TARGET  30
+#define GRADE_1_SPORT_STRENGTH 1
+#define GRADE_1_SPORT_TARGET  40
 //等级2
-#define GRADE_2_SPORT_STRENGTH 10
+#define GRADE_2_SPORT_STRENGTH 3
 #define GRADE_2_SPORT_TARGET  50
 //等级3
-#define GRADE_3_SPORT_STRENGTH 20
+#define GRADE_3_SPORT_STRENGTH 5
 #define GRADE_3_SPORT_TARGET  70
 //等级4
-#define GRADE_4_SPORT_STRENGTH 40
+#define GRADE_4_SPORT_STRENGTH 10
 #define GRADE_4_SPORT_TARGET  100
 
 #define SPORT_PROJECT_FILE "/home/yuanluochen/code/Fitness-Eqiupment/Fitness-Equipment/userLib/sportProject.json"
@@ -114,7 +114,7 @@ private slots:
 
 signals:
     void backToApplication();
-    void setMotorMoment(int moment);
+    void setMotorMoment(float moment);
 
 public:
 private:
