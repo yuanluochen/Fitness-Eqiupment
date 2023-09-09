@@ -669,7 +669,7 @@ QPushButton:hover{background-color: rgb(153, 193, 241);border:none;border-image:
            <string notr="true">background-color: transparent;</string>
           </property>
           <property name="text">
-           <string>unit</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
@@ -839,7 +839,7 @@ border-style: outset;
            <string notr="true">background-color: transparent;</string>
           </property>
           <property name="text">
-           <string>unit</string>
+           <string/>
           </property>
           <property name="alignment">
            <set>Qt::AlignCenter</set>
